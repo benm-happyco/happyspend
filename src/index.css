@@ -1,0 +1,29 @@
+@import '@mantine/core/styles.css';
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+@import './css/fonts.css';
+@import './css/agGridCustom.css';
+
+:root {
+  /* Knock some of the HDS zIndexes down to align with mantine layers - only applies if legacy styles.css is applied */
+  --hd-layer-z-index-nav: 200;
+  --hd-layer-z-index-sticky: 190;
+  --hd-layer-z-index-mask: 180;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* safari hack */
+  min-height: -webkit-fill-available;
+  min-width: 100vw;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+

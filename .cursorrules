@@ -1,0 +1,57 @@
+# Mantine Theme Showcase - Agent Instructions
+
+## Project Purpose
+This is a Mantine Theme Showcase application that visualizes and documents customized Mantine components. The showcase serves as a visual reference for available components and their customizations.
+
+## Key Principles
+
+### Theme Customization
+- All theme customizations are done in code (in `src/theme/` files)
+- This application visualizes and documents what's available for use in designs
+- Customizations are NOT made through this UI - they are made in the theme configuration files
+
+### Design System
+- Based on HappyCo design system
+- Primary color: blurple (purple)
+- Font: Proxima Nova from Adobe Typekit
+- Colors use Mantine's color palette structure
+- Text colors in dark mode should use neutral grays from the `dark` palette, NOT blue-tinted grays
+
+### Component Usage
+- Use customized Mantine components from the theme
+- **ALWAYS use AG Grid for data tables** - Never use Mantine Table or other table components for displaying data
+- AG Grid should be styled to match Mantine theme colors
+- All AG Grid tables must have:
+  - Default pagination set to 25 rows per page
+  - Page size selector allowing users to choose number of rows (e.g., 10, 25, 50, 100)
+- All components should respect light/dark mode switching
+- Filter inputs and form fields should use Mantine theme background colors
+
+### Code Style
+- TypeScript with strict mode
+- Use Mantine components and hooks
+- Follow existing patterns in the codebase
+- Maintain consistency with HappyCo design system
+
+## Data Source
+- **ALWAYS use Supabase for placeholder/test data** - Never create fake or hardcoded data
+- **Supabase Connection**: The project uses Supabase for all data
+  - Connection details are stored in `.env.local` file in the project root
+  - The Supabase client is configured in `src/lib/supabase.ts`
+- Use the Supabase client from `src/lib/supabase.ts` for all data fetching
+- When creating examples or demos, fetch real data from Supabase tables
+- **CRITICAL: Only use existing columns from Supabase tables** - Never assume or make up column names
+  - Always query with `select('*')` first to see what columns actually exist
+  - Use the actual column names from the database, not assumed names
+  - If you need specific columns, verify they exist in the table first
+- If a table doesn't exist, ask the user to create it in Supabase first, then use it in the code
+- **Never hardcode data** - always query from Supabase
+- **Never assume column names** - always use what actually exists in the database
+
+## Important Notes
+- AG Grid text colors must use neutral grays (dark palette), not blue-tinted grays
+- Filter input backgrounds must match Mantine input backgrounds
+- All styling should respect the Mantine color scheme (light/dark mode)
+- Components are for visualization/documentation, not for customization UI
+- **Never hardcode fake data** - always use Supabase queries
+

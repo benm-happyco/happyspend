@@ -1,0 +1,202 @@
+/* Custom AG Grid styling to match Mantine theme */
+
+.ag-theme-alpine {
+  --ag-font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ag-font-size: 14px;
+  --ag-header-font-size: 14px;
+  --ag-header-font-weight: 600;
+  --ag-border-radius: 8px;
+  --ag-wrapper-border-radius: 8px;
+}
+
+/* Light mode (default) */
+.ag-theme-alpine {
+  --ag-header-background-color: #f3f5f7; /* gray[0] */
+  --ag-header-foreground-color: #212b31; /* dark text */
+  --ag-border-color: #caced0; /* gray[2] */
+  --ag-row-hover-color: #efefff; /* blurple[0] */
+  --ag-selected-row-background-color: #e0deff; /* blurple[1] */
+  --ag-odd-row-background-color: #ffffff;
+  --ag-even-row-background-color: #f3f5f7; /* gray[0] */
+  --ag-background-color: #ffffff;
+  --ag-foreground-color: #212b31; /* dark text */
+  --ag-input-disabled-background-color: #f3f5f7; /* gray[0] */
+  --ag-input-disabled-border-color: #caced0; /* gray[2] */
+  --ag-input-focus-border-color: #635bff; /* blurple[6] */
+  --ag-range-selection-background-color: rgba(99, 91, 255, 0.1);
+  --ag-range-selection-border-color: #635bff;
+  --ag-control-panel-background-color: #ffffff;
+  --ag-side-button-selected-background-color: #e0deff;
+  --ag-input-background-color: #ffffff; /* white for inputs in light mode */
+}
+
+/* Dark mode support */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine {
+  --ag-header-background-color: #242424 !important;
+  --ag-header-foreground-color: #c9c9c9 !important; /* dark[0] - neutral gray */
+  --ag-border-color: #424242 !important;
+  --ag-row-hover-color: rgba(99, 91, 255, 0.2) !important;
+  --ag-selected-row-background-color: rgba(99, 91, 255, 0.3) !important;
+  --ag-odd-row-background-color: #242424 !important;
+  --ag-even-row-background-color: #2e2e2e !important;
+  --ag-background-color: #1f1f1f !important;
+  --ag-foreground-color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+  --ag-input-disabled-background-color: #2e2e2e !important;
+  --ag-input-disabled-border-color: #424242 !important;
+  --ag-input-focus-border-color: #635bff !important;
+  --ag-range-selection-background-color: rgba(99, 91, 255, 0.2) !important;
+  --ag-range-selection-border-color: #635bff !important;
+  --ag-control-panel-background-color: #242424 !important;
+  --ag-side-button-selected-background-color: rgba(99, 91, 255, 0.3) !important;
+  --ag-input-background-color: #1f1f1f !important; /* dark[8] - Mantine input background */
+}
+
+/* Force dark mode background colors */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-root-wrapper {
+  background-color: #1f1f1f !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-center-cols-container,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-center-cols-viewport {
+  background-color: #1f1f1f !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row {
+  background-color: #242424 !important;
+  color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row-even {
+  background-color: #2e2e2e !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-cell {
+  color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-header {
+  background-color: #242424 !important;
+  color: #c9c9c9 !important; /* dark[0] - neutral gray for headers */
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-header-cell {
+  background-color: #242424 !important;
+  color: #c9c9c9 !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-header-cell-text {
+  color: #c9c9c9 !important; /* dark[0] - neutral gray for headers */
+}
+
+/* Filter panel styling */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter {
+  background-color: #242424 !important;
+  border-color: #424242 !important;
+  color: #f3f5f7 !important;
+}
+
+.ag-theme-alpine .ag-filter {
+  background-color: #ffffff;
+  border-color: #caced0;
+  color: #212b31;
+}
+
+/* Filter input styling - using Mantine input background colors */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter input,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter select,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-input-field-input,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-input-field-input-wrapper {
+  background-color: #1f1f1f !important; /* dark[8] - Mantine input background in dark mode */
+  border-color: #424242 !important; /* dark[4] */
+  color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-select-list,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-picker-field-display {
+  background-color: #1f1f1f !important;
+  color: #b8b8b8 !important; /* dark[1] - neutral gray */
+}
+
+.ag-theme-alpine .ag-filter input,
+.ag-theme-alpine .ag-filter select,
+.ag-theme-alpine .ag-filter .ag-input-field-input {
+  background-color: #ffffff;
+  border-color: #caced0;
+  color: #212b31;
+}
+
+/* Filter input focus */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter input:focus,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter select:focus,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-input-field-input:focus {
+  border-color: #635bff !important;
+  outline: none;
+  box-shadow: 0 0 0 1px #635bff !important;
+}
+
+.ag-theme-alpine .ag-filter input:focus,
+.ag-theme-alpine .ag-filter select:focus,
+.ag-theme-alpine .ag-filter .ag-input-field-input:focus {
+  border-color: #635bff;
+  outline: none;
+  box-shadow: 0 0 0 1px #635bff;
+}
+
+/* Filter label and text */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter label,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-filter-title,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-filter .ag-filter-apply-panel {
+  color: #c9c9c9 !important; /* dark[0] - neutral gray for labels */
+}
+
+/* Menu and popup styling */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-popup,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu {
+  background-color: #242424 !important;
+  border-color: #424242 !important;
+  color: #b8b8b8 !important; /* dark[1] - neutral gray */
+}
+
+.ag-theme-alpine .ag-popup,
+.ag-theme-alpine .ag-menu {
+  background-color: #ffffff;
+  border-color: #caced0;
+  color: #212b31;
+}
+
+/* Menu items */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu-option:hover,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu-option-active {
+  background-color: rgba(99, 91, 255, 0.2) !important;
+}
+
+.ag-theme-alpine .ag-menu-option:hover,
+.ag-theme-alpine .ag-menu-option-active {
+  background-color: #efefff;
+}
+
+/* Checkbox styling */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-checkbox-input:checked {
+  background-color: #635bff !important;
+  border-color: #635bff !important;
+}
+
+.ag-theme-alpine .ag-checkbox-input:checked {
+  background-color: #635bff;
+  border-color: #635bff;
+}
+
+/* Dropdown/select styling */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-select,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine select {
+  background-color: #2e2e2e !important;
+  border-color: #424242 !important;
+  color: #b8b8b8 !important; /* dark[1] - neutral gray */
+}
+
+/* Icon colors */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-icon {
+  color: #b8b8b8 !important; /* dark[1] - neutral gray */
+  fill: #b8b8b8 !important;
+}
+
