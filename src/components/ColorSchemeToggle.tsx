@@ -1,4 +1,6 @@
-import { Switch, Group, useMantineColorScheme, useComputedColorScheme, Text } from '@mantine/core'
+import { Switch, Group, useMantineColorScheme, useComputedColorScheme } from '@mantine/core'
+import { HugeiconsIcon } from '@hugeicons/react'
+import { Sun02Icon, Moon02Icon } from '@hugeicons-pro/core-stroke-rounded'
 
 export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme()
@@ -6,13 +8,13 @@ export function ColorSchemeToggle() {
 
   return (
     <Group gap="xs">
-      <Text size="sm">🌙</Text>
+      <HugeiconsIcon icon={Moon02Icon} size={16} />
       <Switch
         checked={computedColorScheme === 'dark'}
         onChange={(event) => setColorScheme(event.currentTarget.checked ? 'dark' : 'light')}
         aria-label="Toggle color scheme"
       />
-      <Text size="sm">☀️</Text>
+      <HugeiconsIcon icon={Sun02Icon} size={16} />
     </Group>
   )
 }

@@ -33,6 +33,10 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - Follow existing patterns in the codebase
 - Maintain consistency with HappyCo design system
 
+### Icons
+- **ONLY use Hugeicons** for all iconography
+- Do not use other icon libraries (e.g., Tabler, Heroicons, Lucide)
+
 ## Data Source
 - **ALWAYS use Supabase for placeholder/test data** - Never create fake or hardcoded data
 - **Supabase Connection**: The project uses Supabase for all data

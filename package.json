@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hugeicons-pro/core-stroke-rounded": "file:vendor/core-stroke-rounded",
+    "@hugeicons/react": "file:vendor/hugeicons-react",
     "@mantine/core": "^7.5.0",
     "@mantine/hooks": "^7.5.0",
     "@supabase/supabase-js": "^2.39.0",

@@ -40,3 +40,4 @@ npm run dev
 
 The Supabase client will automatically initialize when the app starts. If there are any connection errors, check that your environment variables are set correctly.
 
+
