@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { MantineProvider, ColorSchemeScript } from '@mantine/core'
+import { MantineProvider } from '@mantine/core'
 import App from './App.tsx'
 import { customTheme } from './theme/theme.ts'
 import './index.css'

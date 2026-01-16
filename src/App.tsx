@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-import { AppShell, NavLink, Stack, Group, Title, Image, useComputedColorScheme } from '@mantine/core'
+import { AppShell, NavLink, Stack, Group, Image, useComputedColorScheme } from '@mantine/core'
 import { FormShowcase } from './pages/FormShowcase'
 import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
