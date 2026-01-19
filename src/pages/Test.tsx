@@ -99,51 +99,6 @@ export function Test() {
         <Title order={1}>Test Page</Title>
         
         <Paper p="xl" withBorder shadow="sm" radius="md">
-          <form onSubmit={handleSubmit}>
-            <Stack gap="lg">
-              <Title order={2}>Login Form</Title>
-
-              <TextInput
-                label="Username"
-                placeholder="Enter your username"
-                required
-                value={formData.username}
-                onChange={(e) => setFormData({ ...formData, username: e.currentTarget.value })}
-              />
-
-              <PasswordInput
-                label="Password"
-                placeholder="Enter your password"
-                required
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.currentTarget.value })}
-              />
-
-              <Checkbox
-                label="I agree to the terms and conditions"
-                checked={formData.agree}
-                onChange={(e) => setFormData({ ...formData, agree: e.currentTarget.checked })}
-                required
-              />
-
-              <Group justify="flex-end" gap="md" mt="md">
-                <Button variant="outline" color="gray" onClick={handleCancel}>
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  variant="filled"
-                  color="blurple"
-                  disabled={!formData.username || !formData.password || !formData.agree}
-                >
-                  Login
-                </Button>
-              </Group>
-            </Stack>
-          </form>
-        </Paper>
-
-        <Paper p="xl" withBorder shadow="sm" radius="md">
           <Stack gap="md">
             <Title order={2}>Residents</Title>
             
@@ -197,6 +152,51 @@ export function Test() {
             Teeny
           </Button>
         </Stack>
+
+        <Paper p="xl" withBorder shadow="sm" radius="md">
+          <form onSubmit={handleSubmit}>
+            <Stack gap="lg">
+              <Title order={2}>Login Form</Title>
+
+              <TextInput
+                label="Username"
+                placeholder="Enter your username"
+                required
+                value={formData.username}
+                onChange={(e) => setFormData({ ...formData, username: e.currentTarget.value })}
+              />
+
+              <PasswordInput
+                label="Password"
+                placeholder="Enter your password"
+                required
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.currentTarget.value })}
+              />
+
+              <Checkbox
+                label="I agree to the terms and conditions"
+                checked={formData.agree}
+                onChange={(e) => setFormData({ ...formData, agree: e.currentTarget.checked })}
+                required
+              />
+
+              <Group justify="flex-end" gap="md" mt="md">
+                <Button variant="outline" color="gray" onClick={handleCancel}>
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  variant="filled"
+                  color="blurple"
+                  disabled={!formData.username || !formData.password || !formData.agree}
+                >
+                  Login
+                </Button>
+              </Group>
+            </Stack>
+          </form>
+        </Paper>
       </Stack>
     </Container>
   )

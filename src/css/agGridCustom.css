@@ -1,6 +1,9 @@
 /* Custom AG Grid styling to match Mantine theme */
 
 .ag-theme-alpine {
+  /* Mantine filled background tokens */
+  --ag-filled-row-background: var(--mantine-color-gray-0);
+  --ag-filled-row-hover: var(--mantine-color-gray-1);
   --ag-font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --ag-font-size: 14px;
   --ag-header-font-size: 14px;
@@ -26,12 +29,14 @@
   --ag-header-background-color: #f3f5f7; /* gray[0] */
   --ag-header-foreground-color: #212b31; /* dark text */
   --ag-border-color: #caced0; /* gray[2] */
-  --ag-row-hover-color: #efefff; /* blurple[0] */
-  --ag-selected-row-background-color: #e0deff; /* blurple[1] */
-  --ag-odd-row-background-color: #ffffff;
-  --ag-even-row-background-color: #f3f5f7; /* gray[0] */
-  --ag-background-color: #ffffff;
-  --ag-foreground-color: #212b31; /* dark text */
+  --ag-row-hover-color: var(--ag-filled-row-hover);
+  --ag-selected-row-background-color: var(--ag-row-hover-color);
+  --ag-odd-row-background-color: var(--ag-filled-row-background);
+  --ag-even-row-background-color: var(--ag-filled-row-background);
+  --ag-background-color: var(--ag-filled-row-background);
+  --ag-foreground-color: var(--mantine-color-dark-9); /* default text */
+  --ag-data-color: var(--mantine-color-dark-9);
+  --ag-cell-text-color: var(--mantine-color-dark-9);
   --ag-input-disabled-background-color: #f3f5f7; /* gray[0] */
   --ag-input-disabled-border-color: #caced0; /* gray[2] */
   --ag-input-focus-border-color: #635bff; /* blurple[6] */
@@ -44,15 +49,20 @@
 
 /* Dark mode support */
 [data-mantine-color-scheme="dark"] .ag-theme-alpine {
+  /* Mantine filled background tokens */
+  --ag-filled-row-background: var(--mantine-color-dark-7) !important;
+  --ag-filled-row-hover: var(--mantine-color-dark-6) !important;
   --ag-header-background-color: #242424 !important;
   --ag-header-foreground-color: #c9c9c9 !important; /* dark[0] - neutral gray */
   --ag-border-color: #424242 !important;
-  --ag-row-hover-color: rgba(99, 91, 255, 0.2) !important;
-  --ag-selected-row-background-color: rgba(99, 91, 255, 0.3) !important;
-  --ag-odd-row-background-color: #242424 !important;
-  --ag-even-row-background-color: #2e2e2e !important;
-  --ag-background-color: #1f1f1f !important;
-  --ag-foreground-color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+  --ag-row-hover-color: var(--ag-filled-row-hover) !important;
+  --ag-selected-row-background-color: var(--ag-row-hover-color) !important;
+  --ag-odd-row-background-color: var(--ag-filled-row-background) !important;
+  --ag-even-row-background-color: var(--ag-filled-row-background) !important;
+  --ag-background-color: var(--ag-filled-row-background) !important;
+  --ag-foreground-color: var(--mantine-color-dark-0) !important; /* default text */
+  --ag-data-color: var(--mantine-color-dark-0) !important;
+  --ag-cell-text-color: var(--mantine-color-dark-0) !important;
   --ag-input-disabled-background-color: #2e2e2e !important;
   --ag-input-disabled-border-color: #424242 !important;
   --ag-input-focus-border-color: #635bff !important;
@@ -61,6 +71,38 @@
   --ag-control-panel-background-color: #242424 !important;
   --ag-side-button-selected-background-color: rgba(99, 91, 255, 0.3) !important;
   --ag-input-background-color: #1f1f1f !important; /* dark[8] - Mantine input background */
+}
+
+/* Selected row styling - use hover background + default text color */
+.ag-theme-alpine .ag-row.ag-row-selected::before {
+  background-color: var(--ag-row-hover-color) !important;
+}
+
+.ag-theme-alpine .ag-row.ag-row-selected,
+.ag-theme-alpine .ag-row.ag-row-selected .ag-cell,
+.ag-theme-alpine .ag-row.ag-row-selected .ag-cell-value,
+.ag-theme-alpine .ag-row.ag-row-selected .ag-cell-wrapper,
+.ag-theme-alpine .ag-row.ag-row-selected .ag-cell-focus {
+  color: var(--ag-foreground-color) !important;
+  opacity: 1 !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-selected::before {
+  background-color: var(--ag-row-hover-color) !important;
+}
+
+/* Force selected row text to default dark-mode text color */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-selected .ag-cell,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-selected .ag-cell-value,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-selected .ag-cell-wrapper,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-selected .ag-cell-value * {
+  color: var(--mantine-color-dark-0) !important;
+  opacity: 1 !important;
+}
+
+/* Focused cell inside selected row */
+.ag-theme-alpine .ag-row.ag-row-selected .ag-cell-focus {
+  outline: 1px solid var(--mantine-color-blurple-6) !important;
 }
 
 /* Force dark mode background colors */
@@ -84,6 +126,33 @@
 
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-cell {
   color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
+}
+
+/* Pagination text should use default text colors */
+.ag-theme-alpine .ag-paging-panel,
+.ag-theme-alpine .ag-paging-panel .ag-paging-row-summary-panel,
+.ag-theme-alpine .ag-paging-panel .ag-paging-page-summary-panel,
+.ag-theme-alpine .ag-paging-panel .ag-paging-page-summary-panel *,
+.ag-theme-alpine .ag-paging-panel .ag-paging-row-summary-panel * {
+  color: var(--mantine-color-dark-9) !important;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-paging-panel,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-paging-panel .ag-paging-row-summary-panel,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-paging-panel .ag-paging-page-summary-panel,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-paging-panel .ag-paging-page-summary-panel *,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-paging-panel .ag-paging-row-summary-panel * {
+  color: var(--mantine-color-dark-0) !important;
+}
+
+/* Hovered row text should use default dark mode text color */
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-hover,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-hover .ag-cell,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-hover .ag-cell-value,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-hover .ag-cell-wrapper,
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row.ag-row-hover .ag-cell-value * {
+  color: var(--mantine-color-dark-0) !important;
+  opacity: 1 !important;
 }
 
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-header {
