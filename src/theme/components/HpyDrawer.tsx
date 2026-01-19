@@ -2,12 +2,14 @@ import type { ReactNode } from 'react'
 import { ActionIcon, Divider, Drawer, Group, Menu, Stack, Text, ThemeIcon } from '@mantine/core'
 import type { ActionIconProps, DrawerProps, GroupProps, MenuProps } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
-import type { IconSvgObject } from '@hugeicons-pro/core-stroke-rounded'
 import { Cancel01Icon, MoreVerticalIcon } from '@hugeicons-pro/core-stroke-rounded'
+
+type IconSvgObject = typeof Cancel01Icon
 
 type DrawerHeaderProps = {
   title?: ReactNode
   subtitle?: ReactNode
+  eyebrow?: ReactNode
   icon?: IconSvgObject
   withCloseButton?: boolean
   withMoreButton?: boolean
@@ -29,6 +31,7 @@ export type HpyDrawerProps = Omit<DrawerProps, 'title' | 'opened' | 'onClose' | 
   onClose: () => void
   title?: ReactNode
   subtitle?: ReactNode
+  eyebrow?: ReactNode
   icon?: IconSvgObject
   withCloseButton?: boolean
   preventInitialDrawerFocus?: boolean
@@ -46,6 +49,7 @@ export type HpyDrawerProps = Omit<DrawerProps, 'title' | 'opened' | 'onClose' | 
 function DrawerHeader({
   title,
   subtitle,
+  eyebrow,
   icon,
   withCloseButton,
   withMoreButton,
@@ -61,14 +65,23 @@ function DrawerHeader({
           </ThemeIcon>
         )}
         <Stack gap={2}>
-          {title && (
-            <Text fw={600} size="lg">
-              {title}
-            </Text>
+          {(title || subtitle) && (
+            <Group gap={8} wrap="nowrap">
+              {title && (
+                <Text fw={600} size="lg">
+                  {title}
+                </Text>
+              )}
+              {subtitle && (
+                <Text size="sm" c="dimmed">
+                  {subtitle}
+                </Text>
+              )}
+            </Group>
           )}
-          {subtitle && (
-            <Text size="sm" c="dimmed">
-              {subtitle}
+          {eyebrow && (
+            <Text size="sm" fw={600} tt="uppercase">
+              {eyebrow}
             </Text>
           )}
         </Stack>
@@ -106,6 +119,7 @@ export function HpyDrawer({
   position = 'right',
   title,
   subtitle,
+  eyebrow,
   icon,
   withCloseButton = false,
   preventInitialDrawerFocus = false,
@@ -134,6 +148,7 @@ export function HpyDrawer({
         <DrawerHeader
           title={title}
           subtitle={subtitle}
+          eyebrow={eyebrow}
           icon={icon}
           withCloseButton={withCloseButton}
           withMoreButton={withMoreButton}
@@ -163,5 +178,74 @@ export function HpyDrawer({
       </Stack>
     </Drawer>
   )
+}
+
+type InlineEditorDrawerProps = Omit<
+  HpyDrawerProps,
+  'withTabs' | 'tabsProps' | 'withStatusToggles' | 'statusTogglesProps' | 'withFooter' | 'footerProps'
+> & {
+  statusToggles?: ReactNode
+  tabs?: ReactNode
+  footer?: ReactNode
+  footerFlexProps?: GroupProps
+}
+
+export function InlineEditorDrawer({
+  statusToggles,
+  tabs,
+  footer,
+  footerFlexProps,
+  ...props
+}: InlineEditorDrawerProps) {
+  return (
+    <HpyDrawer
+      withOverlay
+      lockScroll
+      withStatusToggles={Boolean(statusToggles)}
+      statusTogglesProps={{ items: statusToggles }}
+      withTabs={Boolean(tabs)}
+      tabsProps={{ items: tabs }}
+      withFooter={Boolean(footer)}
+      footerProps={{ items: footer, flexProps: footerFlexProps }}
+      {...props}
+    />
+  )
+}
+
+type WorkflowDrawerProps = Omit<HpyDrawerProps, 'withFooter' | 'footerProps'> & {
+  footerLeft?: ReactNode
+  footerRight?: ReactNode
+  footerFlexProps?: GroupProps
+}
+
+export function WorkflowDrawer({
+  footerLeft,
+  footerRight,
+  footerFlexProps,
+  ...props
+}: WorkflowDrawerProps) {
+  return (
+    <HpyDrawer
+      withOverlay
+      lockScroll
+      withFooter={Boolean(footerLeft || footerRight)}
+      footerProps={{
+        items: (
+          <>
+            {footerLeft}
+            <Group gap="md">{footerRight}</Group>
+          </>
+        ),
+        flexProps: { justify: 'space-between', ...footerFlexProps },
+      }}
+      {...props}
+    />
+  )
+}
+
+type DetailDrawerProps = HpyDrawerProps
+
+export function DetailDrawer(props: DetailDrawerProps) {
+  return <HpyDrawer withOverlay={false} lockScroll={false} {...props} />
 }
 

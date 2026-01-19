@@ -1,10 +1,31 @@
-import { Button, Card, Group, Paper, Stack, Text, TextInput, Title } from '@mantine/core'
+import {
+  Accordion,
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Group,
+  Paper,
+  Select,
+  Stack,
+  Stepper,
+  Tabs,
+  Text,
+  TextInput,
+  Textarea,
+  Title,
+  SimpleGrid,
+  Avatar,
+  Divider,
+} from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { HpyDrawer } from '../theme/components/HpyDrawer'
-import { Bread01Icon } from '@hugeicons-pro/core-stroke-rounded'
+import { DetailDrawer, InlineEditorDrawer, WorkflowDrawer } from '../theme/components/HpyDrawer'
+import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
 
 export function CustomizedComponents() {
-  const [opened, { open, close }] = useDisclosure(false)
+  const [inlineOpened, inlineHandlers] = useDisclosure(false)
+  const [workflowOpened, workflowHandlers] = useDisclosure(false)
+  const [detailOpened, detailHandlers] = useDisclosure(false)
 
   return (
     <Stack gap="xl" p="xl">
@@ -58,10 +79,10 @@ export function CustomizedComponents() {
             <Card withBorder>
               <Stack gap="sm">
                 <Text size="sm" fw={600}>
-                  TextInput (custom radius)
+                  TextInput
                 </Text>
-                <TextInput label="Radius xl" radius="xl" placeholder="Custom radius" />
-                <TextInput label="Radius xs" radius="xs" placeholder="Custom radius" />
+                <TextInput label="Default" placeholder="Radius sm" />
+                <TextInput label="With error" placeholder="Invalid" error="Example error" />
               </Stack>
             </Card>
           </Group>
@@ -82,52 +103,264 @@ export function CustomizedComponents() {
 
       <Paper p="xl" withBorder shadow="sm" radius="md">
         <Stack gap="lg">
-          <Title order={2}>HpyDrawer</Title>
+          <Title order={2}>HpyDrawer Types</Title>
           <Text size="sm" c="dimmed">
-            Custom drawer with optional header actions, status toggles, tabs, and footer.
+            Three drawer archetypes with distinct behaviors and layouts.
           </Text>
           <Group>
-            <Button variant="filled" color="blurple" onClick={open}>
-              Open Drawer
+            <Button variant="filled" color="blurple" onClick={inlineHandlers.open}>
+              Inline Editor Drawer
+            </Button>
+            <Button variant="light" color="blurple" onClick={workflowHandlers.open}>
+              Workflow Drawer
+            </Button>
+            <Button variant="outline" color="blurple" onClick={detailHandlers.open}>
+              Detail Drawer
             </Button>
           </Group>
         </Stack>
       </Paper>
 
-      <HpyDrawer
-        opened={opened}
-        onClose={close}
+      <InlineEditorDrawer
+        opened={inlineOpened}
+        onClose={inlineHandlers.close}
         position="right"
-        title="Bread"
-        subtitle="Crusty roll"
-        icon={Bread01Icon}
+        title="Refrigerator"
+        subtitle="Appliances"
+        eyebrow="Courtyard"
+        icon={RefrigeratorIcon}
+        withCloseButton
+        withMoreButton
+        preventInitialDrawerFocus
+        statusToggles={
+          <Group gap="xl">
+            <Group gap="xs">
+              <Text fw={600} size="sm">
+                Priority
+              </Text>
+              <Badge variant="light" color="gray">
+                Normal
+              </Badge>
+            </Group>
+            <Group gap="xs">
+              <Text fw={600} size="sm">
+                Status
+              </Text>
+              <Badge variant="light" color="green">
+                Open
+              </Badge>
+            </Group>
+          </Group>
+        }
+        tabs={
+          <Tabs defaultValue="details">
+            <Tabs.List>
+              <Tabs.Tab value="details">Details</Tabs.Tab>
+              <Tabs.Tab value="messages">Messages</Tabs.Tab>
+              <Tabs.Tab value="files">Files</Tabs.Tab>
+              <Tabs.Tab value="activities">Activities</Tabs.Tab>
+            </Tabs.List>
+          </Tabs>
+        }
+        footer={
+          <>
+            <Button variant="outline" color="gray" onClick={inlineHandlers.close}>
+              Cancel
+            </Button>
+            <Button variant="filled" color="blurple" onClick={inlineHandlers.close} disabled>
+              Save
+            </Button>
+          </>
+        }
+      >
+        <Stack gap="lg">
+          <SimpleGrid cols={2} spacing="lg">
+            <Select
+              label="Assignee"
+              placeholder="Assign work order"
+              data={['Lisa Peters', 'Sarah Thompson', 'Michael Rodriguez']}
+              required
+            />
+            <TextInput label="Scheduled" placeholder="Select a date" required />
+          </SimpleGrid>
+          <Textarea label="Description" placeholder="A description of the work order" minRows={3} />
+          <Paper p="sm" radius="sm" withBorder>
+            <Stack gap="xs">
+              <Text size="sm" fw={600}>
+                Summary by JoyAI
+              </Text>
+              <Text size="sm" c="dimmed">
+                Water filter replacement needed for B01
+              </Text>
+            </Stack>
+          </Paper>
+          <Accordion variant="separated" radius="sm">
+            <Accordion.Item value="residents">
+              <Accordion.Control>Residents</Accordion.Control>
+              <Accordion.Panel>
+                <Stack gap="md">
+                  <Stack gap="xs">
+                    <Text size="sm" fw={600}>
+                      Reporting Resident
+                    </Text>
+                    <Group justify="space-between">
+                      <Group gap="sm">
+                        <Avatar color="orange" radius="xl" size="sm">
+                          LP
+                        </Avatar>
+                        <Text size="sm">Lisa Peters</Text>
+                      </Group>
+                      <Text size="sm" c="dimmed">
+                        206-555-7843
+                      </Text>
+                    </Group>
+                  </Stack>
+                  <Stack gap="xs">
+                    <Text size="sm" fw={600}>
+                      Additional Residents
+                    </Text>
+                    <Group justify="space-between">
+                      <Group gap="sm">
+                        <Avatar color="teal" radius="xl" size="sm">
+                          ST
+                        </Avatar>
+                        <Text size="sm">Sarah Thompson</Text>
+                      </Group>
+                      <Text size="sm" c="dimmed">
+                        206-555-1043
+                      </Text>
+                    </Group>
+                    <Group justify="space-between">
+                      <Group gap="sm">
+                        <Avatar color="yellow" radius="xl" size="sm">
+                          MR
+                        </Avatar>
+                        <Text size="sm">Michael Rodriguez</Text>
+                      </Group>
+                      <Text size="sm" c="dimmed">
+                        206-555-2987
+                      </Text>
+                    </Group>
+                  </Stack>
+                </Stack>
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="time">
+              <Accordion.Control>Time Tracking</Accordion.Control>
+              <Accordion.Panel>
+                <Text size="sm" c="dimmed">
+                  No time entries yet.
+                </Text>
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="projects">
+              <Accordion.Control>Related Projects</Accordion.Control>
+              <Accordion.Panel>
+                <Text size="sm" c="dimmed">
+                  No related projects.
+                </Text>
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="plugins">
+              <Accordion.Control>Active Plugins</Accordion.Control>
+              <Accordion.Panel>
+                <Text size="sm" c="dimmed">
+                  No active plugins.
+                </Text>
+              </Accordion.Panel>
+            </Accordion.Item>
+          </Accordion>
+        </Stack>
+      </InlineEditorDrawer>
+
+      <WorkflowDrawer
+        opened={workflowOpened}
+        onClose={workflowHandlers.close}
+        position="right"
+        title="New Schedule"
         withCloseButton
         preventInitialDrawerFocus
-        withMoreButton
-        moreButtonProps={{
-          items: <Text size="sm">More actions</Text>,
-        }}
-        withFooter
-        footerProps={{
-          items: (
-            <>
-              <Button variant="outline" color="gray" onClick={close}>
-                Cancel
-              </Button>
-              <Button variant="filled" color="blurple" onClick={close}>
-                Save
-              </Button>
-            </>
-          ),
-        }}
+        footerLeft={
+          <Button variant="light" color="gray" onClick={workflowHandlers.close}>
+            Cancel
+          </Button>
+        }
+        footerRight={
+          <>
+            <Button variant="light" color="blurple">
+              Previous
+            </Button>
+            <Button variant="filled" color="blurple">
+              Next
+            </Button>
+          </>
+        }
       >
-        <Stack>
-          <Text>START!</Text>
-          <Text size="sm" c="dimmed">
-            This content is visible when tabs are not enabled.
-          </Text>
+        <Stack gap="lg">
+          <Stepper active={1} size="sm">
+            <Stepper.Step label="Step 1" description="Step details" />
+            <Stepper.Step label="Step 2" description="Step details" />
+            <Stepper.Step label="Step 3" description="Step details" />
+          </Stepper>
+          <Select
+            label="Date"
+            placeholder="Select a date"
+            data={['Today', 'Tomorrow', 'Next week']}
+            required
+          />
+          <SimpleGrid cols={2} spacing="lg">
+            <Select label="Start Time" placeholder="12:00 AM" data={['12:00 AM', '1:00 AM']} required />
+            <Select label="End Time" placeholder="12:00 AM" data={['12:00 AM', '1:00 AM']} required />
+          </SimpleGrid>
         </Stack>
-      </HpyDrawer>
+      </WorkflowDrawer>
+
+      <DetailDrawer
+        opened={detailOpened}
+        onClose={detailHandlers.close}
+        position="right"
+        title="Refrigerator"
+        withCloseButton
+      >
+        <Stack gap="lg">
+          <Tabs defaultValue="details">
+            <Tabs.List>
+              <Tabs.Tab value="details">Details</Tabs.Tab>
+              <Tabs.Tab value="notifications">Notifications</Tabs.Tab>
+            </Tabs.List>
+          </Tabs>
+          <Alert color="yellow" variant="light" title="User management in Call Management has changed">
+            User details cannot be edited here. User management has been moved to the Admin Center.
+          </Alert>
+          <SimpleGrid cols={2} spacing="lg">
+            <Stack gap={4}>
+              <Text size="sm" fw={600}>
+                First Name
+              </Text>
+              <Text size="sm">Lisa</Text>
+            </Stack>
+            <Stack gap={4}>
+              <Text size="sm" fw={600}>
+                Last Name
+              </Text>
+              <Text size="sm">Peters</Text>
+            </Stack>
+          </SimpleGrid>
+          <Divider />
+          <Stack gap={4}>
+            <Text size="sm" fw={600}>
+              Email
+            </Text>
+            <Text size="sm">lisap267@gmail.com</Text>
+          </Stack>
+          <Stack gap={4}>
+            <Text size="sm" fw={600}>
+              Mobile Number
+            </Text>
+            <Text size="sm">206-555-7843</Text>
+          </Stack>
+        </Stack>
+      </DetailDrawer>
     </Stack>
   )
 }

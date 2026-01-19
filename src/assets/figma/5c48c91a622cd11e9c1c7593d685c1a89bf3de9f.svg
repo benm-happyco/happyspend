@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="elements">
+<path id="Rectangle 2358" d="M6.5 10.5H3.5C1.84533 10.5 1.5 10.1547 1.5 8.5L1.5 0.5H8.5V8.5C8.5 10.1547 8.15467 10.5 6.5 10.5Z" stroke="var(--stroke-0, #212B31)" stroke-linejoin="round"/>
+<path id="Vector 5703" d="M0.5 0.5L9.5 0.5" stroke="var(--stroke-0, #212B31)" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Rectangle 2357" d="M6.5 0.5V2C6.5 2.82733 6.32733 3 5.5 3L4.5 3C3.67267 3 3.5 2.82733 3.5 2L3.5 0.5" stroke="var(--stroke-0, #212B31)" stroke-linejoin="round"/>
+<path id="Vector" d="M5.75 8.5H4.25M5.75 6.75H4.25M5.75 5H4.25" stroke="var(--stroke-0, #212B31)" stroke-linecap="round"/>
+</g>
+</svg>

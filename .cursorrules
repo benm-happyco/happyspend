@@ -26,6 +26,7 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
   - Page size selector allowing users to choose number of rows (e.g., 10, 25, 50, 100)
 - All components should respect light/dark mode switching
 - Filter inputs and form fields should use Mantine theme background colors
+- **Drawers:** When asked to create a new drawer, always ask which type to use before implementation: Inline Editor, Workflow Editor, or Detail Drawer. Each type has unique preset UX and design behavior that must be followed.
 
 ### Code Style
 - TypeScript with strict mode
