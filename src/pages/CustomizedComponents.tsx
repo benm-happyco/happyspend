@@ -87,7 +87,7 @@ export function CustomizedComponents() {
           <Text size="sm" c="dimmed">
             Collapsible navigation with expandable items and nested subnav.
           </Text>
-          <HpySidebar />
+          <HpySidebar height="auto" />
         </Stack>
       </Paper>
 
