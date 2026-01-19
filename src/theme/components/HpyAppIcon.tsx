@@ -8,7 +8,7 @@ import callRightIcon from '../../assets/figma/02dd7a28a1b59022b2a6710afdb32cc267
 import insightsIcon from '../../assets/figma/44d4c9d5ff54b181f9248f54bdfbd498c037588a.svg'
 import inventoryIcon from '../../assets/figma/bdc1af0ddfe5b4276d223347a1ffb0b3dc41d1e5.svg'
 
-type HpyAppIconType = 'Inspections' | 'Tasks' | 'Projects' | 'Call Management' | 'Insights' | 'Inventory'
+export type HpyAppIconType = 'Inspections' | 'Tasks' | 'Projects' | 'Call Management' | 'Insights' | 'Inventory'
 
 type HpyAppIconProps = {
   type: HpyAppIconType

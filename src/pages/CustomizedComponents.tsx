@@ -20,6 +20,7 @@ import {
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { DetailDrawer, InlineEditorDrawer, WorkflowDrawer } from '../theme/components/HpyDrawer'
+import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
 
@@ -78,6 +79,16 @@ export function CustomizedComponents() {
               </Stack>
             </Card>
           </Group>
+        </Stack>
+      </Paper>
+
+      <Paper p="xl" withBorder shadow="sm" radius="md">
+        <Stack gap="lg">
+          <Title order={2}>Page Header</Title>
+          <Text size="sm" c="dimmed">
+            Default page content header with icon, search, and primary action.
+          </Text>
+          <HpyPageHeader />
         </Stack>
       </Paper>
 
