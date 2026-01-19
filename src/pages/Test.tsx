@@ -180,6 +180,23 @@ export function Test() {
             )}
           </Stack>
         </Paper>
+
+        <Stack gap="sm" align="center">
+          <Group justify="center" gap="md">
+            <Button variant="filled" color="blurple">
+              Wow
+            </Button>
+            <Button variant="filled" color="warning">
+              Warning
+            </Button>
+            <Button variant="filled" color="danger">
+              Error
+            </Button>
+          </Group>
+          <Button variant="light" size="sm" color="blurple">
+            Teeny
+          </Button>
+        </Stack>
       </Stack>
     </Container>
   )
