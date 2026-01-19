@@ -29,10 +29,10 @@ export function CustomizedComponents() {
 
   return (
     <Stack gap="xl" p="xl">
-      <Title order={1}>Customized Components</Title>
-      <Text size="lg" c="dimmed">
-        Components listed here reflect the custom theme overrides in `src/theme/`.
-      </Text>
+        <Title order={1}>Customized Components</Title>
+        <Text size="lg" c="dimmed">
+          Components listed here reflect the custom theme overrides in `src/theme/`.
+        </Text>
 
       <Paper p="xl" withBorder shadow="sm" radius="md">
         <Stack gap="lg">

@@ -4,6 +4,7 @@ import { FormShowcase } from './pages/FormShowcase'
 import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
 import { Test } from './pages/Test'
+import { HappyProperty } from './pages/HappyProperty'
 import { ColorSchemeToggle } from './components/ColorSchemeToggle'
 
 function Navigation() {
@@ -42,6 +43,11 @@ function Navigation() {
             active={location.pathname === '/test'}
             onClick={() => navigate('/test')}
           />
+          <NavLink
+            label="Happy Property"
+            active={location.pathname === '/happy-property'}
+            onClick={() => navigate('/happy-property')}
+          />
         </Stack>
       </Stack>
       <Group justify="space-between" align="center">
@@ -51,29 +57,46 @@ function Navigation() {
   )
 }
 
+function AppLayout() {
+  const location = useLocation()
+  const isHappyProperty = location.pathname.startsWith('/happy-property')
+
+  if (isHappyProperty) {
+    return (
+      <Routes>
+        <Route path="/happy-property/*" element={<HappyProperty />} />
+      </Routes>
+    )
+  }
+
+  return (
+    <AppShell
+      navbar={{
+        width: 250,
+        breakpoint: 'sm',
+      }}
+      padding="md"
+    >
+      <AppShell.Navbar p="md">
+        <Navigation />
+      </AppShell.Navbar>
+
+      <AppShell.Main style={{ overflowY: 'auto', height: '100vh' }}>
+        <Routes>
+          <Route path="/" element={<FormShowcase />} />
+          <Route path="/components" element={<ComponentShowcase />} />
+          <Route path="/customized-components" element={<CustomizedComponents />} />
+          <Route path="/test" element={<Test />} />
+        </Routes>
+      </AppShell.Main>
+    </AppShell>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <AppShell
-        navbar={{
-          width: 250,
-          breakpoint: 'sm',
-        }}
-        padding="md"
-      >
-        <AppShell.Navbar p="md">
-          <Navigation />
-        </AppShell.Navbar>
-
-        <AppShell.Main style={{ overflowY: 'auto', height: '100vh' }}>
-          <Routes>
-            <Route path="/" element={<FormShowcase />} />
-            <Route path="/components" element={<ComponentShowcase />} />
-            <Route path="/customized-components" element={<CustomizedComponents />} />
-            <Route path="/test" element={<Test />} />
-          </Routes>
-        </AppShell.Main>
-      </AppShell>
+      <AppLayout />
     </BrowserRouter>
   )
 }
