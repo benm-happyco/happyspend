@@ -5,7 +5,7 @@ import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
 import { Test } from './pages/Test'
 import { HappyProperty } from './pages/HappyProperty'
-import { ColorSchemeToggle } from './components/ColorSchemeToggle'
+import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
   const location = useLocation()

@@ -28,6 +28,7 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - All components should respect light/dark mode switching
 - Filter inputs and form fields should use Mantine theme background colors
 - **Drawers:** When asked to create a new drawer, always ask which type to use before implementation: Inline Editor, Workflow Editor, or Detail Drawer. Each type has unique preset UX and design behavior that must be followed.
+- **New pages must include `GlobalHeader` and `HpySidebar`**, with content to the right of the sidebar and `56px` padding on all sides.
 
 ### Code Style
 - TypeScript with strict mode
