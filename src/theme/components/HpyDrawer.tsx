@@ -154,19 +154,21 @@ export function HpyDrawer({
       opened={opened}
       onClose={onClose}
       position={position}
+      zIndex={4000}
       withCloseButton={false}
       trapFocus={!preventInitialDrawerFocus}
       returnFocus={!preventInitialDrawerFocus}
       padding={0}
       size={500}
       styles={{
-        overlay: { backgroundColor: 'rgba(59, 55, 153, 0.3)' },
+        overlay: { backgroundColor: 'rgba(59, 55, 153, 0.3)', zIndex: 4000 },
         content: {
           backgroundColor: 'var(--mantine-color-body)',
           boxShadow:
             '0px 7px 7px -5px rgba(0,0,0,0.04), 0px 10px 15px -5px rgba(0,0,0,0.1), 0px 1px 3px 0px rgba(0,0,0,0.05)',
           borderRadius: 'var(--mantine-radius-xl) 0 0 var(--mantine-radius-xl)',
           overflow: 'hidden',
+          zIndex: 4001,
         },
         inner: { padding: 0 },
         body: { height: '100%', padding: 0 },

@@ -191,7 +191,7 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
     },
     {
       id: 'tasks',
-      label: 'Tasks',
+            label: 'Work Orders',
       iconNode: <HpyAppIcon type="Tasks" />,
     },
     {

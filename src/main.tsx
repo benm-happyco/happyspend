@@ -7,7 +7,18 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <MantineProvider theme={customTheme} defaultColorScheme="light">
+    <MantineProvider
+      theme={customTheme}
+      defaultColorScheme="light"
+      cssVariablesResolver={(theme) => ({
+        light: {
+          '--mantine-color-default-border': theme.colors.gray[1],
+        },
+        dark: {
+          '--mantine-color-default-border': theme.colors.dark[4],
+        },
+      })}
+    >
       <App />
     </MantineProvider>
   </React.StrictMode>,

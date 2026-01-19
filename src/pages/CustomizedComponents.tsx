@@ -19,15 +19,18 @@ import {
   Divider,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { useState } from 'react'
 import { DetailDrawer, InlineEditorDrawer, WorkflowDrawer } from '../theme/components/HpyDrawer'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
+import { StatusBadge, StatusBadgeSelect, type StatusBadgeStatus } from '../theme/components/StatusBadge'
 
 export function CustomizedComponents() {
   const [inlineOpened, inlineHandlers] = useDisclosure(false)
   const [workflowOpened, workflowHandlers] = useDisclosure(false)
   const [detailOpened, detailHandlers] = useDisclosure(false)
+  const [statusValue, setStatusValue] = useState<StatusBadgeStatus | null>('DRAFT')
 
   return (
     <Stack gap="xl" p="xl">
@@ -78,6 +81,20 @@ export function CustomizedComponents() {
                 <TextInput label="With error" placeholder="Invalid" error="Example error" />
               </Stack>
             </Card>
+          </Group>
+        </Stack>
+      </Paper>
+
+      <Paper p="xl" withBorder shadow="sm" radius="md">
+        <Stack gap="lg">
+          <Title order={2}>Status Badge</Title>
+          <Text size="sm" c="dimmed">
+            Custom badge with icon, condensed variant, and interactive dropdown.
+          </Text>
+          <Group gap="md">
+            <StatusBadge status="EARLY_ACCESS" />
+            <StatusBadge status="DRAFT" condensed />
+            <StatusBadgeSelect value={statusValue} onChange={setStatusValue} withBorder />
           </Group>
         </Stack>
       </Paper>

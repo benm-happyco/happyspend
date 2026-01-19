@@ -21,6 +21,7 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - Use customized Mantine components from the theme
 - **Always place new custom components in `src/theme/components/`**
 - **ALWAYS use AG Grid for data tables** - Never use Mantine Table or other table components for displaying data
+- **AG Grid tables must not be wrapped in `Paper` components**.
 - AG Grid should be styled to match Mantine theme colors
 - All AG Grid tables must have:
   - Default pagination set to 25 rows per page
@@ -62,4 +63,24 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - All styling should respect the Mantine color scheme (light/dark mode)
 - Components are for visualization/documentation, not for customization UI
 - **Never hardcode fake data** - always use Supabase queries
+
+## Date Formatting
+- **Use fuzzy/relative timestamps for recent events (within 7 days)**; use absolute dates for older events.
+- **Always use 12-hour time with meridian**: `{h:mm a}` (e.g., `2:30 PM`) and user’s local timezone.
+- **Display formats**:
+  - Today (< 1 hr): `{X} min ago`
+  - Today (> 1 hr): `{X} hr ago`
+  - Yesterday: `Yesterday at {H:mm}`
+  - Last 7 days: `{Weekday} at {H:mm}`
+  - Older (same year): `{MMM D}`
+  - Older (past year): `{MMM D, YYYY}`
+- **“Just now”** for events ~5 seconds ago.
+- **Hover over fuzzy dates** should reveal full absolute date & time (`MMM D, YYYY at h:mm a`).
+- **Future dates**:
+  - Within 24 hours: `in X hours` or `Tomorrow at H:mm`
+  - Within 7 days: `{Weekday at H:mm}`
+  - Beyond 7 days: `{MMM D, YYYY}`
+- **Expiry/deadlines**:
+  - Expiring soon: `In X min`
+  - Past deadline: `Past due: MMM D h:mm a`
 

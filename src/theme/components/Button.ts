@@ -5,6 +5,13 @@ export const buttonOverride = Button.extend({
   defaultProps: {
     size: 'lg',
   },
+  styles: {
+    label: {
+      fontSize: 'var(--mantine-font-size-sm)',
+      fontWeight: 600,
+      lineHeight: '20.3px',
+    },
+  },
   vars: (_theme, props: ButtonProps) => {
     if (props.size === 'sm' && !props.radius) {
       return {

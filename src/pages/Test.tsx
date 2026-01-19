@@ -206,9 +206,8 @@ export function Test() {
 function ResidentsGrid({ residents }: { residents: Resident[] }) {
   const columnDefs = useMemo<ColDef[]>(() => {
     if (residents.length === 0) return []
-    
-    // Dynamically create column definitions from the first resident's keys
-    return Object.keys(residents[0] || {}).map((key) => ({
+
+    const dataColumns = Object.keys(residents[0] || {}).map((key) => ({
       field: key,
       headerName: key.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
       flex: 1,
@@ -217,6 +216,8 @@ function ResidentsGrid({ residents }: { residents: Resident[] }) {
       filter: true,
       resizable: true,
     }))
+
+    return dataColumns
   }, [residents])
 
   const defaultColDef = useMemo(
@@ -236,12 +237,11 @@ function ResidentsGrid({ residents }: { residents: Resident[] }) {
         rowData={residents}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
+        theme="legacy"
         animateRows={true}
-        rowSelection="multiple"
+        rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true }}
         headerHeight={40}
-        rowHeight={40}
-        enableRangeSelection={true}
-        enableFillHandle={true}
+        rowHeight={48}
         pagination={true}
         paginationPageSize={25}
         paginationPageSizeSelector={[10, 25, 50, 100]}
