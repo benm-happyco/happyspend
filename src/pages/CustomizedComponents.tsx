@@ -20,6 +20,7 @@ import {
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { DetailDrawer, InlineEditorDrawer, WorkflowDrawer } from '../theme/components/HpyDrawer'
+import { HpySidebar } from '../theme/components/HpySidebar'
 import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
 
 export function CustomizedComponents() {
@@ -77,6 +78,16 @@ export function CustomizedComponents() {
               </Stack>
             </Card>
           </Group>
+        </Stack>
+      </Paper>
+
+      <Paper p="xl" withBorder shadow="sm" radius="md">
+        <Stack gap="lg">
+          <Title order={2}>Happy Property Sidebar</Title>
+          <Text size="sm" c="dimmed">
+            Collapsible navigation with expandable items and nested subnav.
+          </Text>
+          <HpySidebar />
         </Stack>
       </Paper>
 
