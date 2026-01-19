@@ -76,15 +76,6 @@ export function CustomizedComponents() {
                 <TextInput label="With error" placeholder="Invalid" error="Example error" />
               </Stack>
             </Card>
-            <Card withBorder>
-              <Stack gap="sm">
-                <Text size="sm" fw={600}>
-                  TextInput
-                </Text>
-                <TextInput label="Default" placeholder="Radius sm" />
-                <TextInput label="With error" placeholder="Invalid" error="Example error" />
-              </Stack>
-            </Card>
           </Group>
         </Stack>
       </Paper>
@@ -160,6 +151,49 @@ export function CustomizedComponents() {
               <Tabs.Tab value="files">Files</Tabs.Tab>
               <Tabs.Tab value="activities">Activities</Tabs.Tab>
             </Tabs.List>
+            <Tabs.Panel value="details" pt="lg">
+              <Text size="sm">
+                After reviewing the original request, the team determined that the issue was both
+                present and not present, depending on how one defines “issue” and whether it was
+                observed before or after the second cup of coffee. Previous notes suggested a
+                similar situation may have occurred sometime last quarter, although those notes
+                also referenced a different unit, a different fixture, and possibly a different
+                building altogether. Out of an abundance of caution and mild curiosity, the area
+                was inspected, re-inspected, and then inspected once more by someone who was not
+                entirely sure why they were there but felt confident enough to document it anyway.
+              </Text>
+            </Tabs.Panel>
+            <Tabs.Panel value="messages" pt="lg">
+              <Text size="sm">
+                No visible damage was found, unless you count the cosmetic scuff that everyone
+                agreed “has probably always been like that.” Nearby components were checked for
+                alignment, stability, and general vibes. Everything appeared to be functioning
+                within acceptable parameters, assuming those parameters are loosely defined and
+                generously interpreted. A brief discussion occurred regarding whether this task
+                should be closed, paused, or escalated, and the consensus was to update the notes
+                and see how everyone feels about it tomorrow.
+              </Text>
+            </Tabs.Panel>
+            <Tabs.Panel value="files" pt="lg">
+              <Text size="sm">
+                Communication was logged to ensure transparency, traceability, and the comforting
+                illusion that someone is definitely keeping track of all of this. The resident was
+                notified that the situation had been reviewed and that no immediate action was
+                required at this time, which was technically accurate and emotionally reassuring.
+                Internal notes were added clarifying that if the issue comes back, this entry will
+                serve as proof that it was already looked at very thoroughly and with great
+                seriousness.
+              </Text>
+            </Tabs.Panel>
+            <Tabs.Panel value="activities" pt="lg">
+              <Text size="sm">
+                Materials were not ordered, mostly because no one could agree on what materials
+                would theoretically solve the problem if it were to become a real problem in the
+                future. Tools were mentioned in passing, largely to make the record feel complete.
+                A follow-up was tentatively considered, then un-considered, and finally left
+                open-ended so the system would continue to feel useful.
+              </Text>
+            </Tabs.Panel>
           </Tabs>
         }
         footer={
@@ -312,6 +346,15 @@ export function CustomizedComponents() {
             <Select label="Start Time" placeholder="12:00 AM" data={['12:00 AM', '1:00 AM']} required />
             <Select label="End Time" placeholder="12:00 AM" data={['12:00 AM', '1:00 AM']} required />
           </SimpleGrid>
+          <Text size="sm">
+            No visible damage was found, unless you count the cosmetic scuff that everyone
+            agreed “has probably always been like that.” Nearby components were checked for
+            alignment, stability, and general vibes. Everything appeared to be functioning
+            within acceptable parameters, assuming those parameters are loosely defined and
+            generously interpreted. A brief discussion occurred regarding whether this task
+            should be closed, paused, or escalated, and the consensus was to update the notes
+            and see how everyone feels about it tomorrow.
+          </Text>
         </Stack>
       </WorkflowDrawer>
 
@@ -359,6 +402,29 @@ export function CustomizedComponents() {
             </Text>
             <Text size="sm">206-555-7843</Text>
           </Stack>
+          <Text size="sm">
+            Communication was logged to ensure transparency, traceability, and the comforting
+            illusion that someone is definitely keeping track of all of this. The resident was
+            notified that the situation had been reviewed and that no immediate action was
+            required at this time, which was technically accurate and emotionally reassuring.
+            Internal notes were added clarifying that if the issue comes back, this entry will
+            serve as proof that it was already looked at very thoroughly and with great
+            seriousness.
+          </Text>
+          <Text size="sm">
+            Materials were not ordered, mostly because no one could agree on what materials
+            would theoretically solve the problem if it were to become a real problem in the
+            future. Tools were mentioned in passing, largely to make the record feel complete.
+            A follow-up was tentatively considered, then un-considered, and finally left
+            open-ended so the system would continue to feel useful.
+          </Text>
+          <Text size="sm">
+            This task remains documented here for historical reference, UI stress testing, and
+            to demonstrate how long-form text behaves when users type far more than anyone
+            realistically needs. If you are reading this in a demo environment, congratulations
+            — the text field is working as intended. If you are reading this in production,
+            something has gone terribly, terribly wrong.
+          </Text>
         </Stack>
       </DetailDrawer>
     </Stack>

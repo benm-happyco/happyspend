@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
-import { ActionIcon, Divider, Drawer, Group, Menu, Stack, Text, ThemeIcon } from '@mantine/core'
+import { ActionIcon, Box, Divider, Drawer, Group, Menu, Stack, Text } from '@mantine/core'
+import { useClickOutside } from '@mantine/hooks'
 import type { ActionIconProps, DrawerProps, GroupProps, MenuProps } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Cancel01Icon, MoreVerticalIcon } from '@hugeicons-pro/core-stroke-rounded'
@@ -43,6 +44,7 @@ export type HpyDrawerProps = Omit<DrawerProps, 'title' | 'opened' | 'onClose' | 
   tabsProps?: { items?: ReactNode }
   withFooter?: boolean
   footerProps?: DrawerSectionProps
+  closeOnOutsideClick?: boolean
   children?: ReactNode
 }
 
@@ -58,24 +60,23 @@ function DrawerHeader({
 }: DrawerHeaderProps) {
   return (
     <Group justify="space-between" align="flex-start" gap="md" wrap="nowrap">
-      <Group gap="sm" align="center" wrap="nowrap">
-        {icon && (
-          <ThemeIcon variant="light" color="gray" size={36} radius="xl">
-            <HugeiconsIcon icon={icon} size={18} />
-          </ThemeIcon>
-        )}
-        <Stack gap={2}>
+      <Group gap="sm" align="flex-start" wrap="nowrap">
+        {icon && <HugeiconsIcon icon={icon} size={24} />}
+        <Stack gap={4}>
           {(title || subtitle) && (
             <Group gap={8} wrap="nowrap">
               {title && (
-                <Text fw={600} size="lg">
+                <Text fw={700} size="xl">
                   {title}
                 </Text>
               )}
               {subtitle && (
-                <Text size="sm" c="dimmed">
-                  {subtitle}
-                </Text>
+                <Group gap={8} wrap="nowrap">
+                  <Divider orientation="vertical" />
+                  <Text size="sm" c="dimmed">
+                    {subtitle}
+                  </Text>
+                </Group>
               )}
             </Group>
           )}
@@ -87,7 +88,7 @@ function DrawerHeader({
         </Stack>
       </Group>
 
-      <Group gap="xs">
+      <Group gap="xs" align="center">
         {withMoreButton && (
           <Menu position="bottom-end" withinPortal {...moreButtonProps?.menuProps}>
             <Menu.Target>
@@ -95,17 +96,24 @@ function DrawerHeader({
                 variant="subtle"
                 color="gray"
                 aria-label="More actions"
+                size={32}
                 {...moreButtonProps?.actionIconProps}
               >
-                <HugeiconsIcon icon={MoreVerticalIcon} size={18} />
+                <HugeiconsIcon icon={MoreVerticalIcon} size={20} />
               </ActionIcon>
             </Menu.Target>
             <Menu.Dropdown>{moreButtonProps?.items}</Menu.Dropdown>
           </Menu>
         )}
         {withCloseButton && (
-          <ActionIcon variant="subtle" color="gray" aria-label="Close drawer" onClick={onClose}>
-            <HugeiconsIcon icon={Cancel01Icon} size={18} />
+          <ActionIcon
+            variant="subtle"
+            color="gray"
+            aria-label="Close drawer"
+            size={32}
+            onClick={onClose}
+          >
+            <HugeiconsIcon icon={Cancel01Icon} size={20} />
           </ActionIcon>
         )}
       </Group>
@@ -131,9 +139,16 @@ export function HpyDrawer({
   tabsProps,
   withFooter = false,
   footerProps,
+  closeOnOutsideClick = false,
   children,
   ...drawerProps
 }: HpyDrawerProps) {
+  const contentRef = useClickOutside(() => {
+    if (opened && closeOnOutsideClick) {
+      onClose()
+    }
+  })
+
   return (
     <Drawer
       opened={opened}
@@ -142,40 +157,64 @@ export function HpyDrawer({
       withCloseButton={false}
       trapFocus={!preventInitialDrawerFocus}
       returnFocus={!preventInitialDrawerFocus}
+      padding={0}
+      size={500}
+      styles={{
+        overlay: { backgroundColor: 'rgba(59, 55, 153, 0.3)' },
+        content: {
+          backgroundColor: 'var(--mantine-color-body)',
+          boxShadow:
+            '0px 7px 7px -5px rgba(0,0,0,0.04), 0px 10px 15px -5px rgba(0,0,0,0.1), 0px 1px 3px 0px rgba(0,0,0,0.05)',
+          borderRadius: 'var(--mantine-radius-xl) 0 0 var(--mantine-radius-xl)',
+          overflow: 'hidden',
+        },
+        inner: { padding: 0 },
+        body: { height: '100%', padding: 0 },
+      }}
       {...drawerProps}
     >
-      <Stack gap="md">
-        <DrawerHeader
-          title={title}
-          subtitle={subtitle}
-          eyebrow={eyebrow}
-          icon={icon}
-          withCloseButton={withCloseButton}
-          withMoreButton={withMoreButton}
-          moreButtonProps={moreButtonProps}
-          onClose={onClose}
-        />
+      <Box
+        ref={contentRef}
+        h="100%"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: 32,
+        }}
+      >
+        <Stack gap="xl" style={{ flex: 1, minHeight: 0 }}>
+          <Stack gap="xl">
+            <DrawerHeader
+              title={title}
+              subtitle={subtitle}
+              eyebrow={eyebrow}
+              icon={icon}
+              withCloseButton={withCloseButton}
+              withMoreButton={withMoreButton}
+              moreButtonProps={moreButtonProps}
+              onClose={onClose}
+            />
 
-        {withStatusToggles && statusTogglesProps?.items && (
-          <>
-            <Group gap="md" {...statusTogglesProps.flexProps}>
-              {statusTogglesProps.items}
-            </Group>
-            <Divider />
-          </>
-        )}
+            {withStatusToggles && statusTogglesProps?.items && (
+              <Group gap="xl" {...statusTogglesProps.flexProps}>
+                {statusTogglesProps.items}
+              </Group>
+            )}
+          </Stack>
 
-        {withTabs ? tabsProps?.items : children}
+          <Box style={{ flex: 1, overflowY: 'auto' }}>
+            <Stack gap="xl">
+              {withTabs ? tabsProps?.items : children}
+            </Stack>
+          </Box>
 
-        {withFooter && footerProps?.items && (
-          <>
-            <Divider />
-            <Group gap="md" {...footerProps.flexProps}>
+          {withFooter && footerProps?.items && (
+            <Group gap="lg" justify="flex-end" {...footerProps.flexProps}>
               {footerProps.items}
             </Group>
-          </>
-        )}
-      </Stack>
+          )}
+        </Stack>
+      </Box>
     </Drawer>
   )
 }
@@ -246,6 +285,14 @@ export function WorkflowDrawer({
 type DetailDrawerProps = HpyDrawerProps
 
 export function DetailDrawer(props: DetailDrawerProps) {
-  return <HpyDrawer withOverlay={false} lockScroll={false} {...props} />
+  return (
+    <HpyDrawer
+      withOverlay={false}
+      lockScroll={false}
+      closeOnClickOutside
+      closeOnOutsideClick
+      {...props}
+    />
+  )
 }
 
