@@ -125,6 +125,7 @@ export type StatusBadgeProps = Omit<BadgeProps, 'component' | 'children' | 'left
   withBorder?: boolean
   component?: 'div' | 'button'
   interactive?: boolean
+  presentation?: 'default' | 'menu'
 }
 
 type StatusBadgeSelectProps = Omit<StatusBadgeProps, 'status' | 'interactive'> & {
@@ -208,6 +209,7 @@ export function StatusBadge({
   withBorder = false,
   component = 'div',
   interactive = false,
+  presentation = 'default',
   color,
   ...props
 }: StatusBadgeProps) {
@@ -215,7 +217,9 @@ export function StatusBadge({
   const definition = resolveStatusDefinition(status)
   const displayLabel = resolveDisplayLabel(status, definition)
   const isIconOnly = condensed
+  const isMenuPresentation = presentation === 'menu'
   const toneColors = resolveToneColors(theme, definition.tone, color)
+  const iconElement = <HugeiconsIcon icon={definition.icon} size={16} color={toneColors.iconColor} />
 
   return (
     <Badge
@@ -225,20 +229,24 @@ export function StatusBadge({
         root: {
           height: 26,
           minWidth: isIconOnly ? 26 : undefined,
-          paddingLeft: 8,
-          paddingRight: 8,
+          width: isIconOnly ? 26 : isMenuPresentation ? '100%' : undefined,
+          justifyContent: isIconOnly ? 'center' : isMenuPresentation ? 'flex-start' : undefined,
+          paddingLeft: isIconOnly ? 0 : 8,
+          paddingRight: isIconOnly ? 0 : 8,
           borderRadius: theme.radius.sm,
           backgroundColor: toneColors.background,
-          border: withBorder ? `1px solid var(--mantine-color-default-border)` : 'none',
-          cursor: component === 'button' ? 'pointer' : 'default',
+          border: 'none',
+          cursor: interactive ? 'pointer' : 'default',
         },
         label: {
           display: 'inline-flex',
           alignItems: 'center',
-          gap: 8,
-          fontSize: theme.fontSizes.xs,
+          gap: isIconOnly ? 0 : 8,
+          width: isIconOnly ? '100%' : undefined,
+          justifyContent: isIconOnly ? 'center' : undefined,
+          fontSize: isMenuPresentation ? theme.fontSizes.sm : theme.fontSizes.xs,
           fontWeight: 700,
-          lineHeight: '15px',
+          lineHeight: isMenuPresentation ? '20.3px' : '15px',
           color: 'var(--mantine-color-text)',
           textTransform: 'none',
         },
@@ -246,15 +254,18 @@ export function StatusBadge({
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
+          margin: isIconOnly ? 0 : undefined,
+          marginRight: isIconOnly ? 0 : undefined,
+          marginLeft: isIconOnly ? 0 : undefined,
         },
       }}
-      leftSection={<HugeiconsIcon icon={definition.icon} size={16} color={toneColors.iconColor} />}
+      leftSection={isIconOnly ? undefined : iconElement}
       rightSection={
-        interactive ? <HugeiconsIcon icon={ArrowDown01Icon} size={12} color={theme.colors.gray[6]} /> : undefined
+        interactive && !isIconOnly ? <HugeiconsIcon icon={ArrowDown01Icon} size={12} color={theme.colors.gray[6]} /> : undefined
       }
       {...props}
     >
-      {!isIconOnly && displayLabel}
+      {isIconOnly ? iconElement : displayLabel}
     </Badge>
   )
 }
@@ -268,6 +279,7 @@ export function StatusBadgeSelect({
   condensed = false,
   ...props
 }: StatusBadgeSelectProps) {
+  const theme = useMantineTheme()
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   })
@@ -281,6 +293,25 @@ export function StatusBadgeSelect({
       width="auto"
       position="bottom-start"
       middlewares={{ flip: true, shift: true }}
+      styles={{
+        dropdown: {
+          padding: 8,
+          borderRadius: theme.radius.sm,
+          border: '1px solid var(--mantine-color-default-border)',
+          backgroundColor: 'var(--mantine-color-body)',
+          boxShadow: 'none',
+        },
+        options: {
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+          padding: 0,
+        },
+        option: {
+          padding: 0,
+          backgroundColor: 'transparent',
+        },
+      }}
       onOptionSubmit={(nextValue) => {
         combobox.closeDropdown()
         onChange(nextValue as StatusBadgeStatus)
@@ -288,10 +319,10 @@ export function StatusBadgeSelect({
       transitionProps={{ transition: 'fade-down', duration: 150 }}
     >
       <Combobox.Target>
-        <UnstyledButton type="button" onClick={() => combobox.toggleDropdown()}>
+        <UnstyledButton type="button" onClick={() => combobox.toggleDropdown()} style={{ cursor: 'pointer' }}>
           <StatusBadge
             status={currentStatus}
-            component="div"
+            component="button"
             interactive
             withBorder={withBorder && Boolean(value)}
             condensed={condensed}
@@ -303,8 +334,13 @@ export function StatusBadgeSelect({
         <Combobox.Options>
           {options.map((statusKey) => (
             <Combobox.Option key={statusKey} value={statusKey}>
-              <Box w="100%" my={3}>
-                <StatusBadge status={statusKey} withBorder={withBorder && value === statusKey} condensed={condensed} />
+              <Box w="100%">
+                <StatusBadge
+                  status={statusKey}
+                  withBorder={withBorder && value === statusKey}
+                  condensed={false}
+                  presentation="menu"
+                />
               </Box>
             </Combobox.Option>
           ))}

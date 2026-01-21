@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Arrow" clip-path="url(#clip0_14849_11420)">
+<path id="Polygon " d="M5.32715 1.62207L8.79102 4.62207L9.80566 5.5H0.194336L1.20898 4.62207L4.67285 1.62207L5 1.33887L5.32715 1.62207Z" fill="var(--fill-0, white)" stroke="var(--stroke-0, #E7E7E7)"/>
+</g>
+<defs>
+<clipPath id="clip0_14849_11420">
+<rect width="10" height="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>
