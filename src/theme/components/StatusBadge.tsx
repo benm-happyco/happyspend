@@ -1,4 +1,4 @@
-import { Badge, Box, Combobox, useCombobox, useMantineTheme } from '@mantine/core'
+import { Badge, Box, Combobox, UnstyledButton, useCombobox, useMantineTheme } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
 import type { BadgeProps } from '@mantine/core'
 import {
@@ -88,11 +88,35 @@ const STATUS_BADGES: Record<StatusBadgeStatus, StatusBadgeDefinition> = {
 
 export const STATUS_BADGE_KEYS = Object.keys(STATUS_BADGES) as StatusBadgeStatus[]
 
+const STATUS_BADGE_DROPDOWN_KEYS: StatusBadgeStatus[] = [
+  'CANCELED',
+  'FOR_REVIEW',
+  'ACTIVE',
+  'COMPLETE',
+  'SCHEDULED',
+]
+
 type StatusBadgeCustomStatus = {
   statusKey: string
   label: string
   icon: IconSvgObject
   tone?: StatusBadgeTone
+}
+
+const hexToRgba = (value: string, alpha: number) => {
+  const hex = value.replace('#', '')
+  const normalized =
+    hex.length === 3 ? hex.split('').map((char) => `${char}${char}`).join('') : hex
+  if (normalized.length !== 6) {
+    return value
+  }
+  const red = parseInt(normalized.slice(0, 2), 16)
+  const green = parseInt(normalized.slice(2, 4), 16)
+  const blue = parseInt(normalized.slice(4, 6), 16)
+  if (Number.isNaN(red) || Number.isNaN(green) || Number.isNaN(blue)) {
+    return value
+  }
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
 }
 
 export type StatusBadgeProps = Omit<BadgeProps, 'component' | 'children' | 'leftSection' | 'rightSection'> & {
@@ -125,26 +149,57 @@ const resolveStatusDefinition = (status: StatusBadgeProps['status']): StatusBadg
 
 const resolveToneColors = (theme: ReturnType<typeof useMantineTheme>, tone: StatusBadgeTone, color?: BadgeProps['color']) => {
   const themeColor = color && theme.colors[color] ? theme.colors[color] : null
+  const alpha = 0.1
 
   if (themeColor) {
+    const baseColor = themeColor[6] ?? themeColor[5] ?? themeColor[4]
     return {
-      background: themeColor[0],
-      iconColor: themeColor[6] ?? themeColor[5] ?? themeColor[4],
+      background: hexToRgba(baseColor, alpha),
+      iconColor: baseColor,
     }
   }
 
   switch (tone) {
     case 'primary':
-      return { background: theme.colors.blurple[0], iconColor: theme.colors.blurple[6] }
+      return {
+        background: hexToRgba(theme.colors.blurple[6], alpha),
+        iconColor: theme.colors.blurple[6],
+      }
     case 'success':
-      return { background: theme.colors.green[0], iconColor: theme.colors.green[6] }
+      return {
+        background: hexToRgba(theme.colors.green[6], alpha),
+        iconColor: theme.colors.green[6],
+      }
     case 'warning':
-      return { background: theme.colors.yellow[0], iconColor: theme.colors.yellow[6] }
+      return {
+        background: hexToRgba(theme.colors.yellow[6], alpha),
+        iconColor: theme.colors.yellow[6],
+      }
     case 'danger':
-      return { background: theme.colors.red[0], iconColor: theme.colors.red[6] }
+      return {
+        background: hexToRgba(theme.colors.red[6], alpha),
+        iconColor: theme.colors.red[6],
+      }
     default:
-      return { background: theme.colors.gray[0], iconColor: theme.colors.gray[6] }
+      return {
+        background: hexToRgba(theme.colors.gray[6], alpha),
+        iconColor: theme.colors.gray[6],
+      }
   }
+}
+
+const toTitleCase = (value: string) =>
+  value
+    .replace(/[_-]+/g, ' ')
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+
+const resolveDisplayLabel = (status: StatusBadgeProps['status'], definition: StatusBadgeDefinition) => {
+  if (typeof status !== 'string') {
+    return toTitleCase(status.label)
+  }
+
+  return toTitleCase(definition.label)
 }
 
 export function StatusBadge({
@@ -158,6 +213,7 @@ export function StatusBadge({
 }: StatusBadgeProps) {
   const theme = useMantineTheme()
   const definition = resolveStatusDefinition(status)
+  const displayLabel = resolveDisplayLabel(status, definition)
   const isIconOnly = condensed
   const toneColors = resolveToneColors(theme, definition.tone, color)
 
@@ -184,6 +240,7 @@ export function StatusBadge({
           fontWeight: 700,
           lineHeight: '15px',
           color: 'var(--mantine-color-text)',
+          textTransform: 'none',
         },
         section: {
           display: 'inline-flex',
@@ -197,7 +254,7 @@ export function StatusBadge({
       }
       {...props}
     >
-      {!isIconOnly && definition.label}
+      {!isIconOnly && displayLabel}
     </Badge>
   )
 }
@@ -205,7 +262,7 @@ export function StatusBadge({
 export function StatusBadgeSelect({
   value,
   onChange,
-  options = STATUS_BADGE_KEYS,
+  options = STATUS_BADGE_DROPDOWN_KEYS,
   emptyStatus = { statusKey: 'EMPTY', label: 'Empty', icon: RemoveCircleIcon, tone: 'neutral' },
   withBorder = false,
   condensed = false,
@@ -222,6 +279,8 @@ export function StatusBadgeSelect({
       store={combobox}
       withinPortal={false}
       width="auto"
+      position="bottom-start"
+      middlewares={{ flip: true, shift: true }}
       onOptionSubmit={(nextValue) => {
         combobox.closeDropdown()
         onChange(nextValue as StatusBadgeStatus)
@@ -229,16 +288,16 @@ export function StatusBadgeSelect({
       transitionProps={{ transition: 'fade-down', duration: 150 }}
     >
       <Combobox.Target>
-        <StatusBadge
-          status={currentStatus}
-          component="button"
-          type="button"
-          interactive
-          withBorder={withBorder && Boolean(value)}
-          condensed={condensed}
-          onClick={() => combobox.toggleDropdown()}
-          {...props}
-        />
+        <UnstyledButton type="button" onClick={() => combobox.toggleDropdown()}>
+          <StatusBadge
+            status={currentStatus}
+            component="div"
+            interactive
+            withBorder={withBorder && Boolean(value)}
+            condensed={condensed}
+            {...props}
+          />
+        </UnstyledButton>
       </Combobox.Target>
       <Combobox.Dropdown maw={200}>
         <Combobox.Options>

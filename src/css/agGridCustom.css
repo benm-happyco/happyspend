@@ -12,7 +12,7 @@
   --ag-wrapper-border-radius: 8px;
   --ag-row-border-color: var(--mantine-color-gray-1);
   --ag-header-column-separator-color: var(--mantine-color-gray-1);
-  --ag-filled-row-background: var(--mantine-color-default);
+  --ag-filled-row-background: var(--mantine-color-body);
   --ag-filled-row-hover: var(--mantine-color-default-hover);
   position: relative;
 }
@@ -140,9 +140,9 @@
   --ag-border-color: var(--mantine-color-gray-1);
   --ag-row-hover-color: transparent;
   --ag-selected-row-background-color: var(--mantine-color-default-hover);
-  --ag-odd-row-background-color: var(--mantine-color-default);
-  --ag-even-row-background-color: var(--mantine-color-default);
-  --ag-background-color: var(--mantine-color-default);
+  --ag-odd-row-background-color: var(--mantine-color-body);
+  --ag-even-row-background-color: var(--mantine-color-body);
+  --ag-background-color: var(--mantine-color-body);
   --ag-foreground-color: var(--mantine-color-dark-9); /* default text */
   --ag-data-color: var(--mantine-color-dark-9);
   --ag-cell-text-color: var(--mantine-color-dark-9);
@@ -158,16 +158,16 @@
 
 /* Dark mode support */
 [data-mantine-color-scheme="dark"] .ag-theme-alpine {
-  --ag-filled-row-background: var(--mantine-color-default) !important;
+  --ag-filled-row-background: var(--mantine-color-body) !important;
   --ag-filled-row-hover: var(--mantine-color-default-hover) !important;
   --ag-header-background-color: var(--mantine-color-body) !important;
   --ag-header-foreground-color: var(--mantine-color-dark-0) !important; /* Text/title */
   --ag-border-color: var(--mantine-color-dark-4) !important;
   --ag-row-hover-color: transparent !important;
   --ag-selected-row-background-color: var(--mantine-color-default-hover) !important;
-  --ag-odd-row-background-color: var(--mantine-color-default) !important;
-  --ag-even-row-background-color: var(--mantine-color-default) !important;
-  --ag-background-color: var(--mantine-color-default) !important;
+  --ag-odd-row-background-color: var(--mantine-color-body) !important;
+  --ag-even-row-background-color: var(--mantine-color-body) !important;
+  --ag-background-color: var(--mantine-color-body) !important;
   --ag-foreground-color: var(--mantine-color-dark-0) !important; /* default text */
   --ag-data-color: var(--mantine-color-dark-0) !important;
   --ag-cell-text-color: var(--mantine-color-dark-0) !important;
@@ -238,7 +238,7 @@
 }
 
 .ag-theme-alpine .ag-row.ag-row-active {
-  box-shadow: inset 0 0 0 1px var(--mantine-color-blurple-6) !important;
+  box-shadow: none !important;
 }
 
 /* Force dark mode background colors */
@@ -253,7 +253,7 @@
 
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row,
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-row-even {
-  background-color: var(--mantine-color-default) !important;
+  background-color: var(--mantine-color-body) !important;
   color: #b8b8b8 !important; /* dark[1] - neutral gray, no blue tint */
 }
 
@@ -582,15 +582,83 @@
   background-color: #efefff;
 }
 
-/* Checkbox styling */
-[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-checkbox-input:checked {
-  background-color: #635bff !important;
-  border-color: #635bff !important;
+/* Checkbox styling - align with Mantine checkbox (AG Grid uses wrapper ::before/::after) */
+.ag-theme-alpine .ag-checkbox-input-wrapper {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
-.ag-theme-alpine .ag-checkbox-input:checked {
-  background-color: #635bff;
-  border-color: #635bff;
+.ag-theme-alpine .ag-checkbox-input-wrapper::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: var(--mantine-radius-sm);
+  border: 1px solid var(--mantine-color-gray-4);
+  background-color: transparent;
+  box-shadow: none !important;
+  filter: none !important;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-checkbox-input-wrapper::before {
+  border-color: var(--mantine-color-dark-4);
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 14px;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-checked::before,
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-indeterminate::before {
+  background-color: var(--mantine-color-blurple-6) !important;
+  border-color: var(--mantine-color-blurple-6) !important;
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-checked::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3.5 8.5l3 3L12.5 5.5'/></svg>");
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-indeterminate::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'><path d='M3 8h10'/></svg>");
+}
+
+.ag-theme-alpine .ag-checkbox-input {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  opacity: 0;
+}
+
+.ag-theme-alpine .ag-checkbox-input:focus-visible + .ag-checkbox-input-wrapper::before,
+.ag-theme-alpine .ag-checkbox-input:focus-visible {
+  outline: none;
+}
+
+.ag-theme-alpine .ag-checkbox-input-wrapper.ag-disabled,
+.ag-theme-alpine .ag-checkbox-input:disabled + .ag-checkbox-input-wrapper {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Dropdown/select styling */
