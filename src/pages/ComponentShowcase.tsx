@@ -30,6 +30,7 @@ import {
 import { useState, useMemo } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import { ColDef, ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -395,16 +396,7 @@ export function ComponentShowcase() {
 
 // AG Grid Example Component
 function AgGridExample() {
-  const defaultColDef = useMemo(
-    () => ({
-      sortable: true,
-      filter: true,
-      resizable: true,
-      flex: 1,
-      minWidth: 100,
-    }),
-    []
-  )
+  const defaultColDef = useMemo(() => ({ ...AG_GRID_DEFAULT_COL_DEF, minWidth: 100 }), [])
 
   const columnDefs: ColDef[] = useMemo(
     () => [
@@ -437,16 +429,15 @@ function AgGridExample() {
       className="ag-theme-alpine"
     >
       <AgGridReact
+        {...AG_GRID_DEFAULT_GRID_PROPS}
         rowData={rowData}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
-        animateRows={true}
         rowSelection="multiple"
         headerHeight={40}
         rowHeight={40}
         enableRangeSelection={true}
         enableFillHandle={true}
-        suppressMenuHide={false}
       />
     </div>
   )

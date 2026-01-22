@@ -16,6 +16,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import { ColDef, ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
 import { supabase } from '../lib/supabase'
+import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -49,7 +50,7 @@ export function Test() {
       const { data, error: supabaseError } = await supabase
         .from('residents')
         .select('*')
-        .limit(50)
+        .limit(500)
 
       if (supabaseError) {
         throw supabaseError
@@ -220,31 +221,18 @@ function ResidentsGrid({ residents }: { residents: Resident[] }) {
     return dataColumns
   }, [residents])
 
-  const defaultColDef = useMemo(
-    () => ({
-      sortable: true,
-      filter: true,
-      resizable: true,
-      flex: 1,
-      minWidth: 100,
-    }),
-    []
-  )
+  const defaultColDef = useMemo(() => ({ ...AG_GRID_DEFAULT_COL_DEF, minWidth: 100 }), [])
 
   return (
     <div style={{ height: '600px', width: '100%' }} className="ag-theme-alpine">
       <AgGridReact
+        {...AG_GRID_DEFAULT_GRID_PROPS}
         rowData={residents}
         columnDefs={columnDefs}
         defaultColDef={defaultColDef}
-        theme="legacy"
-        animateRows={true}
         rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true }}
         headerHeight={40}
         rowHeight={48}
-        pagination={true}
-        paginationPageSize={25}
-        paginationPageSizeSelector={[10, 25, 50, 100]}
       />
     </div>
   )

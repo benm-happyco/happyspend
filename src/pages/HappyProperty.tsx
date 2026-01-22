@@ -36,6 +36,7 @@ import {
 } from '@hugeicons-pro/core-stroke-rounded'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { getCategoryIconSrc } from '../theme/components/categoryIcons'
+import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -287,6 +288,7 @@ export function HappyProperty() {
       const { data, error: supabaseError } = await supabase
         .from('work_orders')
         .select('*')
+        .limit(500)
 
       if (supabaseError) {
         throw supabaseError
@@ -298,7 +300,7 @@ export function HappyProperty() {
         const { data: categoryRows, error: categoryError } = await supabase
           .from('categories')
           .select('*')
-          .limit(200)
+          .limit(500)
         if (!categoryError && categoryRows) {
           setCategoryNameById(
             buildLookup(categoryRows, ['id', 'category_id', 'categoryid'], ['name', 'category_name', 'categoryname', 'title'])
@@ -310,7 +312,7 @@ export function HappyProperty() {
         const { data: subcategoryRows, error: subcategoryError } = await supabase
           .from('subcategories')
           .select('*')
-          .limit(200)
+          .limit(500)
         if (!subcategoryError && subcategoryRows) {
           setSubcategoryNameById(
             buildLookup(subcategoryRows, ['id', 'subcategory_id', 'subcategoryid'], ['name', 'subcategory_name', 'subcategoryname', 'title'])
@@ -322,6 +324,7 @@ export function HappyProperty() {
         const { data: residentRows, error: residentError } = await supabase
           .from('residents')
           .select('*')
+          .limit(500)
         if (!residentError && residentRows) {
           setResidentById(buildResidentLookup(residentRows))
         } else if (residentError) {
@@ -1171,22 +1174,7 @@ function WorkOrdersGrid({
     return [...missing, ...missingWorkOrderParts.map((label) => `Work Order: ${label}`)]
   }, [workOrders])
 
-  const defaultColDef = useMemo(
-    () => ({
-      sortable: true,
-      filter: 'agSetColumnFilter',
-      filterParams: {
-        buttons: [],
-        closeOnApply: true,
-        suppressAndOrCondition: true,
-      },
-      menuTabs: ['filterMenuTab'],
-      resizable: true,
-      flex: 1,
-      minWidth: 140,
-    }),
-    []
-  )
+  const defaultColDef = useMemo(() => ({ ...AG_GRID_DEFAULT_COL_DEF }), [])
 
   const updateFooterCounts = useCallback((api: { getDisplayedRowCount: () => number; getSelectedNodes: () => unknown[] }) => {
     setRowCount(api.getDisplayedRowCount())
@@ -1216,17 +1204,12 @@ function WorkOrdersGrid({
       )}
       <div style={{ height: '100%', width: '100%' }} className="ag-theme-alpine">
         <AgGridReact
+          {...AG_GRID_DEFAULT_GRID_PROPS}
           rowData={workOrders}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
-          theme="legacy"
-          animateRows={true}
-          suppressMenuHide={false}
-          enableFilterMenuButton={true}
           popupParent={document.body}
           rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true }}
-          headerHeight={48}
-          rowHeight={60}
           suppressRowClickSelection={true}
           onRowClicked={onRowClicked}
           getRowClass={(params) => (params.node.id && params.node.id === activeRowId ? 'ag-row-active' : '')}
@@ -1237,9 +1220,6 @@ function WorkOrdersGrid({
           onSelectionChanged={(params) => updateFooterCounts(params.api)}
           onFilterChanged={(params) => updateFooterCounts(params.api)}
           onModelUpdated={(params) => updateFooterCounts(params.api)}
-          pagination={true}
-          paginationPageSize={25}
-          paginationPageSizeSelector={[10, 25, 50, 100]}
         />
         <Box className="ag-custom-footer">
           <Text size="sm">
