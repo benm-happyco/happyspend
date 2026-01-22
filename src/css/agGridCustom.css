@@ -47,6 +47,11 @@
   background-color: var(--mantine-color-default-hover) !important;
 }
 
+.ag-theme-alpine .ag-header-cell-menu-button,
+.ag-theme-alpine .ag-header-cell-menu-button * {
+  pointer-events: auto !important;
+}
+
 .ag-theme-alpine .ag-header-cell-resize {
   display: block !important;
   width: 1px;
@@ -569,6 +574,8 @@
   background-color: #ffffff;
   border-color: #caced0;
   color: #212b31;
+  z-index: 5000;
+  position: fixed;
 }
 
 /* Menu items */

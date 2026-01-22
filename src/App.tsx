@@ -5,6 +5,8 @@ import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
 import { Test } from './pages/Test'
 import { HappyProperty } from './pages/HappyProperty'
+import { HappyPropertyOnboarding } from './pages/HappyPropertyOnboarding'
+import { HappyPropertyTest3 } from './pages/HappyPropertyTest3'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -64,6 +66,8 @@ function AppLayout() {
   if (isHappyProperty) {
     return (
       <Routes>
+        <Route path="/happy-property/onboarding" element={<HappyPropertyOnboarding />} />
+        <Route path="/happy-property/test-3" element={<HappyPropertyTest3 />} />
         <Route path="/happy-property/*" element={<HappyProperty />} />
       </Routes>
     )

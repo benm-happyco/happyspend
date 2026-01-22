@@ -37,6 +37,7 @@ type StatusBadgeDefinition = {
 
 export type StatusBadgeStatus =
   | 'CANCELED'
+  | 'CANCELLED'
   | 'EXPIRED'
   | 'INACTIVE'
   | 'DRAFT'
@@ -62,6 +63,7 @@ export type StatusBadgeStatus =
 
 const STATUS_BADGES: Record<StatusBadgeStatus, StatusBadgeDefinition> = {
   CANCELED: { statusKey: 'CANCELED', label: 'Canceled', icon: RemoveCircleIcon, tone: 'neutral' },
+  CANCELLED: { statusKey: 'CANCELLED', label: 'Canceled', icon: RemoveCircleIcon, tone: 'neutral' },
   EXPIRED: { statusKey: 'EXPIRED', label: 'Expired', icon: HourglassIcon, tone: 'neutral' },
   INACTIVE: { statusKey: 'INACTIVE', label: 'Inactive', icon: StopIcon, tone: 'neutral' },
   DRAFT: { statusKey: 'DRAFT', label: 'Draft', icon: Progress03Icon, tone: 'neutral' },
@@ -322,7 +324,7 @@ export function StatusBadgeSelect({
         <UnstyledButton type="button" onClick={() => combobox.toggleDropdown()} style={{ cursor: 'pointer' }}>
           <StatusBadge
             status={currentStatus}
-            component="button"
+            component="div"
             interactive
             withBorder={withBorder && Boolean(value)}
             condensed={condensed}

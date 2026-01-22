@@ -1,7 +1,6 @@
 import {
   Accordion,
   Alert,
-  Badge,
   Button,
   Card,
   Group,
@@ -31,6 +30,8 @@ export function CustomizedComponents() {
   const [workflowOpened, workflowHandlers] = useDisclosure(false)
   const [detailOpened, detailHandlers] = useDisclosure(false)
   const [statusValue, setStatusValue] = useState<StatusBadgeStatus | null>('DRAFT')
+  const [inlinePriority, setInlinePriority] = useState<StatusBadgeStatus>('NORMAL')
+  const [inlineStatus, setInlineStatus] = useState<StatusBadgeStatus>('OPEN')
 
   return (
     <Stack gap="xl" p="xl">
@@ -168,23 +169,34 @@ export function CustomizedComponents() {
               <Text fw={600} size="sm">
                 Priority
               </Text>
-              <Badge variant="light" color="gray">
-                Normal
-              </Badge>
+              <StatusBadgeSelect
+                value={inlinePriority}
+                onChange={setInlinePriority}
+                options={['NORMAL', 'URGENT']}
+              />
             </Group>
             <Group gap="xs">
               <Text fw={600} size="sm">
                 Status
               </Text>
-              <Badge variant="light" color="green">
-                Open
-              </Badge>
+              <StatusBadgeSelect
+                value={inlineStatus}
+                onChange={setInlineStatus}
+                options={['OPEN', 'IN_PROGRESS', 'ON_HOLD', 'COMPLETE']}
+              />
             </Group>
           </Group>
         }
         tabs={
           <Tabs defaultValue="details">
-            <Tabs.List>
+            <Tabs.List
+              style={{
+                position: 'sticky',
+                top: 0,
+                zIndex: 1,
+                backgroundColor: 'var(--mantine-color-body)',
+              }}
+            >
               <Tabs.Tab value="details">Details</Tabs.Tab>
               <Tabs.Tab value="messages">Messages</Tabs.Tab>
               <Tabs.Tab value="files">Files</Tabs.Tab>

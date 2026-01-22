@@ -1,4 +1,22 @@
-import { Alert, Box, Button, Group, Loader, SimpleGrid, Stack, Text, TextInput, Textarea, Title } from '@mantine/core'
+import {
+  Accordion,
+  Alert,
+  Avatar,
+  Badge,
+  Box,
+  Button,
+  Checkbox,
+  Group,
+  Select,
+  SimpleGrid,
+  Skeleton,
+  Stack,
+  Tabs,
+  Text,
+  TextInput,
+  Textarea,
+  Title,
+} from '@mantine/core'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import { AllCommunityModule, ColDef, GridApi, ModuleRegistry, RowClickedEvent } from 'ag-grid-community'
@@ -7,6 +25,17 @@ import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { supabase } from '../lib/supabase'
 import { InlineEditorDrawer } from '../theme/components/HpyDrawer'
+import { StatusBadge, StatusBadgeSelect, STATUS_BADGE_KEYS, type StatusBadgeStatus } from '../theme/components/StatusBadge'
+import { JoyAiIcon } from '../theme/components/JoyAiIcon'
+import {
+  ArrowDown01Icon,
+  CircleIcon,
+  LinkSquare01Icon,
+  PlugSocketIcon,
+  RefrigeratorIcon,
+} from '@hugeicons-pro/core-stroke-rounded'
+import { HugeiconsIcon } from '@hugeicons/react'
+import { getCategoryIcon } from '../theme/components/categoryIcons'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -38,9 +67,27 @@ const formatAbsoluteDateTime = (date: Date) => `${formatMonthDayYear(date)} at $
 
 const getStartOfDay = (date: Date) => new Date(date.getFullYear(), date.getMonth(), date.getDate())
 
+const toDateInputValue = (value: unknown) => {
+  if (value === null || value === undefined || value === '') return ''
+  const date = value instanceof Date ? value : new Date(String(value))
+  if (Number.isNaN(date.getTime())) return ''
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
 const resolveFieldForLabel = (label: string, keys: string[]) => {
   const normalize = (value: string) => value.toLowerCase().replace(/[\s_]/g, '')
   const normalizedLabel = normalize(label)
+  if (label === 'Category') {
+    const categoryIdKey = keys.find((key) => normalize(key) === 'categoryid')
+    if (categoryIdKey) return categoryIdKey
+  }
+  if (label === 'Asset Name') {
+    const subcategoryIdKey = keys.find((key) => normalize(key) === 'subcategoryid')
+    if (subcategoryIdKey) return subcategoryIdKey
+  }
   const exactMatch = keys.find((key) => normalize(key) === normalizedLabel)
   if (exactMatch) return exactMatch
 
@@ -67,6 +114,60 @@ const getWorkOrderTitle = (row: WorkOrder | null) => {
   ].filter((value) => value !== null && value !== undefined && String(value).trim().length > 0)
 
   return parts.join(' • ') || 'Work Order'
+}
+
+const toStatusKey = (value: unknown): StatusBadgeStatus | null => {
+  if (value === null || value === undefined) return null
+  const normalized = String(value).trim().toUpperCase().replace(/[\s-]+/g, '_')
+  const aliases: Record<string, StatusBadgeStatus> = {
+    CANCELLED: 'CANCELED',
+  }
+  const resolved = aliases[normalized] ?? normalized
+  if (STATUS_BADGE_KEYS.includes(resolved as StatusBadgeStatus)) {
+    return resolved as StatusBadgeStatus
+  }
+
+  console.warn('[HappyProperty] Unknown status value; falling back to null', {
+    raw: value,
+    normalized,
+    resolved,
+  })
+  return null
+}
+
+const resolveBadgeStatus = (value: unknown, fallback: StatusBadgeStatus) => {
+  const normalized = toStatusKey(value)
+  if (normalized) return normalized
+  if (value === null || value === undefined) return fallback
+  const label = String(value).trim()
+  if (!label) return fallback
+  return {
+    statusKey: label.toUpperCase().replace(/[\s-]+/g, '_'),
+    label,
+    icon: CircleIcon,
+    tone: 'neutral' as const,
+  }
+}
+
+const buildLookup = (rows: WorkOrder[], idHints: string[], nameHints: string[]) => {
+  if (!rows.length) return {}
+  const keys = Object.keys(rows[0] ?? {})
+  const normalize = (value: string) => value.toLowerCase().replace(/[\s_]/g, '')
+  const findKey = (hints: string[]) =>
+    keys.find((key) => hints.some((hint) => normalize(key).includes(normalize(hint))))
+
+  const idKey = findKey(idHints)
+  const nameKey = findKey(nameHints)
+  if (!idKey || !nameKey) return {}
+
+  return rows.reduce<Record<string, string>>((acc, row) => {
+    const idValue = row?.[idKey]
+    const nameValue = row?.[nameKey]
+    if (idValue !== null && idValue !== undefined && nameValue !== null && nameValue !== undefined) {
+      acc[String(idValue)] = String(nameValue)
+    }
+    return acc
+  }, {})
 }
 
 const parseDateValue = (value: unknown) => {
@@ -136,9 +237,18 @@ export function HappyProperty() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [drawerOpened, setDrawerOpened] = useState(false)
+  const [drawerLoading, setDrawerLoading] = useState(false)
   const [selectedRow, setSelectedRow] = useState<WorkOrder | null>(null)
   const [editableValues, setEditableValues] = useState<Record<string, string>>({})
   const [activeRowId, setActiveRowId] = useState<string | null>(null)
+  const [searchValue, setSearchValue] = useState('')
+  const [timeTrackingEnabled, setTimeTrackingEnabled] = useState(false)
+  const [timeTrackingHours, setTimeTrackingHours] = useState('')
+  const [timeTrackingMinutes, setTimeTrackingMinutes] = useState('')
+  const [inlinePriority, setInlinePriority] = useState<StatusBadgeStatus | null>(null)
+  const [inlineStatus, setInlineStatus] = useState<StatusBadgeStatus | null>(null)
+  const [categoryNameById, setCategoryNameById] = useState<Record<string, string>>({})
+  const [subcategoryNameById, setSubcategoryNameById] = useState<Record<string, string>>({})
   const gridApiRef = useRef<GridApi | null>(null)
 
   useEffect(() => {
@@ -153,7 +263,6 @@ export function HappyProperty() {
       const { data, error: supabaseError } = await supabase
         .from('work_orders')
         .select('*')
-        .limit(50)
 
       if (supabaseError) {
         throw supabaseError
@@ -161,6 +270,31 @@ export function HappyProperty() {
 
       if (data) {
         setWorkOrders(data)
+
+        const { data: categoryRows, error: categoryError } = await supabase
+          .from('categories')
+          .select('*')
+          .limit(200)
+        if (!categoryError && categoryRows) {
+          setCategoryNameById(
+            buildLookup(categoryRows, ['id', 'category_id', 'categoryid'], ['name', 'category_name', 'categoryname', 'title'])
+          )
+        } else if (categoryError) {
+          console.warn('Failed to load categories', categoryError)
+        }
+
+        const { data: subcategoryRows, error: subcategoryError } = await supabase
+          .from('subcategories')
+          .select('*')
+          .limit(200)
+        if (!subcategoryError && subcategoryRows) {
+          setSubcategoryNameById(
+            buildLookup(subcategoryRows, ['id', 'subcategory_id', 'subcategoryid'], ['name', 'subcategory_name', 'subcategoryname', 'title'])
+          )
+        } else if (subcategoryError) {
+          console.warn('Failed to load subcategories', subcategoryError)
+        }
+
       } else {
         setError('No work_orders table found. Please create a "work_orders" table in Supabase.')
       }
@@ -199,7 +333,220 @@ export function HappyProperty() {
     }, {})
     setEditableValues(nextValues)
     setDrawerOpened(true)
+    setDrawerLoading(true)
   }, [])
+
+  const drawerHeader = useMemo(() => {
+    if (!selectedRow) {
+      return { title: 'Work Order', subtitle: undefined as string | undefined, eyebrow: undefined as string | undefined }
+    }
+
+    const keys = Object.keys(selectedRow)
+    const assetNameKey = resolveFieldForLabel('Asset Name', keys)
+    const categoryKey = resolveFieldForLabel('Category', keys)
+    const locationKey = resolveFieldForLabel('Location', keys)
+    const subcategoryKey = resolveFieldForLabel('Subcategory', keys)
+
+    const assetValue = assetNameKey ? selectedRow[assetNameKey] : null
+    const categoryValue = categoryKey ? selectedRow[categoryKey] : null
+    const subcategoryValue = subcategoryKey ? selectedRow[subcategoryKey] : null
+
+    const assetName =
+      assetValue !== null && assetValue !== undefined
+        ? subcategoryNameById[String(assetValue)] ?? String(assetValue)
+        : undefined
+    const categoryName =
+      categoryValue !== null && categoryValue !== undefined
+        ? categoryNameById[String(categoryValue)] ?? String(categoryValue)
+        : undefined
+    const subcategoryName =
+      subcategoryValue !== null && subcategoryValue !== undefined
+        ? subcategoryNameById[String(subcategoryValue)] ?? String(subcategoryValue)
+        : undefined
+
+    return {
+      title: assetName ?? getWorkOrderTitle(selectedRow),
+      subtitle: categoryName,
+      eyebrow: locationKey ? String(selectedRow[locationKey]) : subcategoryName,
+    }
+  }, [selectedRow, categoryNameById, subcategoryNameById])
+
+  const drawerIcon = useMemo(() => {
+    if (!selectedRow) return RefrigeratorIcon
+    const keys = Object.keys(selectedRow)
+    const categoryKey = resolveFieldForLabel('Category', keys)
+    const categoryValue = categoryKey ? selectedRow[categoryKey] : null
+    const categoryName =
+      categoryValue !== null && categoryValue !== undefined
+        ? String(categoryNameById[String(categoryValue)] ?? categoryValue)
+        : ''
+    return getCategoryIcon(categoryName)
+  }, [selectedRow, categoryNameById])
+
+  useEffect(() => {
+    if (!selectedRow) {
+      setInlinePriority(null)
+      setInlineStatus(null)
+      setTimeTrackingEnabled(false)
+      setTimeTrackingHours('')
+      setTimeTrackingMinutes('')
+      return
+    }
+
+    const keys = Object.keys(selectedRow)
+    const priorityKey = resolveFieldForLabel('Priority', keys)
+    const statusKey = resolveFieldForLabel('Status', keys)
+
+    const priorityValue = priorityKey ? selectedRow[priorityKey] : null
+    const statusValue = statusKey ? selectedRow[statusKey] : null
+
+    setInlinePriority(priorityValue ? toStatusKey(priorityValue) : null)
+    setInlineStatus(statusValue ? toStatusKey(statusValue) : null)
+    setTimeTrackingEnabled(false)
+    setTimeTrackingHours('')
+    setTimeTrackingMinutes('')
+  }, [selectedRow])
+
+  useEffect(() => {
+    if (!drawerOpened) return
+    const timer = window.setTimeout(() => {
+      setDrawerLoading(false)
+    }, 250)
+    return () => window.clearTimeout(timer)
+  }, [drawerOpened])
+
+  useEffect(() => {
+    const api = gridApiRef.current as GridApi | null
+    if (!api) return
+    if (typeof (api as any).setGridOption === 'function') {
+      ;(api as any).setGridOption('quickFilterText', searchValue)
+      return
+    }
+    if (typeof (api as any).setQuickFilter === 'function') {
+      ;(api as any).setQuickFilter(searchValue)
+    }
+  }, [searchValue])
+
+  const categoryDisplayKey = useMemo(
+    () => resolveFieldForLabel('Category', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const subcategoryDisplayKey = useMemo(
+    () => resolveFieldForLabel('Subcategory', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const assetNameDisplayKey = useMemo(
+    () => resolveFieldForLabel('Asset Name', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const assigneeDisplayKey = useMemo(
+    () => resolveFieldForLabel('Assignee', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const scheduledDisplayKey = useMemo(
+    () => resolveFieldForLabel('Scheduled', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const descriptionDisplayKey = useMemo(
+    () => resolveFieldForLabel('Description', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const residentNameDisplayKey = useMemo(() => {
+    const keys = Object.keys(editableValues)
+    const candidates = ['Resident Name', 'Resident', 'Contact Name', 'Contact']
+    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
+  }, [editableValues])
+  const residentPhoneDisplayKey = useMemo(() => {
+    const keys = Object.keys(editableValues)
+    const candidates = ['Resident Phone', 'Phone', 'Contact Phone', 'Phone Number']
+    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
+  }, [editableValues])
+  const residentStatusDisplayKey = useMemo(() => {
+    const keys = Object.keys(editableValues)
+    const candidates = ['Resident Status', 'Resident Type', 'Contact Type']
+    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
+  }, [editableValues])
+  const relatedProjectsDisplayKey = useMemo(
+    () => resolveFieldForLabel('Related Projects', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const pluginNameDisplayKey = useMemo(() => {
+    const keys = Object.keys(editableValues)
+    const candidates = ['Plugin Name', 'Active Plugin', 'Plugin']
+    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
+  }, [editableValues])
+  const pluginAuthorDisplayKey = useMemo(() => {
+    const keys = Object.keys(editableValues)
+    const candidates = ['Plugin Author', 'Vendor', 'Provider']
+    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
+  }, [editableValues])
+  const priorityDisplayKey = useMemo(
+    () => resolveFieldForLabel('Priority', Object.keys(editableValues)),
+    [editableValues]
+  )
+  const statusDisplayKey = useMemo(
+    () => resolveFieldForLabel('Status', Object.keys(editableValues)),
+    [editableValues]
+  )
+
+  const assigneeOptions = useMemo(() => {
+    const values = new Set<string>()
+    workOrders.forEach((order) => {
+      const keys = Object.keys(order)
+      const key = resolveFieldForLabel('Assignee', keys)
+      if (!key) return
+      const value = order[key]
+      if (value === null || value === undefined) return
+      const trimmed = String(value).trim()
+      if (trimmed.length > 0) values.add(trimmed)
+    })
+    return Array.from(values)
+      .sort((a, b) => a.localeCompare(b))
+      .map((value) => ({ value, label: value }))
+  }, [workOrders])
+
+  const residents = useMemo(() => {
+    const name = residentNameDisplayKey ? editableValues[residentNameDisplayKey] : ''
+    const phone = residentPhoneDisplayKey ? editableValues[residentPhoneDisplayKey] : ''
+    const status = residentStatusDisplayKey ? editableValues[residentStatusDisplayKey] : ''
+    const fallback = assigneeDisplayKey ? editableValues[assigneeDisplayKey] : ''
+    const resolvedName = name || fallback
+
+    return resolvedName
+      ? [
+          {
+            name: resolvedName,
+            phone,
+            status,
+          },
+        ]
+      : []
+  }, [
+    editableValues,
+    residentNameDisplayKey,
+    residentPhoneDisplayKey,
+    residentStatusDisplayKey,
+    assigneeDisplayKey,
+  ])
+
+  const relatedProjects = useMemo(() => {
+    if (!relatedProjectsDisplayKey) return []
+    const value = editableValues[relatedProjectsDisplayKey]
+    if (!value) return []
+    return value
+      .split(',')
+      .map((entry) => entry.trim())
+      .filter(Boolean)
+  }, [editableValues, relatedProjectsDisplayKey])
+
+  const hasTimeTrackingError = useMemo(() => {
+    if (!timeTrackingEnabled) return false
+    const hours = Number(timeTrackingHours)
+    const minutes = Number(timeTrackingMinutes)
+    const hoursValid = !Number.isNaN(hours) && hours > 0
+    const minutesValid = !Number.isNaN(minutes) && minutes > 0
+    return !hoursValid && !minutesValid
+  }, [timeTrackingEnabled, timeTrackingHours, timeTrackingMinutes])
 
   return (
     <>
@@ -215,7 +562,7 @@ export function HappyProperty() {
         <HpySidebar height={`calc(100vh - ${GLOBAL_HEADER_HEIGHT}px)`} />
         <Box style={{ flex: 1, padding: 56, display: 'flex', flexDirection: 'column' }}>
           <Stack gap="xl" style={{ flex: 1, minHeight: 0 }}>
-            <HpyPageHeader />
+            <HpyPageHeader searchValue={searchValue} onSearchChange={setSearchValue} />
             <Stack gap="md" style={{ flex: 1, minHeight: 0 }}>
 
               {error && (
@@ -230,10 +577,12 @@ export function HappyProperty() {
               )}
 
               {loading && !error && (
-                <Group justify="center" py="xl">
-                  <Loader size="md" />
-                  <Text>Loading work orders from Supabase...</Text>
-                </Group>
+                <Stack gap="md">
+                  <Skeleton height={48} radius="md" />
+                  {Array.from({ length: 8 }).map((_, index) => (
+                    <Skeleton key={index} height={56} radius="md" />
+                  ))}
+                </Stack>
               )}
 
               {!loading && !error && workOrders.length === 0 && (
@@ -245,6 +594,8 @@ export function HappyProperty() {
               {!loading && !error && workOrders.length > 0 && (
                 <WorkOrdersGrid
                   workOrders={workOrders}
+                  categoryNameById={categoryNameById}
+                  subcategoryNameById={subcategoryNameById}
                   onRowClicked={handleRowClicked}
                   activeRowId={activeRowId}
                   onGridReadyApi={(api) => {
@@ -266,9 +617,372 @@ export function HappyProperty() {
           setEditableValues({})
         }}
         position="right"
-        title={getWorkOrderTitle(selectedRow)}
+        title={drawerHeader.title}
+        subtitle={drawerHeader.subtitle}
+        eyebrow={drawerHeader.eyebrow}
+        icon={drawerIcon}
         withCloseButton
         preventInitialDrawerFocus
+        statusToggles={
+          <Group gap="xl">
+            <Group gap="xs">
+              <Text fw={600} size="sm">
+                Priority
+              </Text>
+              <StatusBadgeSelect
+                value={inlinePriority}
+                onChange={setInlinePriority}
+                options={['NORMAL', 'URGENT']}
+              />
+            </Group>
+            <Group gap="xs">
+              <Text fw={600} size="sm">
+                Status
+              </Text>
+              <StatusBadgeSelect
+                value={inlineStatus}
+                onChange={setInlineStatus}
+                options={['OPEN', 'IN_PROGRESS', 'ON_HOLD', 'COMPLETE']}
+              />
+            </Group>
+          </Group>
+        }
+        tabs={
+          <Tabs defaultValue="details">
+            <Tabs.List
+              style={{
+                position: 'sticky',
+                top: 0,
+                zIndex: 1,
+                backgroundColor: 'var(--mantine-color-body)',
+              }}
+            >
+              <Tabs.Tab value="details">Details</Tabs.Tab>
+              <Tabs.Tab value="messages">Messages</Tabs.Tab>
+              <Tabs.Tab value="files">Files</Tabs.Tab>
+              <Tabs.Tab value="activities">Activities</Tabs.Tab>
+            </Tabs.List>
+            <Tabs.Panel value="details" pt="lg">
+              {drawerLoading ? (
+                <Stack gap="lg">
+                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                    <Skeleton height={80} radius="md" />
+                    <Skeleton height={80} radius="md" />
+                  </SimpleGrid>
+                  <Skeleton height={120} radius="md" />
+                  <Stack gap={6}>
+                    <Skeleton height={16} width={140} radius="md" />
+                    <Skeleton height={18} radius="md" />
+                  </Stack>
+                  <Stack gap="xs">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                      <Skeleton key={index} height={48} radius="md" />
+                    ))}
+                  </Stack>
+                </Stack>
+              ) : (
+        <Stack gap="lg">
+                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                  <Select
+                    label="Assignee"
+                    withAsterisk
+                    placeholder="Unassigned"
+                    data={assigneeOptions}
+                    value={assigneeDisplayKey ? editableValues[assigneeDisplayKey] ?? '' : ''}
+                    disabled={!assigneeDisplayKey}
+                    onChange={(value) => {
+                      if (!assigneeDisplayKey) return
+                    setEditableValues((prev) => ({
+                      ...prev,
+                        [assigneeDisplayKey]: value ?? '',
+                      }))
+                    }}
+                  />
+                  <TextInput
+                    label="Scheduled"
+                    withAsterisk
+                    type="date"
+                    disabled={!scheduledDisplayKey}
+                    value={
+                      scheduledDisplayKey ? toDateInputValue(editableValues[scheduledDisplayKey]) : ''
+                    }
+                    onChange={(event) => {
+                      if (!scheduledDisplayKey) return
+                      setEditableValues((prev) => ({
+                        ...prev,
+                        [scheduledDisplayKey]: event.currentTarget.value,
+                      }))
+                    }}
+                  />
+            </SimpleGrid>
+                <Textarea
+                  label="Description"
+                  minRows={4}
+                  autosize
+                  disabled={!descriptionDisplayKey}
+                  value={descriptionDisplayKey ? editableValues[descriptionDisplayKey] ?? '' : ''}
+                  onChange={(event) => {
+                    if (!descriptionDisplayKey) return
+                    setEditableValues((prev) => ({
+                      ...prev,
+                      [descriptionDisplayKey]: event.currentTarget.value,
+                    }))
+                  }}
+                />
+                <Stack gap={4}>
+                  <Group gap="xs">
+                    <JoyAiIcon />
+                    <Text
+                      size="sm"
+                      fw={600}
+                      variant="gradient"
+                      gradient={{ from: 'var(--mantine-color-teal-4)', to: 'var(--mantine-color-blurple-6)', deg: 90 }}
+                    >
+                      Summary by JoyAI
+                    </Text>
+                  </Group>
+                  <Text size="md">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </Text>
+                </Stack>
+                <Accordion
+                  variant="default"
+                  chevronPosition="right"
+                  chevron={<HugeiconsIcon icon={ArrowDown01Icon} size={16} color="var(--mantine-color-text)" />}
+                  styles={{
+                    item: {
+                      borderBottom: '1px solid var(--mantine-color-default-border)',
+                    },
+                    control: {
+                      padding: 0,
+                      minHeight: 48,
+                    },
+                    label: {
+                      flex: 1,
+                    },
+                    panel: {
+                      padding: 0,
+                    },
+                  }}
+                >
+                  <Accordion.Item value="Residents">
+                    <Accordion.Control>
+                      <Text size="lg" fw={700}>
+                        Residents
+                      </Text>
+                    </Accordion.Control>
+                    <Accordion.Panel>
+                      <Stack gap="md">
+                        {residents.length > 0 ? (
+                          <Stack gap="xs">
+                            {residents.map((resident) => (
+                              <Group key={resident.name} gap="sm" wrap="nowrap">
+                                <Avatar size="sm" radius="xl">
+                                  {resident.name
+                                    .split(' ')
+                                    .map((part) => part[0])
+                                    .join('')
+                                    .slice(0, 2)
+                                    .toUpperCase()}
+                                </Avatar>
+                                <Text size="sm" style={{ flex: 1 }}>
+                                  {resident.name}
+                                </Text>
+                                {resident.status ? (
+                                  <Badge size="xs" variant="light" color="blurple" tt="uppercase">
+                                    {resident.status}
+                                  </Badge>
+                                ) : null}
+                                {resident.phone ? (
+                                  <Text size="sm" style={{ whiteSpace: 'nowrap' }}>
+                                    {resident.phone}
+                                  </Text>
+                                ) : null}
+                              </Group>
+                            ))}
+                          </Stack>
+                        ) : (
+                          <Text size="sm" c="dimmed">
+                            No residents found.
+                          </Text>
+                        )}
+                        <Stack gap={4}>
+                          <Text size="sm" fw={600}>
+                            Resident Notifications
+                          </Text>
+                          <Group justify="space-between" align="center" wrap="nowrap">
+                            <Checkbox
+                              size="sm"
+                              defaultChecked
+                              label="Notify via HappyCo"
+                              styles={{
+                                label: {
+                                  fontWeight: 600,
+                                  color: 'var(--mantine-color-text)',
+                                },
+                              }}
+                            />
+                            <Button variant="light" color="blurple" size="sm">
+                              On the Way
+                            </Button>
+                          </Group>
+        </Stack>
+                      </Stack>
+                    </Accordion.Panel>
+                  </Accordion.Item>
+                  <Accordion.Item value="Time Tracking">
+                    <Accordion.Control>
+                      <Group gap="xs" wrap="nowrap">
+                        <Text size="lg" fw={700}>
+                          Time Tracking
+                        </Text>
+                        {hasTimeTrackingError && (
+                          <Box
+                            w={6}
+                            h={6}
+                            style={{
+                              backgroundColor: 'var(--mantine-color-red-6)',
+                              borderRadius: 999,
+                            }}
+                          />
+                        )}
+                      </Group>
+                    </Accordion.Control>
+                    <Accordion.Panel>
+                      <Group gap="lg" align="center" wrap="nowrap">
+                        <Checkbox
+                          size="sm"
+                          label="Unit was Entered"
+                          checked={timeTrackingEnabled}
+                          onChange={(event) => setTimeTrackingEnabled(event.currentTarget.checked)}
+                          styles={{
+                            label: {
+                              fontWeight: 600,
+                              color: 'var(--mantine-color-text)',
+                            },
+                          }}
+                        />
+                        <TextInput
+                          label="Hours"
+                          type="number"
+                          min={0}
+                          disabled={!timeTrackingEnabled}
+                          value={timeTrackingHours}
+                          onChange={(event) => setTimeTrackingHours(event.currentTarget.value)}
+                          styles={{ input: { textAlign: 'center' } }}
+                        />
+                        <TextInput
+                          label="Minutes"
+                          type="number"
+                          min={0}
+                          disabled={!timeTrackingEnabled}
+                          value={timeTrackingMinutes}
+                          onChange={(event) => setTimeTrackingMinutes(event.currentTarget.value)}
+                          styles={{ input: { textAlign: 'center' } }}
+                        />
+                      </Group>
+                    </Accordion.Panel>
+                  </Accordion.Item>
+                  {relatedProjects.length > 0 && (
+                    <Accordion.Item value="Related Projects">
+                      <Accordion.Control>
+                        <Text size="lg" fw={700}>
+                          Related Projects
+                        </Text>
+                      </Accordion.Control>
+                      <Accordion.Panel>
+                        <Stack gap="xs">
+                          {relatedProjects.map((project) => (
+                            <Group key={project} gap="sm" wrap="nowrap" justify="space-between">
+                              <Text size="sm" td="underline" style={{ flex: 1 }}>
+                                {project}
+                              </Text>
+                              <HugeiconsIcon
+                                icon={LinkSquare01Icon}
+                                size={16}
+                                color="var(--mantine-color-text)"
+                              />
+                            </Group>
+                          ))}
+                        </Stack>
+                      </Accordion.Panel>
+                    </Accordion.Item>
+                  )}
+                  {pluginNameDisplayKey && editableValues[pluginNameDisplayKey] && (
+                    <Accordion.Item value="Active Plugins">
+                      <Accordion.Control>
+                        <Text size="lg" fw={700}>
+                          Active Plugins
+                        </Text>
+                      </Accordion.Control>
+                      <Accordion.Panel>
+                        <Box
+                          style={{
+                            border: '1px solid var(--mantine-color-default-border)',
+                            borderRadius: 8,
+                            padding: 12,
+                          }}
+                        >
+                          <Group gap="sm" align="center" wrap="nowrap">
+                            <Box
+                              w={24}
+                              h={24}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <HugeiconsIcon icon={PlugSocketIcon} size={20} color="var(--mantine-color-text)" />
+                            </Box>
+                            <Stack gap={2} style={{ flex: 1 }}>
+                              <Text size="sm" fw={700}>
+                                {editableValues[pluginNameDisplayKey]}
+                              </Text>
+                              <Group gap={4} align="center">
+                                <Text size="sm" c="dimmed">
+                                  by
+                                </Text>
+                                {pluginAuthorDisplayKey && editableValues[pluginAuthorDisplayKey] ? (
+                                  <Text size="sm" td="underline">
+                                    {editableValues[pluginAuthorDisplayKey]}
+                                  </Text>
+                                ) : (
+                                  <Text size="sm" c="dimmed">
+                                    Unknown
+                                  </Text>
+                                )}
+                              </Group>
+                            </Stack>
+                            <Button variant="subtle" color="blurple" size="sm">
+                              See Details
+                            </Button>
+                          </Group>
+                        </Box>
+                      </Accordion.Panel>
+                    </Accordion.Item>
+                  )}
+                </Accordion>
+              </Stack>
+              )}
+            </Tabs.Panel>
+            <Tabs.Panel value="messages" pt="lg">
+              <Text size="sm" c="dimmed">
+                No messages yet.
+              </Text>
+            </Tabs.Panel>
+            <Tabs.Panel value="files" pt="lg">
+              <Text size="sm" c="dimmed">
+                No files uploaded.
+              </Text>
+            </Tabs.Panel>
+            <Tabs.Panel value="activities" pt="lg">
+              <Text size="sm" c="dimmed">
+                No activity yet.
+              </Text>
+            </Tabs.Panel>
+          </Tabs>
+        }
         footer={
           <Group justify="flex-end" gap="md">
             <Button variant="outline" color="gray" onClick={() => setDrawerOpened(false)}>
@@ -279,40 +993,22 @@ export function HappyProperty() {
             </Button>
           </Group>
         }
-      >
-        <Stack gap="lg">
-          {Object.keys(editableValues).length > 0 ? (
-            <SimpleGrid cols={2} spacing="lg">
-              {Object.entries(editableValues).map(([key, value]) => (
-                <TextInput
-                  key={key}
-                  label={key.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
-                  value={value}
-                  onChange={(event) =>
-                    setEditableValues((prev) => ({
-                      ...prev,
-                      [key]: event.currentTarget.value,
-                    }))
-                  }
-                />
-              ))}
-            </SimpleGrid>
-          ) : (
-            <Textarea label="Details" readOnly minRows={3} />
-          )}
-        </Stack>
-      </InlineEditorDrawer>
+      />
     </>
   )
 }
 
 function WorkOrdersGrid({
   workOrders,
+  categoryNameById,
+  subcategoryNameById,
   onRowClicked,
   activeRowId,
   onGridReadyApi,
 }: {
   workOrders: WorkOrder[]
+  categoryNameById: Record<string, string>
+  subcategoryNameById: Record<string, string>
   onRowClicked: (event: RowClickedEvent<WorkOrder>) => void
   activeRowId: string | null
   onGridReadyApi: (api: GridApi) => void
@@ -336,31 +1032,109 @@ function WorkOrdersGrid({
     const categoryKey = resolveFieldForLabel('Category', actualKeys)
     const subcategoryKey = resolveFieldForLabel('Subcategory', actualKeys)
     const assetNameKey = resolveFieldForLabel('Asset Name', actualKeys)
+    const descriptionKey = resolveFieldForLabel('Description', actualKeys)
+
+    const getWorkOrderDisplay = (row: WorkOrder | undefined) => {
+      if (!row) {
+        return { title: '', description: '', categoryName: '' }
+      }
+
+      const categoryValue = categoryKey ? row[categoryKey] : null
+      const subcategoryValue = subcategoryKey ? row[subcategoryKey] : null
+      const assetValue = assetNameKey ? row[assetNameKey] : null
+      const descriptionValue = descriptionKey ? row[descriptionKey] : null
+
+      const categoryName =
+        categoryValue !== null && categoryValue !== undefined
+          ? String(categoryNameById[String(categoryValue)] ?? categoryValue)
+          : ''
+      const subcategoryName =
+        subcategoryValue !== null && subcategoryValue !== undefined
+          ? String(subcategoryNameById[String(subcategoryValue)] ?? subcategoryValue)
+          : ''
+      const assetName =
+        assetValue !== null && assetValue !== undefined
+          ? String(subcategoryNameById[String(assetValue)] ?? assetValue)
+          : ''
+      const description =
+        descriptionValue !== null && descriptionValue !== undefined ? String(descriptionValue) : ''
+
+      const primaryName = assetName || subcategoryName
+      const title = [primaryName, categoryName].filter(Boolean).join(' | ')
+
+      return { title, description, categoryName }
+    }
 
     return desiredColumns
       .map((label) => {
         if (label === 'Work Order') {
           return {
             headerName: label,
-            minWidth: 200,
+            width: 450,
+            minWidth: 450,
             flex: 1,
             sortable: true,
             filter: true,
             resizable: true,
             valueGetter: (params) => {
-              const parts = [
-                categoryKey ? params.data?.[categoryKey] : null,
-                subcategoryKey ? params.data?.[subcategoryKey] : null,
-                assetNameKey ? params.data?.[assetNameKey] : null,
-              ].filter((value) => value !== null && value !== undefined && String(value).trim().length > 0)
+              const display = getWorkOrderDisplay(params.data)
+              return [display.title, display.description].filter(Boolean).join(' ')
+            },
+            cellRenderer: (params: { data?: WorkOrder }) => {
+              const display = getWorkOrderDisplay(params.data)
+              const icon = getCategoryIcon(display.categoryName)
 
-              return parts.join(' • ')
+              return (
+                <Group gap="sm" wrap="nowrap">
+                  <Box
+                    w={32}
+                    h={32}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <HugeiconsIcon icon={icon} size={24} color="var(--mantine-color-text)" />
+                  </Box>
+                  <Stack gap={2} style={{ minWidth: 0 }}>
+                    <Text size="sm" fw={700} lineClamp={1} style={{ whiteSpace: 'nowrap' }}>
+                      {display.title || 'Work Order'}
+                    </Text>
+                    <Text
+                      size="sm"
+                      lineClamp={1}
+                      style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    >
+                      {display.description}
+                    </Text>
+                  </Stack>
+                </Group>
+              )
             },
           } as ColDef
         }
 
         const matchedKey = resolveFieldForLabel(label, actualKeys)
         if (!matchedKey) return null
+
+        if (label === 'Priority' || label === 'Status') {
+          const fallback = label === 'Priority' ? 'NORMAL' : 'OPEN'
+          return {
+            field: matchedKey,
+            headerName: label,
+            minWidth: 140,
+            flex: 1,
+            sortable: true,
+            filter: true,
+            resizable: true,
+            cellRenderer: (params: { data?: WorkOrder }) => {
+              const rawValue = params.data?.[matchedKey]
+              return <StatusBadge status={resolveBadgeStatus(rawValue, fallback)} />
+            },
+          } as ColDef
+        }
 
         const isDateColumn = ['Scheduled', 'Created'].includes(label)
         return {
@@ -381,7 +1155,7 @@ function WorkOrdersGrid({
         } as ColDef
       })
       .filter(Boolean) as ColDef[]
-  }, [workOrders])
+  }, [workOrders, categoryNameById, subcategoryNameById])
 
   const missingColumns = useMemo(() => {
     if (workOrders.length === 0) return []
@@ -397,7 +1171,13 @@ function WorkOrdersGrid({
   const defaultColDef = useMemo(
     () => ({
       sortable: true,
-      filter: true,
+      filter: 'agSetColumnFilter',
+      filterParams: {
+        buttons: [],
+        closeOnApply: true,
+        suppressAndOrCondition: true,
+      },
+      menuTabs: ['filterMenuTab'],
       resizable: true,
       flex: 1,
       minWidth: 140,
@@ -438,6 +1218,9 @@ function WorkOrdersGrid({
           defaultColDef={defaultColDef}
           theme="legacy"
           animateRows={true}
+          suppressMenuHide={false}
+          enableFilterMenuButton={true}
+          popupParent={document.body}
           rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true }}
           headerHeight={48}
           rowHeight={60}
