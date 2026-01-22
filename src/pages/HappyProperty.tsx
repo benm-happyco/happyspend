@@ -26,16 +26,16 @@ import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { supabase } from '../lib/supabase'
 import { InlineEditorDrawer } from '../theme/components/HpyDrawer'
 import { StatusBadge, StatusBadgeSelect, STATUS_BADGE_KEYS, type StatusBadgeStatus } from '../theme/components/StatusBadge'
-import { JoyAiIcon } from '../theme/components/JoyAiIcon'
+import { JoyAiSummary } from '../theme/components/JoyAiSummary'
+import { CategoryIcon } from '../theme/components/CategoryIcon'
 import {
   ArrowDown01Icon,
   CircleIcon,
   LinkSquare01Icon,
   PlugSocketIcon,
-  RefrigeratorIcon,
 } from '@hugeicons-pro/core-stroke-rounded'
 import { HugeiconsIcon } from '@hugeicons/react'
-import { getCategoryIcon } from '../theme/components/categoryIcons'
+import { getCategoryIconSrc } from '../theme/components/categoryIcons'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
@@ -170,6 +170,29 @@ const buildLookup = (rows: WorkOrder[], idHints: string[], nameHints: string[]) 
   }, {})
 }
 
+const buildResidentLookup = (rows: WorkOrder[]) => {
+  if (!rows.length) return {}
+  const keys = Object.keys(rows[0] ?? {})
+  const normalize = (value: string) => value.toLowerCase().replace(/[\s_]/g, '')
+  const findKey = (hints: string[]) =>
+    keys.find((key) => hints.some((hint) => normalize(key).includes(normalize(hint))))
+
+  const idKey = findKey(['id', 'resident_id', 'residentid'])
+  const nameKey = findKey(['name', 'resident_name', 'residentname'])
+  const phoneKey = findKey(['phone', 'phone_number', 'phonenumber'])
+  if (!idKey) return {}
+
+  return rows.reduce<Record<string, { name?: string; phone?: string }>>((acc, row) => {
+    const idValue = row?.[idKey]
+    if (idValue === null || idValue === undefined) return acc
+    acc[String(idValue)] = {
+      name: nameKey ? String(row?.[nameKey] ?? '') : undefined,
+      phone: phoneKey ? String(row?.[phoneKey] ?? '') : undefined,
+    }
+    return acc
+  }, {})
+}
+
 const parseDateValue = (value: unknown) => {
   if (value instanceof Date) return value
   if (typeof value === 'number') {
@@ -249,6 +272,7 @@ export function HappyProperty() {
   const [inlineStatus, setInlineStatus] = useState<StatusBadgeStatus | null>(null)
   const [categoryNameById, setCategoryNameById] = useState<Record<string, string>>({})
   const [subcategoryNameById, setSubcategoryNameById] = useState<Record<string, string>>({})
+  const [residentById, setResidentById] = useState<Record<string, { name?: string; phone?: string }>>({})
   const gridApiRef = useRef<GridApi | null>(null)
 
   useEffect(() => {
@@ -293,6 +317,15 @@ export function HappyProperty() {
           )
         } else if (subcategoryError) {
           console.warn('Failed to load subcategories', subcategoryError)
+        }
+
+        const { data: residentRows, error: residentError } = await supabase
+          .from('residents')
+          .select('*')
+        if (!residentError && residentRows) {
+          setResidentById(buildResidentLookup(residentRows))
+        } else if (residentError) {
+          console.warn('Failed to load residents', residentError)
         }
 
       } else {
@@ -372,7 +405,7 @@ export function HappyProperty() {
   }, [selectedRow, categoryNameById, subcategoryNameById])
 
   const drawerIcon = useMemo(() => {
-    if (!selectedRow) return RefrigeratorIcon
+    if (!selectedRow) return getCategoryIconSrc('general')
     const keys = Object.keys(selectedRow)
     const categoryKey = resolveFieldForLabel('Category', keys)
     const categoryValue = categoryKey ? selectedRow[categoryKey] : null
@@ -380,7 +413,7 @@ export function HappyProperty() {
       categoryValue !== null && categoryValue !== undefined
         ? String(categoryNameById[String(categoryValue)] ?? categoryValue)
         : ''
-    return getCategoryIcon(categoryName)
+    return getCategoryIconSrc(categoryName)
   }, [selectedRow, categoryNameById])
 
   useEffect(() => {
@@ -451,19 +484,9 @@ export function HappyProperty() {
     () => resolveFieldForLabel('Description', Object.keys(editableValues)),
     [editableValues]
   )
-  const residentNameDisplayKey = useMemo(() => {
+  const residentIdDisplayKey = useMemo(() => {
     const keys = Object.keys(editableValues)
-    const candidates = ['Resident Name', 'Resident', 'Contact Name', 'Contact']
-    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
-  }, [editableValues])
-  const residentPhoneDisplayKey = useMemo(() => {
-    const keys = Object.keys(editableValues)
-    const candidates = ['Resident Phone', 'Phone', 'Contact Phone', 'Phone Number']
-    return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
-  }, [editableValues])
-  const residentStatusDisplayKey = useMemo(() => {
-    const keys = Object.keys(editableValues)
-    const candidates = ['Resident Status', 'Resident Type', 'Contact Type']
+    const candidates = ['Resident Id', 'Resident', 'Resident ID', 'Resident Ids', 'Resident IDs']
     return candidates.map((label) => resolveFieldForLabel(label, keys)).find(Boolean)
   }, [editableValues])
   const relatedProjectsDisplayKey = useMemo(
@@ -506,28 +529,28 @@ export function HappyProperty() {
   }, [workOrders])
 
   const residents = useMemo(() => {
-    const name = residentNameDisplayKey ? editableValues[residentNameDisplayKey] : ''
-    const phone = residentPhoneDisplayKey ? editableValues[residentPhoneDisplayKey] : ''
-    const status = residentStatusDisplayKey ? editableValues[residentStatusDisplayKey] : ''
-    const fallback = assigneeDisplayKey ? editableValues[assigneeDisplayKey] : ''
-    const resolvedName = name || fallback
-
-    return resolvedName
-      ? [
-          {
-            name: resolvedName,
-            phone,
-            status,
-          },
-        ]
+    const idsRaw = residentIdDisplayKey ? editableValues[residentIdDisplayKey] : ''
+    const ids = idsRaw
+      ? String(idsRaw)
+          .split(',')
+          .map((value) => value.trim())
+          .filter(Boolean)
       : []
-  }, [
-    editableValues,
-    residentNameDisplayKey,
-    residentPhoneDisplayKey,
-    residentStatusDisplayKey,
-    assigneeDisplayKey,
-  ])
+
+    const mapped = ids
+      .map((id) => {
+        const resident = residentById[id]
+        if (!resident?.name && !resident?.phone) return null
+        return {
+          id,
+          name: resident.name ?? id,
+          phone: resident.phone,
+        }
+      })
+      .filter(Boolean) as { id: string; name: string; phone?: string }[]
+
+    return mapped
+  }, [editableValues, residentIdDisplayKey, residentById])
 
   const relatedProjects = useMemo(() => {
     if (!relatedProjectsDisplayKey) return []
@@ -620,7 +643,7 @@ export function HappyProperty() {
         title={drawerHeader.title}
         subtitle={drawerHeader.subtitle}
         eyebrow={drawerHeader.eyebrow}
-        icon={drawerIcon}
+        iconNode={<CategoryIcon src={drawerIcon} size={24} />}
         withCloseButton
         preventInitialDrawerFocus
         statusToggles={
@@ -664,7 +687,7 @@ export function HappyProperty() {
             </Tabs.List>
             <Tabs.Panel value="details" pt="lg">
               {drawerLoading ? (
-                <Stack gap="lg">
+        <Stack gap="lg">
                   <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                     <Skeleton height={80} radius="md" />
                     <Skeleton height={80} radius="md" />
@@ -729,22 +752,7 @@ export function HappyProperty() {
                     }))
                   }}
                 />
-                <Stack gap={4}>
-                  <Group gap="xs">
-                    <JoyAiIcon />
-                    <Text
-                      size="sm"
-                      fw={600}
-                      variant="gradient"
-                      gradient={{ from: 'var(--mantine-color-teal-4)', to: 'var(--mantine-color-blurple-6)', deg: 90 }}
-                    >
-                      Summary by JoyAI
-                    </Text>
-                  </Group>
-                  <Text size="md">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </Text>
-                </Stack>
+                <JoyAiSummary summary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
                 <Accordion
                   variant="default"
                   chevronPosition="right"
@@ -776,7 +784,7 @@ export function HappyProperty() {
                         {residents.length > 0 ? (
                           <Stack gap="xs">
                             {residents.map((resident) => (
-                              <Group key={resident.name} gap="sm" wrap="nowrap">
+                              <Group key={resident.id} gap="sm" wrap="nowrap">
                                 <Avatar size="sm" radius="xl">
                                   {resident.name
                                     .split(' ')
@@ -788,11 +796,6 @@ export function HappyProperty() {
                                 <Text size="sm" style={{ flex: 1 }}>
                                   {resident.name}
                                 </Text>
-                                {resident.status ? (
-                                  <Badge size="xs" variant="light" color="blurple" tt="uppercase">
-                                    {resident.status}
-                                  </Badge>
-                                ) : null}
                                 {resident.phone ? (
                                   <Text size="sm" style={{ whiteSpace: 'nowrap' }}>
                                     {resident.phone}
@@ -1082,7 +1085,7 @@ function WorkOrdersGrid({
             },
             cellRenderer: (params: { data?: WorkOrder }) => {
               const display = getWorkOrderDisplay(params.data)
-              const icon = getCategoryIcon(display.categoryName)
+              const icon = getCategoryIconSrc(display.categoryName)
 
               return (
                 <Group gap="sm" wrap="nowrap">
@@ -1096,9 +1099,9 @@ function WorkOrdersGrid({
                       flexShrink: 0,
                     }}
                   >
-                    <HugeiconsIcon icon={icon} size={24} color="var(--mantine-color-text)" />
+                    <CategoryIcon src={icon} size={24} />
                   </Box>
-                  <Stack gap={2} style={{ minWidth: 0 }}>
+                  <Stack gap={0} style={{ minWidth: 0 }}>
                     <Text size="sm" fw={700} lineClamp={1} style={{ whiteSpace: 'nowrap' }}>
                       {display.title || 'Work Order'}
                     </Text>

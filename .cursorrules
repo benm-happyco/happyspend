@@ -83,3 +83,92 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - **Expiry/deadlines**:
   - Expiring soon: `In X min`
   - Past deadline: `Past due: MMM D h:mm a`
+
+## HappyCo External API
+- The HappyCo External API is GraphQL and supports deeply nested queries.
+- Endpoint: `https://externalgraph.happyco.com`
+- Explore schema and test queries:
+  - API Explorer: https://studio.apollographql.com/public/HappyCo-External/variant/prod/explorer
+  - Schema Reference: https://studio.apollographql.com/public/HappyCo-External/variant/prod/schema/reference
+  - Graph Visualization: https://studio.apollographql.com/public/HappyCo-External/variant/prod/schema/visualization?collapseTypes=false&hideDeprecated=true&hideUnusedFields=false&showDetails=false
+- Quick start resources:
+  - Explorer walkthrough video: https://www.loom.com/share/c1b4c487bfd64f1aa475bd7c656eeb91?sid=2ba25efe-80cf-4c60-a3d9-688c4a9cbae4
+  - Locate inspection in graph video: https://www.loom.com/share/68033cab84e143e2b60e7269ab07ade7
+- Login flows:
+  - Plugin partners: use PluginLogin, then CurrentPlugin
+    - Plugin Queries collection: https://studio.apollographql.com/public/HappyCo-External/variant/prod/explorer?collectionId=b64a4a96-80c9-4638-b6e8-d85c6ca34a91&focusCollectionId=b64a4a96-80c9-4638-b6e8-d85c6ca34a91
+  - Customers: use CustomerLogin, then Properties
+    - Customer Queries collection: https://studio.apollographql.com/public/HappyCo-External/variant/prod/explorer?collectionId=0892d683-1153-4978-a4a3-a5b21df5d3ec&focusCollectionId=0892d683-1153-4978-a4a3-a5b21df5d3ec
+    - Shared Queries collection: https://studio.apollographql.com/public/HappyCo-External/variant/prod/explorer?collectionId=f4a49239-391f-409b-9f6e-f59477b94476&focusCollectionId=f4a49239-391f-409b-9f6e-f59477b94476
+- API documentation:
+  - Plugin API: https://www.notion.so/Plugin-API-1dcb3bb69f1e486fb9edfddbf29b2f82?pvs=21
+  - Customer API: https://www.notion.so/Customer-API-06aa52b23be6476fb5d7ccdc6872ea6c?pvs=21
+  - Shared API: https://www.notion.so/Shared-API-1ec96e21741d801191baee6a3858aa29?pvs=21
+- Special topics:
+  - Pagination: https://www.notion.so/Pagination-1e796e21741d8018ad24f25518a1b0fd?pvs=21
+  - Webhooks: https://www.notion.so/Webhooks-19796e21741d80f18735e29588db6bf2?pvs=21
+  - Activities: https://www.notion.so/Inspection-and-Work-Order-Activities-1cf96e21741d802abaeefd3b3908411c?pvs=21
+  - Deprecation policy: https://www.notion.so/Deprecation-Policy-2a796e21741d80b79d0eef290dceed27?pvs=21
+  - Deprecated items: https://www.notion.so/2ab96e21741d804e8effda0521fa0e64?pvs=21
+
+## HappyCo Customer API Notes
+- Login requires an admin (non-SSO) HappyCo user.
+- Login mutation:
+  - Mutation: `login(input: $input) { expiresAt accessibleCustomerIds token }`
+  - `expiresAt` is a unix timestamp; re-login before it expires (about 1 hour).
+  - `accessibleCustomerIds` contains customer IDs for subsequent queries.
+- Use `Authorization: Bearer <token>` on all requests after login.
+
+### Shared API Examples
+- Properties list (customer properties):
+  - Query: `customer(customerId: $customerId) { propertiesV2 { count edges { cursor node { id name createdAt address { line1 city state postalCode } } } } }`
+  - Lists are returned as `edges` with `node` entries.
+  - API responses are paginated at 100 items; use pagination for larger lists.
+- Units for properties:
+  - Query: `customer(customerId: $customerId) { propertiesV2(filter: $propertiesFilter) { edges { node { id name units { count edges { node { id name } } } } } } }`
+- Work orders for units:
+  - Query: `workOrders(last: 10, filter: { createdAfter: "2024-01-01T00:00:00Z"}) { edges { node { id status description } } }`
+- Work order inspection details:
+  - Query: `inspectionDetails { inspection { id name startedAt status } }`
+
+### Notes
+- Some fields and filters are omitted above for brevity; use the API Explorer to traverse the full graph.
+- For large nested lists, prefer separate queries with pagination.
+
+## HappyCo Account Metadata
+- `account(accountId: ID!): Account!` retrieves an account by ID.
+- Account fields:
+  - `createdAt`, `updatedAt`
+  - `id`, `name`
+  - `customer`, `defaultRole`, `settablePermissions`, `settableRoles`
+  - Connections: `inspectionTemplates`, `inspections`, `memberships`, `pluginSubscriptions`, `properties`, `regions`, `roles`, `vendors`, `workOrders`
+
+## HappyCo Customer Metadata
+- `customer(customerId: ID!): Customer!` retrieves customer-level information.
+- Customer fields:
+  - `id`, `name`, `phoneNumber`
+  - Address: `street1`, `street2`, `city`, `state`, `postalCode`, `country`
+  - Connections: `accounts`, `inspections`, `pluginSubscriptions`, `properties`, `propertiesV2`, `users`, `vendors`, `workOrders`
+
+## HappyCo Property Metadata
+- `propertyV2(propertyId: ID!): PropertyV2` retrieves a property by ID.
+- Property fields:
+  - `id`, `idV1`, `name`, `createdAt`, `updatedAt`, `url`, `accountWideAccess`
+  - Relations: `account`, `customer`, `region`, `address`
+  - Connections: `capitalProjects`, `externalLocations`, `fixedAssets`, `units`, `usersWithAccess`
+
+## HappyCo Work Order Metadata
+- `workOrder(workOrderId: ID!): WorkOrder!` retrieves a work order by ID.
+- Work order fields:
+  - `id`, `description`, `summary`, `status`, `subStatus`, `priority`
+  - `createdAt`, `updatedAt`, `archivedAt`, `scheduledFor`, `timeSpent`
+  - `assignedTo`, `reportingResident`, `workCategory`, `workOrderType`, `projectStage`
+  - `location`, `locationV2`, `permissionToEnter`, `residentApprovedEntry`, `unitEntered`
+  - `entryNotes`, `pluginData`, `inspectionDetails`
+  - Connections: `activities`, `attachments`, `externalWorkOrders`
+
+## HappyCo Work Categories
+- `workCategories(locationId: ID!): WorkCategoryConnection!` retrieves valid work categories for a location.
+- Supports pagination with `after`, `before`, `first`, `last`, and `orderBy`.
+- Fields on connection:
+  - `count`, `edges`, `nodes`, `pageInfo`

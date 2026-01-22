@@ -24,6 +24,7 @@ import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
 import { StatusBadge, StatusBadgeSelect, type StatusBadgeStatus } from '../theme/components/StatusBadge'
+import { JoyAiSummary } from '../theme/components/JoyAiSummary'
 
 export function CustomizedComponents() {
   const [inlineOpened, inlineHandlers] = useDisclosure(false)
@@ -269,16 +270,7 @@ export function CustomizedComponents() {
             <TextInput label="Scheduled" placeholder="Select a date" required />
           </SimpleGrid>
           <Textarea label="Description" placeholder="A description of the work order" minRows={3} />
-          <Paper p="sm" radius="sm" withBorder>
-            <Stack gap="xs">
-              <Text size="sm" fw={600}>
-                Summary by JoyAI
-              </Text>
-              <Text size="sm" c="dimmed">
-                Water filter replacement needed for B01
-              </Text>
-            </Stack>
-          </Paper>
+          <JoyAiSummary summary="Water filter replacement needed for B01" />
           <Accordion variant="separated" radius="sm">
             <Accordion.Item value="residents">
               <Accordion.Control>Residents</Accordion.Control>

@@ -12,6 +12,7 @@ type DrawerHeaderProps = {
   subtitle?: ReactNode
   eyebrow?: ReactNode
   icon?: IconSvgObject
+  iconNode?: ReactNode
   withCloseButton?: boolean
   withMoreButton?: boolean
   onClose: () => void
@@ -34,6 +35,7 @@ export type HpyDrawerProps = Omit<DrawerProps, 'title' | 'opened' | 'onClose' | 
   subtitle?: ReactNode
   eyebrow?: ReactNode
   icon?: IconSvgObject
+  iconNode?: ReactNode
   withCloseButton?: boolean
   preventInitialDrawerFocus?: boolean
   withMoreButton?: boolean
@@ -53,6 +55,7 @@ function DrawerHeader({
   subtitle,
   eyebrow,
   icon,
+  iconNode,
   withCloseButton,
   withMoreButton,
   onClose,
@@ -61,7 +64,7 @@ function DrawerHeader({
   return (
     <Group justify="space-between" align="flex-start" gap="md" wrap="nowrap">
       <Group gap="sm" align="flex-start" wrap="nowrap">
-        {icon && <HugeiconsIcon icon={icon} size={24} />}
+        {iconNode ?? (icon ? <HugeiconsIcon icon={icon} size={24} /> : null)}
         <Stack gap={4}>
           {(title || subtitle) && (
             <Group gap={8} wrap="nowrap">
@@ -129,6 +132,7 @@ export function HpyDrawer({
   subtitle,
   eyebrow,
   icon,
+  iconNode,
   withCloseButton = false,
   preventInitialDrawerFocus = false,
   withMoreButton = false,
@@ -191,6 +195,7 @@ export function HpyDrawer({
               subtitle={subtitle}
               eyebrow={eyebrow}
               icon={icon}
+              iconNode={iconNode}
               withCloseButton={withCloseButton}
               withMoreButton={withMoreButton}
               moreButtonProps={moreButtonProps}
