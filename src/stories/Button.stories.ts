@@ -1,54 +1,74 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Button, Group, Stack, Text } from '@mantine/core'
 
-import { fn } from 'storybook/test';
+const figmaUrl = import.meta.env.VITE_FIGMA_BUTTON_URL as string | undefined
 
-import { Button } from './Button';
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'Theme/Button',
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
+    ...(figmaUrl
+      ? {
+          design: {
+            type: 'figma',
+            url: figmaUrl,
+          },
+        }
+      : {}),
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
-  args: { onClick: fn() },
-} satisfies Meta<typeof Button>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    children: 'Button',
+    size: 'md',
+    variant: 'filled',
+    color: 'blurple',
   },
-};
+} satisfies Meta<typeof Button>
 
-export const Secondary: Story = {
-  args: {
-    label: 'Button',
-  },
-};
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
+export const Playground: Story = {}
 
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
+export const Variants: Story = {
+  render: (args) => (
+    <Stack gap="sm">
+      <Text size="sm" c="dimmed">
+        Variants
+      </Text>
+      <Group>
+        <Button {...args} variant="filled">
+          Filled
+        </Button>
+        <Button {...args} variant="outline">
+          Outline
+        </Button>
+        <Button {...args} variant="light">
+          Light
+        </Button>
+      </Group>
+    </Stack>
+  ),
+}
+
+export const Sizes: Story = {
+  render: (args) => (
+    <Stack gap="sm">
+      <Text size="sm" c="dimmed">
+        Sizes
+      </Text>
+      <Group>
+        <Button {...args} size="sm">
+          Small
+        </Button>
+        <Button {...args} size="md">
+          Medium
+        </Button>
+        <Button {...args} size="lg">
+          Large
+        </Button>
+      </Group>
+    </Stack>
+  ),
+}
