@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import path from 'node:path'
 
 const config: StorybookConfig = {
   "stories": [
@@ -17,6 +18,17 @@ const config: StorybookConfig = {
     return {
       ...config,
       base: process.env.STORYBOOK_BASE_PATH ?? '/',
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...(config.resolve?.alias ?? {}),
+          '@hugeicons/react': path.resolve(__dirname, '../src/storybook/hugeicons-react-stub.tsx'),
+          '@hugeicons-pro/core-stroke-rounded': path.resolve(
+            __dirname,
+            '../src/storybook/hugeicons-core-stub.ts'
+          ),
+        },
+      },
     }
   }
 };
