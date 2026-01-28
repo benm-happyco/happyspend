@@ -25,5 +25,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build icon packages
+        run: |
+          npm --prefix vendor/core-stroke-rounded install
+          npm --prefix vendor/core-stroke-rounded run build
+          npm --prefix vendor/hugeicons-react install
+          npm --prefix vendor/hugeicons-react run build:bundles
+
       - name: Publish to Chromatic
         run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
