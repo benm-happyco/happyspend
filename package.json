@@ -9,8 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --output-dir storybook-static",
-    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static",
+    "chromatic": "npx chromatic --project-token=chpt_323fa72e49d9599"
   },
   "dependencies": {
     "@hugeicons-pro/core-stroke-rounded": "file:vendor/core-stroke-rounded",
@@ -42,6 +43,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.18",
+    "chromatic": "^13.3.5",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",

@@ -72,3 +72,22 @@ export const Sizes: Story = {
     </Stack>
   ),
 }
+
+export const States: Story = {
+  render: (args) => (
+    <Stack gap="sm">
+      <Text size="sm" c="dimmed">
+        States
+      </Text>
+      <Group>
+        <Button {...args}>Default</Button>
+        <Button {...args} disabled>
+          Disabled
+        </Button>
+        <Button {...args} loading>
+          Loading
+        </Button>
+      </Group>
+    </Stack>
+  ),
+}
