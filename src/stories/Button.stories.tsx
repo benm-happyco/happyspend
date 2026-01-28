@@ -41,11 +41,11 @@ export const Variants: Story = {
         <Button {...args} variant="filled">
           Filled
         </Button>
-        <Button {...args} variant="outline">
-          Outline
-        </Button>
         <Button {...args} variant="light">
           Light
+        </Button>
+        <Button {...args} variant="subtle">
+          Subtle
         </Button>
       </Group>
     </Stack>
