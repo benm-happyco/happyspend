@@ -155,7 +155,7 @@ export function Test() {
 
         <Stack gap="sm" align="center">
           <Group justify="center" gap="md">
-            <Button variant="filled" color="blurple">
+            <Button variant="filled" color="purple">
               Wow
             </Button>
             <Button variant="filled" color="warning">
@@ -165,7 +165,7 @@ export function Test() {
               Error
             </Button>
           </Group>
-          <Button variant="light" size="sm" color="blurple">
+          <Button variant="light" size="sm" color="purple">
             Teeny
           </Button>
         </Stack>
@@ -205,7 +205,7 @@ export function Test() {
                 <Button
                   type="submit"
                   variant="filled"
-                  color="blurple"
+                  color="purple"
                   disabled={!formData.username || !formData.password || !formData.agree}
                 >
                   Login

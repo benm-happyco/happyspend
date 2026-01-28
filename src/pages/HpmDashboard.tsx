@@ -1541,7 +1541,7 @@ export function HpmDashboard() {
                 <Stack gap="md">
                   <Group justify="space-between" align="center">
                     <Text fw={600}>Property baseline</Text>
-                    <Badge variant="light" color="blurple">
+                    <Badge variant="light" color="purple">
                       {selectedPropertyIds.length} selected
                     </Badge>
                   </Group>

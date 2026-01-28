@@ -1,6 +1,7 @@
 import {
   Accordion,
   Alert,
+  Box,
   Button,
   Card,
   Group,
@@ -18,13 +19,15 @@ import {
   Divider,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DetailDrawer, InlineEditorDrawer, WorkflowDrawer } from '../theme/components/HpyDrawer'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { RefrigeratorIcon } from '@hugeicons-pro/core-stroke-rounded'
 import { StatusBadge, StatusBadgeSelect, type StatusBadgeStatus } from '../theme/components/StatusBadge'
 import { JoyAiSummary } from '../theme/components/JoyAiSummary'
+import { CascadingSelector, buildCascadingSelectorData, type CascadingSelectorItem } from '../theme/components/CascadingSelector'
+import { supabase } from '../lib/supabase'
 
 export function CustomizedComponents() {
   const [inlineOpened, inlineHandlers] = useDisclosure(false)
@@ -33,6 +36,38 @@ export function CustomizedComponents() {
   const [statusValue, setStatusValue] = useState<StatusBadgeStatus | null>('DRAFT')
   const [inlinePriority, setInlinePriority] = useState<StatusBadgeStatus>('NORMAL')
   const [inlineStatus, setInlineStatus] = useState<StatusBadgeStatus>('OPEN')
+  const [maintenanceCategories, setMaintenanceCategories] = useState<CascadingSelectorItem[]>([])
+  const [maintenanceLoading, setMaintenanceLoading] = useState(true)
+  const [maintenanceError, setMaintenanceError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let mounted = true
+
+    const fetchMaintenanceCategories = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('maintenance_categories')
+          .select('*')
+          .order('sort_order', { ascending: true })
+
+        if (error) throw error
+        if (!mounted) return
+
+        setMaintenanceCategories(buildCascadingSelectorData(data ?? []))
+      } catch (err) {
+        if (!mounted) return
+        setMaintenanceError((err as Error).message || 'Unable to load maintenance categories.')
+      } finally {
+        if (mounted) setMaintenanceLoading(false)
+      }
+    }
+
+    fetchMaintenanceCategories()
+
+    return () => {
+      mounted = false
+    }
+  }, [])
 
   return (
     <Stack gap="xl" p="xl">
@@ -54,13 +89,13 @@ export function CustomizedComponents() {
             <Button size="lg">Large</Button>
           </Group>
           <Group gap="md">
-            <Button variant="filled" color="blurple">
+            <Button variant="filled" color="purple">
               Filled
             </Button>
-            <Button variant="outline" color="blurple">
+            <Button variant="outline" color="purple">
               Outline
             </Button>
-            <Button variant="light" color="blurple">
+            <Button variant="light" color="purple">
               Light
             </Button>
           </Group>
@@ -84,6 +119,31 @@ export function CustomizedComponents() {
               </Stack>
             </Card>
           </Group>
+        </Stack>
+      </Paper>
+
+      <Paper p="xl" withBorder shadow="sm" radius="md">
+        <Stack gap="lg">
+          <Title order={2}>Cascading Selector</Title>
+          <Text size="sm" c="dimmed">
+            Two-level selector that lets users choose a parent category and a child item.
+          </Text>
+          {maintenanceError ? (
+            <Alert color="red" title="Unable to load categories">
+              <Text size="sm">{maintenanceError}</Text>
+            </Alert>
+          ) : (
+            <Box style={{ width: '100%', maxWidth: 400 }}>
+              <CascadingSelector
+                label="Maintenance category"
+                placeholder={maintenanceLoading ? 'Loading categories...' : 'Select category'}
+                data={maintenanceCategories}
+                searchable
+                clearable
+                disabled={maintenanceLoading}
+              />
+            </Box>
+          )}
         </Stack>
       </Paper>
 
@@ -140,13 +200,13 @@ export function CustomizedComponents() {
             Three drawer archetypes with distinct behaviors and layouts.
           </Text>
           <Group>
-            <Button variant="filled" color="blurple" onClick={inlineHandlers.open}>
+            <Button variant="filled" color="purple" onClick={inlineHandlers.open}>
               Inline Editor Drawer
             </Button>
-            <Button variant="light" color="blurple" onClick={workflowHandlers.open}>
+            <Button variant="light" color="purple" onClick={workflowHandlers.open}>
               Workflow Drawer
             </Button>
-            <Button variant="outline" color="blurple" onClick={detailHandlers.open}>
+            <Button variant="outline" color="purple" onClick={detailHandlers.open}>
               Detail Drawer
             </Button>
           </Group>
@@ -253,7 +313,7 @@ export function CustomizedComponents() {
             <Button variant="outline" color="gray" onClick={inlineHandlers.close}>
               Cancel
             </Button>
-            <Button variant="filled" color="blurple" onClick={inlineHandlers.close} disabled>
+            <Button variant="filled" color="purple" onClick={inlineHandlers.close} disabled>
               Save
             </Button>
           </>
@@ -364,10 +424,10 @@ export function CustomizedComponents() {
         }
         footerRight={
           <>
-            <Button variant="light" color="blurple">
+            <Button variant="light" color="purple">
               Previous
             </Button>
-            <Button variant="filled" color="blurple">
+            <Button variant="filled" color="purple">
               Next
             </Button>
           </>

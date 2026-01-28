@@ -18,11 +18,17 @@ const meta = {
       : {}),
   },
   tags: ['autodocs'],
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['sm', 'lg'],
+    },
+  },
   args: {
     children: 'Button',
-    size: 'md',
+    size: 'lg',
     variant: 'filled',
-    color: 'blurple',
+    color: 'purple',
   },
 } satisfies Meta<typeof Button>
 
@@ -61,9 +67,6 @@ export const Sizes: Story = {
       <Group>
         <Button {...args} size="sm">
           Small
-        </Button>
-        <Button {...args} size="md">
-          Medium
         </Button>
         <Button {...args} size="lg">
           Large

@@ -108,7 +108,7 @@ export function GlobalHeader({
                   height: 32,
                   padding: '4px 12px 4px 8px',
                   borderRadius: theme.radius.sm,
-                  backgroundColor: theme.colors.blurple[6],
+                  backgroundColor: theme.colors.purple[6],
                   color: theme.white,
                 }}
               >
@@ -146,7 +146,7 @@ export function GlobalHeader({
                 height: 32,
                 padding: '4px 12px',
                 borderRadius: theme.radius.sm,
-                backgroundColor: theme.colors.blurple[6],
+                backgroundColor: theme.colors.purple[6],
                 color: theme.white,
               }}
             >

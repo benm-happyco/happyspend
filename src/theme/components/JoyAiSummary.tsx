@@ -14,7 +14,7 @@ export function JoyAiSummary({ summary }: JoyAiSummaryProps) {
           size="sm"
           fw={600}
           variant="gradient"
-          gradient={{ from: 'var(--mantine-color-teal-4)', to: 'var(--mantine-color-blurple-6)', deg: 90 }}
+          gradient={{ from: 'var(--mantine-color-teal-4)', to: 'var(--mantine-color-purple-6)', deg: 90 }}
         >
           Summary by JoyAI
         </Text>

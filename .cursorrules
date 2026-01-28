@@ -13,7 +13,7 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 
 ### Design System
 - Based on HappyCo design system
-- Primary color: blurple (purple)
+- Primary color: purple
 - Font: Proxima Nova from Adobe Typekit
 - Colors use Mantine's color palette structure
 - Text colors in dark mode should use neutral grays from the `dark` palette, NOT blue-tinted grays

@@ -163,7 +163,7 @@
   --ag-cell-text-color: var(--mantine-color-dark-9);
   --ag-input-disabled-background-color: #f3f5f7; /* gray[0] */
   --ag-input-disabled-border-color: #caced0; /* gray[2] */
-  --ag-input-focus-border-color: #635bff; /* blurple[6] */
+  --ag-input-focus-border-color: #635bff; /* purple[6] */
   --ag-range-selection-background-color: rgba(99, 91, 255, 0.1);
   --ag-range-selection-border-color: #635bff;
   --ag-control-panel-background-color: #ffffff;
@@ -633,8 +633,8 @@
 
 .ag-theme-alpine .ag-checkbox-input-wrapper.ag-checked::before,
 .ag-theme-alpine .ag-checkbox-input-wrapper.ag-indeterminate::before {
-  background-color: var(--mantine-color-blurple-6) !important;
-  border-color: var(--mantine-color-blurple-6) !important;
+  background-color: var(--mantine-color-purple-6) !important;
+  border-color: var(--mantine-color-purple-6) !important;
 }
 
 .ag-theme-alpine .ag-checkbox-input-wrapper.ag-checked::after {

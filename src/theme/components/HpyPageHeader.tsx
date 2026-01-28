@@ -51,7 +51,7 @@ export function HpyPageHeader({
             }}
           />
         </Box>
-        <Button size="lg" color="blurple" onClick={onCtaClick} disabled={ctaDisabled}>
+        <Button size="lg" color="purple" onClick={onCtaClick} disabled={ctaDisabled}>
           {ctaLabel}
         </Button>
       </Group>

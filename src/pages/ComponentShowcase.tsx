@@ -82,12 +82,12 @@ export function ComponentShowcase() {
               <Title order={2} mb="md">Button Variants</Title>
               <Stack gap="md">
                 <Group gap="md">
-                  <Button variant="filled" color="blurple">Filled</Button>
-                  <Button variant="light" color="blurple">Light</Button>
-                  <Button variant="outline" color="blurple">Outline</Button>
-                  <Button variant="subtle" color="blurple">Subtle</Button>
-                  <Button variant="transparent" color="blurple">Transparent</Button>
-                  <Button variant="white" color="blurple">White</Button>
+                  <Button variant="filled" color="purple">Filled</Button>
+                  <Button variant="light" color="purple">Light</Button>
+                  <Button variant="outline" color="purple">Outline</Button>
+                  <Button variant="subtle" color="purple">Subtle</Button>
+                  <Button variant="transparent" color="purple">Transparent</Button>
+                  <Button variant="white" color="purple">White</Button>
                 </Group>
               </Stack>
             </Paper>
@@ -109,7 +109,7 @@ export function ComponentShowcase() {
               <Title order={2} mb="md">Button Colors</Title>
               <Stack gap="md">
                 <Group gap="md">
-                  <Button color="blurple">Blurple</Button>
+                  <Button color="purple">Purple</Button>
                   <Button color="blue">Blue</Button>
                   <Button color="green">Green</Button>
                   <Button color="red">Red</Button>
@@ -198,7 +198,7 @@ export function ComponentShowcase() {
                 <Text fw={600}>Semi Bold</Text>
                 <Text fw={700}>Bold</Text>
                 <Text fw={800}>Extra Bold</Text>
-                <Text c="blurple">Colored Text</Text>
+                <Text c="purple">Colored Text</Text>
                 <Text c="dimmed">Dimmed Text</Text>
                 <Text td="underline">Underlined</Text>
                 <Text td="line-through">Strikethrough</Text>
@@ -213,7 +213,7 @@ export function ComponentShowcase() {
             <Paper p="xl" withBorder>
               <Title order={2} mb="md">Color Palette</Title>
               <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="xl">
-                {['blurple', 'blue', 'green', 'red', 'orange', 'yellow', 'gray', 'cyan', 'teal', 'violet', 'grape', 'indigo', 'navy'].map((color) => (
+                {['purple', 'blue', 'green', 'red', 'orange', 'yellow', 'gray', 'cyan', 'teal', 'violet', 'grape', 'indigo', 'navy'].map((color) => (
                   <Stack key={color} gap="xs" align="center">
                     <Text fw={600} size="sm">{color}</Text>
                     <Group gap={4}>
@@ -272,7 +272,7 @@ export function ComponentShowcase() {
             <Paper p="xl" withBorder>
               <Title order={2} mb="md">Alerts</Title>
               <Stack gap="md">
-                <Alert color="blurple" title="Info Alert">This is an info alert</Alert>
+                <Alert color="purple" title="Info Alert">This is an info alert</Alert>
                 <Alert color="green" title="Success Alert">This is a success alert</Alert>
                 <Alert color="red" title="Error Alert">This is an error alert</Alert>
                 <Alert color="orange" title="Warning Alert">This is a warning alert</Alert>
@@ -322,7 +322,7 @@ export function ComponentShowcase() {
               <Title order={2} mb="md">Badges</Title>
               <Group gap="md">
                 <Badge>Default</Badge>
-                <Badge color="blurple">Blurple</Badge>
+                <Badge color="purple">Purple</Badge>
                 <Badge color="green">Green</Badge>
                 <Badge color="red">Red</Badge>
                 <Badge variant="light">Light</Badge>
@@ -385,7 +385,7 @@ export function ComponentShowcase() {
               <Title order={2} mb="md">Other Components</Title>
               <Stack gap="md">
                 <Group gap="md">
-                  <Avatar color="blurple">JD</Avatar>
+                  <Avatar color="purple">JD</Avatar>
                   <Avatar color="green">JS</Avatar>
                   <Avatar color="red">AB</Avatar>
                 </Group>
@@ -397,9 +397,9 @@ export function ComponentShowcase() {
                   <Pill>Pill Component</Pill>
                 </Group>
                 <Group gap="md">
-                  <ActionIcon variant="filled" color="blurple">A</ActionIcon>
-                  <ActionIcon variant="light" color="blurple">B</ActionIcon>
-                  <ActionIcon variant="outline" color="blurple">C</ActionIcon>
+                  <ActionIcon variant="filled" color="purple">A</ActionIcon>
+                  <ActionIcon variant="light" color="purple">B</ActionIcon>
+                  <ActionIcon variant="outline" color="purple">C</ActionIcon>
                 </Group>
               </Stack>
             </Paper>

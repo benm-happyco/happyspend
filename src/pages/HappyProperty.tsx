@@ -846,7 +846,7 @@ export function HappyProperty() {
                                 },
                               }}
                             />
-                            <Button variant="light" color="blurple" size="sm">
+                            <Button variant="light" color="purple" size="sm">
                               On the Way
                             </Button>
                           </Group>
@@ -978,7 +978,7 @@ export function HappyProperty() {
                                 )}
                               </Group>
                             </Stack>
-                            <Button variant="subtle" color="blurple" size="sm">
+                            <Button variant="subtle" color="purple" size="sm">
                               See Details
                             </Button>
                           </Group>
@@ -1012,7 +1012,7 @@ export function HappyProperty() {
             <Button variant="outline" color="gray" onClick={() => setDrawerOpened(false)}>
               Cancel
             </Button>
-            <Button variant="filled" color="blurple">
+            <Button variant="filled" color="purple">
               Save
             </Button>
           </Group>

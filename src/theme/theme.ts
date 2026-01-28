@@ -9,7 +9,7 @@ export const customTheme: MantineThemeOverride = createTheme({
   
   colors: MANTINE_COLORS,
   
-  primaryColor: 'blurple',
+  primaryColor: 'purple',
   
   fontFamily: '"proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   

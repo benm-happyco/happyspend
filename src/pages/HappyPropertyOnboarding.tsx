@@ -357,7 +357,7 @@ export function HappyPropertyOnboarding() {
                 </Button>
                 <Button
                   variant="filled"
-                  color="blurple"
+                  color="purple"
                   onClick={() => setActiveStep((step) => Math.min(step + 1, totalSteps))}
                   disabled={!canContinue}
                 >

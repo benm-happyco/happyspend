@@ -165,8 +165,8 @@ const resolveToneColors = (theme: ReturnType<typeof useMantineTheme>, tone: Stat
   switch (tone) {
     case 'primary':
       return {
-        background: hexToRgba(theme.colors.blurple[6], alpha),
-        iconColor: theme.colors.blurple[6],
+        background: hexToRgba(theme.colors.purple[6], alpha),
+        iconColor: theme.colors.purple[6],
       }
     case 'success':
       return {

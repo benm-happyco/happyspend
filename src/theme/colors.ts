@@ -3,7 +3,6 @@ import { colorsTuple, type DefaultMantineColor, type MantineColorsTuple } from '
 // Color palette based on HappyCo design system
 const colorPalette = {
   blue: ['#e7fdff', '#cffafe', '#a5f3fc', '#67e8f9', '#22d3ee', '#06b6d4', '#0891b2', '#0e7490', '#155e75', '#114b5e'],
-  blurple: ['#efefff', '#e0deff', '#d0ceff', '#b1adff', '#928cff', '#827cff', '#635bff', '#5952e6', '#4f49cc', '#3b3799'],
   purple: ['#efefff', '#e0deff', '#d0ceff', '#b1adff', '#928cff', '#827cff', '#635bff', '#5952e6', '#4f49cc', '#3b3799'],
   cyan: ['#ebffff', '#d7fdfd', '#aafcfd', '#7dfcfc', '#62fbfc', '#56fbfc', '#4efbfc', '#41dfe1', '#30c7c8', '#00acad'],
   dark: ['#c9c9c9', '#b8b8b8', '#828282', '#696969', '#424242', '#3b3b3b', '#2e2e2e', '#242424', '#1f1f1f', '#141414'],
@@ -19,9 +18,8 @@ const colorPalette = {
   yellow: ['#fff9e3', '#fef3c7', '#fde68a', '#fcd34d', '#fbbf24', '#f59e0b', '#d97706', '#b45309', '#92400e', '#78350f'],
 }
 
-export const MANTINE_COLORS: Record<DefaultMantineColor | 'blurple' | 'purple' | 'navy', MantineColorsTuple> = {
+export const MANTINE_COLORS: Record<DefaultMantineColor | 'purple' | 'navy', MantineColorsTuple> = {
   blue: colorsTuple(colorPalette.blue),
-  blurple: colorsTuple(colorPalette.blurple),
   purple: colorsTuple(colorPalette.purple),
   cyan: colorsTuple(colorPalette.cyan),
   dark: colorsTuple(colorPalette.dark),

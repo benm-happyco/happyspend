@@ -38,27 +38,27 @@ export function FormShowcase() {
           <Stack gap="md">
             <Title order={3}>Buttons</Title>
             <Group gap="md">
-              <Button variant="filled" color="blurple">
+              <Button variant="filled" color="purple">
                 Primary Button
               </Button>
-              <Button variant="outline" color="blurple">
+              <Button variant="outline" color="purple">
                 Secondary Button
               </Button>
-              <Button variant="light" color="blurple">
+              <Button variant="light" color="purple">
                 Light Button
               </Button>
-              <Button variant="subtle" color="blurple">
+              <Button variant="subtle" color="purple">
                 Subtle Button
               </Button>
             </Group>
             <Group gap="md">
-              <Button variant="filled" color="blurple" disabled>
+              <Button variant="filled" color="purple" disabled>
                 Disabled Primary
               </Button>
-              <Button variant="outline" color="blurple" disabled>
+              <Button variant="outline" color="purple" disabled>
                 Disabled Secondary
               </Button>
-              <Button variant="filled" color="blurple" loading>
+              <Button variant="filled" color="purple" loading>
                 Loading
               </Button>
             </Group>
@@ -142,7 +142,7 @@ export function FormShowcase() {
             <Button variant="outline" color="gray">
               Cancel
             </Button>
-            <Button variant="filled" color="blurple">
+            <Button variant="filled" color="purple">
               Submit
             </Button>
           </Group>
