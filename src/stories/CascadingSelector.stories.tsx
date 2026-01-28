@@ -6,7 +6,6 @@ import {
   buildCascadingSelectorData,
   type CascadingSelectorItem,
 } from '../theme/components/CascadingSelector'
-import { supabase } from '../lib/supabase'
 
 const meta = {
   title: 'Theme/Cascading Selector',
@@ -39,6 +38,13 @@ const CascadingSelectorDemo = (args: Story['args']) => {
 
     const fetchCategories = async () => {
       try {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined
+        const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+        if (!supabaseUrl || !supabaseAnonKey) {
+          throw new Error('Supabase environment variables are missing for Storybook.')
+        }
+
+        const { supabase } = await import('../lib/supabase')
         const { data, error } = await supabase
           .from('maintenance_categories')
           .select('*')
