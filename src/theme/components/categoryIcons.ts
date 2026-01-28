@@ -40,6 +40,7 @@ export const CATEGORY_ICON_MAP: Record<string, string> = {
   door: doorsIcon,
   exterior: exteriorIcon,
   safety: safetyIcon,
+  uncategorized: generalIcon,
 }
 
 const normalizeCategory = (value: string) => value.toLowerCase().replace(/[\s_-]+/g, '')

@@ -16,7 +16,6 @@ import {
   ArrowDown01Icon,
   ArrowRight01Icon,
   Briefcase03Icon,
-  More03Icon,
   HelpCircleIcon,
   Home03Icon,
   Mortarboard02Icon,
@@ -36,6 +35,7 @@ type GlobalHeaderVariant = 'product' | 'settings'
 type GlobalHeaderProps = {
   variant?: GlobalHeaderVariant
   productTitle?: string
+  businessName?: string
   showExperienceSwitcher?: boolean
   showRightIcons?: boolean
 }
@@ -43,6 +43,7 @@ type GlobalHeaderProps = {
 export function GlobalHeader({
   variant = 'product',
   productTitle,
+  businessName = 'Pinnacle Living',
   showExperienceSwitcher = true,
   showRightIcons = true,
 }: GlobalHeaderProps) {
@@ -71,7 +72,7 @@ export function GlobalHeader({
         right: 0,
         height: HEADER_HEIGHT,
         backgroundColor,
-        zIndex: theme.zIndex?.appShell ?? theme.zIndex?.modal ?? 2000,
+        zIndex: 2000,
         display: 'flex',
         alignItems: 'center',
         padding: isCompact ? '0 16px' : '0 24px',
@@ -113,7 +114,7 @@ export function GlobalHeader({
               >
                 <HugeiconsIcon icon={Briefcase03Icon} size={16} />
                 <Text size="sm" fw={600}>
-                  Pinnacle Living
+                  {businessName}
                 </Text>
               </Box>
               <Box

@@ -7,6 +7,9 @@ import { Test } from './pages/Test'
 import { HappyProperty } from './pages/HappyProperty'
 import { HappyPropertyOnboarding } from './pages/HappyPropertyOnboarding'
 import { HappyPropertyTest3 } from './pages/HappyPropertyTest3'
+import { HpmResidents } from './pages/HpmResidents'
+import { HpmLogbooks } from './pages/HpmLogbooks'
+import { HpmDashboard } from './pages/HpmDashboard'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -50,6 +53,26 @@ function Navigation() {
             active={location.pathname === '/happy-property'}
             onClick={() => navigate('/happy-property')}
           />
+          <NavLink
+            label="HPM Dashboard"
+            active={location.pathname === '/happy-property/dashboard'}
+            onClick={() => navigate('/happy-property/dashboard')}
+          />
+          <NavLink
+            label="Logbooks"
+            active={location.pathname === '/happy-property/logbooks'}
+            onClick={() => navigate('/happy-property/logbooks')}
+          />
+          <NavLink
+            label="Staging API"
+            active={location.pathname === '/happy-property/staging-api'}
+            onClick={() => navigate('/happy-property/staging-api')}
+          />
+          <NavLink
+            label="Residents"
+            active={location.pathname === '/happy-property/residents'}
+            onClick={() => navigate('/happy-property/residents')}
+          />
         </Stack>
       </Stack>
       <Group justify="space-between" align="center">
@@ -67,7 +90,10 @@ function AppLayout() {
     return (
       <Routes>
         <Route path="/happy-property/onboarding" element={<HappyPropertyOnboarding />} />
-        <Route path="/happy-property/test-3" element={<HappyPropertyTest3 />} />
+        <Route path="/happy-property/dashboard" element={<HpmDashboard />} />
+        <Route path="/happy-property/logbooks" element={<HpmLogbooks />} />
+        <Route path="/happy-property/staging-api" element={<HappyPropertyTest3 />} />
+        <Route path="/happy-property/residents" element={<HpmResidents />} />
         <Route path="/happy-property/*" element={<HappyProperty />} />
       </Routes>
     )

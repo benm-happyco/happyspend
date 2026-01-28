@@ -19,7 +19,18 @@ import {
 } from '@mantine/core'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AgGridReact } from 'ag-grid-react'
-import { AllCommunityModule, ColDef, GridApi, ModuleRegistry, RowClickedEvent } from 'ag-grid-community'
+import {
+  AllCommunityModule,
+  ColDef,
+  GridApi,
+  ModuleRegistry,
+  RowClickedEvent,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+} from 'ag-grid-community'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
@@ -40,7 +51,14 @@ import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGr
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
-ModuleRegistry.registerModules([AllCommunityModule])
+ModuleRegistry.registerModules([
+  AllCommunityModule,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+])
 
 type WorkOrder = Record<string, any>
 
@@ -1021,6 +1039,7 @@ function WorkOrdersGrid({
 }) {
   const [rowCount, setRowCount] = useState(0)
   const [selectedCount, setSelectedCount] = useState(0)
+  const gridWrapperRef = useRef<HTMLDivElement | null>(null)
   const desiredColumns = [
     'Work Order',
     'Priority',
@@ -1202,15 +1221,13 @@ function WorkOrdersGrid({
           </Text>
         </Alert>
       )}
-      <div style={{ height: '100%', width: '100%' }} className="ag-theme-alpine">
+      <div ref={gridWrapperRef} style={{ height: '100%', width: '100%' }} className="ag-theme-alpine">
         <AgGridReact
           {...AG_GRID_DEFAULT_GRID_PROPS}
           rowData={workOrders}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
-          popupParent={document.body}
-          rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true }}
-          suppressRowClickSelection={true}
+          rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true, enableClickSelection: false }}
           onRowClicked={onRowClicked}
           getRowClass={(params) => (params.node.id && params.node.id === activeRowId ? 'ag-row-active' : '')}
           onGridReady={(params) => {

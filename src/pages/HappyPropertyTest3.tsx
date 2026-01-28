@@ -1,65 +1,116 @@
-import { Alert, Box, Group, Paper, Skeleton, Stack, Text } from '@mantine/core'
-import { useEffect, useMemo, useState } from 'react'
+import { Alert, Box, Group, Paper, Select, Skeleton, Stack, Text } from '@mantine/core'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { AgGridReact } from 'ag-grid-react'
+import {
+  AllCommunityModule,
+  ColDef,
+  ModuleRegistry,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+} from 'ag-grid-community'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { getHappyCoConfig, happyCoGraphql } from '../lib/happyco'
+import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
+import { CategoryIcon } from '../theme/components/CategoryIcon'
+import { getCategoryIconSrc } from '../theme/components/categoryIcons'
+import { StatusBadge, STATUS_BADGE_KEYS, type StatusBadgeStatus } from '../theme/components/StatusBadge'
+import { CircleIcon } from '@hugeicons-pro/core-stroke-rounded'
+import 'ag-grid-community/styles/ag-grid.css'
+import 'ag-grid-community/styles/ag-theme-alpine.css'
 
-type PropertyNode = {
+ModuleRegistry.registerModules([
+  AllCommunityModule,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+])
+
+type TaskNode = {
   id: string
-  name: string
   createdAt?: string | null
-  address?: {
-    line1?: string | null
-    city?: string | null
-    state?: string | null
-    postalCode?: string | null
+  description?: string | null
+  summary?: string | null
+  priority?: string | null
+  status?: string | null
+  scheduledFor?: string | null
+  location?: { name?: string | null } | null
+  assignedTo?: { id?: string | null } | null
+  occupyingResidents?: Array<{ name?: string | null }> | null
+  workCategory?: {
+    name?: string | null
+    children?: { edges?: Array<{ node?: { name?: string | null } | null }> | null } | null
   } | null
 }
 
-type CustomerPropertiesResponse = {
-  customer: {
-    id: string
-    name: string
-    propertiesV2: {
-      count: number
-      edges: { cursor: string; node: PropertyNode }[]
-    }
-  } | null
-}
-
-type UserPropertiesResponse = {
-  user: {
-    id: string
-    customer: {
+type TasksQueryResponse = {
+  business: {
+    node: {
       id: string
       name: string
-      propertiesV2: {
-        count: number
-        edges: { cursor: string; node: PropertyNode }[]
+      tasks: {
+        edges: Array<{ node: TaskNode }>
       }
     } | null
   } | null
 }
 
-const CUSTOMER_PROPERTIES_QUERY = `
-  query CustomerProperties($customerId: ID!) {
-    customer(customerId: $customerId) {
-      id
-      name
-      propertiesV2 {
-        count
-        edges {
-          cursor
-          node {
-            id
-            name
-            createdAt
-            address {
-              line1
-              city
-              state
-              postalCode
+type TaskDetailsResponse = {
+  task: {
+    description?: string | null
+    assignedTo?: { id: string; name: string } | null
+    createdAt?: string | null
+    activities?: {
+      nodes?: Array<{ activityType?: string | null; createdAt?: string | null }>
+    } | null
+    locationV2?: { name?: string | null } | null
+    scheduledFor?: string | null
+    priority?: string | null
+    status?: string | null
+  } | null
+}
+
+const TASKS_QUERY = `
+  query getTasks($businessID: ID!, $taskFilter: BusinessTasksFilter!) {
+    business(businessID: $businessID) {
+      node {
+        id
+        name
+        tasks(filter: $taskFilter) {
+          edges {
+            node {
+              id
+              createdAt
+              description
+              priority
+              status
+              scheduledFor
+              summary
+              occupyingResidents {
+                name
+              }
+              location {
+                name
+              }
+              assignedTo {
+                id
+              }
+              workCategory {
+                name
+                children {
+                  edges {
+                    node {
+                      name
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -67,32 +118,57 @@ const CUSTOMER_PROPERTIES_QUERY = `
     }
   }
 `
+const toStatusKey = (value: unknown): StatusBadgeStatus | null => {
+  if (value === null || value === undefined) return null
+  const normalized = String(value).trim().toUpperCase().replace(/[\s-]+/g, '_')
+  const aliases: Record<string, StatusBadgeStatus> = {
+    CANCELLED: 'CANCELED',
+  }
+  const resolved = aliases[normalized] ?? normalized
+  if (STATUS_BADGE_KEYS.includes(resolved as StatusBadgeStatus)) {
+    return resolved as StatusBadgeStatus
+  }
+  return null
+}
 
-const USER_PROPERTIES_QUERY = `
-  query UserProperties($userId: ID!) {
-    user(userID: $userId) {
-      id
-      customer {
+const resolveBadgeStatus = (value: unknown, fallback: StatusBadgeStatus) => {
+  const normalized = toStatusKey(value)
+  if (normalized) return normalized
+  if (value === null || value === undefined) return fallback
+  const label = String(value).trim()
+  if (!label) return fallback
+  return {
+    statusKey: label.toUpperCase().replace(/[\s-]+/g, '_'),
+    label,
+    icon: CircleIcon,
+    tone: 'neutral' as const,
+  }
+}
+
+
+const TASK_DETAILS_QUERY = `
+  query TaskDetails($taskId: ID!) {
+    task(taskId: $taskId) {
+      description
+      assignedTo {
         id
         name
-        propertiesV2 {
-          count
-          edges {
-            cursor
-            node {
-              id
-              name
-              createdAt
-              address {
-                line1
-                city
-                state
-                postalCode
-              }
-            }
+      }
+      createdAt
+      activities {
+        nodes {
+          ... on TaskActivityAssigneeChanged {
+            activityType
+            createdAt
           }
         }
       }
+      locationV2 {
+        name
+      }
+      scheduledFor
+      priority
+      status
     }
   }
 `
@@ -174,13 +250,191 @@ const formatFuzzyDate = (value?: string | null) => {
 
 export function HappyPropertyTest3() {
   const { baseUrl, hasToken } = getHappyCoConfig()
-  const customerId = import.meta.env.VITE_HAPPYCO_CUSTOMER_ID
-  const userId = import.meta.env.VITE_HAPPYCO_USER_ID
+  const businessId = import.meta.env.VITE_HAPPYCO_BUSINESS_ID
+  const locationIdsRaw = import.meta.env.VITE_HAPPYCO_LOCATION_IDS
   const [searchValue, setSearchValue] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [customerName, setCustomerName] = useState<string | null>(null)
-  const [properties, setProperties] = useState<PropertyNode[]>([])
+  const [businessName, setBusinessName] = useState<string | null>(null)
+  const [tasks, setTasks] = useState<TaskNode[]>([])
+  const [rowCount, setRowCount] = useState(0)
+  const [selectedCount, setSelectedCount] = useState(0)
+  const [selectedWorkOrderId, setSelectedWorkOrderId] = useState<string | null>(null)
+  const [workOrderDetails, setWorkOrderDetails] = useState<TaskDetailsResponse['task']>(null)
+  const [detailsLoading, setDetailsLoading] = useState(false)
+  const [detailsError, setDetailsError] = useState<string | null>(null)
+  const [testSelectValue, setTestSelectValue] = useState<string | null>('25')
+  const gridWrapperRef = useRef<HTMLDivElement | null>(null)
+
+  const defaultColDef = useMemo(() => ({ ...AG_GRID_DEFAULT_COL_DEF }), [])
+  const columnDefs = useMemo<ColDef[]>(
+    () => [
+      ...(() => {
+        const desiredColumns = [
+          'Work Order',
+          'Priority',
+          'Status',
+          'Location',
+          'Assignee',
+          'Scheduled',
+          'Created',
+        ]
+
+        const getWorkOrderDisplay = (task: TaskNode | undefined) => {
+          const categoryName = task?.workCategory?.name?.trim() || ''
+          const subcategoryName =
+            task?.workCategory?.children?.edges?.[0]?.node?.name?.trim() || ''
+          const isUncategorized = categoryName.toLowerCase() === 'uncategorized'
+          const primaryName = subcategoryName || (!isUncategorized ? task?.summary?.trim() || task?.description?.trim() || '' : '')
+          const title = [primaryName, categoryName].filter(Boolean).join(' | ') || 'Work Order'
+          const description = task?.description?.trim() || task?.summary?.trim() || ''
+          return { title, description, categoryName }
+        }
+
+        return desiredColumns.map((label) => {
+          if (label === 'Work Order') {
+            return {
+              headerName: label,
+              width: 450,
+              minWidth: 450,
+              flex: 1,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              valueGetter: (params) => {
+                const display = getWorkOrderDisplay(params.data)
+                return [display.title, display.description].filter(Boolean).join(' ')
+              },
+              cellRenderer: (params: { data?: TaskNode }) => {
+              const display = getWorkOrderDisplay(params.data)
+                const icon = getCategoryIconSrc(display.categoryName)
+
+                return (
+                  <Group gap="sm" wrap="nowrap">
+                    <Box
+                      w={32}
+                      h={32}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <CategoryIcon src={icon} size={24} />
+                    </Box>
+                    <Stack gap={0} style={{ minWidth: 0 }}>
+                      <Text size="sm" fw={700} lineClamp={1} style={{ whiteSpace: 'nowrap' }}>
+                        {display.title}
+                      </Text>
+                      <Text
+                        size="sm"
+                        lineClamp={1}
+                        style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                      >
+                        {display.description}
+                      </Text>
+                    </Stack>
+                  </Group>
+                )
+              },
+            } as ColDef
+          }
+
+          if (label === 'Priority' || label === 'Status') {
+            const fieldKey = label === 'Priority' ? 'priority' : 'status'
+            const fallback = label === 'Priority' ? 'NORMAL' : 'OPEN'
+            return {
+              headerName: label,
+              field: fieldKey,
+              minWidth: 140,
+              flex: 1,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              cellRenderer: (params: { data?: TaskNode }) => {
+                const rawValue = params.data?.[fieldKey]
+                return <StatusBadge status={resolveBadgeStatus(rawValue, fallback)} />
+              },
+            } as ColDef
+          }
+
+          if (label === 'Created') {
+            return {
+              headerName: label,
+              field: 'createdAt',
+              flex: 1,
+              minWidth: 140,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              valueFormatter: ({ value }) => formatFuzzyDate(value).label,
+              tooltipValueGetter: ({ value }) => formatFuzzyDate(value).tooltip,
+            } as ColDef
+          }
+
+          if (label === 'Scheduled') {
+            return {
+              headerName: label,
+              field: 'scheduledFor',
+              flex: 1,
+              minWidth: 140,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              valueFormatter: ({ value }) => formatFuzzyDate(value).label,
+              tooltipValueGetter: ({ value }) => formatFuzzyDate(value).tooltip,
+            } as ColDef
+          }
+
+          if (label === 'Location') {
+            return {
+              headerName: label,
+              field: 'location',
+              flex: 1,
+              minWidth: 140,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              valueGetter: ({ data }) => data?.location?.name ?? '',
+            } as ColDef
+          }
+
+          if (label === 'Assignee') {
+            return {
+              headerName: label,
+              field: 'assignedTo',
+              flex: 1,
+              minWidth: 140,
+              sortable: true,
+              filter: true,
+              resizable: true,
+              valueGetter: ({ data }) => data?.assignedTo?.id ?? '',
+            } as ColDef
+          }
+
+          return {
+            headerName: label,
+            flex: 1,
+            minWidth: 140,
+            sortable: true,
+            filter: true,
+            resizable: true,
+            valueGetter: () => '',
+          } as ColDef
+        })
+      })(),
+    ],
+    []
+  )
+
+  const updateFooterCounts = useCallback(
+    (api: { getDisplayedRowCount: () => number; getSelectedNodes: () => unknown[] }) => {
+      setRowCount(api.getDisplayedRowCount())
+      setSelectedCount(api.getSelectedNodes().length)
+    },
+    []
+  )
 
   useEffect(() => {
     if (!hasToken) return
@@ -191,37 +445,33 @@ export function HappyPropertyTest3() {
 
     const fetchData = async () => {
       try {
-        if (userId) {
-          if (userId.includes('@')) {
-            setError('VITE_HAPPYCO_USER_ID must be a user ID, not an email address.')
-            return
-          }
-          const propertiesData = await happyCoGraphql<UserPropertiesResponse>(
-            USER_PROPERTIES_QUERY,
-            { userId },
-            { baseUrl }
-          )
-          if (!isMounted) return
-          const customer = propertiesData.user?.customer
-          setCustomerName(customer?.name ?? null)
-          setProperties(customer?.propertiesV2.edges.map((edge) => edge.node) ?? [])
+        if (!businessId || !locationIdsRaw) {
+          setError('Missing VITE_HAPPYCO_BUSINESS_ID or VITE_HAPPYCO_LOCATION_IDS for the tasks query.')
           return
         }
 
-        if (!customerId) {
-          setError('Missing VITE_HAPPYCO_CUSTOMER_ID or VITE_HAPPYCO_USER_ID for properties query.')
+        const locationIDs = locationIdsRaw
+          .split(',')
+          .map((value: string) => value.trim())
+          .filter(Boolean)
+
+        if (locationIDs.length === 0) {
+          setError('VITE_HAPPYCO_LOCATION_IDS must contain at least one location ID.')
           return
         }
 
-        const propertiesData = await happyCoGraphql<CustomerPropertiesResponse>(
-          CUSTOMER_PROPERTIES_QUERY,
-          { customerId },
+        const response = await happyCoGraphql<TasksQueryResponse>(
+          TASKS_QUERY,
+          {
+            businessID: businessId,
+            taskFilter: { locationID: locationIDs },
+          },
           { baseUrl }
         )
         if (!isMounted) return
-        const customer = propertiesData.customer
-        setCustomerName(customer?.name ?? null)
-        setProperties(customer?.propertiesV2.edges.map((edge) => edge.node) ?? [])
+        const node = response.business?.node
+        setBusinessName(node?.name ?? null)
+        setTasks(node?.tasks?.edges?.map((edge) => edge.node) ?? [])
       } catch (err) {
         if (!isMounted) return
         setError((err as Error).message)
@@ -236,23 +486,51 @@ export function HappyPropertyTest3() {
     return () => {
       isMounted = false
     }
-  }, [baseUrl, customerId, hasToken])
+  }, [baseUrl, businessId, hasToken, locationIdsRaw])
 
-  const filteredProperties = useMemo(() => {
-    if (!searchValue.trim()) return properties
-    const query = searchValue.toLowerCase()
-    return properties.filter((property) => {
-      const address = property.address
-      const addressText = [address?.line1, address?.city, address?.state, address?.postalCode]
-        .filter(Boolean)
-        .join(' ')
-      return [property.name, addressText].filter(Boolean).some((value) => value.toLowerCase().includes(query))
-    })
-  }, [properties, searchValue])
+
+
+  useEffect(() => {
+    if (!hasToken || !selectedWorkOrderId) {
+      setWorkOrderDetails(null)
+      setDetailsError(null)
+      return
+    }
+
+    let isMounted = true
+    setDetailsLoading(true)
+    setDetailsError(null)
+
+    const fetchDetails = async () => {
+      try {
+        const response = await happyCoGraphql<TaskDetailsResponse>(
+          TASK_DETAILS_QUERY,
+          { taskId: selectedWorkOrderId },
+          { baseUrl }
+        )
+        if (!isMounted) return
+        setWorkOrderDetails(response.task ?? null)
+      } catch (err) {
+        if (!isMounted) return
+        setDetailsError((err as Error).message)
+      } finally {
+        if (!isMounted) return
+        setDetailsLoading(false)
+      }
+    }
+
+    fetchDetails()
+
+    return () => {
+      isMounted = false
+    }
+  }, [baseUrl, hasToken, selectedWorkOrderId])
+
+  const rowData = useMemo(() => tasks, [tasks])
 
   return (
     <>
-      <GlobalHeader variant="product" />
+      <GlobalHeader variant="product" businessName={businessName} />
       <Box
         style={{
           paddingTop: GLOBAL_HEADER_HEIGHT,
@@ -265,106 +543,142 @@ export function HappyPropertyTest3() {
         <Box style={{ flex: 1, padding: 56, display: 'flex', flexDirection: 'column' }}>
           <Stack gap="xl" style={{ flex: 1, minHeight: 0 }}>
             <HpyPageHeader
-              title="Test 3"
+              title="Work Orders"
               appIconType="Tasks"
-              searchPlaceholder="Search properties"
+              searchPlaceholder="Search"
               searchValue={searchValue}
               onSearchChange={setSearchValue}
               ctaLabel="Run query"
               ctaDisabled
             />
-            <Stack gap="md">
-              {!hasToken ? (
-                <Alert color="red" title="HappyCo token missing">
-                  <Text size="sm">
-                    Add `VITE_HAPPYCO_TOKEN` to your local `.env.local` to enable API access.
-                  </Text>
-                </Alert>
-              ) : !customerId && !userId ? (
-                <Alert color="red" title="HappyCo ID missing">
-                  <Text size="sm">
-                    Add `VITE_HAPPYCO_USER_ID` (preferred for staging) or `VITE_HAPPYCO_CUSTOMER_ID` to your local
-                    `.env.local` to fetch properties.
-                  </Text>
-                </Alert>
-              ) : error ? (
-                <Alert color="red" title="HappyCo error">
-                  <Text size="sm">{error}</Text>
-                </Alert>
-              ) : (
-                <Alert color="green" title="HappyCo connected">
-                  <Text size="sm">
-                    {customerName ? `Customer: ${customerName}` : 'Ready to query HappyCo data.'}
-                  </Text>
-                </Alert>
-              )}
-              <Paper withBorder radius="md" p="lg">
-                <Stack gap="sm">
-                  <Group gap="xs">
-                    <Text fw={600}>Base URL:</Text>
-                    <Text size="sm">{baseUrl}</Text>
-                  </Group>
-                  <Group gap="xs">
-                    <Text fw={600}>Auth:</Text>
-                    <Text size="sm">Bearer Token</Text>
-                  </Group>
-                  <Group gap="xs">
-                    <Text fw={600}>Token Lifetime:</Text>
-                    <Text size="sm">30 minutes max</Text>
-                  </Group>
-                  {customerId && (
-                    <Group gap="xs">
-                      <Text fw={600}>Customer ID:</Text>
-                      <Text size="sm">{customerId}</Text>
-                    </Group>
-                  )}
-                  {userId && (
-                    <Group gap="xs">
-                      <Text fw={600}>User ID:</Text>
-                      <Text size="sm">{userId}</Text>
-                    </Group>
-                  )}
+            <Stack gap="sm" style={{ flex: 1, minHeight: 0 }}>
+              <Select
+                label="Test Mantine Select"
+                placeholder="Choose a value"
+                data={[
+                  { value: '10', label: '10 rows' },
+                  { value: '25', label: '25 rows' },
+                  { value: '50', label: '50 rows' },
+                  { value: '100', label: '100 rows' },
+                ]}
+                value={testSelectValue}
+                onChange={setTestSelectValue}
+                w={280}
+              />
+              {loading ? (
+                <Stack gap="xs">
+                  {Array.from({ length: 6 }).map((_, index) => (
+                    <Skeleton key={index} height={64} radius="md" />
+                  ))}
                 </Stack>
-              </Paper>
-              <Stack gap="sm">
-                <Text fw={700}>Properties</Text>
-                {loading ? (
-                  <Stack gap="xs">
-                    {Array.from({ length: 6 }).map((_, index) => (
-                      <Skeleton key={index} height={64} radius="md" />
-                    ))}
-                  </Stack>
-                ) : filteredProperties.length === 0 ? (
-                  <Text size="sm" c="dimmed">
-                    No properties found.
-                  </Text>
-                ) : (
-                  <Stack gap="xs">
-                    {filteredProperties.map((property) => {
-                      const address = property.address
-                      const addressText = [address?.line1, address?.city, address?.state, address?.postalCode]
-                        .filter(Boolean)
-                        .join(', ')
-                      const createdAt = formatFuzzyDate(property.createdAt)
-                      return (
-                        <Paper key={property.id} withBorder radius="md" p="md">
-                          <Stack gap={4}>
-                            <Group justify="space-between" align="flex-start" wrap="nowrap">
-                              <Text fw={600}>{property.name}</Text>
-                              <Text size="sm" c="dimmed" title={createdAt.tooltip}>
-                                {createdAt.label}
-                              </Text>
-                            </Group>
-                            <Text size="sm" c="dimmed">
-                              {addressText || 'Address unavailable'}
+              ) : (
+                <Box style={{ flex: 1, minHeight: 0, position: 'relative' }}>
+                  <div
+                    ref={gridWrapperRef}
+                    style={{ height: '100%', width: '100%' }}
+                    className="ag-theme-alpine"
+                  >
+                    <AgGridReact
+                      {...AG_GRID_DEFAULT_GRID_PROPS}
+                      rowData={rowData}
+                      columnDefs={columnDefs}
+                      defaultColDef={defaultColDef}
+                      quickFilterText={searchValue}
+                      overlayNoRowsTemplate="No tasks found."
+                      rowSelection={{ mode: 'multiRow', checkboxes: true, headerCheckbox: true, enableClickSelection: false }}
+                      onRowClicked={(params) => {
+                        setSelectedWorkOrderId(params.data?.id ?? null)
+                      }}
+                      onGridReady={(params) => updateFooterCounts(params.api)}
+                      onSelectionChanged={(params) => updateFooterCounts(params.api)}
+                      onFilterChanged={(params) => updateFooterCounts(params.api)}
+                      onModelUpdated={(params) => updateFooterCounts(params.api)}
+                    />
+                    {(detailsLoading || detailsError || workOrderDetails) && (
+                      <Paper
+                        withBorder
+                        radius="md"
+                        p="md"
+                        style={{
+                          position: 'absolute',
+                          top: 12,
+                          right: 12,
+                          width: 320,
+                          zIndex: 2,
+                          backgroundColor: 'var(--mantine-color-body)',
+                        }}
+                      >
+                        <Stack gap="xs">
+                          <Text fw={700}>Work Order Details</Text>
+                          {detailsLoading ? (
+                            <Stack gap="xs">
+                              {Array.from({ length: 4 }).map((_, index) => (
+                                <Skeleton key={index} height={12} radius="sm" />
+                              ))}
+                            </Stack>
+                          ) : detailsError ? (
+                            <Text size="sm" c="red">
+                              {detailsError}
                             </Text>
-                          </Stack>
-                        </Paper>
-                      )
-                    })}
-                  </Stack>
-                )}
-              </Stack>
+                          ) : (
+                            <>
+                              <Text size="sm" c="dimmed">
+                                {workOrderDetails?.description || 'No description'}
+                              </Text>
+                              <Group gap="xs">
+                                <StatusBadge status={(workOrderDetails?.priority || 'NORMAL') as any} />
+                                <StatusBadge status={(workOrderDetails?.status || 'OPEN') as any} />
+                              </Group>
+                              <Stack gap={4}>
+                                <Group justify="space-between" align="center">
+                                  <Text size="xs" c="dimmed">
+                                    Assignee
+                                  </Text>
+                                  <Text size="sm">
+                                    {workOrderDetails?.assignedTo?.name || 'Unassigned'}
+                                  </Text>
+                                </Group>
+                                <Group justify="space-between" align="center">
+                                  <Text size="xs" c="dimmed">
+                                    Location
+                                  </Text>
+                                  <Text size="sm">
+                                    {workOrderDetails?.locationV2?.name || 'Unknown'}
+                                  </Text>
+                                </Group>
+                                <Group justify="space-between" align="center">
+                                  <Text size="xs" c="dimmed">
+                                    Scheduled
+                                  </Text>
+                                  <Text size="sm">
+                                    {formatFuzzyDate(workOrderDetails?.scheduledFor).label}
+                                  </Text>
+                                </Group>
+                                <Group justify="space-between" align="center">
+                                  <Text size="xs" c="dimmed">
+                                    Created
+                                  </Text>
+                                  <Text size="sm">
+                                    {formatFuzzyDate(workOrderDetails?.createdAt).label}
+                                  </Text>
+                                </Group>
+                              </Stack>
+                            </>
+                          )}
+                        </Stack>
+                      </Paper>
+                    )}
+                    <Box className="ag-custom-footer">
+                      <Text size="sm">
+                        Rows: <Text span fw={600}>{rowCount}</Text>
+                      </Text>
+                      <Text size="sm">
+                        Selected: <Text span fw={600}>{selectedCount}</Text>
+                      </Text>
+                    </Box>
+                  </div>
+                </Box>
+              )}
             </Stack>
           </Stack>
         </Box>

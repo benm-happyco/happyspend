@@ -7,13 +7,19 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build --output-dir storybook-static",
+    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static"
   },
   "dependencies": {
     "@hugeicons-pro/core-stroke-rounded": "file:vendor/core-stroke-rounded",
     "@hugeicons/react": "file:vendor/hugeicons-react",
+    "@mantine/charts": "^7.17.8",
     "@mantine/core": "^7.5.0",
+    "@mantine/dates": "^7.17.8",
     "@mantine/hooks": "^7.5.0",
+    "@mantine/notifications": "^7.17.8",
     "@supabase/supabase-js": "^2.39.0",
     "ag-grid-community": "^35.0.0",
     "ag-grid-react": "^35.0.0",
@@ -22,15 +28,27 @@
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^5.0.0",
+    "@storybook/addon-a11y": "^10.2.1",
+    "@storybook/addon-docs": "^10.2.1",
+    "@storybook/addon-onboarding": "^10.2.1",
+    "@storybook/addon-vitest": "^10.2.1",
+    "@storybook/react-vite": "^10.2.1",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.3.0",
+    "playwright": "^1.58.0",
+    "storybook": "^10.2.1",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vitest": "^4.0.18"
   }
 }

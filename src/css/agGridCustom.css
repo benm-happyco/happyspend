@@ -127,6 +127,16 @@
   box-shadow: none !important;
 }
 
+.ag-theme-alpine .ag-root-wrapper,
+.ag-theme-alpine .ag-root-wrapper-body {
+  overflow: visible !important;
+}
+
+.ag-theme-alpine .ag-body-viewport,
+.ag-theme-alpine .ag-center-cols-viewport {
+  overflow: auto !important;
+}
+
 .ag-theme-alpine .ag-body,
 .ag-theme-alpine .ag-body-viewport,
 .ag-theme-alpine .ag-center-cols-container,
@@ -280,6 +290,8 @@
   border-top: 1px solid var(--mantine-color-gray-1) !important;
   min-height: 56px;
   padding: 0 16px;
+  position: relative;
+  overflow: visible;
 }
 
 .ag-theme-alpine .ag-custom-footer {
@@ -561,24 +573,7 @@
   fill: var(--mantine-color-dark-9) !important;
 }
 
-/* Menu and popup styling */
-[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-popup,
-[data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu {
-  background-color: #242424 !important;
-  border-color: #424242 !important;
-  color: #b8b8b8 !important; /* dark[1] - neutral gray */
-}
-
-.ag-theme-alpine .ag-popup,
-.ag-theme-alpine .ag-menu {
-  background-color: #ffffff;
-  border-color: #caced0;
-  color: #212b31;
-  z-index: 5000;
-  position: fixed;
-}
-
-/* Menu items */
+/* Menu styling */
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu-option:hover,
 [data-mantine-color-scheme="dark"] .ag-theme-alpine .ag-menu-option-active {
   background-color: rgba(99, 91, 255, 0.2) !important;
@@ -588,6 +583,7 @@
 .ag-theme-alpine .ag-menu-option-active {
   background-color: #efefff;
 }
+
 
 /* Checkbox styling - align with Mantine checkbox (AG Grid uses wrapper ::before/::after) */
 .ag-theme-alpine .ag-checkbox-input-wrapper {

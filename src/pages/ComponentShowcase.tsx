@@ -29,13 +29,29 @@ import {
 } from '@mantine/core'
 import { useState, useMemo } from 'react'
 import { AgGridReact } from 'ag-grid-react'
-import { ColDef, ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+import {
+  ColDef,
+  ModuleRegistry,
+  AllCommunityModule,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+} from 'ag-grid-community'
 import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 
 // Register AG Grid modules
-ModuleRegistry.registerModules([AllCommunityModule])
+ModuleRegistry.registerModules([
+  AllCommunityModule,
+  _PopupModule,
+  _SharedMenuModule,
+  _ColumnFilterModule,
+  _FilterCoreModule,
+  _FilterValueModule,
+])
 
 export function ComponentShowcase() {
   const [activeTab, setActiveTab] = useState<string | null>('buttons')

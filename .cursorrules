@@ -9,6 +9,7 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - All theme customizations are done in code (in `src/theme/` files)
 - This application visualizes and documents what's available for use in designs
 - Customizations are NOT made through this UI - they are made in the theme configuration files
+- **Never add or customize a component unless the user explicitly says we are modifying the Mantine theme**
 
 ### Design System
 - Based on HappyCo design system
