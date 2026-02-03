@@ -10,6 +10,8 @@ import { HappyPropertyTest3 } from './pages/HappyPropertyTest3'
 import { HpmResidents } from './pages/HpmResidents'
 import { HpmLogbooks } from './pages/HpmLogbooks'
 import { HpmDashboard } from './pages/HpmDashboard'
+import { HpmVendors } from './pages/HpmVendors'
+import { HpmDemoDashboard } from './pages/HpmDemoDashboard'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -92,6 +94,8 @@ function AppLayout() {
         <Route path="/happy-property/onboarding" element={<HappyPropertyOnboarding />} />
         <Route path="/happy-property/dashboard" element={<HpmDashboard />} />
         <Route path="/happy-property/logbooks" element={<HpmLogbooks />} />
+        <Route path="/happy-property/vendors" element={<HpmVendors />} />
+        <Route path="/happy-property/demo-dashboard" element={<HpmDemoDashboard />} />
         <Route path="/happy-property/staging-api" element={<HappyPropertyTest3 />} />
         <Route path="/happy-property/residents" element={<HpmResidents />} />
         <Route path="/happy-property/*" element={<HappyProperty />} />
