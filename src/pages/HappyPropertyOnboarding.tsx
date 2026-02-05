@@ -20,6 +20,7 @@ import { useMediaQuery } from '@mantine/hooks'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
+import { PropertyPicker } from '../theme/components/PropertyPicker'
 
 type SelectOption = { value: string; label: string }
 
@@ -140,14 +141,14 @@ export function HappyPropertyOnboarding() {
       description: 'Define scope',
       content: (
         <Stack gap="md">
-          <MultiSelect
-            label="Properties"
-            placeholder="Choose properties to onboard"
-            data={propertyOptions}
+          <PropertyPicker
+            options={propertyOptions}
             value={propertyValues}
             onChange={setPropertyValues}
-            searchable
+            label="Properties"
+            searchPlaceholder="Search properties"
             nothingFoundMessage="No properties available"
+            dropdownWidth={520}
           />
           <Group grow>
             <Select
