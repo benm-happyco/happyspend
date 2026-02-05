@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
-  Accordion,
   Badge,
   Box,
   Button,
@@ -17,6 +16,7 @@ import {
   Switch,
   Text,
   ThemeIcon,
+  Alert,
   useMantineTheme,
 } from '@mantine/core'
 import { LineChart, PieChart } from '@mantine/charts'
@@ -40,7 +40,7 @@ import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpyAppIcon } from '../theme/components/HpyAppIcon'
 import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
-import { supabaseMetrics } from '../lib/supabaseMetrics'
+import { metricsSupabaseConfigured, supabaseMetrics } from '../lib/supabaseMetrics'
 import { PORTFOLIO_APP_NAV } from './portfolioInsightsNav'
 import { getDemoActiveWorkflowCards } from './workflowsDemoData'
 
@@ -225,9 +225,24 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
   const [loadingNoi, setLoadingNoi] = useState(false)
 
+  // Guardrails: dashboard queries can return huge datasets in prod which can freeze the UI.
+  // Since this is a demo dashboard, we cap to recent rows to keep it responsive.
+  const MAX_WORK_ORDERS_ROWS = 4000
+  const MAX_SNAPSHOT_ROWS = 5000
+  const MAX_RATINGS_ROWS = 3000
+
   useEffect(() => {
     let mounted = true
     const fetchProperties = async () => {
+      if (!metricsSupabaseConfigured) {
+        if (mounted) {
+          setPropertyOptions([])
+          setPropertiesById(new Map())
+          setMixByPropertyId(new Map())
+          setLoadingProperties(false)
+        }
+        return
+      }
       try {
         const { data, error } = await supabaseMetrics
           .from('properties')
@@ -407,51 +422,67 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .select('property_id, occupied_units, vacant_units, leased_units')
         .in('property_id', selectedPropertyIds)
         .gte('snapshot_date', startDate)
-        .lte('snapshot_date', endDate),
+        .lte('snapshot_date', endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
         .in('property_id', selectedPropertyIds)
         .gte('rating_month', startDate)
-        .lte('rating_month', endDate),
+        .lte('rating_month', endDate)
+        .order('rating_month', { ascending: false })
+        .limit(MAX_RATINGS_ROWS),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
         .in('property_id', selectedPropertyIds)
         .gte('created_on', startDate)
         .lte('created_on', endDate)
-        .not('completed_on', 'is', null),
+        .not('completed_on', 'is', null)
+        .order('created_on', { ascending: false })
+        .limit(MAX_WORK_ORDERS_ROWS),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
         .in('property_id', selectedPropertyIds)
         .gte('snapshot_date', prev.startDate)
-        .lte('snapshot_date', prev.endDate),
+        .lte('snapshot_date', prev.endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
         .in('property_id', selectedPropertyIds)
         .gte('rating_month', prev.startDate)
-        .lte('rating_month', prev.endDate),
+        .lte('rating_month', prev.endDate)
+        .order('rating_month', { ascending: false })
+        .limit(MAX_RATINGS_ROWS),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
         .in('property_id', selectedPropertyIds)
         .gte('created_on', prev.startDate)
         .lte('created_on', prev.endDate)
-        .not('completed_on', 'is', null),
+        .not('completed_on', 'is', null)
+        .order('created_on', { ascending: false })
+        .limit(MAX_WORK_ORDERS_ROWS),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
         .in('property_id', selectedPropertyIds)
         .gte('snapshot_date', startDate)
-        .lte('snapshot_date', endDate),
+        .lte('snapshot_date', endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
         .in('property_id', selectedPropertyIds)
         .gte('snapshot_date', prev.startDate)
-        .lte('snapshot_date', prev.endDate),
+        .lte('snapshot_date', prev.endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
     ]
     const idToName = new Map(propertyOptions.map((o) => [o.value, o.label]))
     Promise.allSettled(queries)
@@ -704,19 +735,25 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .select('snapshot_date, avg_effective_rent, concessions_per_unit')
         .in('property_id', effectiveNoiPropertyIds)
         .gte('snapshot_date', chartStart)
-        .lte('snapshot_date', endDate),
+        .lte('snapshot_date', endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('snapshot_date, occupied_units, vacant_units, leased_units')
         .in('property_id', effectiveNoiPropertyIds)
         .gte('snapshot_date', chartStart)
-        .lte('snapshot_date', endDate),
+        .lte('snapshot_date', endDate)
+        .order('snapshot_date', { ascending: false })
+        .limit(MAX_SNAPSHOT_ROWS),
       supabaseMetrics
         .from('work_orders')
         .select('material_cost_usd')
         .in('property_id', effectiveNoiPropertyIds)
         .gte('created_on', chartStart)
-        .lte('created_on', endDate),
+        .lte('created_on', endDate)
+        .order('created_on', { ascending: false })
+        .limit(MAX_WORK_ORDERS_ROWS),
     ])
       .then(([rentRes, occRes, woRes]) => {
         if (!mounted) return
@@ -922,6 +959,12 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               }
             />
 
+            {!metricsSupabaseConfigured && (
+              <Alert color="yellow" title="Metrics data not configured">
+                This environment is missing the Metrics Supabase env vars. The dashboard will still load, but data queries will be disabled.
+              </Alert>
+            )}
+
             <Text component="h1" fw={800} size="xl" mb="sm">
               {badgeStats.selected === 1 ? 'Property Summary' : 'Properties Summary'}
             </Text>
@@ -1091,7 +1134,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
             </SimpleGrid>
 
             <Stack gap="lg" mb="lg">
-              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+              <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
                 <Paper withBorder p="md" radius="md">
                   <Text c="dimmed" tt="uppercase" fw={700} size="xs">
                     Total properties
