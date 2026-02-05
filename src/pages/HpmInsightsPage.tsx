@@ -33,7 +33,7 @@ import {
   StarIcon,
   TimeScheduleIcon,
 } from '@hugeicons/core-free-icons'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
@@ -158,6 +158,7 @@ function formatDateValue(value: Date | null): string {
 
 export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsightsPageProps) {
   const navigate = useNavigate()
+  const location = useLocation()
   const appNavOverride = useMemo(() => PORTFOLIO_APP_NAV, [])
   const { selectedPropertyIds, setSelectedPropertyIds, dateRange, setDateRange } = useInsightsPropertySelection()
   const { highlightUnavailable, setHighlightUnavailable } = useUnavailableHighlight()
@@ -196,6 +197,51 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [selectedNoiPropertyId, setSelectedNoiPropertyId] = useState<string | null>(null)
   const [noiChartData, setNoiChartData] = useState<NoiChartPoint[]>([])
   const [varianceDrivers, setVarianceDrivers] = useState<VarianceDriver[]>([])
+
+  const debugFlags = useMemo(() => {
+    const params = new URLSearchParams(location.search)
+    return {
+      debug: params.get('debug') === '1',
+      reset: params.get('reset') === '1',
+    }
+  }, [location.search])
+
+  const [debugPerf, setDebugPerf] = useState<{
+    lastMetricsMs: number | null
+    lastNoiMs: number | null
+    lastMetricsRows: {
+      occ: number
+      ratings: number
+      workOrders: number
+      occPrev: number
+      ratingsPrev: number
+      workOrdersPrev: number
+      rent: number
+      rentPrev: number
+    } | null
+    lastNoiRows: { rent: number; occ: number; workOrders: number } | null
+    metricsTimeout: boolean
+    noiTimeout: boolean
+  }>({
+    lastMetricsMs: null,
+    lastNoiMs: null,
+    lastMetricsRows: null,
+    lastNoiRows: null,
+    metricsTimeout: false,
+    noiTimeout: false,
+  })
+
+  useEffect(() => {
+    if (!debugFlags.reset) return
+    // Escape hatch for "hang survives refresh" due to persisted selection/date range.
+    const end = new Date()
+    const start = new Date(end)
+    start.setDate(start.getDate() - 90)
+    setSelectedPropertyIds([])
+    setDateRange({ startDate: start.toISOString().slice(0, 10), endDate: end.toISOString().slice(0, 10) })
+    navigate('/happy-property/insights/dashboard', { replace: true })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debugFlags.reset])
 
   const safeDateRange = useMemo(() => {
     const end = parseDateValue(dateRange.endDate)
@@ -440,6 +486,13 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     setLoadingMetrics(true)
+    setDebugPerf((p) => ({ ...p, metricsTimeout: false }))
+    const startedAt = performance.now()
+    const timeoutId = window.setTimeout(() => {
+      if (!mounted) return
+      setDebugPerf((p) => ({ ...p, metricsTimeout: true }))
+      setLoadingMetrics(false)
+    }, 12_000)
     const { startDate, endDate } = safeDateRange
     const prev = getPreviousPeriod(startDate, endDate)
     const queries = [
@@ -514,6 +567,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     Promise.allSettled(queries)
       .then((results) => {
         if (!mounted) return
+        const ms = performance.now() - startedAt
         const getData = (i: number) => (results[i].status === 'fulfilled' ? results[i].value.data : null)
         const occ = { data: getData(0) ?? [] }
         const ratings = { data: getData(1) ?? [] }
@@ -523,6 +577,20 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         const workOrdersPrev = { data: getData(5) ?? [] }
         const rent = { data: getData(6) ?? [] }
         const rentPrev = { data: getData(7) ?? [] }
+        setDebugPerf((p) => ({
+          ...p,
+          lastMetricsMs: ms,
+          lastMetricsRows: {
+            occ: (occ.data as unknown[]).length,
+            ratings: (ratings.data as unknown[]).length,
+            workOrders: (workOrders.data as unknown[]).length,
+            occPrev: (occPrev.data as unknown[]).length,
+            ratingsPrev: (ratingsPrev.data as unknown[]).length,
+            workOrdersPrev: (workOrdersPrev.data as unknown[]).length,
+            rent: (rent.data as unknown[]).length,
+            rentPrev: (rentPrev.data as unknown[]).length,
+          },
+        }))
         type RowOcc = { property_id?: string; occupied_units?: number; vacant_units?: number; leased_units?: number }
         type RowRating = { property_id?: string; rating_value?: number }
         type RowWo = { property_id?: string; created_on?: string; completed_on?: string }
@@ -736,9 +804,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         }
       })
       .finally(() => {
+        window.clearTimeout(timeoutId)
         if (mounted) setLoadingMetrics(false)
       })
     return () => {
+      window.clearTimeout(timeoutId)
       mounted = false
     }
   }, [selectedPropertyIds, safeDateRange, queryCaps, propertyOptions])
@@ -751,6 +821,13 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     setLoadingNoi(true)
+    setDebugPerf((p) => ({ ...p, noiTimeout: false }))
+    const startedAt = performance.now()
+    const timeoutId = window.setTimeout(() => {
+      if (!mounted) return
+      setDebugPerf((p) => ({ ...p, noiTimeout: true }))
+      setLoadingNoi(false)
+    }, 12_000)
     const endDate = safeDateRange.endDate
     const startChart = new Date(endDate)
     startChart.setMonth(startChart.getMonth() - 5)
@@ -783,6 +860,16 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     ])
       .then(([rentRes, occRes, woRes]) => {
         if (!mounted) return
+        const ms = performance.now() - startedAt
+        setDebugPerf((p) => ({
+          ...p,
+          lastNoiMs: ms,
+          lastNoiRows: {
+            rent: ((rentRes.data ?? []) as unknown[]).length,
+            occ: ((occRes.data ?? []) as unknown[]).length,
+            workOrders: ((woRes.data ?? []) as unknown[]).length,
+          },
+        }))
         const rentRows = (rentRes.data ?? []) as { snapshot_date?: string; avg_effective_rent?: number; concessions_per_unit?: number }[]
         const occRows = (occRes.data ?? []) as { snapshot_date?: string; occupied_units?: number; vacant_units?: number; leased_units?: number }[]
         const woRows = (woRes.data ?? []) as { material_cost_usd?: number }[]
@@ -903,9 +990,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         }
       })
       .finally(() => {
+        window.clearTimeout(timeoutId)
         if (mounted) setLoadingNoi(false)
       })
     return () => {
+      window.clearTimeout(timeoutId)
       mounted = false
     }
   }, [effectiveNoiPropertyIds, safeDateRange.endDate, queryCaps])
@@ -988,6 +1077,46 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
             {!metricsSupabaseConfigured && (
               <Alert color="yellow" title="Metrics data not configured">
                 This environment is missing the Metrics Supabase env vars. The dashboard will still load, but data queries will be disabled.
+              </Alert>
+            )}
+            {debugFlags.debug && (
+              <Alert color="gray" title="Dashboard debug">
+                <Stack gap={6}>
+                  <Text size="xs">
+                    Selected properties: <b>{selectedPropertyIds.length}</b> · Date range: <b>{safeDateRange.startDate}</b> →{' '}
+                    <b>{safeDateRange.endDate}</b>
+                  </Text>
+                  <Text size="xs">
+                    Query caps: workOrders <b>{queryCaps.workOrders}</b>, snapshots <b>{queryCaps.snapshots}</b>, ratings <b>{queryCaps.ratings}</b>
+                  </Text>
+                  <Text size="xs">
+                    Metrics: {loadingMetrics ? <b>loading</b> : <b>idle</b>}
+                    {debugPerf.metricsTimeout ? ' (timed out)' : ''} · last: <b>{debugPerf.lastMetricsMs?.toFixed(0) ?? '—'}ms</b>
+                  </Text>
+                  <Text size="xs">
+                    NOI: {loadingNoi ? <b>loading</b> : <b>idle</b>}
+                    {debugPerf.noiTimeout ? ' (timed out)' : ''} · last: <b>{debugPerf.lastNoiMs?.toFixed(0) ?? '—'}ms</b>
+                  </Text>
+                  {debugPerf.lastMetricsRows && (
+                    <Text size="xs">
+                      Rows (metrics): occ {debugPerf.lastMetricsRows.occ}, ratings {debugPerf.lastMetricsRows.ratings}, workOrders{' '}
+                      {debugPerf.lastMetricsRows.workOrders} · rent {debugPerf.lastMetricsRows.rent}
+                    </Text>
+                  )}
+                  {debugPerf.lastNoiRows && (
+                    <Text size="xs">
+                      Rows (NOI): rent {debugPerf.lastNoiRows.rent}, occ {debugPerf.lastNoiRows.occ}, workOrders {debugPerf.lastNoiRows.workOrders}
+                    </Text>
+                  )}
+                  <Group gap="sm">
+                    <Button size="xs" variant="light" onClick={() => navigate('/happy-property/insights/dashboard?reset=1', { replace: true })}>
+                      Reset persisted selection
+                    </Button>
+                    <Button size="xs" variant="subtle" onClick={() => navigate('/happy-property/insights/dashboard', { replace: true })}>
+                      Hide debug
+                    </Button>
+                  </Group>
+                </Stack>
               </Alert>
             )}
 
