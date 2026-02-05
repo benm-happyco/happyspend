@@ -97,23 +97,44 @@ export function JoyAiChatWindow({ mode = 'general', draft, onDraftChange, focusK
       'This is a placeholder reply. Connect JOYAI to your AI backend to analyze property and portfolio data and generate insights, strategies, and action plans.'
   }, [mode, depth, lastIntent])
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const trimmed = currentDraft.trim()
     if (!trimmed || loading) return
     setDraft('')
     setMessages((prev) => [...prev, { role: 'user', content: trimmed }])
     setLoading(true)
-    setTimeout(() => {
-      const reply = replyGenerator(trimmed)
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: reply,
-        },
-      ])
+
+    const controller = new AbortController()
+    const timeoutId = window.setTimeout(() => controller.abort(), 20_000)
+
+    const prevForRequest = [...messages, { role: 'user' as const, content: trimmed }]
+
+    try {
+      const res = await fetch('/api/joy-ai/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({
+          mode,
+          messages: prevForRequest.map((m) => ({ role: m.role, content: m.content })),
+        }),
+      })
+
+      if (!res.ok) throw new Error(`JOYAI backend unavailable (${res.status})`)
+      const data = (await res.json()) as { content?: string }
+      if (!data?.content) throw new Error('Empty JOYAI response')
+
+      setMessages((prev) => [...prev, { role: 'assistant', content: data.content }])
       setDepth((d) => d + 1)
-      // Store intent hint for follow-ups
+      setLoading(false)
+      return
+    } catch {
+      // Fallback to existing mocked logic (keeps app working in dev / without OPENAI_API_KEY).
+      const reply = replyGenerator(trimmed)
+      setMessages((prev) => [...prev, { role: 'assistant', content: reply }])
+      setDepth((d) => d + 1)
+
+      // Store intent hint for follow-ups (mock workflows only)
       const norm = normalize(trimmed)
       const inferred =
         mode === 'workflows'
@@ -129,7 +150,9 @@ export function JoyAiChatWindow({ mode = 'general', draft, onDraftChange, focusK
           : null
       if (inferred) setLastIntent(inferred)
       setLoading(false)
-    }, 800)
+    } finally {
+      window.clearTimeout(timeoutId)
+    }
   }
 
   return (

@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "vercel:login": "npx vercel login",
+    "vercel:link": "npx vercel link",
+    "vercel:dev": "npx vercel dev",
+    "vercel:env:pull": "npx vercel env pull .env.local",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

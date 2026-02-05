@@ -38,10 +38,38 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
    - Copy the "Project URL" for `VITE_SUPABASE_URL`
    - Copy the "anon public" key for `VITE_SUPABASE_ANON_KEY`
 
+3. (Optional) JOYAI real chat (OpenAI)
+
+If you want the JOYAI chat bubble to use real OpenAI responses, set:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+# Optional:
+OPENAI_MODEL=gpt-4o-mini
+```
+
 ### Development
 
 ```bash
 npm run dev
+```
+
+### Development (with Vercel functions, for JOYAI)
+
+Vite dev (`npm run dev`) does not run Vercel serverless functions, so `/api/*` endpoints won’t exist locally.
+
+To run the app **and** `/api/joy-ai/chat` locally:
+
+```bash
+# one-time: login + link this project
+npm run vercel:login
+npm run vercel:link
+
+# pull your Vercel env vars into .env.local (includes OPENAI_API_KEY if set)
+npm run vercel:env:pull
+
+# run Vercel dev (serves Vite + serverless functions)
+npm run vercel:dev
 ```
 
 ### Build

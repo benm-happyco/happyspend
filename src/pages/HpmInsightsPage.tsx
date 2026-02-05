@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Badge,
   Box,
@@ -198,6 +198,14 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [noiChartData, setNoiChartData] = useState<NoiChartPoint[]>([])
   const [varianceDrivers, setVarianceDrivers] = useState<VarianceDriver[]>([])
 
+  // Debounce expensive recalcs/queries when users multi-select quickly (also helps first load
+  // when a stored selection immediately triggers lots of work).
+  const [debouncedPropertyIds, setDebouncedPropertyIds] = useState<string[]>(selectedPropertyIds)
+  useEffect(() => {
+    const t = window.setTimeout(() => setDebouncedPropertyIds(selectedPropertyIds), 350)
+    return () => window.clearTimeout(t)
+  }, [selectedPropertyIds])
+
   const debugFlags = useMemo(() => {
     const params = new URLSearchParams(location.search)
     return {
@@ -250,12 +258,12 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     const days = Math.max(1, Math.round((end.getTime() - start.getTime()) / (24 * 60 * 60 * 1000)) + 1)
     // When users select multiple properties, this dashboard can become very expensive.
     // Clamp the range to keep the UI responsive and avoid "hang on refresh" scenarios.
-    const maxDays = selectedPropertyIds.length > 1 ? 120 : 180
+    const maxDays = debouncedPropertyIds.length > 1 ? 120 : 180
     if (days <= maxDays) return dateRange
     const nextStart = new Date(end)
     nextStart.setDate(nextStart.getDate() - (maxDays - 1))
     return { startDate: formatDateValue(nextStart), endDate: dateRange.endDate }
-  }, [dateRange, selectedPropertyIds.length])
+  }, [dateRange, debouncedPropertyIds.length])
 
   useEffect(() => {
     if (safeDateRange.startDate !== dateRange.startDate || safeDateRange.endDate !== dateRange.endDate) {
@@ -266,42 +274,45 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
   const noiRegions = useMemo(() => {
     const markets = new Set<string>()
-    selectedPropertyIds.forEach((id) => {
+    debouncedPropertyIds.forEach((id) => {
       const m = propertiesById.get(id)?.market
       if (m != null && String(m).trim() !== '') markets.add(String(m).trim())
     })
     return Array.from(markets).sort()
-  }, [selectedPropertyIds, propertiesById])
+  }, [debouncedPropertyIds, propertiesById])
 
   const noiPropertyOptions = useMemo(
-    () => propertyOptions.filter((o) => selectedPropertyIds.includes(o.value)),
-    [propertyOptions, selectedPropertyIds]
+    () => propertyOptions.filter((o) => debouncedPropertyIds.includes(o.value)),
+    [propertyOptions, debouncedPropertyIds]
   )
 
   const effectiveNoiPropertyIds = useMemo(() => {
-    if (selectedPropertyIds.length === 0) return []
-    if (noiView === 'portfolio') return selectedPropertyIds
+    if (debouncedPropertyIds.length === 0) return []
+    if (noiView === 'portfolio') return debouncedPropertyIds
     if (noiView === 'region') {
       const region = noiRegions.includes(selectedNoiRegion ?? '') ? selectedNoiRegion : noiRegions[0]
-      if (!region) return selectedPropertyIds
-      return selectedPropertyIds.filter((id) => (propertiesById.get(id)?.market ?? '').trim() === region)
+      if (!region) return debouncedPropertyIds
+      return debouncedPropertyIds.filter((id) => (propertiesById.get(id)?.market ?? '').trim() === region)
     }
-    const id = selectedNoiPropertyId ?? selectedPropertyIds[0]
-    return selectedPropertyIds.includes(id ?? '') ? [id!] : [selectedPropertyIds[0]]
-  }, [noiView, selectedPropertyIds, selectedNoiRegion, selectedNoiPropertyId, noiRegions, propertiesById])
+    const id = selectedNoiPropertyId ?? debouncedPropertyIds[0]
+    return debouncedPropertyIds.includes(id ?? '') ? [id!] : [debouncedPropertyIds[0]]
+  }, [noiView, debouncedPropertyIds, selectedNoiRegion, selectedNoiPropertyId, noiRegions, propertiesById])
 
   const [loadingNoi, setLoadingNoi] = useState(false)
 
   // Guardrails: dashboard queries can return huge datasets in prod which can freeze the UI.
   // Since this is a demo dashboard, we cap to recent rows to keep it responsive.
   const queryCaps = useMemo(() => {
-    const factor = Math.max(1, selectedPropertyIds.length)
+    const factor = Math.max(1, debouncedPropertyIds.length)
     return {
       workOrders: Math.max(800, Math.floor(4000 / factor)),
       snapshots: Math.max(1200, Math.floor(5000 / factor)),
       ratings: Math.max(600, Math.floor(3000 / factor)),
     }
-  }, [selectedPropertyIds.length])
+  }, [debouncedPropertyIds.length])
+
+  const metricsRunIdRef = useRef(0)
+  const noiRunIdRef = useRef(0)
 
   useEffect(() => {
     let mounted = true
@@ -472,7 +483,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   )
 
   useEffect(() => {
-    if (selectedPropertyIds.length === 0) {
+    if (debouncedPropertyIds.length === 0 || loadingProperties) {
       setMetrics({
         occupancyPct: null,
         satisfaction: null,
@@ -485,6 +496,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       return
     }
     let mounted = true
+    const runId = ++metricsRunIdRef.current
     setLoadingMetrics(true)
     setDebugPerf((p) => ({ ...p, metricsTimeout: false }))
     const startedAt = performance.now()
@@ -499,7 +511,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
@@ -507,7 +519,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('rating_month', startDate)
         .lte('rating_month', endDate)
         .order('rating_month', { ascending: false })
@@ -515,7 +527,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('created_on', startDate)
         .lte('created_on', endDate)
         .not('completed_on', 'is', null)
@@ -524,7 +536,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
@@ -532,7 +544,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('rating_month', prev.startDate)
         .lte('rating_month', prev.endDate)
         .order('rating_month', { ascending: false })
@@ -540,7 +552,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('created_on', prev.startDate)
         .lte('created_on', prev.endDate)
         .not('completed_on', 'is', null)
@@ -549,7 +561,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
@@ -557,7 +569,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
-        .in('property_id', selectedPropertyIds)
+        .in('property_id', debouncedPropertyIds)
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
@@ -567,6 +579,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     Promise.allSettled(queries)
       .then((results) => {
         if (!mounted) return
+        if (runId !== metricsRunIdRef.current) return
         const ms = performance.now() - startedAt
         const getData = (i: number) => (results[i].status === 'fulfilled' ? results[i].value.data : null)
         const occ = { data: getData(0) ?? [] }
@@ -708,7 +721,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         const daysByPropPrev = calcAvgDaysByProperty((workOrdersPrev.data ?? []) as RowWo[])
         const rentByProp = calcRentByProperty((rent?.data ?? []) as RowRent[])
         const rentByPropPrev = calcRentByProperty((rentPrev?.data ?? []) as RowRent[])
-        const allIds = new Set(selectedPropertyIds)
+        const allIds = new Set(debouncedPropertyIds)
         const pickLocation = (deltas: Map<string, number>) => {
           let bestId = ''
           let bestAbs = -1
@@ -811,7 +824,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       window.clearTimeout(timeoutId)
       mounted = false
     }
-  }, [selectedPropertyIds, safeDateRange, queryCaps, propertyOptions])
+  }, [debouncedPropertyIds, loadingProperties, safeDateRange, queryCaps, propertyOptions])
 
   useEffect(() => {
     if (effectiveNoiPropertyIds.length === 0) {
@@ -820,6 +833,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       return
     }
     let mounted = true
+    const runId = ++noiRunIdRef.current
     setLoadingNoi(true)
     setDebugPerf((p) => ({ ...p, noiTimeout: false }))
     const startedAt = performance.now()
@@ -860,6 +874,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     ])
       .then(([rentRes, occRes, woRes]) => {
         if (!mounted) return
+        if (runId !== noiRunIdRef.current) return
         const ms = performance.now() - startedAt
         setDebugPerf((p) => ({
           ...p,
@@ -1083,8 +1098,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               <Alert color="gray" title="Dashboard debug">
                 <Stack gap={6}>
                   <Text size="xs">
-                    Selected properties: <b>{selectedPropertyIds.length}</b> · Date range: <b>{safeDateRange.startDate}</b> →{' '}
-                    <b>{safeDateRange.endDate}</b>
+                    Selected properties: <b>{selectedPropertyIds.length}</b> (debounced: <b>{debouncedPropertyIds.length}</b>) · Date range:{' '}
+                    <b>{safeDateRange.startDate}</b> → <b>{safeDateRange.endDate}</b>
                   </Text>
                   <Text size="xs">
                     Query caps: workOrders <b>{queryCaps.workOrders}</b>, snapshots <b>{queryCaps.snapshots}</b>, ratings <b>{queryCaps.ratings}</b>
