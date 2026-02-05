@@ -2,7 +2,9 @@ import { Box, Group, ScrollArea, Stack, Text, Textarea, UnstyledButton } from '@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Forward02Icon } from '@hugeicons/core-free-icons'
+import { useLocation } from 'react-router-dom'
 import { JoyAiIcon } from './JoyAiIcon'
+import { useInsightsPropertySelectionOptional } from '../../contexts/InsightsPropertyContext'
 
 const WELCOME_GENERAL = `I'm JOYAI, your AI assistant for property and portfolio analysis. I can help you generate insights, strategies, and action plans based on your selected properties. Ask me anything about your portfolio data.`
 const WELCOME_WORKFLOWS = `I'm JOYAI. Tell me what you want to optimize and I’ll propose a workflow: triggers, steps, owners, and guardrails.\n\nTry: “Show active workflows”, “Build a turn time workflow”, or “Optimize vendor SLA setup”.`
@@ -72,6 +74,8 @@ function simulateWorkflowsReply(message: string, ctx: { depth: number; lastInten
 }
 
 export function JoyAiChatWindow({ mode = 'general', draft, onDraftChange, focusKey, showHeader = true }: JoyAiChatWindowProps) {
+  const location = useLocation()
+  const { selectedPropertyIds, dateRange } = useInsightsPropertySelectionOptional()
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: 'assistant', content: mode === 'workflows' ? WELCOME_WORKFLOWS : WELCOME_GENERAL },
   ])
@@ -116,6 +120,11 @@ export function JoyAiChatWindow({ mode = 'general', draft, onDraftChange, focusK
         signal: controller.signal,
         body: JSON.stringify({
           mode,
+          context: {
+            path: location.pathname,
+            selectedPropertyIds,
+            dateRange,
+          },
           messages: prevForRequest.map((m) => ({ role: m.role, content: m.content })),
         }),
       })
