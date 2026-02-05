@@ -197,6 +197,27 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [noiChartData, setNoiChartData] = useState<NoiChartPoint[]>([])
   const [varianceDrivers, setVarianceDrivers] = useState<VarianceDriver[]>([])
 
+  const safeDateRange = useMemo(() => {
+    const end = parseDateValue(dateRange.endDate)
+    const start = parseDateValue(dateRange.startDate)
+    if (!end || !start) return dateRange
+    const days = Math.max(1, Math.round((end.getTime() - start.getTime()) / (24 * 60 * 60 * 1000)) + 1)
+    // When users select multiple properties, this dashboard can become very expensive.
+    // Clamp the range to keep the UI responsive and avoid "hang on refresh" scenarios.
+    const maxDays = selectedPropertyIds.length > 1 ? 120 : 180
+    if (days <= maxDays) return dateRange
+    const nextStart = new Date(end)
+    nextStart.setDate(nextStart.getDate() - (maxDays - 1))
+    return { startDate: formatDateValue(nextStart), endDate: dateRange.endDate }
+  }, [dateRange, selectedPropertyIds.length])
+
+  useEffect(() => {
+    if (safeDateRange.startDate !== dateRange.startDate || safeDateRange.endDate !== dateRange.endDate) {
+      setDateRange(safeDateRange)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [safeDateRange.startDate, safeDateRange.endDate])
+
   const noiRegions = useMemo(() => {
     const markets = new Set<string>()
     selectedPropertyIds.forEach((id) => {
@@ -227,9 +248,14 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
   // Guardrails: dashboard queries can return huge datasets in prod which can freeze the UI.
   // Since this is a demo dashboard, we cap to recent rows to keep it responsive.
-  const MAX_WORK_ORDERS_ROWS = 4000
-  const MAX_SNAPSHOT_ROWS = 5000
-  const MAX_RATINGS_ROWS = 3000
+  const queryCaps = useMemo(() => {
+    const factor = Math.max(1, selectedPropertyIds.length)
+    return {
+      workOrders: Math.max(800, Math.floor(4000 / factor)),
+      snapshots: Math.max(1200, Math.floor(5000 / factor)),
+      ratings: Math.max(600, Math.floor(3000 / factor)),
+    }
+  }, [selectedPropertyIds.length])
 
   useEffect(() => {
     let mounted = true
@@ -414,7 +440,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     setLoadingMetrics(true)
-    const { startDate, endDate } = dateRange
+    const { startDate, endDate } = safeDateRange
     const prev = getPreviousPeriod(startDate, endDate)
     const queries = [
       supabaseMetrics
@@ -424,7 +450,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
@@ -432,7 +458,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('rating_month', startDate)
         .lte('rating_month', endDate)
         .order('rating_month', { ascending: false })
-        .limit(MAX_RATINGS_ROWS),
+        .limit(queryCaps.ratings),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
@@ -441,7 +467,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .lte('created_on', endDate)
         .not('completed_on', 'is', null)
         .order('created_on', { ascending: false })
-        .limit(MAX_WORK_ORDERS_ROWS),
+        .limit(queryCaps.workOrders),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
@@ -449,7 +475,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
@@ -457,7 +483,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('rating_month', prev.startDate)
         .lte('rating_month', prev.endDate)
         .order('rating_month', { ascending: false })
-        .limit(MAX_RATINGS_ROWS),
+        .limit(queryCaps.ratings),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
@@ -466,7 +492,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .lte('created_on', prev.endDate)
         .not('completed_on', 'is', null)
         .order('created_on', { ascending: false })
-        .limit(MAX_WORK_ORDERS_ROWS),
+        .limit(queryCaps.workOrders),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
@@ -474,7 +500,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
@@ -482,7 +508,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
     ]
     const idToName = new Map(propertyOptions.map((o) => [o.value, o.label]))
     Promise.allSettled(queries)
@@ -715,7 +741,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     return () => {
       mounted = false
     }
-  }, [selectedPropertyIds, dateRange, propertyOptions])
+  }, [selectedPropertyIds, safeDateRange, queryCaps, propertyOptions])
 
   useEffect(() => {
     if (effectiveNoiPropertyIds.length === 0) {
@@ -725,7 +751,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     setLoadingNoi(true)
-    const endDate = dateRange.endDate
+    const endDate = safeDateRange.endDate
     const startChart = new Date(endDate)
     startChart.setMonth(startChart.getMonth() - 5)
     const chartStart = startChart.toISOString().slice(0, 10)
@@ -737,7 +763,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', chartStart)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('snapshot_date, occupied_units, vacant_units, leased_units')
@@ -745,7 +771,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', chartStart)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(MAX_SNAPSHOT_ROWS),
+        .limit(queryCaps.snapshots),
       supabaseMetrics
         .from('work_orders')
         .select('material_cost_usd')
@@ -753,7 +779,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('created_on', chartStart)
         .lte('created_on', endDate)
         .order('created_on', { ascending: false })
-        .limit(MAX_WORK_ORDERS_ROWS),
+        .limit(queryCaps.workOrders),
     ])
       .then(([rentRes, occRes, woRes]) => {
         if (!mounted) return
@@ -882,7 +908,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     return () => {
       mounted = false
     }
-  }, [effectiveNoiPropertyIds, dateRange])
+  }, [effectiveNoiPropertyIds, safeDateRange.endDate, queryCaps])
 
   return (
     <>
