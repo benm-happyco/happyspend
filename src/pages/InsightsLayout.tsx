@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { InsightsPropertyProvider } from '../contexts/InsightsPropertyContext'
 import { UnavailableHighlightProvider } from '../contexts/UnavailableHighlightContext'
 import { JoyAiFloatingChat } from '../theme/components/JoyAiFloatingChat'
@@ -8,11 +8,14 @@ import { JoyAiFloatingChat } from '../theme/components/JoyAiFloatingChat'
  * Renders the matched child route via Outlet.
  */
 export function InsightsLayout() {
+  const location = useLocation()
+  const hideFloatingJoyAi = location.pathname.includes('/happy-property/insights/workflows')
+
   return (
     <InsightsPropertyProvider>
       <UnavailableHighlightProvider>
         <Outlet />
-        <JoyAiFloatingChat />
+        {!hideFloatingJoyAi && <JoyAiFloatingChat />}
       </UnavailableHighlightProvider>
     </InsightsPropertyProvider>
   )

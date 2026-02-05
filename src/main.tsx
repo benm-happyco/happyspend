@@ -6,6 +6,7 @@ import App from './App.tsx'
 import { customTheme } from './theme/theme.ts'
 import './index.css'
 import '@mantine/notifications/styles.css'
+import 'leaflet/dist/leaflet.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

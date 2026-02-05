@@ -26,4 +26,20 @@ body {
   overflow: hidden;
 }
 
+/* Leaflet tooltip: let our Mantine content own the styling */
+.leaflet-tooltip.hpy-map-tooltip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--mantine-color-text);
+  /* Leaflet sets tooltips to nowrap by default */
+  white-space: normal;
+  max-width: none;
+}
+
+.leaflet-tooltip.hpy-map-tooltip::before {
+  display: none;
+}
+
 

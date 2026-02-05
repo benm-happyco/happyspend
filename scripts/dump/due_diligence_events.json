@@ -1,0 +1,42 @@
+[
+  {
+    "dd_event_id": "20000000-0000-0000-0000-000000000001",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "event_date": "2022-02-10",
+    "dd_type": "Pre-Acquisition",
+    "buyer_group_id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "seller_group_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "provider": "HappyCo + 3rd party",
+    "summary": "DD walk + file review. Identified HVAC age and turn-time issues."
+  },
+  {
+    "dd_event_id": "20000000-0000-0000-0000-000000000002",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "event_date": "2024-08-18",
+    "dd_type": "Disposition",
+    "buyer_group_id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "seller_group_id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "provider": "HappyCo internal",
+    "summary": "Disposition DD packet. Included photo history, WO/turn trends, condition scores."
+  },
+  {
+    "dd_event_id": "20000000-0000-0000-0000-000000000101",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "event_date": "2024-02-15",
+    "dd_type": "Refinance",
+    "buyer_group_id": null,
+    "seller_group_id": null,
+    "provider": "HappyCo internal",
+    "summary": "Refinance DD. Strong ops history, minor deferred maintenance."
+  },
+  {
+    "dd_event_id": "21000000-0000-0000-0000-000000000001",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "event_date": "2023-01-15",
+    "dd_type": "Pre-Acquisition",
+    "buyer_group_id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "seller_group_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "provider": "HappyCo + 3rd party",
+    "summary": "DD walk + file review. Identified turn-time and safety opportunities."
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "owner_group_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "name": "Oak Ridge REIT",
+    "type": "REIT",
+    "created_at": "2026-01-27T20:19:16.747161+00:00"
+  },
+  {
+    "owner_group_id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "name": "HarborLight Capital",
+    "type": "Private Equity",
+    "created_at": "2026-01-27T20:19:16.747161+00:00"
+  },
+  {
+    "owner_group_id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "name": "BigTall Equity Group",
+    "type": "Family Office",
+    "created_at": "2026-01-27T20:19:16.747161+00:00"
+  },
+  {
+    "owner_group_id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "name": "Cascade Pacific Partners",
+    "type": "Private Equity",
+    "created_at": "2026-02-03T20:14:16.557702+00:00"
+  },
+  {
+    "owner_group_id": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+    "name": "Puget Sound Capital",
+    "type": "REIT",
+    "created_at": "2026-02-03T20:14:16.557702+00:00"
+  },
+  {
+    "owner_group_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "name": "Emerald City Investments",
+    "type": "Family Office",
+    "created_at": "2026-02-03T20:14:16.557702+00:00"
+  },
+  {
+    "owner_group_id": "11111111-aaaa-aaaa-aaaa-111111111111",
+    "name": "Northwest Multifamily Trust",
+    "type": "REIT",
+    "created_at": "2026-02-03T20:14:16.557702+00:00"
+  },
+  {
+    "owner_group_id": "22222222-bbbb-bbbb-bbbb-222222222222",
+    "name": "Pacific Crest Holdings",
+    "type": "Operator",
+    "created_at": "2026-02-03T20:14:16.557702+00:00"
+  }
+]

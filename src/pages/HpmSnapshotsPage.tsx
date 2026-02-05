@@ -1,5 +1,10 @@
 import { InsightsPageShell } from './InsightsPageShell'
+import { PortfolioSnapshotContent } from './PortfolioSnapshotContent'
 
 export function HpmSnapshotsPage() {
-  return <InsightsPageShell title="Snapshots" />
+  return (
+    <InsightsPageShell title="Portfolio" hideHeaderFilters>
+      <PortfolioSnapshotContent />
+    </InsightsPageShell>
+  )
 }

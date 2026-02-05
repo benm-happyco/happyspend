@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "rows": 10,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/properties.json"
+  },
+  "property_periods": {
+    "rows": 11,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/property_periods.json"
+  },
+  "owner_groups": {
+    "rows": 8,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/owner_groups.json"
+  },
+  "management_companies": {
+    "rows": 5,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/management_companies.json"
+  },
+  "work_orders": {
+    "rows": 733,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/work_orders.json"
+  },
+  "capital_projects": {
+    "rows": 133,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/capital_projects.json"
+  },
+  "resident_ratings": {
+    "rows": 408,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/resident_ratings.json"
+  },
+  "property_condition_scores": {
+    "rows": 1236,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/property_condition_scores.json"
+  },
+  "households": {
+    "rows": 0,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/households.json"
+  },
+  "residents": {
+    "rows": 0,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/residents.json"
+  },
+  "rent_snapshots": {
+    "rows": 588,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/rent_snapshots.json"
+  },
+  "occupancy_snapshots": {
+    "rows": 588,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/occupancy_snapshots.json"
+  },
+  "photos": {
+    "rows": 706,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/photos.json"
+  },
+  "inspections": {
+    "rows": 30042,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/inspections.json"
+  },
+  "make_ready_turns": {
+    "rows": 2043,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/make_ready_turns.json"
+  },
+  "due_diligence_events": {
+    "rows": 4,
+    "path": "/Users/benmoodie/AI/forge/scripts/dump/due_diligence_events.json"
+  }
+}

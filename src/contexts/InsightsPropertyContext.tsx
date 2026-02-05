@@ -5,6 +5,27 @@ const STORAGE_KEY_DATE_RANGE = 'insights-date-range'
 
 export type InsightsDateRange = { startDate: string; endDate: string }
 
+function getCookie(name: string): string | null {
+  try {
+    const parts = document.cookie.split(';').map((p) => p.trim())
+    const match = parts.find((p) => p.startsWith(`${name}=`))
+    if (!match) return null
+    return decodeURIComponent(match.slice(name.length + 1))
+  } catch {
+    return null
+  }
+}
+
+function setCookie(name: string, value: string, days = 365) {
+  try {
+    const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString()
+    const secure = window.location.protocol === 'https:' ? '; Secure' : ''
+    document.cookie = `${name}=${encodeURIComponent(value)}; Expires=${expires}; Path=/; SameSite=Lax${secure}`
+  } catch {
+    // ignore
+  }
+}
+
 function getDefaultDateRange(): InsightsDateRange {
   const end = new Date()
   const start = new Date(end)
@@ -17,7 +38,9 @@ function getDefaultDateRange(): InsightsDateRange {
 
 function loadStoredIds(): string[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_IDS)
+    // localStorage is port-scoped (origin includes port). Also persist to cookie so dev-server port
+    // changes (5173 → 5175) don't wipe the selection.
+    const raw = localStorage.getItem(STORAGE_KEY_IDS) ?? getCookie(STORAGE_KEY_IDS)
     if (!raw) return []
     const parsed = JSON.parse(raw)
     return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === 'string') : []
@@ -28,7 +51,9 @@ function loadStoredIds(): string[] {
 
 function saveStoredIds(ids: string[]) {
   try {
-    localStorage.setItem(STORAGE_KEY_IDS, JSON.stringify(ids))
+    const raw = JSON.stringify(ids)
+    localStorage.setItem(STORAGE_KEY_IDS, raw)
+    setCookie(STORAGE_KEY_IDS, raw)
   } catch {
     // ignore
   }
@@ -36,7 +61,7 @@ function saveStoredIds(ids: string[]) {
 
 function loadStoredDateRange(): InsightsDateRange {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_DATE_RANGE)
+    const raw = localStorage.getItem(STORAGE_KEY_DATE_RANGE) ?? getCookie(STORAGE_KEY_DATE_RANGE)
     if (!raw) return getDefaultDateRange()
     const parsed = JSON.parse(raw)
     if (parsed && typeof parsed.startDate === 'string' && typeof parsed.endDate === 'string') {
@@ -50,7 +75,9 @@ function loadStoredDateRange(): InsightsDateRange {
 
 function saveStoredDateRange(range: InsightsDateRange) {
   try {
-    localStorage.setItem(STORAGE_KEY_DATE_RANGE, JSON.stringify(range))
+    const raw = JSON.stringify(range)
+    localStorage.setItem(STORAGE_KEY_DATE_RANGE, raw)
+    setCookie(STORAGE_KEY_DATE_RANGE, raw)
   } catch {
     // ignore
   }

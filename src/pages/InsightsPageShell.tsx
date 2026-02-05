@@ -31,10 +31,11 @@ function formatDateValue(value: Date | null): string {
 
 type InsightsPageShellProps = {
   title: string
+  hideHeaderFilters?: boolean
   children?: React.ReactNode
 }
 
-export function InsightsPageShell({ title, children }: InsightsPageShellProps) {
+export function InsightsPageShell({ title, hideHeaderFilters, children }: InsightsPageShellProps) {
   const appNavOverride = useMemo(() => PORTFOLIO_APP_NAV, [])
   const { selectedPropertyIds, setSelectedPropertyIds, dateRange, setDateRange } = useInsightsPropertySelection()
   const { highlightUnavailable, setHighlightUnavailable } = useUnavailableHighlight()
@@ -106,6 +107,7 @@ export function InsightsPageShell({ title, children }: InsightsPageShellProps) {
               appIconNode={<HpyAppIcon type="Insights" size={48} radius={8} />}
               hideCta
               trailingContent={
+                hideHeaderFilters ? null : (
                 <Group align="flex-end" gap="md" wrap="wrap">
                   <Box style={{ minWidth: 280, maxWidth: 480 }}>
                     <MultiSelect
@@ -149,6 +151,7 @@ export function InsightsPageShell({ title, children }: InsightsPageShellProps) {
                     style={{ minWidth: 140 }}
                   />
                 </Group>
+                )
               }
             />
             {children}

@@ -65,13 +65,12 @@ export function JoyAiFloatingChat() {
         aria-label={opened ? 'Hide JOYAI chat' : 'Open JOYAI chat'}
         onClick={() => setOpened((v) => !v)}
         style={{
-          background:
-            'linear-gradient(135deg, var(--mantine-color-teal-5), var(--mantine-color-purple-6), var(--mantine-color-blue-5))',
-          boxShadow: '0 10px 22px rgba(0, 0, 0, 0.28)',
+          background: 'transparent',
+          boxShadow: 'none',
           pointerEvents: 'auto',
         }}
       >
-        <JoyAiIcon size={26} alt="JOYAI" />
+        <JoyAiIcon size={56} alt="JOYAI" />
       </ActionIcon>
     </Box>
   )

@@ -12,11 +12,12 @@ export function CategoryIcon({ src, size = 24 }: CategoryIconProps) {
       h={size}
       style={{
         backgroundColor: 'var(--mantine-color-text)',
-        maskImage: `url(${src})`,
+        // Quote URL so data: URIs (and any # fragments) work reliably in CSS url()
+        maskImage: `url("${src}")`,
         maskRepeat: 'no-repeat',
         maskSize: 'contain',
         maskPosition: 'center',
-        WebkitMaskImage: `url(${src})`,
+        WebkitMaskImage: `url("${src}")`,
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskSize: 'contain',
         WebkitMaskPosition: 'center',

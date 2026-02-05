@@ -1,0 +1,4706 @@
+[
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000101",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-06-01",
+    "avg_effective_rent": 1685,
+    "avg_asking_rent": 1740,
+    "concessions_per_unit": 55
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000102",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-06-01",
+    "avg_effective_rent": 1760,
+    "avg_asking_rent": 1825,
+    "concessions_per_unit": 45
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000103",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-06-01",
+    "avg_effective_rent": 1845,
+    "avg_asking_rent": 1910,
+    "concessions_per_unit": 35
+  },
+  {
+    "rent_snapshot_id": "ff23b24f-61b6-4911-80fd-95b7399e16e2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-12-01",
+    "avg_effective_rent": 2145,
+    "avg_asking_rent": 2215,
+    "concessions_per_unit": 35
+  },
+  {
+    "rent_snapshot_id": "034b8c09-3da5-47f4-8556-f60c57d13367",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-01-01",
+    "avg_effective_rent": 1752.26,
+    "avg_asking_rent": 1840.09,
+    "concessions_per_unit": 67.67
+  },
+  {
+    "rent_snapshot_id": "26d8414f-3af5-4d2f-af9f-0f3bf9694536",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-02-01",
+    "avg_effective_rent": 1774.48,
+    "avg_asking_rent": 1839.69,
+    "concessions_per_unit": 65.99
+  },
+  {
+    "rent_snapshot_id": "9c54444e-4843-46f6-80ce-b65d702b552a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-03-01",
+    "avg_effective_rent": 1777.05,
+    "avg_asking_rent": 1856.48,
+    "concessions_per_unit": 70.69
+  },
+  {
+    "rent_snapshot_id": "4bcb7b68-367f-40f3-b63f-3932722eff2b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-04-01",
+    "avg_effective_rent": 1778.65,
+    "avg_asking_rent": 1845.82,
+    "concessions_per_unit": 65.2
+  },
+  {
+    "rent_snapshot_id": "ba38a91b-2338-4582-a622-1e63f025fc07",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-05-01",
+    "avg_effective_rent": 1789.04,
+    "avg_asking_rent": 1860.81,
+    "concessions_per_unit": 68.79
+  },
+  {
+    "rent_snapshot_id": "45cd66d8-3eee-406a-bdb8-cfe2ca3a8ccc",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-07-01",
+    "avg_effective_rent": 1786.51,
+    "avg_asking_rent": 1888.57,
+    "concessions_per_unit": 68.27
+  },
+  {
+    "rent_snapshot_id": "5956eff5-4251-43ee-bb38-8fd01f073bf2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-08-01",
+    "avg_effective_rent": 1805.1,
+    "avg_asking_rent": 1876.65,
+    "concessions_per_unit": 62.44
+  },
+  {
+    "rent_snapshot_id": "e0f62aff-1547-4d66-8400-0c12c89238c4",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-09-01",
+    "avg_effective_rent": 1817.28,
+    "avg_asking_rent": 1898.54,
+    "concessions_per_unit": 60.7
+  },
+  {
+    "rent_snapshot_id": "782c477a-28c3-4194-b246-e654d8c442f7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-10-01",
+    "avg_effective_rent": 1820.56,
+    "avg_asking_rent": 1897.73,
+    "concessions_per_unit": 64.6
+  },
+  {
+    "rent_snapshot_id": "174ff8bf-9ce1-4cd3-bcf5-3611f8775fae",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-11-01",
+    "avg_effective_rent": 1850.91,
+    "avg_asking_rent": 1932.35,
+    "concessions_per_unit": 63.86
+  },
+  {
+    "rent_snapshot_id": "c372579e-40d3-473e-90e4-31551bd012d9",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-12-01",
+    "avg_effective_rent": 1852.04,
+    "avg_asking_rent": 1938.2,
+    "concessions_per_unit": 59.89
+  },
+  {
+    "rent_snapshot_id": "55f1026e-7164-481a-81b0-12023512087e",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-01-01",
+    "avg_effective_rent": 1853.26,
+    "avg_asking_rent": 1942.84,
+    "concessions_per_unit": 61.43
+  },
+  {
+    "rent_snapshot_id": "a2ee1f34-5b2c-4da9-82ad-89c50ad5656e",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-02-01",
+    "avg_effective_rent": 1854.83,
+    "avg_asking_rent": 1949.37,
+    "concessions_per_unit": 58.65
+  },
+  {
+    "rent_snapshot_id": "de468c85-c632-47da-9fc4-ffd4e8ae62ea",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-03-01",
+    "avg_effective_rent": 1858.64,
+    "avg_asking_rent": 1969.12,
+    "concessions_per_unit": 61.25
+  },
+  {
+    "rent_snapshot_id": "036fbb3f-4f6b-49aa-9c2d-7fe4b381704e",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-04-01",
+    "avg_effective_rent": 1897.86,
+    "avg_asking_rent": 1975.18,
+    "concessions_per_unit": 55.72
+  },
+  {
+    "rent_snapshot_id": "13ea2856-6984-4bfa-ab3f-e8701ee95d28",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-05-01",
+    "avg_effective_rent": 1888.36,
+    "avg_asking_rent": 1992.44,
+    "concessions_per_unit": 59.46
+  },
+  {
+    "rent_snapshot_id": "628348c1-3c68-4fae-a3bf-049404634f68",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-06-01",
+    "avg_effective_rent": 1915.65,
+    "avg_asking_rent": 1993.05,
+    "concessions_per_unit": 57.98
+  },
+  {
+    "rent_snapshot_id": "4a679dd0-ff28-4113-8c04-fd2b5acde562",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-07-01",
+    "avg_effective_rent": 1913.63,
+    "avg_asking_rent": 1999.89,
+    "concessions_per_unit": 57.38
+  },
+  {
+    "rent_snapshot_id": "4c8c476e-cd37-4704-8353-62641177d8c5",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-08-01",
+    "avg_effective_rent": 1934.59,
+    "avg_asking_rent": 2012.31,
+    "concessions_per_unit": 52.26
+  },
+  {
+    "rent_snapshot_id": "47ec323b-7701-47ad-9d39-9a9f50e29beb",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-09-01",
+    "avg_effective_rent": 1936.03,
+    "avg_asking_rent": 2016.31,
+    "concessions_per_unit": 55.65
+  },
+  {
+    "rent_snapshot_id": "6c4819e5-0850-4a29-a70c-21b809ccc2b3",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-10-01",
+    "avg_effective_rent": 1924.45,
+    "avg_asking_rent": 2041.23,
+    "concessions_per_unit": 54.36
+  },
+  {
+    "rent_snapshot_id": "b159fe81-46eb-448f-a26b-af10ee871716",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-11-01",
+    "avg_effective_rent": 1933.22,
+    "avg_asking_rent": 2031.82,
+    "concessions_per_unit": 52.97
+  },
+  {
+    "rent_snapshot_id": "76eebe57-9771-481d-a8f9-492e6526416d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-12-01",
+    "avg_effective_rent": 1938.58,
+    "avg_asking_rent": 2041.27,
+    "concessions_per_unit": 55.72
+  },
+  {
+    "rent_snapshot_id": "e9f6648d-760d-40f8-b2e0-d23279053c03",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-01-01",
+    "avg_effective_rent": 1962.82,
+    "avg_asking_rent": 2042.28,
+    "concessions_per_unit": 48.31
+  },
+  {
+    "rent_snapshot_id": "514a731a-59f7-49d4-a0fa-c8393d6197f3",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-02-01",
+    "avg_effective_rent": 1984.95,
+    "avg_asking_rent": 2078.05,
+    "concessions_per_unit": 47.22
+  },
+  {
+    "rent_snapshot_id": "65f62271-c18e-4433-8cb5-f231edc444b2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-03-01",
+    "avg_effective_rent": 1963.31,
+    "avg_asking_rent": 2068,
+    "concessions_per_unit": 49.54
+  },
+  {
+    "rent_snapshot_id": "019b18d3-06d2-4cd7-a434-decba08a239c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-04-01",
+    "avg_effective_rent": 2001.87,
+    "avg_asking_rent": 2071.27,
+    "concessions_per_unit": 50.12
+  },
+  {
+    "rent_snapshot_id": "afa0a7eb-33e7-4746-9659-1f137fb3f002",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-05-01",
+    "avg_effective_rent": 2008.57,
+    "avg_asking_rent": 2093.6,
+    "concessions_per_unit": 49.17
+  },
+  {
+    "rent_snapshot_id": "b6fdb97d-0bc6-4838-b981-975e213403fe",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-07-01",
+    "avg_effective_rent": 2010.95,
+    "avg_asking_rent": 2119.7,
+    "concessions_per_unit": 43.41
+  },
+  {
+    "rent_snapshot_id": "6d4fb25c-2518-4177-8693-528df8a9d7b0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-08-01",
+    "avg_effective_rent": 2021.54,
+    "avg_asking_rent": 2129.01,
+    "concessions_per_unit": 43.13
+  },
+  {
+    "rent_snapshot_id": "0c789f68-5284-4c9a-b8b2-245270baa678",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-09-01",
+    "avg_effective_rent": 2034.47,
+    "avg_asking_rent": 2140.15,
+    "concessions_per_unit": 45.35
+  },
+  {
+    "rent_snapshot_id": "000fe473-29b3-44a2-b711-9c093e8eb875",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-10-01",
+    "avg_effective_rent": 2039.4,
+    "avg_asking_rent": 2121.74,
+    "concessions_per_unit": 42.03
+  },
+  {
+    "rent_snapshot_id": "38c52f6d-d3b0-41fb-86b7-b088c79aa833",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-11-01",
+    "avg_effective_rent": 2121.77,
+    "avg_asking_rent": 2213.64,
+    "concessions_per_unit": 33.68
+  },
+  {
+    "rent_snapshot_id": "0b1d3229-1789-4176-9aae-eaeacd151e2d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-12-01",
+    "avg_effective_rent": 2117.12,
+    "avg_asking_rent": 2215.04,
+    "concessions_per_unit": 36.94
+  },
+  {
+    "rent_snapshot_id": "c0770197-0a78-4fac-bb04-65f51c4068f5",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-01-01",
+    "avg_effective_rent": 2153.86,
+    "avg_asking_rent": 2244.11,
+    "concessions_per_unit": 28.79
+  },
+  {
+    "rent_snapshot_id": "d7bcc40c-eca4-4d9b-9bc4-3a89ed59a245",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-02-01",
+    "avg_effective_rent": 2161.87,
+    "avg_asking_rent": 2235.07,
+    "concessions_per_unit": 27.78
+  },
+  {
+    "rent_snapshot_id": "0c96c7d4-856a-49a2-a62e-8e826b79f2c0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-03-01",
+    "avg_effective_rent": 2142.01,
+    "avg_asking_rent": 2250.48,
+    "concessions_per_unit": 28.68
+  },
+  {
+    "rent_snapshot_id": "75f5101a-6c83-4c70-893b-cfaf130445e7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-04-01",
+    "avg_effective_rent": 2153.01,
+    "avg_asking_rent": 2286.24,
+    "concessions_per_unit": 32.47
+  },
+  {
+    "rent_snapshot_id": "1da175da-de85-48fc-9d32-b4cff62a1d32",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-05-01",
+    "avg_effective_rent": 2189.59,
+    "avg_asking_rent": 2280.12,
+    "concessions_per_unit": 27.07
+  },
+  {
+    "rent_snapshot_id": "c974b1dd-8e87-493d-ba96-dc8b857c2d8d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-06-01",
+    "avg_effective_rent": 2170.34,
+    "avg_asking_rent": 2281.47,
+    "concessions_per_unit": 26.02
+  },
+  {
+    "rent_snapshot_id": "93ef69fe-579d-4db1-b2f0-88005daf7a5f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-07-01",
+    "avg_effective_rent": 2187.82,
+    "avg_asking_rent": 2292.5,
+    "concessions_per_unit": 31.73
+  },
+  {
+    "rent_snapshot_id": "419bcc67-5618-4092-b63c-8057e6eb7f6f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-08-01",
+    "avg_effective_rent": 2214.68,
+    "avg_asking_rent": 2323.05,
+    "concessions_per_unit": 29.54
+  },
+  {
+    "rent_snapshot_id": "cfa36097-a065-45b3-a102-6499d37d1638",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-09-01",
+    "avg_effective_rent": 2201.57,
+    "avg_asking_rent": 2320.93,
+    "concessions_per_unit": 27.07
+  },
+  {
+    "rent_snapshot_id": "6af5b76e-47cf-4658-a56a-40d566ce04a1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-10-01",
+    "avg_effective_rent": 2202.66,
+    "avg_asking_rent": 2318.57,
+    "concessions_per_unit": 26.3
+  },
+  {
+    "rent_snapshot_id": "71ef7d96-5d9c-43b9-8b90-4e33c142f6ef",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-11-01",
+    "avg_effective_rent": 2241.42,
+    "avg_asking_rent": 2334.12,
+    "concessions_per_unit": 21.36
+  },
+  {
+    "rent_snapshot_id": "fd1a3b4f-8b3b-4b52-8994-843590d8aa68",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-12-01",
+    "avg_effective_rent": 2243.58,
+    "avg_asking_rent": 2354.01,
+    "concessions_per_unit": 27.16
+  },
+  {
+    "rent_snapshot_id": "50e12b61-1b5c-43d9-acfa-f31bbe599d8b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-01-01",
+    "avg_effective_rent": 2228.48,
+    "avg_asking_rent": 2347.15,
+    "concessions_per_unit": 22.56
+  },
+  {
+    "rent_snapshot_id": "0e8ada0b-7aec-4110-af6f-54f6dfac8aa7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-02-01",
+    "avg_effective_rent": 2239.52,
+    "avg_asking_rent": 2380.29,
+    "concessions_per_unit": 24.04
+  },
+  {
+    "rent_snapshot_id": "c2e9884c-9f46-4361-942e-9023af1935d5",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-03-01",
+    "avg_effective_rent": 2260.8,
+    "avg_asking_rent": 2356.79,
+    "concessions_per_unit": 19.49
+  },
+  {
+    "rent_snapshot_id": "77444787-8dd0-46e8-a7cd-260d96de11d0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-04-01",
+    "avg_effective_rent": 2269.88,
+    "avg_asking_rent": 2395.22,
+    "concessions_per_unit": 18.88
+  },
+  {
+    "rent_snapshot_id": "fd177642-4936-400f-b940-9d9f9554126f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-05-01",
+    "avg_effective_rent": 2276,
+    "avg_asking_rent": 2386.73,
+    "concessions_per_unit": 19.46
+  },
+  {
+    "rent_snapshot_id": "c17b99e2-a0f4-4121-a6e7-f3a0ed5ca9c4",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-07-01",
+    "avg_effective_rent": 2289.65,
+    "avg_asking_rent": 2410.39,
+    "concessions_per_unit": 16.27
+  },
+  {
+    "rent_snapshot_id": "6b3c82df-630a-45e2-b0c2-739dd8b3009d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-08-01",
+    "avg_effective_rent": 2309.3,
+    "avg_asking_rent": 2433.66,
+    "concessions_per_unit": 19.25
+  },
+  {
+    "rent_snapshot_id": "8fa4069e-120e-48e9-9ffd-3a652f6cac35",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-09-01",
+    "avg_effective_rent": 2327.1,
+    "avg_asking_rent": 2433.42,
+    "concessions_per_unit": 19.36
+  },
+  {
+    "rent_snapshot_id": "d5642c88-9f5b-4031-bbb7-ad64cae60524",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-10-01",
+    "avg_effective_rent": 2335.06,
+    "avg_asking_rent": 2423.49,
+    "concessions_per_unit": 18.7
+  },
+  {
+    "rent_snapshot_id": "ba2c3bba-8074-4620-8196-aee6a8b82cf0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-11-01",
+    "avg_effective_rent": 2344.69,
+    "avg_asking_rent": 2434.5,
+    "concessions_per_unit": 14.8
+  },
+  {
+    "rent_snapshot_id": "e1b49675-5001-4f41-a0e8-c497e7e93b82",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-01-01",
+    "avg_effective_rent": 1365.25,
+    "avg_asking_rent": 1447.52,
+    "concessions_per_unit": 116.04
+  },
+  {
+    "rent_snapshot_id": "4333abab-5fa7-49dd-a039-a60aa1afe74c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-02-01",
+    "avg_effective_rent": 1369.19,
+    "avg_asking_rent": 1415.55,
+    "concessions_per_unit": 106.22
+  },
+  {
+    "rent_snapshot_id": "3608cb5f-ed16-49d4-aedc-96d938f242ee",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-03-01",
+    "avg_effective_rent": 1375.5,
+    "avg_asking_rent": 1448.13,
+    "concessions_per_unit": 102.62
+  },
+  {
+    "rent_snapshot_id": "df212587-ce14-4df7-acb0-104c8e1dc705",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-04-01",
+    "avg_effective_rent": 1339.35,
+    "avg_asking_rent": 1399.44,
+    "concessions_per_unit": 102.94
+  },
+  {
+    "rent_snapshot_id": "4190822b-d475-4782-a18a-e6a9a80b10e9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-05-01",
+    "avg_effective_rent": 1381.94,
+    "avg_asking_rent": 1461.08,
+    "concessions_per_unit": 102.72
+  },
+  {
+    "rent_snapshot_id": "ec458f86-a7da-4986-a69d-50eb67acaaee",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-06-01",
+    "avg_effective_rent": 1345.38,
+    "avg_asking_rent": 1405.53,
+    "concessions_per_unit": 104.14
+  },
+  {
+    "rent_snapshot_id": "94ed43c6-6218-40f1-a2c1-2d53d22d70dd",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-07-01",
+    "avg_effective_rent": 1350.34,
+    "avg_asking_rent": 1402.02,
+    "concessions_per_unit": 105.29
+  },
+  {
+    "rent_snapshot_id": "5fc9e0b1-f4ad-421b-a676-784b1e08393d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-08-01",
+    "avg_effective_rent": 1344.56,
+    "avg_asking_rent": 1404.07,
+    "concessions_per_unit": 109.65
+  },
+  {
+    "rent_snapshot_id": "dfc6100c-61ba-4967-a664-20b7a63d56fe",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-09-01",
+    "avg_effective_rent": 1393.09,
+    "avg_asking_rent": 1459.05,
+    "concessions_per_unit": 105.19
+  },
+  {
+    "rent_snapshot_id": "3c5886ff-97a4-44d7-adc9-87cd9d59d934",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-10-01",
+    "avg_effective_rent": 1360.5,
+    "avg_asking_rent": 1430.87,
+    "concessions_per_unit": 96.63
+  },
+  {
+    "rent_snapshot_id": "4217d7c8-4bb5-4b6e-afbc-26fc52011a48",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-11-01",
+    "avg_effective_rent": 1357.85,
+    "avg_asking_rent": 1435.29,
+    "concessions_per_unit": 98.83
+  },
+  {
+    "rent_snapshot_id": "e49d1b30-9d89-4803-a87a-83e05ddbc19a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-12-01",
+    "avg_effective_rent": 1380.49,
+    "avg_asking_rent": 1450.57,
+    "concessions_per_unit": 107.95
+  },
+  {
+    "rent_snapshot_id": "0bcb1231-b119-4ad8-aefe-739e5fb6f826",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-01-01",
+    "avg_effective_rent": 1363.93,
+    "avg_asking_rent": 1423.14,
+    "concessions_per_unit": 105.46
+  },
+  {
+    "rent_snapshot_id": "ddc4fd49-5963-4944-a39e-d9425b7247cf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-02-01",
+    "avg_effective_rent": 1413.25,
+    "avg_asking_rent": 1496.45,
+    "concessions_per_unit": 102.86
+  },
+  {
+    "rent_snapshot_id": "3a6f886a-4eb5-40f0-af04-9ed0a1631b3b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-03-01",
+    "avg_effective_rent": 1393.78,
+    "avg_asking_rent": 1448.77,
+    "concessions_per_unit": 100.89
+  },
+  {
+    "rent_snapshot_id": "bc32a0fc-b8ca-43d2-a735-63add1833773",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-04-01",
+    "avg_effective_rent": 1378.47,
+    "avg_asking_rent": 1442.24,
+    "concessions_per_unit": 101.88
+  },
+  {
+    "rent_snapshot_id": "8fdd9a85-b0fb-41c5-af73-e24427fb804d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-05-01",
+    "avg_effective_rent": 1416.41,
+    "avg_asking_rent": 1483.76,
+    "concessions_per_unit": 95.94
+  },
+  {
+    "rent_snapshot_id": "969b7b5f-449e-428e-a8c4-d3d8546ee5a5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-06-01",
+    "avg_effective_rent": 1425.52,
+    "avg_asking_rent": 1473.98,
+    "concessions_per_unit": 92.8
+  },
+  {
+    "rent_snapshot_id": "e318ca44-06fc-4ae6-a0d6-4958f0a7ba42",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-07-01",
+    "avg_effective_rent": 1425.64,
+    "avg_asking_rent": 1487.85,
+    "concessions_per_unit": 105.84
+  },
+  {
+    "rent_snapshot_id": "051e7d75-48b9-4db4-aa5f-6969892e5809",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-08-01",
+    "avg_effective_rent": 1405.56,
+    "avg_asking_rent": 1480.55,
+    "concessions_per_unit": 101
+  },
+  {
+    "rent_snapshot_id": "b85e806e-2136-49fc-a7d7-da5b9a551ff1",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-09-01",
+    "avg_effective_rent": 1431.52,
+    "avg_asking_rent": 1509.58,
+    "concessions_per_unit": 94.41
+  },
+  {
+    "rent_snapshot_id": "eea59af3-a767-44e2-a989-3069cc39a96d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-10-01",
+    "avg_effective_rent": 1444.54,
+    "avg_asking_rent": 1535.76,
+    "concessions_per_unit": 102.2
+  },
+  {
+    "rent_snapshot_id": "a7fd3ab7-f69a-4b57-a4c0-33daaf53fa88",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-11-01",
+    "avg_effective_rent": 1447.02,
+    "avg_asking_rent": 1493.28,
+    "concessions_per_unit": 101.77
+  },
+  {
+    "rent_snapshot_id": "5636eed2-9050-404a-ac16-49d0b70ff279",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-12-01",
+    "avg_effective_rent": 1431.27,
+    "avg_asking_rent": 1477,
+    "concessions_per_unit": 100.8
+  },
+  {
+    "rent_snapshot_id": "e5fb305c-5afa-4e5b-a239-162ec098cd9a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-01-01",
+    "avg_effective_rent": 1435.59,
+    "avg_asking_rent": 1504.67,
+    "concessions_per_unit": 92.38
+  },
+  {
+    "rent_snapshot_id": "12011e93-6902-4da1-aa9f-f847376b389d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-02-01",
+    "avg_effective_rent": 1443.07,
+    "avg_asking_rent": 1524.14,
+    "concessions_per_unit": 89.11
+  },
+  {
+    "rent_snapshot_id": "ec4814b3-87be-46b4-a714-91a12272ea24",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-03-01",
+    "avg_effective_rent": 1444.54,
+    "avg_asking_rent": 1529.48,
+    "concessions_per_unit": 87.28
+  },
+  {
+    "rent_snapshot_id": "b10ce97a-7127-453b-adc1-56fa2c8e5fe8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-04-01",
+    "avg_effective_rent": 1442.58,
+    "avg_asking_rent": 1518.8,
+    "concessions_per_unit": 92.78
+  },
+  {
+    "rent_snapshot_id": "bb5bf717-f210-421d-ac09-54f20c279693",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-05-01",
+    "avg_effective_rent": 1434.5,
+    "avg_asking_rent": 1486.06,
+    "concessions_per_unit": 96.76
+  },
+  {
+    "rent_snapshot_id": "1201dea6-fa24-4403-a20a-a079d3b00ae3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-06-01",
+    "avg_effective_rent": 1462.93,
+    "avg_asking_rent": 1533.77,
+    "concessions_per_unit": 93.71
+  },
+  {
+    "rent_snapshot_id": "0f23ac2a-7086-4921-ac43-95520275f25f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-07-01",
+    "avg_effective_rent": 1459.53,
+    "avg_asking_rent": 1545.88,
+    "concessions_per_unit": 99.55
+  },
+  {
+    "rent_snapshot_id": "6d50d9e2-14ea-43f8-ab02-6eb46ad5fe09",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-08-01",
+    "avg_effective_rent": 1478.34,
+    "avg_asking_rent": 1536.46,
+    "concessions_per_unit": 96.34
+  },
+  {
+    "rent_snapshot_id": "2a1ca02c-f5f6-4869-a047-15377b44a149",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-09-01",
+    "avg_effective_rent": 1496.47,
+    "avg_asking_rent": 1590.01,
+    "concessions_per_unit": 83.79
+  },
+  {
+    "rent_snapshot_id": "7f6c740b-963e-417b-a0cb-e7334a000c13",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-10-01",
+    "avg_effective_rent": 1464.63,
+    "avg_asking_rent": 1548.82,
+    "concessions_per_unit": 82.25
+  },
+  {
+    "rent_snapshot_id": "3821a072-a549-4a1e-a4ca-761990c01389",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-11-01",
+    "avg_effective_rent": 1488.25,
+    "avg_asking_rent": 1545.11,
+    "concessions_per_unit": 92.05
+  },
+  {
+    "rent_snapshot_id": "0e00ae60-00eb-49e4-afef-f5837215aa86",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-12-01",
+    "avg_effective_rent": 1480.34,
+    "avg_asking_rent": 1534.16,
+    "concessions_per_unit": 91.87
+  },
+  {
+    "rent_snapshot_id": "530cd75c-2f0e-4d85-a0fb-2e70d7bb2ea4",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-01-01",
+    "avg_effective_rent": 1506.61,
+    "avg_asking_rent": 1583.66,
+    "concessions_per_unit": 89.1
+  },
+  {
+    "rent_snapshot_id": "fad2a354-f462-4a7f-a978-9d2b506e4d52",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-02-01",
+    "avg_effective_rent": 1501.03,
+    "avg_asking_rent": 1581.7,
+    "concessions_per_unit": 82.42
+  },
+  {
+    "rent_snapshot_id": "7d185929-d6a0-4104-a972-d4e002e34689",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-03-01",
+    "avg_effective_rent": 1510.83,
+    "avg_asking_rent": 1588.88,
+    "concessions_per_unit": 84.66
+  },
+  {
+    "rent_snapshot_id": "eee4eb14-5a8a-4893-a57c-c05d662675a3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-04-01",
+    "avg_effective_rent": 1492.62,
+    "avg_asking_rent": 1547.35,
+    "concessions_per_unit": 89
+  },
+  {
+    "rent_snapshot_id": "fd9c1005-1cc1-402d-ac6f-e3b4a0f6b7fa",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-05-01",
+    "avg_effective_rent": 1504.99,
+    "avg_asking_rent": 1593.17,
+    "concessions_per_unit": 85.19
+  },
+  {
+    "rent_snapshot_id": "be5bb0a2-40d3-4252-afcb-b774dc954bcb",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-06-01",
+    "avg_effective_rent": 1522.51,
+    "avg_asking_rent": 1584.49,
+    "concessions_per_unit": 90.58
+  },
+  {
+    "rent_snapshot_id": "19c17685-3c64-43c1-aa3c-41387b23f500",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-07-01",
+    "avg_effective_rent": 1530.44,
+    "avg_asking_rent": 1595.54,
+    "concessions_per_unit": 91.82
+  },
+  {
+    "rent_snapshot_id": "c92f916a-3655-426b-a328-5bf9f069f33b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-08-01",
+    "avg_effective_rent": 1535.63,
+    "avg_asking_rent": 1623.62,
+    "concessions_per_unit": 81.62
+  },
+  {
+    "rent_snapshot_id": "ca0a8316-b59e-4484-ac40-c596376d5f2f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-09-01",
+    "avg_effective_rent": 1552.39,
+    "avg_asking_rent": 1644.84,
+    "concessions_per_unit": 78.24
+  },
+  {
+    "rent_snapshot_id": "e18e7f2f-227a-42c7-a11d-9e679bdf595c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-10-01",
+    "avg_effective_rent": 1545.61,
+    "avg_asking_rent": 1616.69,
+    "concessions_per_unit": 77.02
+  },
+  {
+    "rent_snapshot_id": "a0eb3a47-9486-40e0-ac96-97e26e83055d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-11-01",
+    "avg_effective_rent": 1530.78,
+    "avg_asking_rent": 1605.79,
+    "concessions_per_unit": 89.04
+  },
+  {
+    "rent_snapshot_id": "bfa57878-9b62-4bf4-a4bd-ba1acd402657",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-12-01",
+    "avg_effective_rent": 1564.67,
+    "avg_asking_rent": 1633.99,
+    "concessions_per_unit": 88.34
+  },
+  {
+    "rent_snapshot_id": "4eef1701-b180-4393-a70b-c9079ddf7a63",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-01-01",
+    "avg_effective_rent": 1551.5,
+    "avg_asking_rent": 1613.89,
+    "concessions_per_unit": 73.05
+  },
+  {
+    "rent_snapshot_id": "6a226aab-d94a-42d0-af65-8abe4efe5aa0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-02-01",
+    "avg_effective_rent": 1587.87,
+    "avg_asking_rent": 1679.66,
+    "concessions_per_unit": 86.08
+  },
+  {
+    "rent_snapshot_id": "3619e8a6-5966-4e88-a792-694fa3d3ae0d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-03-01",
+    "avg_effective_rent": 1556.23,
+    "avg_asking_rent": 1621.77,
+    "concessions_per_unit": 84.15
+  },
+  {
+    "rent_snapshot_id": "502cf12b-1e3d-4931-a267-16a3134e6ef9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-04-01",
+    "avg_effective_rent": 1569.2,
+    "avg_asking_rent": 1624.12,
+    "concessions_per_unit": 75.57
+  },
+  {
+    "rent_snapshot_id": "71330551-9bc4-47d3-adbd-650ce3138cef",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-05-01",
+    "avg_effective_rent": 1570.45,
+    "avg_asking_rent": 1624.55,
+    "concessions_per_unit": 76.43
+  },
+  {
+    "rent_snapshot_id": "d50b1a88-8c16-4fb3-adbc-493db734e2e7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-06-01",
+    "avg_effective_rent": 1590.34,
+    "avg_asking_rent": 1673.46,
+    "concessions_per_unit": 78.06
+  },
+  {
+    "rent_snapshot_id": "cd9e0517-829f-419b-a31d-fc197cf12363",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-07-01",
+    "avg_effective_rent": 1620.91,
+    "avg_asking_rent": 1687.65,
+    "concessions_per_unit": 84.07
+  },
+  {
+    "rent_snapshot_id": "9de2dff9-522a-4d52-a36d-a5f20dd600c0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-08-01",
+    "avg_effective_rent": 1589.43,
+    "avg_asking_rent": 1664.65,
+    "concessions_per_unit": 74.06
+  },
+  {
+    "rent_snapshot_id": "30f3b4bb-b2ed-4a26-aa8f-c528b59b8c50",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-09-01",
+    "avg_effective_rent": 1595.9,
+    "avg_asking_rent": 1678.44,
+    "concessions_per_unit": 76.25
+  },
+  {
+    "rent_snapshot_id": "f9780047-a2c9-42f1-a275-1b1f3962dbe7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-10-01",
+    "avg_effective_rent": 1627.79,
+    "avg_asking_rent": 1718.52,
+    "concessions_per_unit": 77.24
+  },
+  {
+    "rent_snapshot_id": "0a5551ff-641f-42b5-aaf9-681952e37184",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-11-01",
+    "avg_effective_rent": 1630.27,
+    "avg_asking_rent": 1702.59,
+    "concessions_per_unit": 79.32
+  },
+  {
+    "rent_snapshot_id": "34a909af-100f-4ea5-ae43-3b17b61ddaae",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-12-01",
+    "avg_effective_rent": 1609.57,
+    "avg_asking_rent": 1680.67,
+    "concessions_per_unit": 69.35
+  },
+  {
+    "rent_snapshot_id": "7e72efe1-1080-4683-a3a9-4703a22ec890",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-01-01",
+    "avg_effective_rent": 1635.48,
+    "avg_asking_rent": 1696.89,
+    "concessions_per_unit": 80.82
+  },
+  {
+    "rent_snapshot_id": "832f40b3-0942-43c1-a697-2b2f44dc9a4a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-02-01",
+    "avg_effective_rent": 1627,
+    "avg_asking_rent": 1693.68,
+    "concessions_per_unit": 79.3
+  },
+  {
+    "rent_snapshot_id": "1b4f6caa-2f69-423c-a051-f2e2a0b37c43",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-03-01",
+    "avg_effective_rent": 1631.26,
+    "avg_asking_rent": 1690.98,
+    "concessions_per_unit": 72.52
+  },
+  {
+    "rent_snapshot_id": "0de75a47-a794-41bf-aee6-1ae15abb58c3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-04-01",
+    "avg_effective_rent": 1650.07,
+    "avg_asking_rent": 1704.97,
+    "concessions_per_unit": 75.3
+  },
+  {
+    "rent_snapshot_id": "10ca2d16-9559-4511-aa66-9bf9ad37397e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-05-01",
+    "avg_effective_rent": 1653.97,
+    "avg_asking_rent": 1709.06,
+    "concessions_per_unit": 111.83
+  },
+  {
+    "rent_snapshot_id": "f238aa7c-2f46-423b-aea9-4a67feb7746b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-06-01",
+    "avg_effective_rent": 1679.16,
+    "avg_asking_rent": 1751.15,
+    "concessions_per_unit": 66.67
+  },
+  {
+    "rent_snapshot_id": "08a58d11-07ce-4776-a4e5-c570b65e6d16",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-07-01",
+    "avg_effective_rent": 1677.08,
+    "avg_asking_rent": 1742.94,
+    "concessions_per_unit": 66.69
+  },
+  {
+    "rent_snapshot_id": "d66b24b4-0c29-422d-a31b-9546027da896",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-08-01",
+    "avg_effective_rent": 1691.37,
+    "avg_asking_rent": 1740.85,
+    "concessions_per_unit": 68.58
+  },
+  {
+    "rent_snapshot_id": "14973152-d334-4f02-a312-75f4a59a2355",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-09-01",
+    "avg_effective_rent": 1691.2,
+    "avg_asking_rent": 1766.95,
+    "concessions_per_unit": 76.14
+  },
+  {
+    "rent_snapshot_id": "e3ba8a10-41c5-479b-a01b-28a142af4525",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-10-01",
+    "avg_effective_rent": 1679.43,
+    "avg_asking_rent": 1748.26,
+    "concessions_per_unit": 71.89
+  },
+  {
+    "rent_snapshot_id": "ef3fa125-a893-4b53-a767-c2c0b9f4a19c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-11-01",
+    "avg_effective_rent": 1707.87,
+    "avg_asking_rent": 1782.03,
+    "concessions_per_unit": 69.39
+  },
+  {
+    "rent_snapshot_id": "7d56860b-fed6-4382-ab62-5d5b002cb2b5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-12-01",
+    "avg_effective_rent": 1707.11,
+    "avg_asking_rent": 1762.18,
+    "concessions_per_unit": 69.32
+  },
+  {
+    "rent_snapshot_id": "63e367af-f3f0-409d-9b2f-5d1f176809dd",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-01-01",
+    "avg_effective_rent": 1686.96,
+    "avg_asking_rent": 1766.25,
+    "concessions_per_unit": 71.8
+  },
+  {
+    "rent_snapshot_id": "b233d481-c33c-4666-9e37-0d158d6dad87",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-02-01",
+    "avg_effective_rent": 1721.18,
+    "avg_asking_rent": 1771.35,
+    "concessions_per_unit": 96.14
+  },
+  {
+    "rent_snapshot_id": "70aa206e-86d8-4c66-b6ed-ebb520255cef",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-03-01",
+    "avg_effective_rent": 1722.52,
+    "avg_asking_rent": 1815.18,
+    "concessions_per_unit": 59.81
+  },
+  {
+    "rent_snapshot_id": "15ca1dd0-d6fb-49ae-8ae1-6207b090a966",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-04-01",
+    "avg_effective_rent": 1734.42,
+    "avg_asking_rent": 1823.17,
+    "concessions_per_unit": 60.96
+  },
+  {
+    "rent_snapshot_id": "c31e8d56-e0d4-40a3-89fd-bd85987c6255",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-05-01",
+    "avg_effective_rent": 1726.51,
+    "avg_asking_rent": 1821.19,
+    "concessions_per_unit": 66.18
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000001",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-06-01",
+    "avg_effective_rent": 1731.75,
+    "avg_asking_rent": 1781.63,
+    "concessions_per_unit": 67.81
+  },
+  {
+    "rent_snapshot_id": "1ee92c93-90eb-4586-b79a-fec13af0220a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-07-01",
+    "avg_effective_rent": 1740.26,
+    "avg_asking_rent": 1834.67,
+    "concessions_per_unit": 61.34
+  },
+  {
+    "rent_snapshot_id": "7a6e5b07-43b3-46d6-b779-8f228df217f7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-08-01",
+    "avg_effective_rent": 1769.87,
+    "avg_asking_rent": 1818.48,
+    "concessions_per_unit": 69.35
+  },
+  {
+    "rent_snapshot_id": "1a53fed1-74e4-4d0a-a374-51c859c2043a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-09-01",
+    "avg_effective_rent": 1764.15,
+    "avg_asking_rent": 1817.86,
+    "concessions_per_unit": 56.84
+  },
+  {
+    "rent_snapshot_id": "2a15c0c8-bb2f-464b-816c-66e3f67f3011",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-10-01",
+    "avg_effective_rent": 1739.61,
+    "avg_asking_rent": 1807.62,
+    "concessions_per_unit": 60.05
+  },
+  {
+    "rent_snapshot_id": "44f5f7f2-0576-499e-83d9-d93153747383",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-11-01",
+    "avg_effective_rent": 1782.28,
+    "avg_asking_rent": 1872.47,
+    "concessions_per_unit": 54.77
+  },
+  {
+    "rent_snapshot_id": "b9d83fbf-427c-4be1-802c-2937ad506de3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-12-01",
+    "avg_effective_rent": 1786.8,
+    "avg_asking_rent": 1873.04,
+    "concessions_per_unit": 61.24
+  },
+  {
+    "rent_snapshot_id": "0afa820e-fe67-4b7b-b5d0-6c6fc6da5fd3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-01-01",
+    "avg_effective_rent": 1868.21,
+    "avg_asking_rent": 1944.97,
+    "concessions_per_unit": 59.64
+  },
+  {
+    "rent_snapshot_id": "59c964bc-ce93-4cb1-9398-3977ba212a7b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-02-01",
+    "avg_effective_rent": 1859.7,
+    "avg_asking_rent": 1945.42,
+    "concessions_per_unit": 62.68
+  },
+  {
+    "rent_snapshot_id": "8d5452c5-1a4b-4598-95cc-2d47f2af5c2a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-03-01",
+    "avg_effective_rent": 1851.9,
+    "avg_asking_rent": 1919.47,
+    "concessions_per_unit": 61.72
+  },
+  {
+    "rent_snapshot_id": "92fe1f16-10a4-403c-877c-24ed685f7ceb",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-04-01",
+    "avg_effective_rent": 1876.4,
+    "avg_asking_rent": 1947.54,
+    "concessions_per_unit": 61.17
+  },
+  {
+    "rent_snapshot_id": "39904dbe-e635-4d69-ba07-f815ff631b88",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-05-01",
+    "avg_effective_rent": 1853.23,
+    "avg_asking_rent": 1911.43,
+    "concessions_per_unit": 61.3
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000002",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-06-01",
+    "avg_effective_rent": 1895.83,
+    "avg_asking_rent": 1961.69,
+    "concessions_per_unit": 55.72
+  },
+  {
+    "rent_snapshot_id": "402b89ab-9d72-45a7-ac70-7dc9b3c5a836",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-07-01",
+    "avg_effective_rent": 1873.52,
+    "avg_asking_rent": 1956.83,
+    "concessions_per_unit": 54.09
+  },
+  {
+    "rent_snapshot_id": "28de9493-233d-4320-b3f0-10f8d47bef44",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-08-01",
+    "avg_effective_rent": 1881.88,
+    "avg_asking_rent": 1958.5,
+    "concessions_per_unit": 55.02
+  },
+  {
+    "rent_snapshot_id": "35af59fb-33eb-4776-9735-ba0e512867e3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-09-01",
+    "avg_effective_rent": 1880.05,
+    "avg_asking_rent": 1973.64,
+    "concessions_per_unit": 50.11
+  },
+  {
+    "rent_snapshot_id": "4e85387e-f741-4d77-9679-7d37d5619788",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-10-01",
+    "avg_effective_rent": 1904.37,
+    "avg_asking_rent": 1950.06,
+    "concessions_per_unit": 56.31
+  },
+  {
+    "rent_snapshot_id": "159ad6e4-9a6d-4d26-92e0-2f621034f1e7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-11-01",
+    "avg_effective_rent": 1905.22,
+    "avg_asking_rent": 1992.24,
+    "concessions_per_unit": 46.08
+  },
+  {
+    "rent_snapshot_id": "2ab53c1c-47ba-476c-9a96-8616cb322756",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-12-01",
+    "avg_effective_rent": 1928.6,
+    "avg_asking_rent": 2021.86,
+    "concessions_per_unit": 54.3
+  },
+  {
+    "rent_snapshot_id": "77745808-6c0d-4902-ab15-4f7b7e6da058",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-01-01",
+    "avg_effective_rent": 1906.88,
+    "avg_asking_rent": 1971.91,
+    "concessions_per_unit": 54.37
+  },
+  {
+    "rent_snapshot_id": "f7c5072b-bb00-4a5d-9c23-5a2375f45b53",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-02-01",
+    "avg_effective_rent": 1948.54,
+    "avg_asking_rent": 2012.24,
+    "concessions_per_unit": 43.43
+  },
+  {
+    "rent_snapshot_id": "05e95230-0036-4d46-8773-86c5431062ac",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-03-01",
+    "avg_effective_rent": 1947.21,
+    "avg_asking_rent": 2014,
+    "concessions_per_unit": 57.23
+  },
+  {
+    "rent_snapshot_id": "c576df1f-92b0-44e7-91ee-eb75f00b1208",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-04-01",
+    "avg_effective_rent": 1970.25,
+    "avg_asking_rent": 2036.24,
+    "concessions_per_unit": 41.73
+  },
+  {
+    "rent_snapshot_id": "edc2160b-c6f3-4176-96b5-11a3eb73eb23",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-05-01",
+    "avg_effective_rent": 1975.29,
+    "avg_asking_rent": 2069.65,
+    "concessions_per_unit": 43.36
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000003",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-06-01",
+    "avg_effective_rent": 1971.62,
+    "avg_asking_rent": 2043.85,
+    "concessions_per_unit": 43.54
+  },
+  {
+    "rent_snapshot_id": "0031bfdf-cbc2-49cc-9498-6fe4aa84b260",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-07-01",
+    "avg_effective_rent": 1983.42,
+    "avg_asking_rent": 2076.12,
+    "concessions_per_unit": 50.65
+  },
+  {
+    "rent_snapshot_id": "14e3dc11-7042-4281-906f-86c9713db03d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-08-01",
+    "avg_effective_rent": 1989.8,
+    "avg_asking_rent": 2078.61,
+    "concessions_per_unit": 39.15
+  },
+  {
+    "rent_snapshot_id": "18e78205-8115-4020-b605-9d5ba5b4d9a3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-09-01",
+    "avg_effective_rent": 1983.71,
+    "avg_asking_rent": 2030.89,
+    "concessions_per_unit": 46.41
+  },
+  {
+    "rent_snapshot_id": "61ae923d-1b1f-4245-8bf7-a33eb263844b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-10-01",
+    "avg_effective_rent": 2004.42,
+    "avg_asking_rent": 2092.78,
+    "concessions_per_unit": 41.52
+  },
+  {
+    "rent_snapshot_id": "07df7de1-89e2-4859-8d9c-2b018e1c4bc6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-11-01",
+    "avg_effective_rent": 1989.87,
+    "avg_asking_rent": 2061.56,
+    "concessions_per_unit": 47.37
+  },
+  {
+    "rent_snapshot_id": "09e27c37-c7ae-49a4-87a1-616b499bec6b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-12-01",
+    "avg_effective_rent": 2021.89,
+    "avg_asking_rent": 2067.94,
+    "concessions_per_unit": 52.23
+  },
+  {
+    "rent_snapshot_id": "8208833c-58e6-4368-990b-8ccf2499cca2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-01-01",
+    "avg_effective_rent": 2031.17,
+    "avg_asking_rent": 2114.77,
+    "concessions_per_unit": 42.21
+  },
+  {
+    "rent_snapshot_id": "f2264ae0-f03d-4ab7-9e9e-2db17cd9f5ab",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-02-01",
+    "avg_effective_rent": 2012.6,
+    "avg_asking_rent": 2072.2,
+    "concessions_per_unit": 40.29
+  },
+  {
+    "rent_snapshot_id": "17533b9c-0a09-4fbe-9b7a-59231963f9a3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-03-01",
+    "avg_effective_rent": 2010.29,
+    "avg_asking_rent": 2094.2,
+    "concessions_per_unit": 44.21
+  },
+  {
+    "rent_snapshot_id": "e53bb96e-3f92-4d13-97ad-c6126e80aaa7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-04-01",
+    "avg_effective_rent": 2011.05,
+    "avg_asking_rent": 2101.31,
+    "concessions_per_unit": 41.86
+  },
+  {
+    "rent_snapshot_id": "183b6c82-7f06-4183-b056-8aa7e676b5fc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-05-01",
+    "avg_effective_rent": 2052.59,
+    "avg_asking_rent": 2103.89,
+    "concessions_per_unit": 43.21
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000004",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-06-01",
+    "avg_effective_rent": 2047.06,
+    "avg_asking_rent": 2125.3,
+    "concessions_per_unit": 48.46
+  },
+  {
+    "rent_snapshot_id": "a240c239-fe9f-45ea-a9fa-86806e530b96",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-07-01",
+    "avg_effective_rent": 2151.94,
+    "avg_asking_rent": 2226.9,
+    "concessions_per_unit": 45.71
+  },
+  {
+    "rent_snapshot_id": "7b6890c1-6cdb-4b40-8bfb-afb8f8d3dde1",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-08-01",
+    "avg_effective_rent": 2143.51,
+    "avg_asking_rent": 2193.09,
+    "concessions_per_unit": 47.18
+  },
+  {
+    "rent_snapshot_id": "697f52a6-b5dc-4fae-bf71-813fa3e28e2c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-09-01",
+    "avg_effective_rent": 2178.71,
+    "avg_asking_rent": 2231.51,
+    "concessions_per_unit": 43.17
+  },
+  {
+    "rent_snapshot_id": "38fa3f7a-1708-4327-aee0-aea45a0f9e96",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-10-01",
+    "avg_effective_rent": 2141.3,
+    "avg_asking_rent": 2225.27,
+    "concessions_per_unit": 43.19
+  },
+  {
+    "rent_snapshot_id": "1cf5970f-8fa4-4e86-8969-81a36ee611ae",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-11-01",
+    "avg_effective_rent": 2180.64,
+    "avg_asking_rent": 2256.52,
+    "concessions_per_unit": 44.75
+  },
+  {
+    "rent_snapshot_id": "f3a9e81e-213a-4085-997a-54320a5f23c8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-12-01",
+    "avg_effective_rent": 2175.95,
+    "avg_asking_rent": 2246.87,
+    "concessions_per_unit": 39
+  },
+  {
+    "rent_snapshot_id": "2e38f63e-c207-45eb-b4c8-f84a31950d07",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-01-01",
+    "avg_effective_rent": 2199.71,
+    "avg_asking_rent": 2247.27,
+    "concessions_per_unit": 32.05
+  },
+  {
+    "rent_snapshot_id": "013d41f7-11e3-4eb6-9e95-bd6e1befb270",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-02-01",
+    "avg_effective_rent": 2176.12,
+    "avg_asking_rent": 2237.74,
+    "concessions_per_unit": 38.8
+  },
+  {
+    "rent_snapshot_id": "3dabb113-6e8b-4c28-b96e-851d3ec8bc7d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-03-01",
+    "avg_effective_rent": 2176.38,
+    "avg_asking_rent": 2233.14,
+    "concessions_per_unit": 27.53
+  },
+  {
+    "rent_snapshot_id": "e44ac49f-4415-477e-a59b-23e10fb2da1f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-04-01",
+    "avg_effective_rent": 2208.94,
+    "avg_asking_rent": 2260.62,
+    "concessions_per_unit": 39.15
+  },
+  {
+    "rent_snapshot_id": "21b40f62-273b-4cc4-a583-7d87b49ebc02",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-05-01",
+    "avg_effective_rent": 2214.11,
+    "avg_asking_rent": 2283.62,
+    "concessions_per_unit": 32.4
+  },
+  {
+    "rent_snapshot_id": "61000000-0000-0000-0000-000000000005",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-06-01",
+    "avg_effective_rent": 2214.7,
+    "avg_asking_rent": 2307.64,
+    "concessions_per_unit": 30.47
+  },
+  {
+    "rent_snapshot_id": "31653e7b-1bcd-4e3a-aeb5-f97f2cfdc4a8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-07-01",
+    "avg_effective_rent": 2235.24,
+    "avg_asking_rent": 2295.08,
+    "concessions_per_unit": 32.17
+  },
+  {
+    "rent_snapshot_id": "672938e6-c4ff-4aff-99fd-8ba45300adca",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-08-01",
+    "avg_effective_rent": 2245.12,
+    "avg_asking_rent": 2329.51,
+    "concessions_per_unit": 37.07
+  },
+  {
+    "rent_snapshot_id": "cbf605d7-0394-4e98-bbf2-53a63354934e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-09-01",
+    "avg_effective_rent": 2217.88,
+    "avg_asking_rent": 2306.04,
+    "concessions_per_unit": 25.83
+  },
+  {
+    "rent_snapshot_id": "8cf6bcdc-9e58-49b1-883d-9ca94ae8c206",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-10-01",
+    "avg_effective_rent": 2261.48,
+    "avg_asking_rent": 2349.11,
+    "concessions_per_unit": 34.22
+  },
+  {
+    "rent_snapshot_id": "c597e00a-9db4-43a3-a147-26dd95965e7c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-11-01",
+    "avg_effective_rent": 2257.56,
+    "avg_asking_rent": 2331.95,
+    "concessions_per_unit": 36.81
+  },
+  {
+    "rent_snapshot_id": "fba85658-a319-4222-8e9c-5a5728890f38",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-12-01",
+    "avg_effective_rent": 2262.34,
+    "avg_asking_rent": 2339.74,
+    "concessions_per_unit": 25.48
+  },
+  {
+    "rent_snapshot_id": "eebeccc3-de56-4e3f-aed8-bfc8660d38a1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-01-01",
+    "avg_effective_rent": 1320.7,
+    "avg_asking_rent": 1374.65,
+    "concessions_per_unit": 50.46
+  },
+  {
+    "rent_snapshot_id": "3cfb1fd7-f5df-4884-94df-8db68ac2d058",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-02-01",
+    "avg_effective_rent": 1325.37,
+    "avg_asking_rent": 1373.16,
+    "concessions_per_unit": 46.56
+  },
+  {
+    "rent_snapshot_id": "da1e8ec6-4eaa-4077-a72c-cd92892b4ff5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-03-01",
+    "avg_effective_rent": 1353.13,
+    "avg_asking_rent": 1398.03,
+    "concessions_per_unit": 45.84
+  },
+  {
+    "rent_snapshot_id": "687b8c12-b9e3-4bad-8004-9d722acfc881",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-04-01",
+    "avg_effective_rent": 1384.68,
+    "avg_asking_rent": 1462.32,
+    "concessions_per_unit": 42.93
+  },
+  {
+    "rent_snapshot_id": "3ffe478f-7b5d-4cee-8c77-e968bbe48739",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-05-01",
+    "avg_effective_rent": 1371.01,
+    "avg_asking_rent": 1447.83,
+    "concessions_per_unit": 45.06
+  },
+  {
+    "rent_snapshot_id": "02f7fcfe-db4e-48de-ab99-f8faa787578e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-06-01",
+    "avg_effective_rent": 1391.4,
+    "avg_asking_rent": 1435.22,
+    "concessions_per_unit": 53.66
+  },
+  {
+    "rent_snapshot_id": "c9e14db4-b35d-4884-87e8-74c01c5a3a79",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-07-01",
+    "avg_effective_rent": 1419.47,
+    "avg_asking_rent": 1487.86,
+    "concessions_per_unit": 39.92
+  },
+  {
+    "rent_snapshot_id": "26b15d47-c523-4b28-ba92-99b2dd65eac9",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-08-01",
+    "avg_effective_rent": 1392.71,
+    "avg_asking_rent": 1453.7,
+    "concessions_per_unit": 38.57
+  },
+  {
+    "rent_snapshot_id": "1e6b09dd-05b6-40e2-bcb6-6c3167ad635c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-09-01",
+    "avg_effective_rent": 1407.31,
+    "avg_asking_rent": 1483.86,
+    "concessions_per_unit": 35.45
+  },
+  {
+    "rent_snapshot_id": "e76c17ab-ccaa-43c7-9bcd-3999070705d8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-10-01",
+    "avg_effective_rent": 1371.94,
+    "avg_asking_rent": 1421.84,
+    "concessions_per_unit": 43.29
+  },
+  {
+    "rent_snapshot_id": "e29dca9a-6888-43e6-aa64-ff8ae2957b4f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-11-01",
+    "avg_effective_rent": 1387.31,
+    "avg_asking_rent": 1466.06,
+    "concessions_per_unit": 41.74
+  },
+  {
+    "rent_snapshot_id": "5ece67e1-34a7-49c4-9f5e-62b86d4000cf",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-12-01",
+    "avg_effective_rent": 1389.1,
+    "avg_asking_rent": 1457.93,
+    "concessions_per_unit": 48.91
+  },
+  {
+    "rent_snapshot_id": "b9341fdf-6609-4d47-9219-dc7906ffa7e9",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-01-01",
+    "avg_effective_rent": 1384.42,
+    "avg_asking_rent": 1427.66,
+    "concessions_per_unit": 46.24
+  },
+  {
+    "rent_snapshot_id": "67fbc68a-d041-4c85-8ab2-e39af5038e25",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-02-01",
+    "avg_effective_rent": 1374.61,
+    "avg_asking_rent": 1436.35,
+    "concessions_per_unit": 43.85
+  },
+  {
+    "rent_snapshot_id": "6c0f33ff-09ed-41d0-a223-ffc5bf39b8b7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-03-01",
+    "avg_effective_rent": 1402.02,
+    "avg_asking_rent": 1463.17,
+    "concessions_per_unit": 37.51
+  },
+  {
+    "rent_snapshot_id": "1334b729-c23b-45da-b7fa-2868dc50edf5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-04-01",
+    "avg_effective_rent": 1439.46,
+    "avg_asking_rent": 1507.91,
+    "concessions_per_unit": 43.36
+  },
+  {
+    "rent_snapshot_id": "913db494-a7ea-41cd-a5e0-152375010c6f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-05-01",
+    "avg_effective_rent": 1426.39,
+    "avg_asking_rent": 1504.07,
+    "concessions_per_unit": 39.03
+  },
+  {
+    "rent_snapshot_id": "e7938611-5dab-448c-a1b6-c46461c8746b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-06-01",
+    "avg_effective_rent": 1428.1,
+    "avg_asking_rent": 1480.75,
+    "concessions_per_unit": 50.29
+  },
+  {
+    "rent_snapshot_id": "bd17f7a0-9622-4735-9944-dc9b1bb03228",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-07-01",
+    "avg_effective_rent": 1431.77,
+    "avg_asking_rent": 1478.28,
+    "concessions_per_unit": 50.44
+  },
+  {
+    "rent_snapshot_id": "9f675e51-1886-4fba-8065-93d6bc697ab2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-08-01",
+    "avg_effective_rent": 1446.63,
+    "avg_asking_rent": 1490.33,
+    "concessions_per_unit": 40.81
+  },
+  {
+    "rent_snapshot_id": "9c8715f6-7cd0-4709-aa36-333d11a05e91",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-09-01",
+    "avg_effective_rent": 1416.43,
+    "avg_asking_rent": 1490.19,
+    "concessions_per_unit": 40.84
+  },
+  {
+    "rent_snapshot_id": "40a1bbbc-81e2-4e8e-8d63-953c7c3eb8c5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-10-01",
+    "avg_effective_rent": 1430.13,
+    "avg_asking_rent": 1504.8,
+    "concessions_per_unit": 48.56
+  },
+  {
+    "rent_snapshot_id": "352001d9-49ec-4f62-836d-5e8d8499d795",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-11-01",
+    "avg_effective_rent": 1435.96,
+    "avg_asking_rent": 1486.51,
+    "concessions_per_unit": 53.52
+  },
+  {
+    "rent_snapshot_id": "2fb24578-58cc-4c30-9e2b-8457ce222940",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-12-01",
+    "avg_effective_rent": 1428.65,
+    "avg_asking_rent": 1492.09,
+    "concessions_per_unit": 49.98
+  },
+  {
+    "rent_snapshot_id": "53e7b93e-8e58-4d8f-9bc5-47ff8f62a28d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-01-01",
+    "avg_effective_rent": 1431.63,
+    "avg_asking_rent": 1496.3,
+    "concessions_per_unit": 37.21
+  },
+  {
+    "rent_snapshot_id": "a8eacedf-c0e0-4204-a6e1-b494cead255e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-02-01",
+    "avg_effective_rent": 1447.71,
+    "avg_asking_rent": 1498.92,
+    "concessions_per_unit": 44.39
+  },
+  {
+    "rent_snapshot_id": "64079748-adbe-4351-99c2-4b971832f7f8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-03-01",
+    "avg_effective_rent": 1459.72,
+    "avg_asking_rent": 1527.05,
+    "concessions_per_unit": 52.92
+  },
+  {
+    "rent_snapshot_id": "ef3f81ac-ec80-4826-9a52-77e9d8a08fa5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-04-01",
+    "avg_effective_rent": 1460.43,
+    "avg_asking_rent": 1511.93,
+    "concessions_per_unit": 52.57
+  },
+  {
+    "rent_snapshot_id": "5ae2117a-f3da-4e74-98a6-0855c36bc009",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-05-01",
+    "avg_effective_rent": 1501.76,
+    "avg_asking_rent": 1553.41,
+    "concessions_per_unit": 53.52
+  },
+  {
+    "rent_snapshot_id": "c0fb41b5-9dd0-4581-ab1a-66ec4423c2e8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-06-01",
+    "avg_effective_rent": 1500.53,
+    "avg_asking_rent": 1585.38,
+    "concessions_per_unit": 39.58
+  },
+  {
+    "rent_snapshot_id": "709815de-99e1-4736-871b-3e356007d7c7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-07-01",
+    "avg_effective_rent": 1498.98,
+    "avg_asking_rent": 1563.86,
+    "concessions_per_unit": 49.43
+  },
+  {
+    "rent_snapshot_id": "23d9282e-abf6-4f33-8a87-b9e2c558a20e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-08-01",
+    "avg_effective_rent": 1507.63,
+    "avg_asking_rent": 1566.95,
+    "concessions_per_unit": 35.92
+  },
+  {
+    "rent_snapshot_id": "83befcc1-1c95-4e9d-9421-12b670d55357",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-09-01",
+    "avg_effective_rent": 1497.8,
+    "avg_asking_rent": 1543.99,
+    "concessions_per_unit": 37.09
+  },
+  {
+    "rent_snapshot_id": "d7c55c1d-cd6c-40ea-b33f-6b3454bb0898",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-10-01",
+    "avg_effective_rent": 1474.06,
+    "avg_asking_rent": 1532.01,
+    "concessions_per_unit": 45.44
+  },
+  {
+    "rent_snapshot_id": "056a3a10-d704-473f-a405-a2243c118ef5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-11-01",
+    "avg_effective_rent": 1476.02,
+    "avg_asking_rent": 1541.86,
+    "concessions_per_unit": 54.06
+  },
+  {
+    "rent_snapshot_id": "90558300-c527-4a89-826a-5eddaa5bb56b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-12-01",
+    "avg_effective_rent": 1486.23,
+    "avg_asking_rent": 1557.16,
+    "concessions_per_unit": 37.02
+  },
+  {
+    "rent_snapshot_id": "62dd1dda-a469-4e34-96d3-f1460fc705b8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-01-01",
+    "avg_effective_rent": 1489.25,
+    "avg_asking_rent": 1549.93,
+    "concessions_per_unit": 48
+  },
+  {
+    "rent_snapshot_id": "968691cb-b6fa-479d-9c87-7e5aeece6a56",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-02-01",
+    "avg_effective_rent": 1491.13,
+    "avg_asking_rent": 1570.55,
+    "concessions_per_unit": 37.78
+  },
+  {
+    "rent_snapshot_id": "17bc8b87-ce29-4ef2-81c7-48f61c3bee67",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-03-01",
+    "avg_effective_rent": 1490.25,
+    "avg_asking_rent": 1552.3,
+    "concessions_per_unit": 45.57
+  },
+  {
+    "rent_snapshot_id": "b062bcc4-a0d1-4e28-a07c-524439af4e38",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-04-01",
+    "avg_effective_rent": 1524.19,
+    "avg_asking_rent": 1600.02,
+    "concessions_per_unit": 39.65
+  },
+  {
+    "rent_snapshot_id": "ce4c2417-17bd-430a-b701-f9c2b902f6a3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-05-01",
+    "avg_effective_rent": 1558.08,
+    "avg_asking_rent": 1614.52,
+    "concessions_per_unit": 44.46
+  },
+  {
+    "rent_snapshot_id": "67f1ab18-2796-4ca9-823b-2b60d5141540",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-06-01",
+    "avg_effective_rent": 1569.01,
+    "avg_asking_rent": 1648.64,
+    "concessions_per_unit": 50.39
+  },
+  {
+    "rent_snapshot_id": "bff17f0a-2db4-4e7d-8ca9-eb1fc00a2fa6",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-07-01",
+    "avg_effective_rent": 1556.17,
+    "avg_asking_rent": 1622.58,
+    "concessions_per_unit": 51.88
+  },
+  {
+    "rent_snapshot_id": "0d252d5c-3737-4b66-96f6-d15ef816239c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-08-01",
+    "avg_effective_rent": 1532.18,
+    "avg_asking_rent": 1622.99,
+    "concessions_per_unit": 53.5
+  },
+  {
+    "rent_snapshot_id": "e4ceacde-e523-4da5-a889-cbe934c43306",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-09-01",
+    "avg_effective_rent": 1552.49,
+    "avg_asking_rent": 1618.79,
+    "concessions_per_unit": 41.65
+  },
+  {
+    "rent_snapshot_id": "7160382b-b457-4189-a7f4-e69519190685",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-10-01",
+    "avg_effective_rent": 1540.67,
+    "avg_asking_rent": 1625.04,
+    "concessions_per_unit": 40.38
+  },
+  {
+    "rent_snapshot_id": "15c448df-fc9e-4455-b166-f3baa69bbe87",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-11-01",
+    "avg_effective_rent": 1536.36,
+    "avg_asking_rent": 1615.72,
+    "concessions_per_unit": 43.77
+  },
+  {
+    "rent_snapshot_id": "26736b9d-46e4-41ea-8619-6ac886860ea1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-12-01",
+    "avg_effective_rent": 1524.96,
+    "avg_asking_rent": 1577.03,
+    "concessions_per_unit": 45.35
+  },
+  {
+    "rent_snapshot_id": "fe405540-a28a-4c1f-bf07-be9f649e383f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-01-01",
+    "avg_effective_rent": 1542.41,
+    "avg_asking_rent": 1597.75,
+    "concessions_per_unit": 54.06
+  },
+  {
+    "rent_snapshot_id": "356e1cfd-2771-4fae-9f21-aae59c263404",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-02-01",
+    "avg_effective_rent": 1527.56,
+    "avg_asking_rent": 1594.82,
+    "concessions_per_unit": 39.7
+  },
+  {
+    "rent_snapshot_id": "98566e7b-135a-476a-8c52-88abbd7fe32c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-03-01",
+    "avg_effective_rent": 1579.31,
+    "avg_asking_rent": 1661.41,
+    "concessions_per_unit": 35.65
+  },
+  {
+    "rent_snapshot_id": "9e693c5d-4bc7-4581-83a5-f5c0819cd2e9",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-04-01",
+    "avg_effective_rent": 1595.63,
+    "avg_asking_rent": 1667.46,
+    "concessions_per_unit": 37.67
+  },
+  {
+    "rent_snapshot_id": "f0f5aaa8-e2fb-4d99-b00b-35bdfcd0c3bd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-05-01",
+    "avg_effective_rent": 1589.44,
+    "avg_asking_rent": 1645.92,
+    "concessions_per_unit": 48.07
+  },
+  {
+    "rent_snapshot_id": "5d83b3c0-8e4f-4fd8-8793-92d9c89cf77a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-06-01",
+    "avg_effective_rent": 1618.97,
+    "avg_asking_rent": 1694.22,
+    "concessions_per_unit": 50.85
+  },
+  {
+    "rent_snapshot_id": "ab74f881-0d18-47fd-893c-9ff8ecfed241",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-07-01",
+    "avg_effective_rent": 1605.15,
+    "avg_asking_rent": 1693.66,
+    "concessions_per_unit": 36.85
+  },
+  {
+    "rent_snapshot_id": "e029b801-b009-46e4-a28e-7c0b816cda42",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-08-01",
+    "avg_effective_rent": 1582.73,
+    "avg_asking_rent": 1666.35,
+    "concessions_per_unit": 42.22
+  },
+  {
+    "rent_snapshot_id": "83b2ee45-e419-41b3-b52e-f243e7e2d456",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-09-01",
+    "avg_effective_rent": 1616.29,
+    "avg_asking_rent": 1670.02,
+    "concessions_per_unit": 54.44
+  },
+  {
+    "rent_snapshot_id": "440cb86b-1d1c-44d7-8566-62ac1dd9889d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-10-01",
+    "avg_effective_rent": 1592.13,
+    "avg_asking_rent": 1671.81,
+    "concessions_per_unit": 42.06
+  },
+  {
+    "rent_snapshot_id": "53a192c5-30ff-4eca-bd41-ac6cc6e2ae53",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-11-01",
+    "avg_effective_rent": 1576.77,
+    "avg_asking_rent": 1649.73,
+    "concessions_per_unit": 43.86
+  },
+  {
+    "rent_snapshot_id": "d55a7f87-ed78-4ca8-95f5-e0f9430eaf21",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-12-01",
+    "avg_effective_rent": 1562.55,
+    "avg_asking_rent": 1631.63,
+    "concessions_per_unit": 42.76
+  },
+  {
+    "rent_snapshot_id": "c6a3d8a3-c62f-4e36-bc03-b961301e099d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-01-01",
+    "avg_effective_rent": 1593.98,
+    "avg_asking_rent": 1676.73,
+    "concessions_per_unit": 81.22
+  },
+  {
+    "rent_snapshot_id": "6adff12e-65a7-45ae-a579-ef59e821e445",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-02-01",
+    "avg_effective_rent": 1577.66,
+    "avg_asking_rent": 1670.85,
+    "concessions_per_unit": 73.02
+  },
+  {
+    "rent_snapshot_id": "8156e166-aa1a-4c21-b0cb-a96c8d9049de",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-03-01",
+    "avg_effective_rent": 1597.29,
+    "avg_asking_rent": 1658.95,
+    "concessions_per_unit": 70.18
+  },
+  {
+    "rent_snapshot_id": "1dd578e2-ecfb-4897-b701-bfb79501ea7b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-04-01",
+    "avg_effective_rent": 1657.67,
+    "avg_asking_rent": 1709.06,
+    "concessions_per_unit": 88.1
+  },
+  {
+    "rent_snapshot_id": "80826501-03a0-4cec-b0cf-5f1b998d17ed",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-05-01",
+    "avg_effective_rent": 1644.38,
+    "avg_asking_rent": 1729.23,
+    "concessions_per_unit": 69.78
+  },
+  {
+    "rent_snapshot_id": "d8895e11-1384-4910-bceb-a3a8c2eade83",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-06-01",
+    "avg_effective_rent": 1664.57,
+    "avg_asking_rent": 1719.98,
+    "concessions_per_unit": 65.11
+  },
+  {
+    "rent_snapshot_id": "7ad40875-8b49-4262-9e45-d48bf973abdd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-07-01",
+    "avg_effective_rent": 1646.03,
+    "avg_asking_rent": 1709.49,
+    "concessions_per_unit": 78.92
+  },
+  {
+    "rent_snapshot_id": "6db67ad2-b16b-437c-ae7a-ccf93b3f1e24",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-08-01",
+    "avg_effective_rent": 1660.72,
+    "avg_asking_rent": 1716.96,
+    "concessions_per_unit": 73.18
+  },
+  {
+    "rent_snapshot_id": "1cdf35b4-60ff-4247-b5ed-a2f94eb77098",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-09-01",
+    "avg_effective_rent": 1657.06,
+    "avg_asking_rent": 1741.73,
+    "concessions_per_unit": 70.71
+  },
+  {
+    "rent_snapshot_id": "183ca5b4-b285-4799-9463-62159fcd1c45",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-10-01",
+    "avg_effective_rent": 1648.95,
+    "avg_asking_rent": 1704.58,
+    "concessions_per_unit": 67.7
+  },
+  {
+    "rent_snapshot_id": "4aab27b5-2e94-453b-9ffe-fb3b2ec03d23",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-11-01",
+    "avg_effective_rent": 1656.34,
+    "avg_asking_rent": 1734.26,
+    "concessions_per_unit": 74.71
+  },
+  {
+    "rent_snapshot_id": "daa7450d-1c8d-40e9-b2b6-df3c7450de26",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-12-01",
+    "avg_effective_rent": 1649.51,
+    "avg_asking_rent": 1744.51,
+    "concessions_per_unit": 78.86
+  },
+  {
+    "rent_snapshot_id": "09a11391-b639-49cd-97c3-5f0b22f18a42",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-01-01",
+    "avg_effective_rent": 1624.24,
+    "avg_asking_rent": 1679.88,
+    "concessions_per_unit": 76.32
+  },
+  {
+    "rent_snapshot_id": "b8781912-fda5-4222-8280-a80c44958000",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-02-01",
+    "avg_effective_rent": 1658.16,
+    "avg_asking_rent": 1755.43,
+    "concessions_per_unit": 92.24
+  },
+  {
+    "rent_snapshot_id": "d074a6d2-b507-4c9c-9be5-0eabb2670759",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-03-01",
+    "avg_effective_rent": 1677.27,
+    "avg_asking_rent": 1742.79,
+    "concessions_per_unit": 67.41
+  },
+  {
+    "rent_snapshot_id": "f1168969-7b50-4cd2-9f94-febf47b6a194",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-04-01",
+    "avg_effective_rent": 1678.22,
+    "avg_asking_rent": 1769.1,
+    "concessions_per_unit": 89.57
+  },
+  {
+    "rent_snapshot_id": "fee32d0c-0873-41a4-a0f4-eccbe9437260",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-05-01",
+    "avg_effective_rent": 1728.32,
+    "avg_asking_rent": 1799.72,
+    "concessions_per_unit": 72.67
+  },
+  {
+    "rent_snapshot_id": "5c6fa171-8ba1-423e-b513-ebb4f854b0be",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-06-01",
+    "avg_effective_rent": 1730.56,
+    "avg_asking_rent": 1804.27,
+    "concessions_per_unit": 70.8
+  },
+  {
+    "rent_snapshot_id": "13b6d9b5-1a71-4089-b06a-2a76d95d7a02",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-07-01",
+    "avg_effective_rent": 1697.89,
+    "avg_asking_rent": 1798.86,
+    "concessions_per_unit": 67.4
+  },
+  {
+    "rent_snapshot_id": "24b29ada-d9b8-4d40-826f-7f44418ddf59",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-08-01",
+    "avg_effective_rent": 1730.39,
+    "avg_asking_rent": 1789.12,
+    "concessions_per_unit": 94.62
+  },
+  {
+    "rent_snapshot_id": "eb944859-99c0-4f19-9165-1683cf9bb68a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-09-01",
+    "avg_effective_rent": 1717.11,
+    "avg_asking_rent": 1784.45,
+    "concessions_per_unit": 65.48
+  },
+  {
+    "rent_snapshot_id": "09d9d092-9210-4950-88a3-2ca6dcaec43e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-10-01",
+    "avg_effective_rent": 1697.76,
+    "avg_asking_rent": 1771.95,
+    "concessions_per_unit": 70.6
+  },
+  {
+    "rent_snapshot_id": "32f2ed2a-3102-41c6-8d02-bdba86133e9d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-11-01",
+    "avg_effective_rent": 1665.6,
+    "avg_asking_rent": 1759.62,
+    "concessions_per_unit": 73.28
+  },
+  {
+    "rent_snapshot_id": "2f3aa219-089f-442f-abeb-1ee430458c54",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-12-01",
+    "avg_effective_rent": 1661.92,
+    "avg_asking_rent": 1732,
+    "concessions_per_unit": 72.96
+  },
+  {
+    "rent_snapshot_id": "34515b97-f131-4324-91e6-c9e9329bc136",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-01-01",
+    "avg_effective_rent": 1714.37,
+    "avg_asking_rent": 1813.11,
+    "concessions_per_unit": 87.86
+  },
+  {
+    "rent_snapshot_id": "dbd3f3e8-0e04-40a2-82ea-c25dccbcadc6",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-02-01",
+    "avg_effective_rent": 1703.7,
+    "avg_asking_rent": 1788.67,
+    "concessions_per_unit": 86.34
+  },
+  {
+    "rent_snapshot_id": "d91c1879-cfd2-4f62-89d3-4e639f093911",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-03-01",
+    "avg_effective_rent": 1731.29,
+    "avg_asking_rent": 1795.29,
+    "concessions_per_unit": 72.06
+  },
+  {
+    "rent_snapshot_id": "dc7cb12c-2bc7-4d60-b5da-1be75c43f555",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-04-01",
+    "avg_effective_rent": 1727.24,
+    "avg_asking_rent": 1789.74,
+    "concessions_per_unit": 94.72
+  },
+  {
+    "rent_snapshot_id": "39f9f79b-9778-4c3b-a586-df08fdb2a2f5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-05-01",
+    "avg_effective_rent": 1777.7,
+    "avg_asking_rent": 1844.15,
+    "concessions_per_unit": 94.09
+  },
+  {
+    "rent_snapshot_id": "be6f4fd6-820c-480b-91c3-17a7716064b3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-06-01",
+    "avg_effective_rent": 1790.51,
+    "avg_asking_rent": 1888.43,
+    "concessions_per_unit": 83.27
+  },
+  {
+    "rent_snapshot_id": "36547369-7d04-4ec5-a21a-29755e8416c2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-07-01",
+    "avg_effective_rent": 1799.25,
+    "avg_asking_rent": 1890.09,
+    "concessions_per_unit": 74.6
+  },
+  {
+    "rent_snapshot_id": "eb7e7804-b764-4519-aa72-3b928d0ac401",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-08-01",
+    "avg_effective_rent": 1778.4,
+    "avg_asking_rent": 1859.76,
+    "concessions_per_unit": 79.3
+  },
+  {
+    "rent_snapshot_id": "c784815f-f9d2-4bc2-bc46-60b7ffafe355",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-09-01",
+    "avg_effective_rent": 1745.38,
+    "avg_asking_rent": 1830.57,
+    "concessions_per_unit": 88.45
+  },
+  {
+    "rent_snapshot_id": "50ce17a4-951e-41c8-a780-29bd2c7fcd2e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-10-01",
+    "avg_effective_rent": 1754.3,
+    "avg_asking_rent": 1824.75,
+    "concessions_per_unit": 83.78
+  },
+  {
+    "rent_snapshot_id": "eba242bf-2712-4eff-ac4a-6dd4c4bd1982",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-11-01",
+    "avg_effective_rent": 1768.21,
+    "avg_asking_rent": 1823.47,
+    "concessions_per_unit": 90.52
+  },
+  {
+    "rent_snapshot_id": "5bddd2f9-c27c-4a6a-a88b-b4e3e861269d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-12-01",
+    "avg_effective_rent": 1726.14,
+    "avg_asking_rent": 1795.5,
+    "concessions_per_unit": 81.87
+  },
+  {
+    "rent_snapshot_id": "2615bd66-d236-4a51-ac69-637e9f4e6a99",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-01-01",
+    "avg_effective_rent": 1744.57,
+    "avg_asking_rent": 1797.12,
+    "concessions_per_unit": 90.57
+  },
+  {
+    "rent_snapshot_id": "5cb96848-b09e-44f4-89ac-261ec9d15029",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-02-01",
+    "avg_effective_rent": 1767.22,
+    "avg_asking_rent": 1870.73,
+    "concessions_per_unit": 85.4
+  },
+  {
+    "rent_snapshot_id": "5ef2d9f9-8623-4fb7-9a58-27a6448fc887",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-03-01",
+    "avg_effective_rent": 1803.21,
+    "avg_asking_rent": 1883.15,
+    "concessions_per_unit": 72.22
+  },
+  {
+    "rent_snapshot_id": "fcaa3fc3-cc39-4db8-85ac-85eb1bcc0c94",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-04-01",
+    "avg_effective_rent": 1805.09,
+    "avg_asking_rent": 1893.96,
+    "concessions_per_unit": 92.64
+  },
+  {
+    "rent_snapshot_id": "073d945a-dfbc-47db-ba41-f01a38ad26b0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-05-01",
+    "avg_effective_rent": 1836.77,
+    "avg_asking_rent": 1908.68,
+    "concessions_per_unit": 87.07
+  },
+  {
+    "rent_snapshot_id": "d1a1409f-dd1e-4d5e-9b27-f468e3b23117",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-06-01",
+    "avg_effective_rent": 1816.35,
+    "avg_asking_rent": 1886.78,
+    "concessions_per_unit": 62.46
+  },
+  {
+    "rent_snapshot_id": "4187209d-9853-46ba-abac-b1db59fa6232",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-07-01",
+    "avg_effective_rent": 1841.15,
+    "avg_asking_rent": 1926.4,
+    "concessions_per_unit": 60.38
+  },
+  {
+    "rent_snapshot_id": "53e489f2-f913-41bb-a79d-b266f79fc095",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-08-01",
+    "avg_effective_rent": 1865.07,
+    "avg_asking_rent": 1944.35,
+    "concessions_per_unit": 46.09
+  },
+  {
+    "rent_snapshot_id": "5cd67e52-9b6a-4eac-9051-f2da56381565",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-09-01",
+    "avg_effective_rent": 1803.47,
+    "avg_asking_rent": 1860.97,
+    "concessions_per_unit": 61.01
+  },
+  {
+    "rent_snapshot_id": "034c5540-0a27-495e-a7b4-6c0efc1206e2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-10-01",
+    "avg_effective_rent": 1820.05,
+    "avg_asking_rent": 1913.82,
+    "concessions_per_unit": 48
+  },
+  {
+    "rent_snapshot_id": "327db12a-7d08-4d9a-8970-90fb7760ff7b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-11-01",
+    "avg_effective_rent": 1830.63,
+    "avg_asking_rent": 1894.34,
+    "concessions_per_unit": 63.38
+  },
+  {
+    "rent_snapshot_id": "79589f8d-c1ee-4896-a308-5a0cbb5e9bde",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-12-01",
+    "avg_effective_rent": 1809.51,
+    "avg_asking_rent": 1896.07,
+    "concessions_per_unit": 51.15
+  },
+  {
+    "rent_snapshot_id": "338132b2-2add-4be1-bc44-1b40c15a7186",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-01-01",
+    "avg_effective_rent": 1828.63,
+    "avg_asking_rent": 1884.39,
+    "concessions_per_unit": 46.83
+  },
+  {
+    "rent_snapshot_id": "ee1db4ce-cbe6-4b19-abd7-39527051b0a5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-02-01",
+    "avg_effective_rent": 1806.02,
+    "avg_asking_rent": 1897.81,
+    "concessions_per_unit": 49.77
+  },
+  {
+    "rent_snapshot_id": "e767c42f-5737-4f32-bf15-c4aaf88da431",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-03-01",
+    "avg_effective_rent": 1859.58,
+    "avg_asking_rent": 1946.9,
+    "concessions_per_unit": 41.87
+  },
+  {
+    "rent_snapshot_id": "ffb8d37e-ca30-4e98-b281-d88704f27438",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-04-01",
+    "avg_effective_rent": 1860.79,
+    "avg_asking_rent": 1949.56,
+    "concessions_per_unit": 43.9
+  },
+  {
+    "rent_snapshot_id": "cab5f526-3d32-499f-a87b-3c316f5db9ad",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-05-01",
+    "avg_effective_rent": 1884.23,
+    "avg_asking_rent": 1975.87,
+    "concessions_per_unit": 32.63
+  },
+  {
+    "rent_snapshot_id": "3f76cce9-7f5a-46be-9c47-e9c4994ab163",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-06-01",
+    "avg_effective_rent": 1878.67,
+    "avg_asking_rent": 1966.13,
+    "concessions_per_unit": 48.78
+  },
+  {
+    "rent_snapshot_id": "31009235-b35d-4809-b10b-91d1fa21b7d9",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-07-01",
+    "avg_effective_rent": 1914.17,
+    "avg_asking_rent": 1997.13,
+    "concessions_per_unit": 43.18
+  },
+  {
+    "rent_snapshot_id": "91499050-7df3-48d5-904c-314be7a74037",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-08-01",
+    "avg_effective_rent": 1881.51,
+    "avg_asking_rent": 1971.46,
+    "concessions_per_unit": 37.36
+  },
+  {
+    "rent_snapshot_id": "4f7d5fb8-3719-4b2e-8cf5-2c0b618c5a02",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-09-01",
+    "avg_effective_rent": 1871.12,
+    "avg_asking_rent": 1950.3,
+    "concessions_per_unit": 37.36
+  },
+  {
+    "rent_snapshot_id": "4983440b-0441-4f92-8a9d-dddd5cb17097",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-10-01",
+    "avg_effective_rent": 1864.08,
+    "avg_asking_rent": 1931.27,
+    "concessions_per_unit": 39.32
+  },
+  {
+    "rent_snapshot_id": "368de671-c780-4153-bd66-724e5b67c753",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-11-01",
+    "avg_effective_rent": 1884.41,
+    "avg_asking_rent": 1953.65,
+    "concessions_per_unit": 35.2
+  },
+  {
+    "rent_snapshot_id": "63cf7535-ff79-400d-a364-7ef68e39c400",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-12-01",
+    "avg_effective_rent": 1859.86,
+    "avg_asking_rent": 1915.83,
+    "concessions_per_unit": 35.81
+  },
+  {
+    "rent_snapshot_id": "f28a1109-98b7-44d1-b6f5-8ab195e56e30",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-01-01",
+    "avg_effective_rent": 1851.23,
+    "avg_asking_rent": 1947.8,
+    "concessions_per_unit": 36.06
+  },
+  {
+    "rent_snapshot_id": "a9142e35-1bef-4afe-b0eb-30bae5a0b488",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-02-01",
+    "avg_effective_rent": 1896.69,
+    "avg_asking_rent": 1975.69,
+    "concessions_per_unit": 46.06
+  },
+  {
+    "rent_snapshot_id": "dbbcc874-c559-4de9-9df9-e8857b616a93",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-03-01",
+    "avg_effective_rent": 1949.04,
+    "avg_asking_rent": 2042.6,
+    "concessions_per_unit": 30.7
+  },
+  {
+    "rent_snapshot_id": "37a957d8-98f8-46a4-9095-23fa3d9ffff2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-04-01",
+    "avg_effective_rent": 1961.07,
+    "avg_asking_rent": 2038.62,
+    "concessions_per_unit": 39.49
+  },
+  {
+    "rent_snapshot_id": "370abfd9-1678-4e62-b8d1-240fe57b78b0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-05-01",
+    "avg_effective_rent": 1928.85,
+    "avg_asking_rent": 2005.82,
+    "concessions_per_unit": 47.47
+  },
+  {
+    "rent_snapshot_id": "b513c3ab-21f8-418e-851d-458810c6f637",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-06-01",
+    "avg_effective_rent": 1951.5,
+    "avg_asking_rent": 2016.36,
+    "concessions_per_unit": 49.05
+  },
+  {
+    "rent_snapshot_id": "9957e98c-5480-4531-862f-a39872d01878",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-07-01",
+    "avg_effective_rent": 1980.68,
+    "avg_asking_rent": 2065.57,
+    "concessions_per_unit": 37.83
+  },
+  {
+    "rent_snapshot_id": "ab32eb8e-5147-4807-81ad-700b40292d8a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-08-01",
+    "avg_effective_rent": 1952.62,
+    "avg_asking_rent": 2023.23,
+    "concessions_per_unit": 33.66
+  },
+  {
+    "rent_snapshot_id": "0e623826-925d-4346-880d-2f60f500ec94",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-09-01",
+    "avg_effective_rent": 1937.63,
+    "avg_asking_rent": 2003.85,
+    "concessions_per_unit": 30.52
+  },
+  {
+    "rent_snapshot_id": "efc5ddbb-ecfb-4a8b-94d3-e58827987302",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-10-01",
+    "avg_effective_rent": 1980.08,
+    "avg_asking_rent": 2059.93,
+    "concessions_per_unit": 37.41
+  },
+  {
+    "rent_snapshot_id": "68197f8f-74f2-408e-bacf-343d11d03373",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-11-01",
+    "avg_effective_rent": 1946.08,
+    "avg_asking_rent": 2023,
+    "concessions_per_unit": 37.88
+  },
+  {
+    "rent_snapshot_id": "4b71e126-6645-4721-bdf6-2c42237b2a69",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-12-01",
+    "avg_effective_rent": 1947.87,
+    "avg_asking_rent": 2054.07,
+    "concessions_per_unit": 37.99
+  },
+  {
+    "rent_snapshot_id": "7b762bb0-79c5-46c4-96ed-e790463f0e70",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-01-01",
+    "avg_effective_rent": 1235.17,
+    "avg_asking_rent": 1288.77,
+    "concessions_per_unit": 38.51
+  },
+  {
+    "rent_snapshot_id": "968879c4-3239-41a8-8acd-30fdbe737ac8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-02-01",
+    "avg_effective_rent": 1226.65,
+    "avg_asking_rent": 1270.66,
+    "concessions_per_unit": 30.43
+  },
+  {
+    "rent_snapshot_id": "df0485aa-0102-4c34-aeef-38527742810c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-03-01",
+    "avg_effective_rent": 1263.82,
+    "avg_asking_rent": 1330.6,
+    "concessions_per_unit": 35.73
+  },
+  {
+    "rent_snapshot_id": "f1bcf6ca-552b-43c1-bf72-3bb3823075bb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-04-01",
+    "avg_effective_rent": 1265.6,
+    "avg_asking_rent": 1335.94,
+    "concessions_per_unit": 30.6
+  },
+  {
+    "rent_snapshot_id": "f1d8fa60-9174-4abe-bc94-e7f03453ffe5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-05-01",
+    "avg_effective_rent": 1272.73,
+    "avg_asking_rent": 1339.74,
+    "concessions_per_unit": 42
+  },
+  {
+    "rent_snapshot_id": "57c87856-d90b-4eb8-883c-e5875bc6ac3c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-06-01",
+    "avg_effective_rent": 1307.97,
+    "avg_asking_rent": 1374.54,
+    "concessions_per_unit": 29.02
+  },
+  {
+    "rent_snapshot_id": "7b2afce9-d1be-4157-842a-50a08b0cfd4d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-07-01",
+    "avg_effective_rent": 1316.51,
+    "avg_asking_rent": 1362.25,
+    "concessions_per_unit": 34.76
+  },
+  {
+    "rent_snapshot_id": "33b1b5ff-95b9-4ef7-9a32-28ea10e7a8e2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-08-01",
+    "avg_effective_rent": 1305.23,
+    "avg_asking_rent": 1355.88,
+    "concessions_per_unit": 27.71
+  },
+  {
+    "rent_snapshot_id": "55826439-9d49-4fd0-93cb-dfd6a4e6ac68",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-09-01",
+    "avg_effective_rent": 1297.7,
+    "avg_asking_rent": 1356.98,
+    "concessions_per_unit": 25.57
+  },
+  {
+    "rent_snapshot_id": "98f14241-a58e-4d11-a895-512fa0d13241",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-10-01",
+    "avg_effective_rent": 1297.24,
+    "avg_asking_rent": 1350.91,
+    "concessions_per_unit": 38.63
+  },
+  {
+    "rent_snapshot_id": "0229d4a3-a064-4350-8868-dc1b2c9c1ee3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-11-01",
+    "avg_effective_rent": 1287.96,
+    "avg_asking_rent": 1342.44,
+    "concessions_per_unit": 25.27
+  },
+  {
+    "rent_snapshot_id": "21a4ea37-030e-4345-ac53-d8cc891399d1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-12-01",
+    "avg_effective_rent": 1274.48,
+    "avg_asking_rent": 1325.58,
+    "concessions_per_unit": 36.87
+  },
+  {
+    "rent_snapshot_id": "8ef22bb6-ec13-45e6-a02d-60125809e598",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-01-01",
+    "avg_effective_rent": 1291.34,
+    "avg_asking_rent": 1338.66,
+    "concessions_per_unit": 44.42
+  },
+  {
+    "rent_snapshot_id": "71c38c56-bfbc-4d2c-87f6-254a45adc697",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-02-01",
+    "avg_effective_rent": 1289.23,
+    "avg_asking_rent": 1333.06,
+    "concessions_per_unit": 32.12
+  },
+  {
+    "rent_snapshot_id": "2515d8e8-610a-4d0e-8091-cb663a324e44",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-03-01",
+    "avg_effective_rent": 1326.8,
+    "avg_asking_rent": 1389.84,
+    "concessions_per_unit": 30.68
+  },
+  {
+    "rent_snapshot_id": "1ee65875-b71d-4b4a-be19-e147d3c17bea",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-04-01",
+    "avg_effective_rent": 1328.71,
+    "avg_asking_rent": 1369.42,
+    "concessions_per_unit": 26.05
+  },
+  {
+    "rent_snapshot_id": "617d03b9-296e-459b-8fa1-10c861801515",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-05-01",
+    "avg_effective_rent": 1350.37,
+    "avg_asking_rent": 1427.93,
+    "concessions_per_unit": 43.12
+  },
+  {
+    "rent_snapshot_id": "418398ec-3b0d-4c2b-8818-20cf2bac2b93",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-06-01",
+    "avg_effective_rent": 1350.13,
+    "avg_asking_rent": 1412.45,
+    "concessions_per_unit": 31.27
+  },
+  {
+    "rent_snapshot_id": "35973496-0743-498a-9b1b-085c89762c90",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-07-01",
+    "avg_effective_rent": 1367.52,
+    "avg_asking_rent": 1412.56,
+    "concessions_per_unit": 29.36
+  },
+  {
+    "rent_snapshot_id": "368f1c29-49c0-4294-84a4-9526ae588a23",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-08-01",
+    "avg_effective_rent": 1339.89,
+    "avg_asking_rent": 1383.61,
+    "concessions_per_unit": 37.47
+  },
+  {
+    "rent_snapshot_id": "a331428b-6f59-4173-98e1-9a427a231beb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-09-01",
+    "avg_effective_rent": 1323.04,
+    "avg_asking_rent": 1375.92,
+    "concessions_per_unit": 26.09
+  },
+  {
+    "rent_snapshot_id": "5abbbb16-881e-4f39-b44b-512587d4388e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-10-01",
+    "avg_effective_rent": 1347.88,
+    "avg_asking_rent": 1410.96,
+    "concessions_per_unit": 34.54
+  },
+  {
+    "rent_snapshot_id": "98a67c03-e5ad-49b5-864c-5c0854bc0b17",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-11-01",
+    "avg_effective_rent": 1332.69,
+    "avg_asking_rent": 1383.49,
+    "concessions_per_unit": 40.52
+  },
+  {
+    "rent_snapshot_id": "5a4d15a7-0342-423b-87b2-9364e7c0327f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-12-01",
+    "avg_effective_rent": 1305.68,
+    "avg_asking_rent": 1374.76,
+    "concessions_per_unit": 33.24
+  },
+  {
+    "rent_snapshot_id": "341c8917-6e68-4364-bae3-74d2da4bd758",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-01-01",
+    "avg_effective_rent": 1331.44,
+    "avg_asking_rent": 1395.67,
+    "concessions_per_unit": 43.6
+  },
+  {
+    "rent_snapshot_id": "e83bc334-5dd5-4417-8934-708de4ec17e1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-02-01",
+    "avg_effective_rent": 1327.76,
+    "avg_asking_rent": 1397.97,
+    "concessions_per_unit": 44.7
+  },
+  {
+    "rent_snapshot_id": "35fbb8c6-6ba3-42f6-95a1-3d519f73b781",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-03-01",
+    "avg_effective_rent": 1346.35,
+    "avg_asking_rent": 1414.6,
+    "concessions_per_unit": 26.79
+  },
+  {
+    "rent_snapshot_id": "8c59de9a-2a44-46c0-8033-eabd96b388d6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-04-01",
+    "avg_effective_rent": 1355.22,
+    "avg_asking_rent": 1415.89,
+    "concessions_per_unit": 30.34
+  },
+  {
+    "rent_snapshot_id": "461946e6-cab4-4cf7-8628-89bc491e99d6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-05-01",
+    "avg_effective_rent": 1401.05,
+    "avg_asking_rent": 1478.08,
+    "concessions_per_unit": 27.07
+  },
+  {
+    "rent_snapshot_id": "4b4310e6-dc2b-4a25-8ecb-19557bb99b75",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-06-01",
+    "avg_effective_rent": 1409.14,
+    "avg_asking_rent": 1454.49,
+    "concessions_per_unit": 39.45
+  },
+  {
+    "rent_snapshot_id": "9f8c834a-e5fa-421e-a0a9-8889c2fabfb0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-07-01",
+    "avg_effective_rent": 1412.04,
+    "avg_asking_rent": 1479.01,
+    "concessions_per_unit": 25.65
+  },
+  {
+    "rent_snapshot_id": "061642e7-c6e2-4336-a2cb-de681807be3e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-08-01",
+    "avg_effective_rent": 1396.26,
+    "avg_asking_rent": 1453.4,
+    "concessions_per_unit": 25.47
+  },
+  {
+    "rent_snapshot_id": "a2ad2481-a3c7-406c-a313-de09347b3da0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-09-01",
+    "avg_effective_rent": 1398.74,
+    "avg_asking_rent": 1461.88,
+    "concessions_per_unit": 36.09
+  },
+  {
+    "rent_snapshot_id": "277e95ef-4fcb-4690-aebc-d86c9f412d8c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-10-01",
+    "avg_effective_rent": 1365.7,
+    "avg_asking_rent": 1437.15,
+    "concessions_per_unit": 37.52
+  },
+  {
+    "rent_snapshot_id": "e2b4877a-1d53-4534-af7d-dd92d97016d7",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-11-01",
+    "avg_effective_rent": 1372.13,
+    "avg_asking_rent": 1443.51,
+    "concessions_per_unit": 37.28
+  },
+  {
+    "rent_snapshot_id": "acc817f2-d968-4874-9692-96401a170418",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-12-01",
+    "avg_effective_rent": 1372.74,
+    "avg_asking_rent": 1446.55,
+    "concessions_per_unit": 42.98
+  },
+  {
+    "rent_snapshot_id": "37bbbd24-c087-4f5e-9840-177077a56fe6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-01-01",
+    "avg_effective_rent": 1396.5,
+    "avg_asking_rent": 1444.36,
+    "concessions_per_unit": 26.27
+  },
+  {
+    "rent_snapshot_id": "0bbcbf60-52de-4892-8286-f7561d981a44",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-02-01",
+    "avg_effective_rent": 1396.19,
+    "avg_asking_rent": 1458.41,
+    "concessions_per_unit": 42.91
+  },
+  {
+    "rent_snapshot_id": "c609ec8b-2487-4393-9589-7184ffa25ac8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-03-01",
+    "avg_effective_rent": 1423.89,
+    "avg_asking_rent": 1488.58,
+    "concessions_per_unit": 41.02
+  },
+  {
+    "rent_snapshot_id": "aa371555-4138-4c33-ab31-1f70f47227c4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-04-01",
+    "avg_effective_rent": 1436.09,
+    "avg_asking_rent": 1509.11,
+    "concessions_per_unit": 37.11
+  },
+  {
+    "rent_snapshot_id": "9c242e85-9f18-4c7e-96e9-6c0bd852a255",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-05-01",
+    "avg_effective_rent": 1415.03,
+    "avg_asking_rent": 1470.8,
+    "concessions_per_unit": 33.2
+  },
+  {
+    "rent_snapshot_id": "6f110284-ecde-46a8-8d8b-2d35a1e147ed",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-06-01",
+    "avg_effective_rent": 1468.05,
+    "avg_asking_rent": 1517.59,
+    "concessions_per_unit": 37.34
+  },
+  {
+    "rent_snapshot_id": "96056819-90a8-4802-9c7e-4b4e5311786b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-07-01",
+    "avg_effective_rent": 1453.19,
+    "avg_asking_rent": 1498.05,
+    "concessions_per_unit": 29.19
+  },
+  {
+    "rent_snapshot_id": "cf3a92e9-ff71-4483-9637-49eabf385796",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-08-01",
+    "avg_effective_rent": 1442.47,
+    "avg_asking_rent": 1516.6,
+    "concessions_per_unit": 33.57
+  },
+  {
+    "rent_snapshot_id": "7b4dbb7b-7c31-4d88-9c01-8249f45a9aa8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-09-01",
+    "avg_effective_rent": 1461.01,
+    "avg_asking_rent": 1520.98,
+    "concessions_per_unit": 33.04
+  },
+  {
+    "rent_snapshot_id": "752ba3ec-b7ea-4e2e-8ab2-f04c4dcaf347",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-10-01",
+    "avg_effective_rent": 1443.72,
+    "avg_asking_rent": 1490.16,
+    "concessions_per_unit": 30.33
+  },
+  {
+    "rent_snapshot_id": "4fc993f2-7ee2-49a5-8ce7-ecdb0150ca55",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-11-01",
+    "avg_effective_rent": 1415.66,
+    "avg_asking_rent": 1469.01,
+    "concessions_per_unit": 29.77
+  },
+  {
+    "rent_snapshot_id": "8ea4b2ce-edf6-4092-997a-2529faf69e60",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-12-01",
+    "avg_effective_rent": 1412.49,
+    "avg_asking_rent": 1461.37,
+    "concessions_per_unit": 33.49
+  },
+  {
+    "rent_snapshot_id": "06775762-5770-4374-82d2-a041132da24d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-01-01",
+    "avg_effective_rent": 1433.75,
+    "avg_asking_rent": 1478.68,
+    "concessions_per_unit": 25.82
+  },
+  {
+    "rent_snapshot_id": "848bc9b1-56da-4797-9f4b-5b2041230ace",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-02-01",
+    "avg_effective_rent": 1421.59,
+    "avg_asking_rent": 1484.6,
+    "concessions_per_unit": 26.47
+  },
+  {
+    "rent_snapshot_id": "32e93d2d-6601-4874-8618-883c9f045379",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-03-01",
+    "avg_effective_rent": 1445.87,
+    "avg_asking_rent": 1527.76,
+    "concessions_per_unit": 38.96
+  },
+  {
+    "rent_snapshot_id": "e3e5c582-502d-4792-9ab3-1cbaaa693d0e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-04-01",
+    "avg_effective_rent": 1485.15,
+    "avg_asking_rent": 1560.25,
+    "concessions_per_unit": 41.53
+  },
+  {
+    "rent_snapshot_id": "29358b82-15be-4363-b880-741cb47dbbf3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-05-01",
+    "avg_effective_rent": 1478.76,
+    "avg_asking_rent": 1566.26,
+    "concessions_per_unit": 43.29
+  },
+  {
+    "rent_snapshot_id": "84767950-8f1c-46a5-b435-13b40b8f44d5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-06-01",
+    "avg_effective_rent": 1485.73,
+    "avg_asking_rent": 1530.77,
+    "concessions_per_unit": 38.69
+  },
+  {
+    "rent_snapshot_id": "791f0ac0-dc8c-4797-a38a-4dab6f6243b6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-07-01",
+    "avg_effective_rent": 1509.93,
+    "avg_asking_rent": 1588.07,
+    "concessions_per_unit": 30.56
+  },
+  {
+    "rent_snapshot_id": "9ab7a36f-ac48-4fd8-a15a-e3ea20a8af74",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-08-01",
+    "avg_effective_rent": 1488.83,
+    "avg_asking_rent": 1575.77,
+    "concessions_per_unit": 38.32
+  },
+  {
+    "rent_snapshot_id": "e573f020-52f3-45ad-b562-49c918771263",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-09-01",
+    "avg_effective_rent": 1513.91,
+    "avg_asking_rent": 1572.44,
+    "concessions_per_unit": 31.34
+  },
+  {
+    "rent_snapshot_id": "0b68a61d-dc1f-40cd-b9a6-29cba053bdd3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-10-01",
+    "avg_effective_rent": 1474.11,
+    "avg_asking_rent": 1537.07,
+    "concessions_per_unit": 26.53
+  },
+  {
+    "rent_snapshot_id": "1a30b98a-826a-4c02-9900-0b3fdf35f4d3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-11-01",
+    "avg_effective_rent": 1497.36,
+    "avg_asking_rent": 1562.02,
+    "concessions_per_unit": 28.45
+  },
+  {
+    "rent_snapshot_id": "265130c2-4e82-421e-9fb1-d2d8146d4067",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-12-01",
+    "avg_effective_rent": 1476.83,
+    "avg_asking_rent": 1562.89,
+    "concessions_per_unit": 43.06
+  },
+  {
+    "rent_snapshot_id": "8f14a978-e350-4054-b3ce-a66e98a686eb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-01-01",
+    "avg_effective_rent": 1470.5,
+    "avg_asking_rent": 1527.68,
+    "concessions_per_unit": 37.43
+  },
+  {
+    "rent_snapshot_id": "2e1c845c-ada5-4596-8f48-fb7dc969305f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-02-01",
+    "avg_effective_rent": 1511.23,
+    "avg_asking_rent": 1558.92,
+    "concessions_per_unit": 39.53
+  },
+  {
+    "rent_snapshot_id": "b88d8610-d6cc-4e21-b8d9-15958d6c2a9b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-03-01",
+    "avg_effective_rent": 1516.58,
+    "avg_asking_rent": 1573.16,
+    "concessions_per_unit": 56.17
+  },
+  {
+    "rent_snapshot_id": "9008c3b2-ee3f-46ec-aad0-03fce632211d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-04-01",
+    "avg_effective_rent": 1534.54,
+    "avg_asking_rent": 1582.67,
+    "concessions_per_unit": 69.95
+  },
+  {
+    "rent_snapshot_id": "d6bfd572-bba1-4a59-ae56-703d1c565cff",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-05-01",
+    "avg_effective_rent": 1532.74,
+    "avg_asking_rent": 1600.87,
+    "concessions_per_unit": 74.25
+  },
+  {
+    "rent_snapshot_id": "1cb924ab-e1ea-4c02-a47b-8ebee67dfa0d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-06-01",
+    "avg_effective_rent": 1552.45,
+    "avg_asking_rent": 1626.1,
+    "concessions_per_unit": 58.57
+  },
+  {
+    "rent_snapshot_id": "bf1265dc-d80d-49f1-9885-a49bbb54138b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-07-01",
+    "avg_effective_rent": 1562.99,
+    "avg_asking_rent": 1640.28,
+    "concessions_per_unit": 69.52
+  },
+  {
+    "rent_snapshot_id": "b89a84c2-6b05-4cc2-95c9-9f11a12c73b7",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-08-01",
+    "avg_effective_rent": 1565.96,
+    "avg_asking_rent": 1636.83,
+    "concessions_per_unit": 74.97
+  },
+  {
+    "rent_snapshot_id": "ca92a727-487f-44b9-a893-c15c2dee87ad",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-09-01",
+    "avg_effective_rent": 1567.27,
+    "avg_asking_rent": 1627.39,
+    "concessions_per_unit": 60
+  },
+  {
+    "rent_snapshot_id": "d8d3899f-1f63-42ab-be86-75b046c986d4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-10-01",
+    "avg_effective_rent": 1563.95,
+    "avg_asking_rent": 1616.43,
+    "concessions_per_unit": 50.71
+  },
+  {
+    "rent_snapshot_id": "c3119b0a-c162-4437-a9b5-5632c81b62be",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-11-01",
+    "avg_effective_rent": 1520.24,
+    "avg_asking_rent": 1582.85,
+    "concessions_per_unit": 73.17
+  },
+  {
+    "rent_snapshot_id": "88873c42-ab50-4af7-a8d2-1f0abb6f54bf",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-12-01",
+    "avg_effective_rent": 1523.06,
+    "avg_asking_rent": 1593.11,
+    "concessions_per_unit": 66.11
+  },
+  {
+    "rent_snapshot_id": "3a069ea1-7ad9-4677-937c-799fc3b6a002",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-01-01",
+    "avg_effective_rent": 1557.6,
+    "avg_asking_rent": 1629.13,
+    "concessions_per_unit": 67.7
+  },
+  {
+    "rent_snapshot_id": "de4120c9-a717-4686-b6e7-9e5d656e5e03",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-02-01",
+    "avg_effective_rent": 1567.31,
+    "avg_asking_rent": 1633.52,
+    "concessions_per_unit": 74.82
+  },
+  {
+    "rent_snapshot_id": "bb07b4a1-9258-4c94-b1bd-d6d5e0d720e7",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-03-01",
+    "avg_effective_rent": 1601.32,
+    "avg_asking_rent": 1665.45,
+    "concessions_per_unit": 65.79
+  },
+  {
+    "rent_snapshot_id": "624e9247-1792-4721-b3a0-93f21f1ba7d3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-04-01",
+    "avg_effective_rent": 1571.78,
+    "avg_asking_rent": 1626.14,
+    "concessions_per_unit": 70.08
+  },
+  {
+    "rent_snapshot_id": "c1eeeba6-be54-4dc3-8264-e98d3e65caef",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-05-01",
+    "avg_effective_rent": 1608.53,
+    "avg_asking_rent": 1659.15,
+    "concessions_per_unit": 71.08
+  },
+  {
+    "rent_snapshot_id": "7d64ab5d-687c-48af-9c65-25c6fa918030",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-06-01",
+    "avg_effective_rent": 1621.87,
+    "avg_asking_rent": 1678.1,
+    "concessions_per_unit": 60.58
+  },
+  {
+    "rent_snapshot_id": "1823a0b5-176c-43a8-ba3f-669d836e59dd",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-07-01",
+    "avg_effective_rent": 1636.74,
+    "avg_asking_rent": 1734.27,
+    "concessions_per_unit": 40.26
+  },
+  {
+    "rent_snapshot_id": "9bdbe5b5-3771-4b55-a122-60681fc055fc",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-08-01",
+    "avg_effective_rent": 1614.93,
+    "avg_asking_rent": 1700.23,
+    "concessions_per_unit": 26.79
+  },
+  {
+    "rent_snapshot_id": "632fe42c-0eb8-4b05-af77-8caef14af306",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-09-01",
+    "avg_effective_rent": 1626.16,
+    "avg_asking_rent": 1705.92,
+    "concessions_per_unit": 38.84
+  },
+  {
+    "rent_snapshot_id": "58ec658f-f1af-4e98-9e6a-768ce0a5cf88",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-10-01",
+    "avg_effective_rent": 1629.1,
+    "avg_asking_rent": 1708.13,
+    "concessions_per_unit": 41.86
+  },
+  {
+    "rent_snapshot_id": "c37443bf-96b8-40d6-aa27-88ce98be4327",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-11-01",
+    "avg_effective_rent": 1605.61,
+    "avg_asking_rent": 1692.2,
+    "concessions_per_unit": 36.63
+  },
+  {
+    "rent_snapshot_id": "b6dcc9ef-6a8a-45a1-9bdc-064edd17c2e3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-12-01",
+    "avg_effective_rent": 1573.32,
+    "avg_asking_rent": 1646.88,
+    "concessions_per_unit": 39.72
+  },
+  {
+    "rent_snapshot_id": "ab79e995-6d07-4c92-87e3-54dea0a4feed",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-01-01",
+    "avg_effective_rent": 1617.78,
+    "avg_asking_rent": 1683.53,
+    "concessions_per_unit": 43.42
+  },
+  {
+    "rent_snapshot_id": "d67be43b-7d9c-4478-ac66-98ecaf20e87a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-02-01",
+    "avg_effective_rent": 1614.95,
+    "avg_asking_rent": 1671.41,
+    "concessions_per_unit": 37.1
+  },
+  {
+    "rent_snapshot_id": "91556586-bd45-4281-a318-b68ba58e1557",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-03-01",
+    "avg_effective_rent": 1648.38,
+    "avg_asking_rent": 1745.17,
+    "concessions_per_unit": 30.63
+  },
+  {
+    "rent_snapshot_id": "ff3fdfd9-d745-4086-ad5b-8de4758e64b5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-04-01",
+    "avg_effective_rent": 1649.09,
+    "avg_asking_rent": 1703.79,
+    "concessions_per_unit": 25.77
+  },
+  {
+    "rent_snapshot_id": "82b82836-dcb5-4c2c-be18-7fe045d5ad76",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-05-01",
+    "avg_effective_rent": 1674.74,
+    "avg_asking_rent": 1754.08,
+    "concessions_per_unit": 38.29
+  },
+  {
+    "rent_snapshot_id": "f0ea5996-7b67-4c1c-8da8-15b8d70d9fa4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-06-01",
+    "avg_effective_rent": 1700.69,
+    "avg_asking_rent": 1790.28,
+    "concessions_per_unit": 38.16
+  },
+  {
+    "rent_snapshot_id": "a9fe42d2-dbd5-4936-a430-de16228e16e6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-07-01",
+    "avg_effective_rent": 1666.39,
+    "avg_asking_rent": 1724.44,
+    "concessions_per_unit": 35.59
+  },
+  {
+    "rent_snapshot_id": "a77b555b-bf4b-49ef-94fd-89185da41105",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-08-01",
+    "avg_effective_rent": 1678.34,
+    "avg_asking_rent": 1772.45,
+    "concessions_per_unit": 30.01
+  },
+  {
+    "rent_snapshot_id": "345e95d4-20eb-4847-ade1-50abc88b0763",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-09-01",
+    "avg_effective_rent": 1661.58,
+    "avg_asking_rent": 1722.2,
+    "concessions_per_unit": 37.78
+  },
+  {
+    "rent_snapshot_id": "16e9c2f3-61f5-4ddd-a029-29ef67230bda",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-10-01",
+    "avg_effective_rent": 1692.96,
+    "avg_asking_rent": 1756.69,
+    "concessions_per_unit": 28.62
+  },
+  {
+    "rent_snapshot_id": "08c98d8b-8df3-4c1f-9d36-4d8d437356cc",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-11-01",
+    "avg_effective_rent": 1639.81,
+    "avg_asking_rent": 1724.93,
+    "concessions_per_unit": 33.55
+  },
+  {
+    "rent_snapshot_id": "6598b2d7-1b04-45bf-a506-10a0f885c27f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-12-01",
+    "avg_effective_rent": 1629.67,
+    "avg_asking_rent": 1698.52,
+    "concessions_per_unit": 29.14
+  },
+  {
+    "rent_snapshot_id": "938a025f-a3e5-4fab-a61a-5a316d007e53",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-01-01",
+    "avg_effective_rent": 1662.07,
+    "avg_asking_rent": 1749.3,
+    "concessions_per_unit": 32.44
+  },
+  {
+    "rent_snapshot_id": "2eedd963-e0ec-4423-ab5c-51fa9dd75ec9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-02-01",
+    "avg_effective_rent": 1668.48,
+    "avg_asking_rent": 1722.77,
+    "concessions_per_unit": 35.75
+  },
+  {
+    "rent_snapshot_id": "a039ce7c-6775-4078-aaf2-15b9e488cf3b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-03-01",
+    "avg_effective_rent": 1687.01,
+    "avg_asking_rent": 1739.75,
+    "concessions_per_unit": 31.69
+  },
+  {
+    "rent_snapshot_id": "b799c29b-35d1-45d7-bb1a-4e8bd4914554",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-04-01",
+    "avg_effective_rent": 1692.41,
+    "avg_asking_rent": 1780.18,
+    "concessions_per_unit": 27.78
+  },
+  {
+    "rent_snapshot_id": "a4b1ec68-b99d-41f0-afa8-575040d47428",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-05-01",
+    "avg_effective_rent": 1725.28,
+    "avg_asking_rent": 1825.81,
+    "concessions_per_unit": 37.21
+  },
+  {
+    "rent_snapshot_id": "e5f1780c-60fa-4311-955d-0f578e19390e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-06-01",
+    "avg_effective_rent": 1729.83,
+    "avg_asking_rent": 1802.81,
+    "concessions_per_unit": 28.52
+  },
+  {
+    "rent_snapshot_id": "c53661ff-fe3f-472f-a1a5-3bdb6f131b96",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-07-01",
+    "avg_effective_rent": 1734.12,
+    "avg_asking_rent": 1822.94,
+    "concessions_per_unit": 36.99
+  },
+  {
+    "rent_snapshot_id": "b3802f97-fe4e-428b-92bb-29dad1498805",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-08-01",
+    "avg_effective_rent": 1742.64,
+    "avg_asking_rent": 1843.74,
+    "concessions_per_unit": 29.96
+  },
+  {
+    "rent_snapshot_id": "ae2b779b-bcc4-4a8d-ac05-82665daeb900",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-09-01",
+    "avg_effective_rent": 1730.75,
+    "avg_asking_rent": 1807.71,
+    "concessions_per_unit": 41.41
+  },
+  {
+    "rent_snapshot_id": "d477e13d-348c-45d7-9eca-5bad750708f1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-10-01",
+    "avg_effective_rent": 1709.51,
+    "avg_asking_rent": 1792.56,
+    "concessions_per_unit": 31.02
+  },
+  {
+    "rent_snapshot_id": "cd579e85-317f-413d-bb01-0e4c79816f42",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-11-01",
+    "avg_effective_rent": 1739.37,
+    "avg_asking_rent": 1812.01,
+    "concessions_per_unit": 40.11
+  },
+  {
+    "rent_snapshot_id": "a86496dc-5881-4905-80a4-8a34e6f0da9b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-12-01",
+    "avg_effective_rent": 1729.39,
+    "avg_asking_rent": 1805.47,
+    "concessions_per_unit": 34.09
+  },
+  {
+    "rent_snapshot_id": "405cb6ef-402e-4f1c-a1fd-dd434626be42",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-01-01",
+    "avg_effective_rent": 1738.91,
+    "avg_asking_rent": 1801.35,
+    "concessions_per_unit": 32.95
+  },
+  {
+    "rent_snapshot_id": "84da70af-bbb2-445b-9af7-7976ba8a22da",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-02-01",
+    "avg_effective_rent": 1717.05,
+    "avg_asking_rent": 1791.51,
+    "concessions_per_unit": 37.81
+  },
+  {
+    "rent_snapshot_id": "5943ea4e-23ae-481a-9fe7-3b8bc491577a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-03-01",
+    "avg_effective_rent": 1772.75,
+    "avg_asking_rent": 1869.91,
+    "concessions_per_unit": 25.26
+  },
+  {
+    "rent_snapshot_id": "16feb608-1369-4bd5-b71e-b1490c4dbb57",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-04-01",
+    "avg_effective_rent": 1798.93,
+    "avg_asking_rent": 1891.31,
+    "concessions_per_unit": 25.4
+  },
+  {
+    "rent_snapshot_id": "19c30299-7178-40dc-ab61-a0be108d5b0d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-05-01",
+    "avg_effective_rent": 1804.95,
+    "avg_asking_rent": 1898.32,
+    "concessions_per_unit": 28.2
+  },
+  {
+    "rent_snapshot_id": "d0d4ba1a-f7a2-48ff-9e6c-99415659b64c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-06-01",
+    "avg_effective_rent": 1794.57,
+    "avg_asking_rent": 1894.43,
+    "concessions_per_unit": 26.1
+  },
+  {
+    "rent_snapshot_id": "b8be47cf-e9ab-4059-9e24-332ad6c2b7f2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-07-01",
+    "avg_effective_rent": 1797.7,
+    "avg_asking_rent": 1868.17,
+    "concessions_per_unit": 37.11
+  },
+  {
+    "rent_snapshot_id": "0c7b76b8-eb44-4840-9431-6936ae7caa4f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-08-01",
+    "avg_effective_rent": 1828.36,
+    "avg_asking_rent": 1897.68,
+    "concessions_per_unit": 43.62
+  },
+  {
+    "rent_snapshot_id": "499f2dcb-de8b-4a7f-86cf-26983100080c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-09-01",
+    "avg_effective_rent": 1810.9,
+    "avg_asking_rent": 1906.04,
+    "concessions_per_unit": 32.3
+  },
+  {
+    "rent_snapshot_id": "515e25b3-4e00-4ffc-89c2-db28bb372c75",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-10-01",
+    "avg_effective_rent": 1779.65,
+    "avg_asking_rent": 1877.41,
+    "concessions_per_unit": 27.91
+  },
+  {
+    "rent_snapshot_id": "dec6c7a6-5170-4efc-b6a2-9d8f920d050f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-11-01",
+    "avg_effective_rent": 1791.34,
+    "avg_asking_rent": 1867.3,
+    "concessions_per_unit": 38.56
+  },
+  {
+    "rent_snapshot_id": "c54717af-9444-41f8-b211-8eca359f195b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-12-01",
+    "avg_effective_rent": 1771.49,
+    "avg_asking_rent": 1858.26,
+    "concessions_per_unit": 37.92
+  },
+  {
+    "rent_snapshot_id": "296b81ca-3fe3-46bd-92c8-7912e62d50de",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-01-01",
+    "avg_effective_rent": 1764.92,
+    "avg_asking_rent": 1837.32,
+    "concessions_per_unit": 25.21
+  },
+  {
+    "rent_snapshot_id": "ae1b92ff-21f9-4abb-8ab0-e7fd10784cb5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-02-01",
+    "avg_effective_rent": 1796.59,
+    "avg_asking_rent": 1859.08,
+    "concessions_per_unit": 41.47
+  },
+  {
+    "rent_snapshot_id": "0e9e9aac-2239-47d3-bb4a-b23549923548",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-03-01",
+    "avg_effective_rent": 1853.16,
+    "avg_asking_rent": 1934.84,
+    "concessions_per_unit": 28.68
+  },
+  {
+    "rent_snapshot_id": "9a705bd9-74c4-4bae-9eca-758c32dcd278",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-04-01",
+    "avg_effective_rent": 1857.29,
+    "avg_asking_rent": 1920.92,
+    "concessions_per_unit": 30.41
+  },
+  {
+    "rent_snapshot_id": "eba9aa97-1321-4fa5-9a46-35f4d053ad75",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-05-01",
+    "avg_effective_rent": 1882.13,
+    "avg_asking_rent": 1976.84,
+    "concessions_per_unit": 35.5
+  },
+  {
+    "rent_snapshot_id": "2023bc7b-f934-463b-a260-4335a008e63b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-06-01",
+    "avg_effective_rent": 1860.89,
+    "avg_asking_rent": 1919.19,
+    "concessions_per_unit": 36.29
+  },
+  {
+    "rent_snapshot_id": "42bdfc2e-6169-41e2-93b8-ea51f45c7e95",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-07-01",
+    "avg_effective_rent": 1903.83,
+    "avg_asking_rent": 2010.82,
+    "concessions_per_unit": 43.69
+  },
+  {
+    "rent_snapshot_id": "68828aa5-38e2-4111-ba29-7995bdc0d751",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-08-01",
+    "avg_effective_rent": 1872.59,
+    "avg_asking_rent": 1952.19,
+    "concessions_per_unit": 40.25
+  },
+  {
+    "rent_snapshot_id": "0b387350-3a3c-4fc4-8a92-9e32a5d1976a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-09-01",
+    "avg_effective_rent": 1845.43,
+    "avg_asking_rent": 1928.36,
+    "concessions_per_unit": 30.58
+  },
+  {
+    "rent_snapshot_id": "bf2f0b82-869c-4add-a65c-6d25789d5de6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-10-01",
+    "avg_effective_rent": 1887.76,
+    "avg_asking_rent": 1987.01,
+    "concessions_per_unit": 35.69
+  },
+  {
+    "rent_snapshot_id": "c1383858-8902-446a-801f-41e9036978ea",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-11-01",
+    "avg_effective_rent": 1832.59,
+    "avg_asking_rent": 1932.76,
+    "concessions_per_unit": 31.21
+  },
+  {
+    "rent_snapshot_id": "d06a8fed-20f2-494f-aa0b-215b02886827",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-12-01",
+    "avg_effective_rent": 1870.48,
+    "avg_asking_rent": 1952.34,
+    "concessions_per_unit": 27.8
+  },
+  {
+    "rent_snapshot_id": "92d93b7d-332a-4961-96ac-11e1d95d2253",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-01-01",
+    "avg_effective_rent": 1838.86,
+    "avg_asking_rent": 1899.92,
+    "concessions_per_unit": 31.3
+  },
+  {
+    "rent_snapshot_id": "529dee24-fc77-4925-bc93-184a5172648d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-02-01",
+    "avg_effective_rent": 1822.47,
+    "avg_asking_rent": 1892.57,
+    "concessions_per_unit": 28.41
+  },
+  {
+    "rent_snapshot_id": "43c787f0-ad1b-4b70-8a77-db5804dbaac8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-03-01",
+    "avg_effective_rent": 1872,
+    "avg_asking_rent": 1948.6,
+    "concessions_per_unit": 25.43
+  },
+  {
+    "rent_snapshot_id": "1a05369d-9081-403e-8419-7abcd20cd40f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-04-01",
+    "avg_effective_rent": 1900.06,
+    "avg_asking_rent": 2000.56,
+    "concessions_per_unit": 34.26
+  },
+  {
+    "rent_snapshot_id": "733fd6bd-0c77-43c4-a6be-a96806254375",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-05-01",
+    "avg_effective_rent": 1876.7,
+    "avg_asking_rent": 1943.68,
+    "concessions_per_unit": 22.99
+  },
+  {
+    "rent_snapshot_id": "e36857c9-abf4-4314-bec0-60078347a518",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-06-01",
+    "avg_effective_rent": 1905.86,
+    "avg_asking_rent": 2016.01,
+    "concessions_per_unit": 27.61
+  },
+  {
+    "rent_snapshot_id": "7f7c2d0d-c900-457c-8716-cec0cfe8cba6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-07-01",
+    "avg_effective_rent": 1906.2,
+    "avg_asking_rent": 1988.08,
+    "concessions_per_unit": 24.21
+  },
+  {
+    "rent_snapshot_id": "55a53b77-dbbb-4080-8532-6bb88fe158b0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-08-01",
+    "avg_effective_rent": 1927.74,
+    "avg_asking_rent": 2004.21,
+    "concessions_per_unit": 27.91
+  },
+  {
+    "rent_snapshot_id": "a47bedc8-0a5a-42df-bac4-e5dc410ba027",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-09-01",
+    "avg_effective_rent": 1882.81,
+    "avg_asking_rent": 1985.02,
+    "concessions_per_unit": 18.24
+  },
+  {
+    "rent_snapshot_id": "7279d9ee-1f75-4e7c-953d-3150d8ae863c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-10-01",
+    "avg_effective_rent": 1885.03,
+    "avg_asking_rent": 1975.34,
+    "concessions_per_unit": 31.92
+  },
+  {
+    "rent_snapshot_id": "e834c976-ef36-4b44-adc6-f2ddcd2fea57",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-11-01",
+    "avg_effective_rent": 1907.04,
+    "avg_asking_rent": 1994.68,
+    "concessions_per_unit": 15.41
+  },
+  {
+    "rent_snapshot_id": "2180561d-32b4-40c2-9b24-91d4c6477d71",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-12-01",
+    "avg_effective_rent": 1916.33,
+    "avg_asking_rent": 2015.95,
+    "concessions_per_unit": 27.32
+  },
+  {
+    "rent_snapshot_id": "c0d52549-9d6e-4bf3-9416-a685835ed537",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-01-01",
+    "avg_effective_rent": 1891.53,
+    "avg_asking_rent": 1966.71,
+    "concessions_per_unit": 26.57
+  },
+  {
+    "rent_snapshot_id": "c348f105-182e-4fff-b94d-c76e74c15119",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-02-01",
+    "avg_effective_rent": 1928.56,
+    "avg_asking_rent": 2036.44,
+    "concessions_per_unit": 22.42
+  },
+  {
+    "rent_snapshot_id": "acc9ae18-56e8-43d8-b3f3-ee8c0c4ca409",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-03-01",
+    "avg_effective_rent": 1958.79,
+    "avg_asking_rent": 2023.84,
+    "concessions_per_unit": 24.82
+  },
+  {
+    "rent_snapshot_id": "9a272e63-c3a8-4d8b-9713-a4d0062b682e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-04-01",
+    "avg_effective_rent": 1962.21,
+    "avg_asking_rent": 2071.55,
+    "concessions_per_unit": 17.71
+  },
+  {
+    "rent_snapshot_id": "431ea046-ecfb-4075-8d4f-96c5ae0623dc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-05-01",
+    "avg_effective_rent": 1979.64,
+    "avg_asking_rent": 2085.65,
+    "concessions_per_unit": 33.82
+  },
+  {
+    "rent_snapshot_id": "259a9860-8b47-4940-88cb-74684ac14364",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-06-01",
+    "avg_effective_rent": 1985.45,
+    "avg_asking_rent": 2097.69,
+    "concessions_per_unit": 21.26
+  },
+  {
+    "rent_snapshot_id": "21456363-b23e-4fa6-b946-3ec59f5a7a5b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-07-01",
+    "avg_effective_rent": 2014.21,
+    "avg_asking_rent": 2113.76,
+    "concessions_per_unit": 17.57
+  },
+  {
+    "rent_snapshot_id": "3eae94fe-d369-4138-b039-dc0fbca19ef7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-08-01",
+    "avg_effective_rent": 1988.39,
+    "avg_asking_rent": 2102.2,
+    "concessions_per_unit": 23.25
+  },
+  {
+    "rent_snapshot_id": "aa83e6f3-2461-4883-897d-174221223239",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-09-01",
+    "avg_effective_rent": 1968.91,
+    "avg_asking_rent": 2048.61,
+    "concessions_per_unit": 27.24
+  },
+  {
+    "rent_snapshot_id": "6e6da795-2509-4dd2-89c0-cc31a73888fa",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-10-01",
+    "avg_effective_rent": 2003.19,
+    "avg_asking_rent": 2078.11,
+    "concessions_per_unit": 24.6
+  },
+  {
+    "rent_snapshot_id": "96aec02f-9689-4409-abab-835ea43fd408",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-11-01",
+    "avg_effective_rent": 1982.76,
+    "avg_asking_rent": 2079.96,
+    "concessions_per_unit": 30.98
+  },
+  {
+    "rent_snapshot_id": "17b76691-3345-4217-ac9e-61fdeb953937",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-12-01",
+    "avg_effective_rent": 1960.72,
+    "avg_asking_rent": 2031.55,
+    "concessions_per_unit": 23.31
+  },
+  {
+    "rent_snapshot_id": "0b1120f4-4300-414c-b597-d7a65b165bb1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-01-01",
+    "avg_effective_rent": 1980.86,
+    "avg_asking_rent": 2078.9,
+    "concessions_per_unit": 16.44
+  },
+  {
+    "rent_snapshot_id": "b1164ab6-ccb5-4f8b-abd8-ea187144e0d9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-02-01",
+    "avg_effective_rent": 2000.13,
+    "avg_asking_rent": 2082.95,
+    "concessions_per_unit": 34.8
+  },
+  {
+    "rent_snapshot_id": "9fd000b0-3b57-4fa8-804a-bc366158ceed",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-03-01",
+    "avg_effective_rent": 2049.07,
+    "avg_asking_rent": 2136.98,
+    "concessions_per_unit": 31.54
+  },
+  {
+    "rent_snapshot_id": "81d02d8d-de3d-4471-8f10-66de2cb5ae53",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-04-01",
+    "avg_effective_rent": 2077.9,
+    "avg_asking_rent": 2162.44,
+    "concessions_per_unit": 27.21
+  },
+  {
+    "rent_snapshot_id": "b7b1bf69-31f3-4ac9-bbb5-cf1e3fa5905b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-05-01",
+    "avg_effective_rent": 2059.47,
+    "avg_asking_rent": 2146.47,
+    "concessions_per_unit": 18.4
+  },
+  {
+    "rent_snapshot_id": "39d8c4e1-0e04-4381-a6e2-55a622093ce3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-06-01",
+    "avg_effective_rent": 2092.52,
+    "avg_asking_rent": 2183.07,
+    "concessions_per_unit": 29.09
+  },
+  {
+    "rent_snapshot_id": "f1a5403f-184b-4a91-a515-564a71e8cd42",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-07-01",
+    "avg_effective_rent": 2071.57,
+    "avg_asking_rent": 2193.72,
+    "concessions_per_unit": 27.33
+  },
+  {
+    "rent_snapshot_id": "cf1f4e78-32ec-40fc-8ae2-f5995bc8b2a8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-08-01",
+    "avg_effective_rent": 2102.46,
+    "avg_asking_rent": 2191.96,
+    "concessions_per_unit": 21.15
+  },
+  {
+    "rent_snapshot_id": "73e6e1ac-37b1-4d50-8aa8-6c4dbf9fee24",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-09-01",
+    "avg_effective_rent": 2097.4,
+    "avg_asking_rent": 2213.43,
+    "concessions_per_unit": 24.43
+  },
+  {
+    "rent_snapshot_id": "e7592e57-89ed-4e8c-a3fb-76e55799d4d5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-10-01",
+    "avg_effective_rent": 2093.35,
+    "avg_asking_rent": 2193.12,
+    "concessions_per_unit": 18.46
+  },
+  {
+    "rent_snapshot_id": "69e40674-398e-4439-a26e-05434fc4b46d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-11-01",
+    "avg_effective_rent": 2070.52,
+    "avg_asking_rent": 2140.32,
+    "concessions_per_unit": 33.51
+  },
+  {
+    "rent_snapshot_id": "8bdc1905-b560-453a-99b3-55704db5f094",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-12-01",
+    "avg_effective_rent": 2065.73,
+    "avg_asking_rent": 2180.39,
+    "concessions_per_unit": 21.68
+  },
+  {
+    "rent_snapshot_id": "7d978e46-6454-4e2d-a849-7e95638f3859",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-01-01",
+    "avg_effective_rent": 2059.81,
+    "avg_asking_rent": 2148.92,
+    "concessions_per_unit": 21.85
+  },
+  {
+    "rent_snapshot_id": "463ed35c-03e9-42aa-ab79-a42d799d13a6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-02-01",
+    "avg_effective_rent": 2064.96,
+    "avg_asking_rent": 2130.58,
+    "concessions_per_unit": 20.69
+  },
+  {
+    "rent_snapshot_id": "621bf2d8-b148-4e5a-a2a5-bcc54f19b933",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-03-01",
+    "avg_effective_rent": 2116.91,
+    "avg_asking_rent": 2241.51,
+    "concessions_per_unit": 25.98
+  },
+  {
+    "rent_snapshot_id": "0063c691-63b5-4a60-b607-ee3d20b78676",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-04-01",
+    "avg_effective_rent": 2149.73,
+    "avg_asking_rent": 2274.48,
+    "concessions_per_unit": 32.78
+  },
+  {
+    "rent_snapshot_id": "556ef2a8-03a2-401b-aec8-dc3467f11822",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-05-01",
+    "avg_effective_rent": 2139.41,
+    "avg_asking_rent": 2263.75,
+    "concessions_per_unit": 18.69
+  },
+  {
+    "rent_snapshot_id": "990fe274-e1a9-4c03-8a5e-2657f7583d2d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-06-01",
+    "avg_effective_rent": 2201.11,
+    "avg_asking_rent": 2275.06,
+    "concessions_per_unit": 27.23
+  },
+  {
+    "rent_snapshot_id": "72ad679a-cfb0-424e-929f-949dbb5c612b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-07-01",
+    "avg_effective_rent": 2158.04,
+    "avg_asking_rent": 2287.33,
+    "concessions_per_unit": 28.11
+  },
+  {
+    "rent_snapshot_id": "d8cfb0a0-16c4-47cc-b30b-ccb5ed707e17",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-08-01",
+    "avg_effective_rent": 2190.83,
+    "avg_asking_rent": 2295.15,
+    "concessions_per_unit": 30.08
+  },
+  {
+    "rent_snapshot_id": "85df823a-c0ac-4996-ba94-30823fcff27f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-09-01",
+    "avg_effective_rent": 2156.51,
+    "avg_asking_rent": 2241.15,
+    "concessions_per_unit": 20.69
+  },
+  {
+    "rent_snapshot_id": "8ca6e797-f31e-4caf-a7cb-b72d05a7a263",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-10-01",
+    "avg_effective_rent": 2137.4,
+    "avg_asking_rent": 2261.46,
+    "concessions_per_unit": 29.28
+  },
+  {
+    "rent_snapshot_id": "2535350c-d6dd-4fc9-a169-20ccbe317545",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-11-01",
+    "avg_effective_rent": 2169.51,
+    "avg_asking_rent": 2248.46,
+    "concessions_per_unit": 21.8
+  },
+  {
+    "rent_snapshot_id": "a874f0a0-3fa2-4e9d-a327-5a49b38bf1ab",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-12-01",
+    "avg_effective_rent": 2162.88,
+    "avg_asking_rent": 2285.05,
+    "concessions_per_unit": 16.73
+  },
+  {
+    "rent_snapshot_id": "bef5fd96-f65c-4985-9d23-7498a34f886e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-01-01",
+    "avg_effective_rent": 2163.32,
+    "avg_asking_rent": 2261.12,
+    "concessions_per_unit": 34.81
+  },
+  {
+    "rent_snapshot_id": "5195e8ef-2ff1-467c-a902-24ced1c5ca17",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-02-01",
+    "avg_effective_rent": 2184.66,
+    "avg_asking_rent": 2287.67,
+    "concessions_per_unit": 15.79
+  },
+  {
+    "rent_snapshot_id": "9cb3dd37-ab94-4531-83a4-5bbb35bc9711",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-03-01",
+    "avg_effective_rent": 2238.83,
+    "avg_asking_rent": 2331.3,
+    "concessions_per_unit": 17.1
+  },
+  {
+    "rent_snapshot_id": "ed14d552-95a2-4860-ab70-2f67614a8430",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-04-01",
+    "avg_effective_rent": 2200.39,
+    "avg_asking_rent": 2310.81,
+    "concessions_per_unit": 34.18
+  },
+  {
+    "rent_snapshot_id": "027198b0-c256-428e-8bb7-04270d4981b1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-05-01",
+    "avg_effective_rent": 2257.76,
+    "avg_asking_rent": 2347.08,
+    "concessions_per_unit": 20.39
+  },
+  {
+    "rent_snapshot_id": "aab8272a-8da0-44b1-b505-382f9acb10d1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-06-01",
+    "avg_effective_rent": 2237.29,
+    "avg_asking_rent": 2313.78,
+    "concessions_per_unit": 21.87
+  },
+  {
+    "rent_snapshot_id": "02402330-952d-4cc3-9b2a-b520da9f6118",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-07-01",
+    "avg_effective_rent": 2276.05,
+    "avg_asking_rent": 2388.98,
+    "concessions_per_unit": 29.04
+  },
+  {
+    "rent_snapshot_id": "fe8ecc22-33fc-4440-98b9-df6304aee030",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-08-01",
+    "avg_effective_rent": 2287.38,
+    "avg_asking_rent": 2370.42,
+    "concessions_per_unit": 22.12
+  },
+  {
+    "rent_snapshot_id": "a9f962d9-50ab-4b54-9dbf-f141437448c1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-09-01",
+    "avg_effective_rent": 2221.61,
+    "avg_asking_rent": 2329.9,
+    "concessions_per_unit": 30.1
+  },
+  {
+    "rent_snapshot_id": "5cd437fd-f6be-4879-99ba-155154220235",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-10-01",
+    "avg_effective_rent": 2226.53,
+    "avg_asking_rent": 2332.03,
+    "concessions_per_unit": 30.15
+  },
+  {
+    "rent_snapshot_id": "2756caca-0c58-447a-89bd-6d4d405fc912",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-11-01",
+    "avg_effective_rent": 2243.16,
+    "avg_asking_rent": 2310.61,
+    "concessions_per_unit": 20.59
+  },
+  {
+    "rent_snapshot_id": "08b25246-3f5e-4299-91c8-35f0d829e54d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-12-01",
+    "avg_effective_rent": 2242.4,
+    "avg_asking_rent": 2366.71,
+    "concessions_per_unit": 33.45
+  },
+  {
+    "rent_snapshot_id": "7854d001-1608-4d92-8d43-8c8b68f677aa",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-01-01",
+    "avg_effective_rent": 2211.08,
+    "avg_asking_rent": 2278.49,
+    "concessions_per_unit": 26.66
+  },
+  {
+    "rent_snapshot_id": "aa68ef06-8932-480b-a3f6-6761546928d9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-02-01",
+    "avg_effective_rent": 2227.03,
+    "avg_asking_rent": 2348.27,
+    "concessions_per_unit": 16.25
+  },
+  {
+    "rent_snapshot_id": "1092ba70-0742-4077-9719-515cb5ae2fa7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-03-01",
+    "avg_effective_rent": 2280.67,
+    "avg_asking_rent": 2367.52,
+    "concessions_per_unit": 30.97
+  },
+  {
+    "rent_snapshot_id": "8546f8f0-964c-4dda-8af6-92bb91c93123",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-04-01",
+    "avg_effective_rent": 2338.24,
+    "avg_asking_rent": 2464.94,
+    "concessions_per_unit": 15.25
+  },
+  {
+    "rent_snapshot_id": "a1c58517-bfec-4af7-a1a1-3d5c79267d2a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-05-01",
+    "avg_effective_rent": 2342.1,
+    "avg_asking_rent": 2448.79,
+    "concessions_per_unit": 19.97
+  },
+  {
+    "rent_snapshot_id": "3ea7cd6f-bd82-4390-b294-1ce8a4971126",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-06-01",
+    "avg_effective_rent": 2354.34,
+    "avg_asking_rent": 2434.86,
+    "concessions_per_unit": 31.76
+  },
+  {
+    "rent_snapshot_id": "e9ee6baa-a6d8-438f-aa00-ba43468c79cb",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-07-01",
+    "avg_effective_rent": 2338.78,
+    "avg_asking_rent": 2464.94,
+    "concessions_per_unit": 15.2
+  },
+  {
+    "rent_snapshot_id": "6cbd57d6-9074-466e-b5d2-8afabdd97155",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-08-01",
+    "avg_effective_rent": 2333.78,
+    "avg_asking_rent": 2423.55,
+    "concessions_per_unit": 28.05
+  },
+  {
+    "rent_snapshot_id": "764092f6-bdec-43e3-b7c3-31a309be6b71",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-09-01",
+    "avg_effective_rent": 2333.32,
+    "avg_asking_rent": 2441.84,
+    "concessions_per_unit": 24.1
+  },
+  {
+    "rent_snapshot_id": "ae8476af-4175-4c97-b8ed-3f888994b9e1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-10-01",
+    "avg_effective_rent": 2333.76,
+    "avg_asking_rent": 2408.91,
+    "concessions_per_unit": 15.14
+  },
+  {
+    "rent_snapshot_id": "e874c7d6-d7c1-4a71-80d1-65381dc06d1a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-11-01",
+    "avg_effective_rent": 2301.94,
+    "avg_asking_rent": 2420.24,
+    "concessions_per_unit": 24.24
+  },
+  {
+    "rent_snapshot_id": "226b755f-933e-4701-8652-d3290cf0525e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-12-01",
+    "avg_effective_rent": 2318.13,
+    "avg_asking_rent": 2422.63,
+    "concessions_per_unit": 19.37
+  },
+  {
+    "rent_snapshot_id": "e5bd5cd5-e2ce-4c3a-b40c-813e5a6cf815",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-01-01",
+    "avg_effective_rent": 2335.65,
+    "avg_asking_rent": 2422.8,
+    "concessions_per_unit": 27.17
+  },
+  {
+    "rent_snapshot_id": "3c336d9a-82b1-4496-ba2a-857bb5910ac5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-02-01",
+    "avg_effective_rent": 2368.79,
+    "avg_asking_rent": 2471.44,
+    "concessions_per_unit": 33.78
+  },
+  {
+    "rent_snapshot_id": "49ebb51f-c200-4fc9-b086-e17129f87b2d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-03-01",
+    "avg_effective_rent": 2402.41,
+    "avg_asking_rent": 2518.4,
+    "concessions_per_unit": 31.4
+  },
+  {
+    "rent_snapshot_id": "7a71802e-4d2c-4b6e-9c51-ac03f967fe44",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-04-01",
+    "avg_effective_rent": 2408.69,
+    "avg_asking_rent": 2513.88,
+    "concessions_per_unit": 20.93
+  },
+  {
+    "rent_snapshot_id": "f904c52e-53dc-4c63-b9dc-61a0697686d5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-05-01",
+    "avg_effective_rent": 2400.21,
+    "avg_asking_rent": 2504.92,
+    "concessions_per_unit": 16.83
+  },
+  {
+    "rent_snapshot_id": "fdc96a43-77be-448f-8264-8b3c80f88c42",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-06-01",
+    "avg_effective_rent": 2476.56,
+    "avg_asking_rent": 2587.18,
+    "concessions_per_unit": 28.35
+  },
+  {
+    "rent_snapshot_id": "6bb9a147-4084-413e-b6c4-6b7efc7e46ef",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-07-01",
+    "avg_effective_rent": 2490.32,
+    "avg_asking_rent": 2568.86,
+    "concessions_per_unit": 30.64
+  },
+  {
+    "rent_snapshot_id": "fadfdd48-7937-4aaf-ac6a-69dc8dd0f5d8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-08-01",
+    "avg_effective_rent": 2474.53,
+    "avg_asking_rent": 2603.08,
+    "concessions_per_unit": 19.46
+  },
+  {
+    "rent_snapshot_id": "eb1099bb-6483-4216-9a54-7b0f814561b6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-09-01",
+    "avg_effective_rent": 2446.91,
+    "avg_asking_rent": 2577.81,
+    "concessions_per_unit": 29.78
+  },
+  {
+    "rent_snapshot_id": "bdbee839-4516-4bad-a0cb-1b4c4ebd60cb",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-10-01",
+    "avg_effective_rent": 2409.39,
+    "avg_asking_rent": 2513.88,
+    "concessions_per_unit": 31.13
+  },
+  {
+    "rent_snapshot_id": "a4fd6644-0777-4a48-bb44-5c17dc947a9e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-11-01",
+    "avg_effective_rent": 2447.08,
+    "avg_asking_rent": 2586.76,
+    "concessions_per_unit": 29.75
+  },
+  {
+    "rent_snapshot_id": "d8106d5d-6e73-4321-be8c-bb1eb2dbe498",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-12-01",
+    "avg_effective_rent": 2444.02,
+    "avg_asking_rent": 2570.49,
+    "concessions_per_unit": 32.86
+  },
+  {
+    "rent_snapshot_id": "3a3fba8c-7c31-4805-85d9-58e803433581",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-01-01",
+    "avg_effective_rent": 2424.86,
+    "avg_asking_rent": 2550.6,
+    "concessions_per_unit": 27.04
+  },
+  {
+    "rent_snapshot_id": "ae39b128-2088-4665-9278-dbff398d855e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-02-01",
+    "avg_effective_rent": 2449.43,
+    "avg_asking_rent": 2581.13,
+    "concessions_per_unit": 19.77
+  },
+  {
+    "rent_snapshot_id": "188fb9c0-c638-462c-8cb0-1404e28fedaf",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-03-01",
+    "avg_effective_rent": 2504.85,
+    "avg_asking_rent": 2637.49,
+    "concessions_per_unit": 29.94
+  },
+  {
+    "rent_snapshot_id": "d5e434c8-3048-445d-b423-94f3e045924c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-04-01",
+    "avg_effective_rent": 2517.78,
+    "avg_asking_rent": 2633.01,
+    "concessions_per_unit": 25.87
+  },
+  {
+    "rent_snapshot_id": "511a040e-cc12-4440-a823-6201a405564c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-05-01",
+    "avg_effective_rent": 2557.93,
+    "avg_asking_rent": 2687.17,
+    "concessions_per_unit": 17.63
+  },
+  {
+    "rent_snapshot_id": "c5b0d234-763e-4115-9481-86dec057b3a6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-06-01",
+    "avg_effective_rent": 2554.12,
+    "avg_asking_rent": 2656.44,
+    "concessions_per_unit": 25.22
+  },
+  {
+    "rent_snapshot_id": "6e2c9e09-97e9-4c52-b4a1-23480864c542",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-07-01",
+    "avg_effective_rent": 2572.67,
+    "avg_asking_rent": 2656.69,
+    "concessions_per_unit": 15.14
+  },
+  {
+    "rent_snapshot_id": "96797f57-9ed1-453d-b7c7-5c389bad1343",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-08-01",
+    "avg_effective_rent": 2594.54,
+    "avg_asking_rent": 2745.43,
+    "concessions_per_unit": 15
+  },
+  {
+    "rent_snapshot_id": "b82ce2c1-0c05-47d7-a59f-9a2d1b750994",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-09-01",
+    "avg_effective_rent": 2551.7,
+    "avg_asking_rent": 2676.31,
+    "concessions_per_unit": 16.75
+  },
+  {
+    "rent_snapshot_id": "c6500433-3cd1-425c-ae5d-8e47ed5e6287",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-10-01",
+    "avg_effective_rent": 2521.28,
+    "avg_asking_rent": 2609.87,
+    "concessions_per_unit": 34.61
+  },
+  {
+    "rent_snapshot_id": "f1a2414c-0865-46e7-8298-882eeda1db32",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-11-01",
+    "avg_effective_rent": 2522.8,
+    "avg_asking_rent": 2620.5,
+    "concessions_per_unit": 15.11
+  },
+  {
+    "rent_snapshot_id": "70c30dd8-7e21-47ba-9bb8-a2f4e614d7a4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-12-01",
+    "avg_effective_rent": 2524.04,
+    "avg_asking_rent": 2641.63,
+    "concessions_per_unit": 28.71
+  },
+  {
+    "rent_snapshot_id": "c3328905-f1b7-4c5d-969f-cb8d8b7a34a4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-01-01",
+    "avg_effective_rent": 2541.61,
+    "avg_asking_rent": 2640.94,
+    "concessions_per_unit": 17.59
+  },
+  {
+    "rent_snapshot_id": "af9a636e-531b-4650-8d70-f566077561f4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-02-01",
+    "avg_effective_rent": 2565.1,
+    "avg_asking_rent": 2654.2,
+    "concessions_per_unit": 20.87
+  },
+  {
+    "rent_snapshot_id": "0c15b417-6a9a-46f6-a35a-d50d139cf1e5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-03-01",
+    "avg_effective_rent": 2564.32,
+    "avg_asking_rent": 2660.55,
+    "concessions_per_unit": 15.47
+  },
+  {
+    "rent_snapshot_id": "96dde983-8a93-49ec-a8c4-64b7ea5c42a8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-04-01",
+    "avg_effective_rent": 2595.89,
+    "avg_asking_rent": 2732.57,
+    "concessions_per_unit": 29.47
+  },
+  {
+    "rent_snapshot_id": "231a1de0-5a5d-4e95-b8bf-ba4f9f69c65a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-05-01",
+    "avg_effective_rent": 2607.12,
+    "avg_asking_rent": 2691.48,
+    "concessions_per_unit": 60.78
+  },
+  {
+    "rent_snapshot_id": "c3a4d991-12b8-4e6d-b6bf-4a88f5566296",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-06-01",
+    "avg_effective_rent": 2642.62,
+    "avg_asking_rent": 2771.33,
+    "concessions_per_unit": 81.06
+  },
+  {
+    "rent_snapshot_id": "3280d0fe-bb23-4fbd-abfd-4dfe67c8a929",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-07-01",
+    "avg_effective_rent": 2700.31,
+    "avg_asking_rent": 2804.48,
+    "concessions_per_unit": 56.97
+  },
+  {
+    "rent_snapshot_id": "2be17fbf-9c55-4e3d-9678-237fbcaa66b7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-08-01",
+    "avg_effective_rent": 2634.73,
+    "avg_asking_rent": 2718.33,
+    "concessions_per_unit": 59.19
+  },
+  {
+    "rent_snapshot_id": "01330195-4e5d-47ec-ab9b-0faaa615d5d9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-09-01",
+    "avg_effective_rent": 2650.28,
+    "avg_asking_rent": 2730.71,
+    "concessions_per_unit": 78
+  },
+  {
+    "rent_snapshot_id": "686d69d2-b72e-44f3-b264-424da4e2ae57",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-10-01",
+    "avg_effective_rent": 2657.51,
+    "avg_asking_rent": 2739.56,
+    "concessions_per_unit": 65.05
+  },
+  {
+    "rent_snapshot_id": "4c16c709-b873-426b-b1bd-09c34f6e2ba6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-11-01",
+    "avg_effective_rent": 2649.2,
+    "avg_asking_rent": 2804.97,
+    "concessions_per_unit": 67.44
+  },
+  {
+    "rent_snapshot_id": "edcf62ae-e9e5-4fc4-98f9-cd603b8d2fed",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-12-01",
+    "avg_effective_rent": 2620.05,
+    "avg_asking_rent": 2705.02,
+    "concessions_per_unit": 57.95
+  },
+  {
+    "rent_snapshot_id": "0ef6c4dd-0e32-43ec-8a1f-652a15071b2d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-01-01",
+    "avg_effective_rent": 2671.98,
+    "avg_asking_rent": 2796.49,
+    "concessions_per_unit": 59.65
+  },
+  {
+    "rent_snapshot_id": "9805255c-8e76-4a6c-9b19-2368055cbacc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-02-01",
+    "avg_effective_rent": 2660.94,
+    "avg_asking_rent": 2784.86,
+    "concessions_per_unit": 70.04
+  },
+  {
+    "rent_snapshot_id": "8f069e49-de52-4f6a-9ffe-9e578babbc6d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-03-01",
+    "avg_effective_rent": 2739.22,
+    "avg_asking_rent": 2874.05,
+    "concessions_per_unit": 20.61
+  },
+  {
+    "rent_snapshot_id": "f8362640-4f31-474a-9f5b-67fa949f7c76",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-04-01",
+    "avg_effective_rent": 2730.47,
+    "avg_asking_rent": 2850.32,
+    "concessions_per_unit": 28.49
+  },
+  {
+    "rent_snapshot_id": "82ead3ff-1b1a-40d9-8d7d-f150ec489218",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-05-01",
+    "avg_effective_rent": 2721.26,
+    "avg_asking_rent": 2819.92,
+    "concessions_per_unit": 22.76
+  },
+  {
+    "rent_snapshot_id": "a4b9ffbc-2f08-4010-aee0-29813dff6151",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-06-01",
+    "avg_effective_rent": 2797.23,
+    "avg_asking_rent": 2918.28,
+    "concessions_per_unit": 37.44
+  },
+  {
+    "rent_snapshot_id": "c6e881fb-dfcf-40bc-a041-789ef5e6d5fa",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-07-01",
+    "avg_effective_rent": 2821.41,
+    "avg_asking_rent": 2909.01,
+    "concessions_per_unit": 27
+  },
+  {
+    "rent_snapshot_id": "fca6e06a-c4b9-4e34-b3ba-9e0f989f84ed",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-08-01",
+    "avg_effective_rent": 2750.85,
+    "avg_asking_rent": 2883.78,
+    "concessions_per_unit": 27.2
+  },
+  {
+    "rent_snapshot_id": "2d08ecc1-89d9-495d-8eeb-2fe192da96d5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-09-01",
+    "avg_effective_rent": 2737.28,
+    "avg_asking_rent": 2856.14,
+    "concessions_per_unit": 33.98
+  },
+  {
+    "rent_snapshot_id": "d3715285-b5be-47a0-8262-41e6c6f072c0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-10-01",
+    "avg_effective_rent": 2745.98,
+    "avg_asking_rent": 2851.65,
+    "concessions_per_unit": 23.9
+  },
+  {
+    "rent_snapshot_id": "2a720699-192e-4ae6-a44e-6aa9e509d8eb",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-11-01",
+    "avg_effective_rent": 2716.43,
+    "avg_asking_rent": 2839.95,
+    "concessions_per_unit": 33.54
+  },
+  {
+    "rent_snapshot_id": "00dab193-9d67-4968-9b5b-3d383719119e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-12-01",
+    "avg_effective_rent": 2705.03,
+    "avg_asking_rent": 2830.64,
+    "concessions_per_unit": 28.01
+  },
+  {
+    "rent_snapshot_id": "90c8af68-df97-427e-bc3b-ebcc85a5a08a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-01-01",
+    "avg_effective_rent": 2790.75,
+    "avg_asking_rent": 2902.97,
+    "concessions_per_unit": 39.84
+  },
+  {
+    "rent_snapshot_id": "60ec670d-ac58-421b-956d-cf7a3c4ae3e2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-02-01",
+    "avg_effective_rent": 2772.56,
+    "avg_asking_rent": 2936.08,
+    "concessions_per_unit": 28.55
+  },
+  {
+    "rent_snapshot_id": "c046335c-1e33-451e-924b-ed8fb734d58c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-03-01",
+    "avg_effective_rent": 2839.11,
+    "avg_asking_rent": 2945.16,
+    "concessions_per_unit": 32.49
+  },
+  {
+    "rent_snapshot_id": "cad0fc24-3f2b-4cca-8d91-7d49112bf22a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-04-01",
+    "avg_effective_rent": 2881.04,
+    "avg_asking_rent": 2973.94,
+    "concessions_per_unit": 33.51
+  },
+  {
+    "rent_snapshot_id": "1ff32d72-69bc-4c1a-97f1-27d66012dec7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-05-01",
+    "avg_effective_rent": 2861.44,
+    "avg_asking_rent": 2971.07,
+    "concessions_per_unit": 24.97
+  },
+  {
+    "rent_snapshot_id": "1f330f8c-f42c-4908-8525-815e1981c410",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-06-01",
+    "avg_effective_rent": 2860.1,
+    "avg_asking_rent": 2976.48,
+    "concessions_per_unit": 29.2
+  },
+  {
+    "rent_snapshot_id": "2b488b4a-cdac-4c67-a254-defebda5a8d9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-07-01",
+    "avg_effective_rent": 2933.88,
+    "avg_asking_rent": 3025.48,
+    "concessions_per_unit": 25.74
+  },
+  {
+    "rent_snapshot_id": "a02e9861-0bef-4c59-b4cf-d0c679b9715b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-08-01",
+    "avg_effective_rent": 2932.33,
+    "avg_asking_rent": 3078.92,
+    "concessions_per_unit": 30.35
+  },
+  {
+    "rent_snapshot_id": "aceabae9-6577-4a50-86a0-2f23689191cb",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-09-01",
+    "avg_effective_rent": 2887.16,
+    "avg_asking_rent": 3014,
+    "concessions_per_unit": 31.92
+  },
+  {
+    "rent_snapshot_id": "5f580193-0423-4c8b-8ae4-325345f4ab35",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-10-01",
+    "avg_effective_rent": 2847.56,
+    "avg_asking_rent": 2983.82,
+    "concessions_per_unit": 23.31
+  },
+  {
+    "rent_snapshot_id": "234041c6-1470-4a6d-9a54-716813cc7fe1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-11-01",
+    "avg_effective_rent": 2888.82,
+    "avg_asking_rent": 2985.22,
+    "concessions_per_unit": 34.59
+  },
+  {
+    "rent_snapshot_id": "4eb169ac-4b32-415f-a218-a558563e7b77",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-12-01",
+    "avg_effective_rent": 2895.52,
+    "avg_asking_rent": 3008.15,
+    "concessions_per_unit": 32.53
+  }
+]

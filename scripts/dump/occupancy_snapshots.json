@@ -1,0 +1,4706 @@
+[
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000101",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-06-01",
+    "occupied_units": 196,
+    "vacant_units": 18,
+    "leased_units": 204
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000102",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-06-01",
+    "occupied_units": 199,
+    "vacant_units": 15,
+    "leased_units": 207
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000103",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-06-01",
+    "occupied_units": 203,
+    "vacant_units": 11,
+    "leased_units": 209
+  },
+  {
+    "occupancy_snapshot_id": "65861ef4-ad2a-4e88-a2a5-be857167a8d5",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-12-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "c0e5936a-f288-4ad6-b2cd-4b4439e0d7f6",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-01-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "2efac738-1b06-4865-896f-780ca9d476e8",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-02-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "b816152c-c98f-444e-a169-4b631d9d474e",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-03-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 72
+  },
+  {
+    "occupancy_snapshot_id": "8b72e27d-4ad8-4788-8f02-cac7303fabcf",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-04-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 72
+  },
+  {
+    "occupancy_snapshot_id": "dc26458c-b119-4d42-94f0-9c1f90eebd64",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-05-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 73
+  },
+  {
+    "occupancy_snapshot_id": "bd80c2ec-974d-4755-a30f-58609f78b557",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-07-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 73
+  },
+  {
+    "occupancy_snapshot_id": "a6b52832-91e6-4d8b-8af1-7680e8d9d677",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-08-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "8835d8a7-f513-4fa6-a76c-89aa6b7e0127",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-09-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 73
+  },
+  {
+    "occupancy_snapshot_id": "5b0d97f9-43ca-4d4f-8acf-439f9dc9ebdb",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-10-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "8c1bb208-b93a-420f-ad24-33af5650b1db",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-11-01",
+    "occupied_units": 71,
+    "vacant_units": 9,
+    "leased_units": 72
+  },
+  {
+    "occupancy_snapshot_id": "e2b8d31c-9c98-49b3-a4c5-6398cbec111c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2021-12-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 79
+  },
+  {
+    "occupancy_snapshot_id": "c639f718-373f-4cae-814e-dc333cef2489",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-01-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "d6efd34c-e656-4cea-a8ac-43042853bd77",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-02-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 73
+  },
+  {
+    "occupancy_snapshot_id": "78c0bf05-a027-4459-8dcf-e47cfe815272",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-03-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "694e8441-3e67-4ff4-aa01-72124fe3b3c1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-04-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 74
+  },
+  {
+    "occupancy_snapshot_id": "0b6e9686-7965-4ae3-a31a-509e51b3f2b4",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-05-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "85434bf9-bce7-4762-9da2-5588a6e9f1c6",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-06-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 74
+  },
+  {
+    "occupancy_snapshot_id": "a77582fa-1582-4a1a-ba2a-0533c82077db",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-07-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "3f3d6141-be0f-4d4d-bfcc-a59c1072e3cd",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-08-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "bc4ebaf8-8c3d-4094-8edb-650f5c173945",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-09-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 74
+  },
+  {
+    "occupancy_snapshot_id": "b5554a01-afb5-47ea-b8b3-8d63734621af",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-10-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "48dafbea-ddeb-4778-b88e-a7df9d8c286f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-11-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 74
+  },
+  {
+    "occupancy_snapshot_id": "6c505385-b9c3-4745-a6b3-2396c02a360b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2022-12-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "510cac0f-cbcf-4da9-b0d8-9a59b9222ac7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-01-01",
+    "occupied_units": 72,
+    "vacant_units": 8,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "6efc5263-41d8-40fb-a868-7e1e3152deb2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-02-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "4ae9a40d-84ce-4f47-ad80-456d842b16d1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-03-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "60c19e7e-ee35-4491-bfd5-11ff52346330",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-04-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "5d54cb1a-0c3c-4c00-991f-9cc42ad4b109",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-05-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "e6da810a-a886-4443-aa85-12dcad421f46",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-07-01",
+    "occupied_units": 73,
+    "vacant_units": 7,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "f25a8968-a954-4bbe-a3e7-d58c342980a1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-08-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "d623cf85-0eac-49e0-b1de-07d8aa7b802d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-09-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "d6878408-e3cc-4f7b-a7b4-9bf7647b8a5c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-10-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "2e92670b-068f-4ca9-b4af-ac5e5334f764",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-11-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 74
+  },
+  {
+    "occupancy_snapshot_id": "f6022f36-144e-426b-abc8-a2f16c95a5c4",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2023-12-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "a81c663e-e332-4d1a-a664-ab9fee28307b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-01-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "71f48d72-d32c-4d89-bd59-1d5469a9a6fe",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-02-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "2b1636c4-d28e-4652-a741-96a92e0ea9c0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-03-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "11f139c7-a818-42e1-9433-b88c1ac977bd",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-04-01",
+    "occupied_units": 74,
+    "vacant_units": 6,
+    "leased_units": 75
+  },
+  {
+    "occupancy_snapshot_id": "f6d430c4-20f8-4517-bdd7-07b0537add46",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-05-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "8c9f690f-9631-4396-9580-5e5d3909ffe1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-06-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 79
+  },
+  {
+    "occupancy_snapshot_id": "4104a5ec-bbd6-4573-842d-8af607d936ef",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-07-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "436dc487-e20c-4738-afa2-66bc0e9b9562",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-08-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "583b3b66-07a0-4d59-aadb-7e12931de843",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-09-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 79
+  },
+  {
+    "occupancy_snapshot_id": "61216499-8e13-4513-b8df-f9ed76b0d403",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-10-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "0ce34ba2-3d0b-403a-8f90-a30250c05fd8",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-11-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "6fd4eae5-f772-42ed-8f33-c4df9c98474a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2024-12-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "15420a5c-2aee-4929-b282-ecbe2f8e3e46",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-01-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "7e903c39-da1e-423b-a59c-8dd7841208ad",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-02-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "3d06e707-d966-4291-8b1e-29b2d4a4d7b2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-03-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "fd703f57-b5b2-4f39-8a48-e64a0589a7af",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-04-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "25ca0fd1-cf16-48a6-859f-427fa11a16e5",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-05-01",
+    "occupied_units": 75,
+    "vacant_units": 5,
+    "leased_units": 77
+  },
+  {
+    "occupancy_snapshot_id": "e84be54a-a18a-4ac9-ab53-8d22b917b755",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-07-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 80
+  },
+  {
+    "occupancy_snapshot_id": "127bc730-8b1a-4524-9f98-f3edb7c9c0cf",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-08-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "bfb7c14e-3c3b-483c-adfb-557ac867672a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-09-01",
+    "occupied_units": 77,
+    "vacant_units": 3,
+    "leased_units": 78
+  },
+  {
+    "occupancy_snapshot_id": "392a8108-c5e8-4409-ba49-67c57c90c492",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-10-01",
+    "occupied_units": 76,
+    "vacant_units": 4,
+    "leased_units": 76
+  },
+  {
+    "occupancy_snapshot_id": "908e1336-b70a-40e8-bf28-a041328b1850",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "snapshot_date": "2025-11-01",
+    "occupied_units": 77,
+    "vacant_units": 3,
+    "leased_units": 79
+  },
+  {
+    "occupancy_snapshot_id": "b2499440-73db-4ad9-ac17-39305aa05c24",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-01-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "ece1c909-4b6f-4bc7-a906-b7f875c6d473",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-02-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "7da175cd-15a2-4b6c-a0ce-34704347c5db",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-03-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 110
+  },
+  {
+    "occupancy_snapshot_id": "e877fe24-3932-458e-a22e-0c2cda8c697d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-04-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 108
+  },
+  {
+    "occupancy_snapshot_id": "8ae1f73b-c101-499c-a62b-852b9aba6f73",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-05-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "743f6dd5-f1bb-49aa-ae6d-ecb017dbfb08",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-06-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "adfef6e1-105d-452b-a40d-968e8b66c5cc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-07-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "5b725c75-6d41-47ab-ad05-326c35261cb0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-08-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "d0c4225b-1904-4c2d-a917-e88bee2540b6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-09-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 110
+  },
+  {
+    "occupancy_snapshot_id": "a3f8da10-2e92-4b51-a3fe-de2da58d1b4e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-10-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "f8139bec-42f6-48d7-a864-f8361f0a5199",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-11-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "34f68067-7b23-464b-afe1-7ef6be9170f0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2015-12-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 109
+  },
+  {
+    "occupancy_snapshot_id": "59cb08ff-b5ae-4a74-acbb-fcc07bdc31d3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-01-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "d1200808-644e-4b70-ac28-9a64118e8cb4",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-02-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "1d89dec4-4e29-456f-a7c3-8144b1c04f98",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-03-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "74bb1101-a740-44f5-a24a-879917113b87",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-04-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 108
+  },
+  {
+    "occupancy_snapshot_id": "eea1e1d3-e5f5-45e2-aa7c-1ece5bf8fdd9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-05-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "d8c14844-b415-4579-acdd-358a3cb9d568",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-06-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "ef484287-ba89-4544-ab83-db983ea438b0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-07-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 108
+  },
+  {
+    "occupancy_snapshot_id": "9d100155-0fa4-40b4-a471-ba21e8cd8795",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-08-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "ceed9a49-c77f-45a5-a5e7-318e74a93aa4",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-09-01",
+    "occupied_units": 108,
+    "vacant_units": 12,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "ae95a97d-2de0-4d33-a441-80ae6eebfb2b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-10-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "9546e25a-1448-4017-a687-a163baca3900",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-11-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "c771d2a6-8c9c-4fbf-a62b-8fe7ff9697b5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2016-12-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "a8120bc3-b5d9-4bf2-ad56-d388f9218393",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-01-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "6ef2ba39-625e-4881-a39f-5a0770390742",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-02-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "e5ff0f5b-16b6-447c-a787-134a5dd4aced",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-03-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 109
+  },
+  {
+    "occupancy_snapshot_id": "b67540de-6ad1-48ca-aa9e-3e34942e45e5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-04-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "830dbbbd-ad18-486c-a454-1fecd65c1990",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-05-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "de19e53a-fb8a-4bd0-a961-e2ea771008bc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-06-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "ee9c1c22-4187-408f-acf9-c1fcf5ed2126",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-07-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "b56bfdfb-88ac-476d-aa26-b96ad1b0842b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-08-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "519f787e-0562-4f80-a285-c0a3089974cb",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-09-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "068695b9-9fac-4118-ab31-d250285305cf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-10-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 109
+  },
+  {
+    "occupancy_snapshot_id": "3ff47e37-500b-437c-af6a-af88542b9cb6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-11-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "da9666d4-e0cd-445a-a3fc-d4202e63429a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2017-12-01",
+    "occupied_units": 104,
+    "vacant_units": 16,
+    "leased_units": 110
+  },
+  {
+    "occupancy_snapshot_id": "9bdbea38-7d09-493c-ac97-727f9539bd54",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-01-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "162d57cb-7c84-444b-ae1c-3f2e88024ff6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-02-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "15984b61-ecd3-44fa-a246-dbc28ae16de6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-03-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "ecaf23e3-79cb-45ce-a1c0-fd224de6371a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-04-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "93b1075c-afa7-4065-a22e-657d7c360226",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-05-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "e0b4d931-ab51-4549-a798-12177f6d3ba7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-06-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "9e14d093-2dc2-4a72-a208-341244c082ad",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-07-01",
+    "occupied_units": 109,
+    "vacant_units": 11,
+    "leased_units": 110
+  },
+  {
+    "occupancy_snapshot_id": "40fb11be-a5bd-4961-a36a-c2fa755a4db1",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-08-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "e5c44b80-eb49-4368-a74a-5caca84ec64b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-09-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "bf925c78-7521-4cf9-a6cd-153fde311d6d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-10-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "aaa5b947-4f15-4a4d-a2a2-ebb5d3c2c278",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-11-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "10967cd6-f17f-443a-aee0-15daa9e49b1e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2018-12-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 110
+  },
+  {
+    "occupancy_snapshot_id": "274e2911-e1f2-4a8c-ad96-1a7206ec58b8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "24f26d47-e652-48ce-a940-3750d6bef67f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-02-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "66dc3a63-0941-4aab-a110-c1f730f2e43f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-03-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "0c583d04-e9b4-4b02-a989-ece180923741",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-04-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "9240ad67-edfd-4a91-ac6c-b5ca290ae711",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-05-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "5bd87df4-3db6-4b99-a26f-a28c44d56a94",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-06-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "56f8fd35-a699-4976-aea7-376f81f7eb5b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-07-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "8e68ef42-c18f-43be-a834-5f2016baa762",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-08-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "4ab2452d-660d-4370-a501-caf2f165016c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-09-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "0ec18f6d-c808-4c10-a9ee-a0ff951fcd97",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-10-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "fdc0179b-af37-4e53-a9c0-c9b2ce0de951",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "6edfc3c6-50a4-4136-af3b-8c3be02f6b75",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2019-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "3dd17810-4e1d-4c96-a1a1-6374c381475f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "6f614d57-ea3c-43ff-ad53-319d9cf0e409",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-02-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "4195c55d-0d56-453b-adb7-f85cd54fc9a9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-03-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "9f35de0a-769f-4225-af34-b60cad8b706b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-04-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "c780ea64-4edb-4803-a9fc-8cec16ddaede",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-05-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "51a73667-601f-4162-ac90-941a7ffe03ea",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-06-01",
+    "occupied_units": 106,
+    "vacant_units": 14,
+    "leased_units": 108
+  },
+  {
+    "occupancy_snapshot_id": "0fbb10bd-0a7e-4a50-a605-94a3d3e4ed6e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-07-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "9b393a1f-e634-4feb-ae93-c1d28ea00bbb",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-08-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "5cc899aa-98d9-4824-a9af-dd70370af22b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-09-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "15add68f-56c6-41b1-ae6e-dd2beb164ced",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-10-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "3025752a-de99-401c-ae57-2b1fd12e56cf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "da3072de-8c67-40bb-acc5-d240ec54b6f9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2020-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "f23fd0fc-5ac8-4ecd-ba3e-5b5351d6a484",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "38af67dc-2e6d-413b-ba11-9a0d1e046357",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "8ce95313-42c2-40cd-be9c-c4ee0d832f0d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-03-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "6f1a47d9-aa3e-4f21-a2b4-9096ac9892e2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-04-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "61ea1c2a-398f-4921-9ad6-c914b728ae02",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-05-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000001",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-06-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "d6f77242-d305-4f61-9fdf-ed92673767cf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-07-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "9a8a593e-0e52-4169-9034-aaf5248251b2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-08-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "55e8e6ad-bdf5-4ee8-93a6-cb9381d3158e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-09-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "31df2afb-cc22-478c-8ea6-1da61e6d6d2d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-10-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "24ea9104-7bcd-4b4d-af9d-6e64894f9580",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "15d88d22-ce5d-4efe-ac44-a65bdcb4e8a3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2021-12-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "0df1338d-92f1-4d77-a548-66b605280b45",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 112
+  },
+  {
+    "occupancy_snapshot_id": "3471c986-c6c9-4b6a-a6af-78357f7bd1a9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-02-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 111
+  },
+  {
+    "occupancy_snapshot_id": "223e0380-7d00-47b0-b038-04e03708ee92",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "003ab3e0-cc0b-4e91-af5e-ff9ee3894a86",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-04-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "80ec0dfa-88a6-4713-bf8f-8f276cf3ad3c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-05-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000002",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-06-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "0d223cb3-b14d-4c70-9dcd-0823c6bfecf2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-07-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "d51cb805-ba62-494c-851d-0218d6b2efd7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-08-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "a32138ae-4065-4965-80fc-673b022a7a4d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-09-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "26a91535-6064-4958-83e3-6558f47df6fd",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-10-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "42d1a717-a5d7-4887-8ade-7c9ae0d0db45",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-11-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "f9bb63fb-895a-45f8-9fed-b0579973c7f7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2022-12-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "fea655e8-7f99-41ed-856c-2ce31f713fd6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-01-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "b7838995-ecb3-40d7-a5c2-2ddc32020e4c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-02-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "aa3a6ec5-1995-42a1-9c10-ec36c1d6f6a8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "10b4e8b6-3182-417c-965c-4a4fa3a53995",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-04-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "9e31a14f-d9b9-4b18-9056-8660134fd886",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-05-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000003",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-06-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "5578293e-31f3-41e5-a4cf-c7107fbb964c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-07-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "3a139560-fc17-434c-90f9-d750b5c9b2d3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-08-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "26e4fe61-5890-4735-8cf5-d1fb652835b3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-09-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "eb1dcbc2-0c3b-4a95-b6cd-27f2dcec5997",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "b03cdbdf-6d19-40a7-9f4a-0699765dbeec",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-11-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "af9777ca-6676-4e12-b855-7811a2a448f7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2023-12-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "67c9033b-8f0b-42c9-b3a1-3fb4738ea84d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-01-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "9c430b64-3a85-4560-847b-488b80b433e5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-02-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "6982b710-ee81-40ba-94c4-cb3194ae4dc2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "7d0b51bd-cbad-4c54-9b98-7aae1e5bf2e2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-04-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "d5d4c841-9e32-460c-9fe6-87c50407ac10",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-05-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000004",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-06-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "dda26beb-9f13-45dd-b393-86d83e4b3f6a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-07-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "88894f30-646e-425b-99c1-4fea487b6ccf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-08-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "8433ad2d-a672-4e2b-b061-54334789b954",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-09-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "4c0d6741-0c46-4c69-b089-e9089867376a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "6cc1499f-30c4-4d94-a45f-c2d57db4420a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-11-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "a3afc96e-4f49-434d-9bbc-46b4e273f0b6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2024-12-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "eca805ca-c180-4dee-bba4-8cb9a5573c1e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-01-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "afb7851e-19d2-4448-b44d-bfabfb03f70c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-02-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "e466c72f-b124-4f87-a807-0094fbee1270",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "f8004e95-c51a-4439-8823-84590866ac96",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-04-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "3242ad98-74a4-4c8e-9bd2-e78267569b66",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-05-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "60000000-0000-0000-0000-000000000005",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-06-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "afe7f36e-08a3-44ab-a8cb-fd9956d0737e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-07-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "330481b1-95de-47f5-8841-fab58d6cfad8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-08-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "8ed1bff0-ce62-4e8a-a42e-0e74b3114815",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "8abf3b41-1283-4e0f-9c78-3b3a8acfe1e9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-10-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "e07bab1b-6a51-4255-9925-327e9f56e636",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-11-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "00add594-4ca7-4c57-a534-033c8fb0ab4f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "snapshot_date": "2025-12-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "1da26347-1edd-440e-a12a-d0bd9a05c78b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-01-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "b4ea957c-ab45-4e1f-865f-a93b12c65c51",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-02-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "2210b983-9e3f-4571-b0e5-796c7b24480e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-03-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "b9c07a1b-ad54-444c-a343-6fa356ddf60b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-04-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "c486a154-757b-44a2-a7fa-012202cfb96b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-05-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "214447ba-e304-49a6-b889-7f8ac7b75bda",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-06-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "5567bc85-f708-4078-a925-04fedfb85b6c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-07-01",
+    "occupied_units": 145,
+    "vacant_units": 5,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "f70f49c6-e921-4457-9edd-98e2312d6521",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-08-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "375fcbb2-fbb6-4fe2-a311-b23afac091db",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-09-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 142
+  },
+  {
+    "occupancy_snapshot_id": "5fd61f77-506f-4e2c-8f34-e05ce3380444",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-10-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "63324fb2-ade0-499b-b6d4-b8f7bdba7a8a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-11-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "f2509c8b-26d5-44ca-bbe6-ba63eef9c0b7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2015-12-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "627534b9-7d16-47b7-8652-f02598f92b4e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-01-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "bc509acf-af0d-405e-bd49-27cd9a237e98",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-02-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "dbb7a64c-14a3-46f0-97ae-77413c725753",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-03-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "774a6035-ef98-4daf-80d1-5a9a067a4305",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-04-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "29579844-1ee4-414c-ade3-11c4f03beaaa",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-05-01",
+    "occupied_units": 145,
+    "vacant_units": 5,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "dbc0a839-bbb0-4cd7-af90-ba6a0a3000d6",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-06-01",
+    "occupied_units": 145,
+    "vacant_units": 5,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "da80bda4-bd70-478b-8bb8-fc30df2ad2aa",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-07-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "61b28dfa-5d20-4cbc-a82d-64445fc9038e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-08-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "df692bb6-ddb7-46e5-aa8b-dcd9e95fc759",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-09-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "daaa12d8-7da3-45dc-9334-b22cd5afbcd4",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-10-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "d5050dc8-254e-4442-82e7-ec1dc2322b64",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-11-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "5054cb3e-ba6b-4130-bb44-e6c84352aa43",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2016-12-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "dd8adf2e-e3cb-43d3-8df5-4d7446662fb0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-01-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "79732bf8-0561-45e3-9afe-b6749e1f15fa",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-02-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "e6b3f683-d74d-4b63-9f4c-22e83b50f781",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-03-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "63b76369-27a1-46d1-9ba7-65a110bb95ce",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-04-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "03a925bd-505d-4752-adc8-581940cde75d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-05-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "e96075d6-37d9-4ba7-a5c9-17cf3cb52384",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-06-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "015a29e2-b058-446b-849c-5e4797e86b70",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-07-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "c23580fc-1ae5-408c-9dd3-b5ea318c80e3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-08-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "21168aa7-f30a-490f-9b85-01e34729c5d1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-09-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "54313f09-a08e-449b-8d55-0fc10bd3972f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-10-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "d5b2faeb-39e5-4aac-9d8c-f26b4ff7ff30",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-11-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "38c46e86-fcb3-40d8-ba15-3031258e84ee",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2017-12-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "4374c1b0-4f3f-4129-bb82-e11894f03a8c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-01-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "e09666b6-1f50-43dc-86ff-5b3c4982b098",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-02-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "6e075470-7d30-490d-949b-49e53bd799ff",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-03-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "05a6b339-1cd2-4a78-aa25-b0948b78e9a1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-04-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "df04b761-f042-4c76-8077-1107dc95d324",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-05-01",
+    "occupied_units": 142,
+    "vacant_units": 8,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "e46b13a4-36f9-4c36-b851-3e940f386871",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-06-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "747d136e-3d23-4c3e-9f19-d4bfdbeb327d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-07-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "a7516386-6829-4ada-b183-a52309ad8066",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-08-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "eb61c20c-ab67-4b69-861d-4a148293ce60",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-09-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "0db9ebdc-efac-4295-b582-ab4649ab2dd9",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-10-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 142
+  },
+  {
+    "occupancy_snapshot_id": "f4d6128a-3de3-4b63-921e-414f53fee86b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-11-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "dce43729-691a-47f3-8519-61e3fe956591",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2018-12-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "4ed607c7-2b05-435f-8cb4-d8353c1406cb",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-01-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "e45b542b-1774-4276-9788-8287d93db100",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-02-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 142
+  },
+  {
+    "occupancy_snapshot_id": "b022f85f-d7cd-4e58-9de7-3a3f01eb787b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-03-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "610a1447-af80-47ca-ab7d-1ca75314055c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-04-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "e79ed024-5f56-4e56-ae91-bfc3e0023bed",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-05-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "b7b63aea-73c8-4ded-954c-01481e109bb3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-06-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "d6f5dfe3-8121-4b49-accd-1c7ffa636e3a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-07-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 142
+  },
+  {
+    "occupancy_snapshot_id": "e0b0b001-dd9a-4ecf-96e8-98d15778514c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-08-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "dab685fc-c98a-4457-9c26-4c76c8e41045",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-09-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "d79460a2-9317-4301-8714-b45e3c107b9e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-10-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "6d827769-2d75-4954-a4ed-49487d59fa36",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-11-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "1926be3a-a79c-4501-bd23-2bc1a8af26f8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2019-12-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "131086eb-14d9-4b0b-9a6d-61b56426736b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-01-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "d5c0f643-2d84-48e0-9864-8d270e456846",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-02-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "b7b14867-fa39-45f8-a298-b8f2c1a33f36",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-03-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "d2b0cbc3-abc2-4f23-b967-cab45f649898",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-04-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 136
+  },
+  {
+    "occupancy_snapshot_id": "bf30cd65-b832-4e80-895e-58f4dcd68f70",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-05-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "e36137c6-d385-42a7-b66c-85788d6dac4c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-06-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "40401afb-0ed8-4958-8c0b-1a442bd8be93",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-07-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 144
+  },
+  {
+    "occupancy_snapshot_id": "56f4b062-6b68-434e-b789-9d34e3d19d9f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-08-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "54c3ed30-c2f7-4ff0-893e-6648c963cdf8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-09-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 136
+  },
+  {
+    "occupancy_snapshot_id": "45060c13-d1b6-4613-9cec-e53891c24715",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-10-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "dfd76d35-1dce-443e-a3e6-363fd78cb3fc",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-11-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 132
+  },
+  {
+    "occupancy_snapshot_id": "01c1371f-b364-4bc1-ac5e-5a23e4e857a1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2020-12-01",
+    "occupied_units": 128,
+    "vacant_units": 22,
+    "leased_units": 129
+  },
+  {
+    "occupancy_snapshot_id": "11c2eb6d-77a3-4321-9165-adbb106139a7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-01-01",
+    "occupied_units": 125,
+    "vacant_units": 25,
+    "leased_units": 129
+  },
+  {
+    "occupancy_snapshot_id": "a00a9f37-3e44-4240-881a-56d4508e8255",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-02-01",
+    "occupied_units": 125,
+    "vacant_units": 25,
+    "leased_units": 128
+  },
+  {
+    "occupancy_snapshot_id": "4a3240b5-a641-4f59-8c60-673ac7cb2d71",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-03-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "eb57e3ca-7509-4c41-9450-fa6de7d087a1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-04-01",
+    "occupied_units": 130,
+    "vacant_units": 20,
+    "leased_units": 131
+  },
+  {
+    "occupancy_snapshot_id": "039ee992-e4b0-4b6d-84f1-be952bc04ef3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-05-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "65bfd54d-3d64-4f6b-8daa-9fd106b9b1ae",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-06-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "a9d0952f-c342-49ba-bec6-e427ae55fff0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-07-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "54ab907e-432f-408f-88b5-740d0f76a55c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-08-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "36f713aa-2b3b-4c41-934f-f3b4668c2fb8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-09-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "4d51e9b7-95ab-4829-b713-30a4d0fb6bbe",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-10-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "ddd3cf5d-9b50-48e5-9030-878eea00e5c7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-11-01",
+    "occupied_units": 128,
+    "vacant_units": 22,
+    "leased_units": 131
+  },
+  {
+    "occupancy_snapshot_id": "f75c69af-baee-423f-8975-85c2f99d8c08",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2021-12-01",
+    "occupied_units": 128,
+    "vacant_units": 22,
+    "leased_units": 132
+  },
+  {
+    "occupancy_snapshot_id": "236da283-15de-410e-951b-7b0e4980b9a2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-01-01",
+    "occupied_units": 126,
+    "vacant_units": 24,
+    "leased_units": 131
+  },
+  {
+    "occupancy_snapshot_id": "22aece2b-7da8-46c5-9908-90c5216e1416",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-02-01",
+    "occupied_units": 130,
+    "vacant_units": 20,
+    "leased_units": 133
+  },
+  {
+    "occupancy_snapshot_id": "2f2d519c-662f-4927-a4c9-e5da629162f2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-03-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 133
+  },
+  {
+    "occupancy_snapshot_id": "5a89b664-1f71-4720-b6f2-59267dcee433",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-04-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "56dbef50-e05b-4b4e-8e77-23f51587cf5e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-05-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "499387e0-489a-4388-8653-528c011714ce",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-06-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "9e9c3596-8859-42fd-ac74-01cab7017244",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-07-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "e8b7c444-75e5-4b0d-b746-d69212585767",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-08-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 139
+  },
+  {
+    "occupancy_snapshot_id": "325a0e91-0184-4f5b-8cf9-08edc802d918",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-09-01",
+    "occupied_units": 131,
+    "vacant_units": 19,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "0e5758be-0eae-42a3-af2d-9738b0a49ca2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-10-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "37222a01-f2e5-45eb-aaf7-2916088706bf",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-11-01",
+    "occupied_units": 128,
+    "vacant_units": 22,
+    "leased_units": 131
+  },
+  {
+    "occupancy_snapshot_id": "8171926c-097c-48b8-a088-0a62a032bd78",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2022-12-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "be5f51fe-0c59-4f9b-8b9c-1ca6aa069718",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-01-01",
+    "occupied_units": 125,
+    "vacant_units": 25,
+    "leased_units": 128
+  },
+  {
+    "occupancy_snapshot_id": "84fa7321-df6f-4fdd-9e43-9a1ee839d5ad",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-02-01",
+    "occupied_units": 129,
+    "vacant_units": 21,
+    "leased_units": 132
+  },
+  {
+    "occupancy_snapshot_id": "fa08856b-881d-4499-9344-0039925dee3d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-03-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "cd1354f6-9e26-4c91-b97a-7bdf6d4ec7ee",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-04-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "cd98ba93-f63f-4f0b-a568-6b95d0817ca1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-05-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 134
+  },
+  {
+    "occupancy_snapshot_id": "1987f912-00ac-4c38-85f7-1d00d82ef6c2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-06-01",
+    "occupied_units": 135,
+    "vacant_units": 15,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "7e2ffc81-ddd0-40f6-9c88-a15110c20f76",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-07-01",
+    "occupied_units": 136,
+    "vacant_units": 14,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "5e10f74d-ae18-46c5-87ba-2e53cf29e2e3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-08-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 135
+  },
+  {
+    "occupancy_snapshot_id": "4f4d0218-fd4d-412e-a4bc-9bdd81f8625b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-09-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 136
+  },
+  {
+    "occupancy_snapshot_id": "f784c447-4ae4-4a8e-8744-c701baa3740d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-10-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 137
+  },
+  {
+    "occupancy_snapshot_id": "3acf7727-4983-4c5b-8df3-b54c7ac5991e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-11-01",
+    "occupied_units": 132,
+    "vacant_units": 18,
+    "leased_units": 133
+  },
+  {
+    "occupancy_snapshot_id": "705baf1b-d16b-4632-b8fb-1071bed4b960",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2023-12-01",
+    "occupied_units": 133,
+    "vacant_units": 17,
+    "leased_units": 138
+  },
+  {
+    "occupancy_snapshot_id": "0059e56e-fdec-467e-8cc0-8533676208e3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-01-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 136
+  },
+  {
+    "occupancy_snapshot_id": "edfe8dea-7d10-4182-b8f6-ee2b1ae469ad",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-02-01",
+    "occupied_units": 134,
+    "vacant_units": 16,
+    "leased_units": 136
+  },
+  {
+    "occupancy_snapshot_id": "f5cacb58-b107-4de6-b7c1-22014eb8ca35",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-03-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "1ec8077d-dbc0-408a-8bf8-50d8d75f6bc3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-04-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "330cd36b-9eae-4ad7-97d1-02162ba6eea6",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-05-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "94113fbe-3535-4952-9d41-bc9bc543ff72",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-06-01",
+    "occupied_units": 144,
+    "vacant_units": 6,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "4f817c73-2d2d-4edc-adce-a92f1095cd5e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-07-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "3fb85db1-6d2e-4f17-83a9-433f4820b7d7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-08-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "b83f1664-f299-44c0-9c07-2d5688f337d4",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-09-01",
+    "occupied_units": 145,
+    "vacant_units": 5,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "529410da-1894-4f51-a25a-03e32c6576a0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-10-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 141
+  },
+  {
+    "occupancy_snapshot_id": "2a9a513b-5e1a-4049-a1ee-94372c5d076e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-11-01",
+    "occupied_units": 137,
+    "vacant_units": 13,
+    "leased_units": 140
+  },
+  {
+    "occupancy_snapshot_id": "4dca5722-e9f3-4238-8234-1c78404aaecb",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2024-12-01",
+    "occupied_units": 142,
+    "vacant_units": 8,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "932d8677-1b8b-4ad8-806f-d25b7c63840b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-01-01",
+    "occupied_units": 139,
+    "vacant_units": 11,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "41bba8f9-9885-4d81-abb1-6ab6d55cef21",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-02-01",
+    "occupied_units": 140,
+    "vacant_units": 10,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "aec7feee-ae72-449a-87bd-4b8ada35007c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-03-01",
+    "occupied_units": 142,
+    "vacant_units": 8,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "8d4db316-a000-487c-aa25-c0a4b9bd6e2c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-04-01",
+    "occupied_units": 142,
+    "vacant_units": 8,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "fa916cba-28a7-4e02-9ed7-491c9e68289b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-05-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "993cb1fd-2e4f-4e94-b2a2-549e573f1a9d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-06-01",
+    "occupied_units": 142,
+    "vacant_units": 8,
+    "leased_units": 145
+  },
+  {
+    "occupancy_snapshot_id": "4864ae8c-bf81-48ad-bbf4-e13514cf006b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-07-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "ea7e3987-2fce-49dc-9c24-90750b0cfbfd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-08-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "bb955acd-d93a-4527-a862-fa8a1c22c0f5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-09-01",
+    "occupied_units": 145,
+    "vacant_units": 5,
+    "leased_units": 148
+  },
+  {
+    "occupancy_snapshot_id": "f2d7aba6-76c5-4867-937c-62f7c27df369",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-10-01",
+    "occupied_units": 143,
+    "vacant_units": 7,
+    "leased_units": 147
+  },
+  {
+    "occupancy_snapshot_id": "8066bf88-2eef-4910-9410-64f03c6547b4",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-11-01",
+    "occupied_units": 141,
+    "vacant_units": 9,
+    "leased_units": 146
+  },
+  {
+    "occupancy_snapshot_id": "28ada67b-dac0-4e39-a127-178b3ce35f3e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "snapshot_date": "2025-12-01",
+    "occupied_units": 138,
+    "vacant_units": 12,
+    "leased_units": 143
+  },
+  {
+    "occupancy_snapshot_id": "760e09a5-91e0-4a6c-9326-45fa98a935d9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "18466cfd-eaef-471b-8589-2536759d9ef8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-02-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "690df22b-4a1f-42c3-9aa5-491865c59d87",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "6f2c457d-0a72-457b-a140-ab2f900aca11",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-04-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "34b131b4-7089-4f74-8b71-62dcba5fb026",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-05-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "d87c247e-f04f-4ad3-b656-d023c6208229",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-06-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "136d9613-fc5c-4e9a-87cb-c44ecc070b70",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-07-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "e8c16d7a-6ec8-4513-a204-2af3f18d1984",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-08-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "3c26d914-9d6d-4dc5-a3a3-1212d34b9612",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "c050bfd6-c781-4688-b4af-3ea923d9bd97",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-10-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "641fc4ec-6146-4454-959c-6dbe7bc1d519",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-11-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "b427b8cc-ac3f-4fee-91c7-07a9b33a66b5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2015-12-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "4f24eeec-03b8-4780-913b-f4bde987b275",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-01-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "849c33e1-12a5-4dfe-826f-433a8ef30374",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-02-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "224b2e09-d88d-47aa-a715-d4a7e99cd5b5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-03-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "d69cebad-9cdd-45bd-bb24-3947b1f1d467",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-04-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "d3b1d9a9-bd05-41d6-812a-fe6d4ca4bfa3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-05-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "94106a53-4886-41be-97ea-e01ce0938782",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-06-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "be3ff6d3-677b-437c-b300-6667008f707d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-07-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "2b2834b7-31d2-46bc-96fb-12c647c5ffcc",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-08-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "aec8ce98-8e90-400d-9e02-c68f71fa378a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "ef054ad0-f39c-4587-a7e7-7e6a5fd075f2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-10-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "4ee6a2ca-0829-42d1-b541-479eb833bf2b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-11-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "c62f2374-a251-4644-b3ea-c8b03755daaa",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2016-12-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "97085fd1-a190-45aa-a4f2-9b354b23bdef",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 113
+  },
+  {
+    "occupancy_snapshot_id": "67a43353-ac2e-4106-89f8-594d63473c0e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "15239fb1-e24f-4ca6-9796-cf1ea2c6b76d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "e2c8bdc1-f3c7-4c28-9603-59f7f6fcdb38",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-04-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "01c94db8-5cf2-4716-bb3d-7eb30ce6c949",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-05-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "a0c73431-5e88-43c6-bbf3-06b84c784c75",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-06-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "4e7e3599-0dec-4f9b-a9b0-9adc1341b05c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-07-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "d9c2893d-3db0-43a7-b8b4-592966b4b904",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-08-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "8aad789c-29bd-40be-bc85-54b884c678b9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-09-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "00d14c6f-a966-4040-abc6-3df0d15c654e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-10-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "2fa3508e-48d5-49f0-bf62-f48e5c05acd2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "02e4e536-704a-4edc-9b2e-f09a998d61e4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2017-12-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "b8449121-ecdb-46d5-ac66-5efc6839b397",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "1fa38d57-a68a-4725-a485-ec35a5f256b9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-02-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "032fa1d7-0368-4e42-b15b-6bde1eb59b50",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "8bea53b7-59d4-4c3a-b76a-8106c7e536d9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-04-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "83f1fa31-a69a-494e-9f0d-e388b83740a5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-05-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "1fdab6d0-25e4-4ed9-831b-730b9ff73a71",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-06-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "963a59db-2e90-4c9b-8aba-6bed1f1b40c2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-07-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "f8f70558-76d7-4393-8e82-5d68d432c444",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-08-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "66aa8aa4-1b79-48fd-8fed-cbbd7c60d0dd",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-09-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "6e5a8569-657c-44a0-bbd2-62daa3ec03e5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "316f6e0d-3686-4e06-a1cd-f1db6e15d5f6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "ec188717-f5b2-4842-810a-22141979f68d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2018-12-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "df4c61b4-6ca6-4345-bc47-943992019d59",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-01-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "7ec89722-15a5-44db-86cb-350f82cc40a0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "8828e279-9a04-498c-9aa3-f3ba324db6b6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "74b92ba8-0f01-4d2c-9c29-8f6ed4de3f77",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-04-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "b4093a65-ba72-4d51-8b62-587421e4f4ff",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-05-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "1559571d-6f76-4496-ab75-a833e548af8e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-06-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "2547a5fc-3fd6-4984-9293-8005014ac394",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-07-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "1b0b9486-0cd0-4f1f-b48b-c6c31835ef59",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-08-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "6bfa974c-987d-42eb-81c5-0cc8fb6afef6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-09-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "da058ade-83d7-483d-a5f0-6bf714b647c1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-10-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "4650ac10-76db-4b32-bd61-0f211768ba19",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-11-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "dd71bc9b-de27-47c3-8b4b-bce04fe33cf3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2019-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "45515314-722c-4c06-b0cd-4eaa4818006c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "01b38485-12a8-4244-a2ae-a09f0c1f804a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-02-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "c38fd3de-495a-4d85-9c97-9b1392f8a7a2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "a808c61a-f938-4ddb-a069-51325217569d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-04-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "0862e879-36e2-4421-aed5-2809391f2f3a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-05-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "47916e97-0f87-4933-9503-9c3f85cf935c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-06-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "1a22e982-36d8-4108-87f4-b9fddc4b8d6b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-07-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "62e24946-6d42-485b-bd8e-c89c1d72fcd4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-08-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "e490b090-7230-41f5-8e73-ff37de3424aa",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "cd59c637-3f9b-40e4-ba5c-69d618487a29",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "d54d6934-ee49-410e-aade-431537a35c35",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-11-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "54c446dd-17a2-44d7-9c5f-c80e039a1cf2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2020-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "5a1548ad-a4b8-428b-982b-2ffc9d952979",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "ab3390b2-ca5c-4fff-a977-981624fd41cd",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-02-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "74c379b0-586b-404d-bb83-1b11ad69dda5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "5fc1ef19-288b-4689-b5af-2fa88b3120d5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-04-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "217ec223-7167-4045-a557-a9c704e73bd3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-05-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "43b4210a-e5af-4eea-82d3-01c03b1c05f9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-06-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "c70816b4-9551-43a3-8e2a-c9afb1f5bd08",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-07-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "f74ec00e-11aa-4386-8d59-114ce2e9c199",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-08-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "738bf322-68fa-4d2a-8780-bd6653c0d809",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-09-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "80c324a4-ca70-40fb-b531-d5eb2d7ff741",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-10-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "81d40740-6577-4235-99f8-a452f18b1566",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-11-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "35588e6e-a037-44b8-81e8-48d9f44a6dee",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2021-12-01",
+    "occupied_units": 110,
+    "vacant_units": 10,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "45106173-0947-4ceb-8055-d70bb02e9f0a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "0f7d51ee-54ba-404e-9f7c-5fb69b6cad2f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "9e43b12d-04ab-4bec-aadd-b9580c3d8a24",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-03-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "af3b7cae-0f4e-42fb-95a7-45b1fa43a4de",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-04-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "13638503-7e61-4146-8f29-c1a76e5e758c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-05-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "55c17a50-9415-4795-9a59-9e9c30d2ccf0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-06-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "04cb6ef5-b16e-4dee-b69e-24ad89ecabf1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-07-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "995ee3cd-240a-4f37-8a59-4df2b4288509",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-08-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "389641a2-ba45-4b41-bf9e-41082f1bd197",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-09-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "286cbe7a-fbea-40a6-b581-4b91d97cd601",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-10-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "67258d9d-fd03-4570-825f-6c98fc86ded7",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-11-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "688cbfa4-0fab-43a2-8b77-6742f7bec0c2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2022-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "e6aefaf1-0cd4-4c17-8142-2b9c573d4c1d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "2603c5a4-b9fc-48be-9ab6-2037f0051783",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "7dd0afef-d277-4ae7-a88c-5146ca3ec0f9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-03-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "f1c227b2-d672-4fec-9271-f69cf14b9c60",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-04-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "e6afe03a-82fd-4076-bc7d-b2e8e008a07c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-05-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "52d99877-e389-4410-89e5-104be7a37768",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-06-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "edf733fb-0f60-4872-8e19-ceb6e7d54224",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-07-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "8a9ce023-8746-4153-9734-14e19a61fa9a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-08-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "14a9effd-2ac2-4821-a7bb-26d6dc6e6846",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "68f26d94-5ecb-4560-b4fd-a0ff9a726df8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-10-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "66753248-37e6-4d50-89fa-7fd5f1d6e3cf",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-11-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "63f00444-2770-47c9-82fb-0338a7bedab1",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2023-12-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "13e897f4-1bc5-4c11-ae2f-7cf38553d353",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-01-01",
+    "occupied_units": 111,
+    "vacant_units": 9,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "46ff2915-809a-4ed8-ae0a-9a93a38f3cb2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-02-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 115
+  },
+  {
+    "occupancy_snapshot_id": "97658bc8-0035-4325-a064-f23632afad9b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "92ef582a-9bb7-47b8-a2dc-e147fd04e9a0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-04-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "78ff4089-46a1-4cdf-83a2-0eef082adc85",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-05-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "33de4f56-f356-4cb6-a23a-70c7c9a410dd",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-06-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "a87587f2-0e06-4217-a4fc-a461bacaf315",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-07-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "8a412cb1-ba0f-4b73-b95e-8958f508d887",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-08-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "d246dabe-d896-4e86-8a79-571505e65642",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-09-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "966236f0-c24c-461b-b680-22a521a68e16",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "cce3aebc-5623-4d08-b3c2-dc65086b340f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-11-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "a172b85d-6ff2-4b3f-a554-ae6960cbe54c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2024-12-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 114
+  },
+  {
+    "occupancy_snapshot_id": "32c0a8a9-1b9d-4118-ab92-1a778b56958c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-01-01",
+    "occupied_units": 112,
+    "vacant_units": 8,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "1fcdaa36-9ec1-4ecc-a06e-523e123b2caf",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-02-01",
+    "occupied_units": 113,
+    "vacant_units": 7,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "70a2b8bd-065d-4f4f-8a7f-7b3d4898a959",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-03-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "42f91c29-eb3f-49e5-acd5-4cf088ff9ba6",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-04-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "6ea6b4b8-fe2f-4774-b6f0-1d9d83d7ec5a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-05-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "f82105e2-a02b-45e3-82d6-745d4435b469",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-06-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "c5053883-cc5b-4ade-a6f0-4a8e626de839",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-07-01",
+    "occupied_units": 116,
+    "vacant_units": 4,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "02e97add-1553-458d-a0cb-dd92bc8550f9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-08-01",
+    "occupied_units": 117,
+    "vacant_units": 3,
+    "leased_units": 120
+  },
+  {
+    "occupancy_snapshot_id": "08619020-005c-46f1-9200-0330a4550c5f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-09-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 117
+  },
+  {
+    "occupancy_snapshot_id": "30bc1606-62ff-40fc-9cf5-52f39daf8e57",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-10-01",
+    "occupied_units": 115,
+    "vacant_units": 5,
+    "leased_units": 118
+  },
+  {
+    "occupancy_snapshot_id": "6c6890a6-a2c3-4e25-a945-41a9a35b2cef",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-11-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 119
+  },
+  {
+    "occupancy_snapshot_id": "6dff8b13-b1bc-4c07-a7b5-59dff7ff4645",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "snapshot_date": "2025-12-01",
+    "occupied_units": 114,
+    "vacant_units": 6,
+    "leased_units": 116
+  },
+  {
+    "occupancy_snapshot_id": "e66fc6bf-267f-491e-905e-0f2248a1de0d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-01-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "6642eaec-60f7-4ea8-81ed-94729bc82ae1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-02-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "d12280d7-1fdd-4ffb-9db5-987fec96e98c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-03-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "2f604b71-ec8f-4f62-8927-c1b253eacff3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "c84927f2-ab0c-4557-8f4c-cf0bc552358a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-05-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "4c294598-4bf8-4b64-8322-6e0bacc7e20e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-06-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "41a6248e-51ce-43c7-ac77-86e841c97ac5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "c8e34bb1-7509-4e63-b7cf-24f9e818d422",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-08-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "5d5d56fa-172a-4a84-a65c-8b60824d52fd",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-09-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "9b92b4d9-e32e-4e5c-98c8-a4748647efe3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "2aaa08f8-f7df-4b87-9bec-a51ae0c03e10",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-11-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "0342b2e8-a1f4-4499-bcbb-3f4ff49327cc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2015-12-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "a2c9eaae-10c0-41fa-9f46-3b204ba50de9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-01-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "a376687c-03fe-475d-bd19-8e7e68c8dfb2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-02-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "951e23d9-3fa3-40b3-b162-455163a09434",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-03-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "2beb371b-76a9-4cf4-8c44-d3f8d626f009",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-04-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "fdf969c1-530e-49a6-925b-e1c78b18d047",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-05-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "1de1afaa-6fa2-4cb0-97fb-5875587b642f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-06-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "537cf34e-84c8-4bcc-8d6d-4999f7c052df",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "c43aa4dd-55ff-49f6-9078-703e3cddce82",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-08-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "1638d3f4-0a83-4c0f-b5ab-cecbbc75b61e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-09-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "c7249af7-41fc-43c0-b9cb-15b832bd6361",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-10-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "047e6f37-8f08-46c1-ae3b-f19e2d6f548b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-11-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "41040e8d-248a-4ef7-b3b9-fa768bca8fc6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2016-12-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "9f0979a8-ae17-4f0c-a186-c9143980b4ee",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-01-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 84
+  },
+  {
+    "occupancy_snapshot_id": "2aa300af-b646-4186-b039-35b66510c457",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-02-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "be52e990-be14-47d5-9d1f-eb3166f61b32",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-03-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "144108e2-1c09-41a5-a4db-e614e3299d0e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "d407d4a4-3f9b-427b-a73f-d1dfbea7f435",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-05-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "7890d8c9-57e7-491b-b403-a04bd77762c8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-06-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "67eb708d-5e52-44a6-b3d9-fbf5961b4fbc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-07-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "e76c99a1-31f4-463c-ae15-2afc4c6203bc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-08-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "7b15ce94-7648-413b-92a5-e9c06a828e16",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-09-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "4c76deb1-6e9e-4697-9569-1b0f2aa981a3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "53eaaca6-57cb-4f2b-b1fa-c87d08a4e78c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-11-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "dc11ffe4-c8ac-4042-b33f-f85f681172df",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2017-12-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "2ec40291-d7dc-42dc-b663-a7817410ec27",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-01-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "8b1d918a-ea33-4de1-a633-c01018f5611d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-02-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "0de2534e-38e4-41fa-96eb-32da91fdc8c8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-03-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "ebaea705-0847-453e-bd60-cf4d363e6f22",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "ce544032-1e67-46d0-9d24-2a5c8176286a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-05-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "aef1c522-5b70-4ade-be5d-871fc7bdd5da",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-06-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "2767a3d8-cfb9-4468-8327-eb2f42261018",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "4ddf2537-f7ee-48e5-9cf5-2d53435ad13a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-08-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "d6691cf3-b9ee-4e05-b81e-6d5938aa1648",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-09-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "4c82044b-b336-428b-bff1-a9085c96d13b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "82f50f1b-d904-4d35-bfbd-92a2b59887e0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-11-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "52173eb9-7128-430b-88c7-046ad49523c6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2018-12-01",
+    "occupied_units": 82,
+    "vacant_units": 6,
+    "leased_units": 84
+  },
+  {
+    "occupancy_snapshot_id": "a8405b89-8335-4eb5-945c-aac04e7b07f0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-01-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "8ace7f6e-41e5-4966-90f6-eaaa1629ab68",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-02-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "120fb391-c417-40c5-9d2b-64b1a137a443",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-03-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "3adbfaa9-eec8-4102-8dcc-cf233e27188d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "be70e2da-969c-4ede-a81c-bdac52c9ae1b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-05-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "4df89055-6c4c-4555-ae36-fbad8766cc5d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-06-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "53db14d4-ee37-4169-9d69-2f465b6f6342",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "ef51ea08-328e-4e47-ba99-b4098f37dea7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-08-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "989e7102-5283-4582-890e-13a5c9f47465",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-09-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "27f55221-1895-4d62-8b16-94f177865e41",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "c2d00871-8d68-4ac0-b67d-7d8c5e46d5c2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-11-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "fda05003-4e9c-4f99-87ce-7b2be5c90837",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2019-12-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "7b0f8e42-6cde-4049-a713-e2a339437325",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-01-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "ad38dc7c-a61f-4d04-be6d-944b934af9b2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-02-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "5e34804c-ee5b-4dd6-9772-4abc0b931ecf",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-03-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "e67fd164-8bf9-493c-acfa-53c85bb62f6d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-04-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "73d9b566-7048-45dc-9df5-2465106032ca",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-05-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "92970367-beb6-40ae-91c6-a1a0afa8d5cd",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-06-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "57b64a22-9ac8-40b5-8676-69292be7ec83",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-07-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "2f472517-25a0-4a56-be6b-2778ce2f206c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-08-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "84e8d760-993a-43ce-bf81-abe33813cc94",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-09-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "424e6e2d-2057-4f1c-9800-b7a0b289f0ab",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "94df1fcf-39ed-4fb8-b4fa-82ab4d5a4721",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-11-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "c1af1d80-260f-4003-84e9-b7b1d659871c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2020-12-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "32be0105-a9c4-41da-8653-6da820c4d3df",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-01-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "4f5b0c5b-bb1a-4755-9f5b-fc008925f16b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-02-01",
+    "occupied_units": 82,
+    "vacant_units": 6,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "561442df-5275-44fa-aa9a-7b427d870c98",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-03-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "03a34f44-8648-4814-b3b3-cf4248b77e32",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "94032fa0-842c-4035-a216-b7b7e854aa86",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-05-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "79305341-0375-4c1c-aff3-b148a235c8ee",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-06-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "f8696d88-4497-4a16-8fd2-5064ca91f570",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-07-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "e2c76572-6ce1-4b46-91ee-f3acb62c814c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-08-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "e3288954-db76-4105-9864-9ee00f41de8b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-09-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "60cd5d35-f7e1-4207-b339-937425d21c9a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "929e4e71-39a8-4224-89f9-be2cd13d0d31",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-11-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "ef601c8d-4545-419c-b5b3-6263c1dd1120",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2021-12-01",
+    "occupied_units": 82,
+    "vacant_units": 6,
+    "leased_units": 84
+  },
+  {
+    "occupancy_snapshot_id": "d911d42d-cfd4-4a1b-a61f-54ba9bc18043",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-01-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "dc7edde8-0820-4ffb-9f99-e7c6a712a2f2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-02-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "05a3720e-4b5d-4e43-88f9-833fac5889b4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-03-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "a6c701d3-ad6f-46b5-a340-b43cd506f7e3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-04-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "f29fd604-beea-4426-80ff-b0202163d796",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-05-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "029f057b-239d-4844-b5bb-8befb9192fef",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-06-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "d3552bee-252c-4ea4-9916-3be9c9ea9a7c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "82dc8ad9-51db-4f6e-91d4-7c339b318522",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-08-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "d00d4bf1-93a3-4e8a-a589-1f7747badfee",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-09-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "b0547ed1-433f-40ed-9a19-0ef13b056346",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "734d933c-0ef8-4188-aa49-4e895ddee367",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-11-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 84
+  },
+  {
+    "occupancy_snapshot_id": "2204f634-3043-41b4-9b93-b5db3adaac46",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2022-12-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "050ce669-a99b-4d9e-b77c-ccc4259b5f71",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-01-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "7ce962bb-d73b-4426-948d-6fc3bb334336",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-02-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "390159d0-ab79-4a8f-a557-ce35db6b8d09",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-03-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "e2766cca-429b-42a0-9cf0-c6b0ca312bb3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-04-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "545bc381-4372-4d72-baaf-9a60e8d9b58d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-05-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "9f5279f3-5f46-4d7a-a574-971565fe207f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-06-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "bec57b6b-d510-4520-9f61-ab8bf5aa4d55",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-07-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "3523ce0d-8c18-44ae-8def-984e3c90be1b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-08-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "f806867a-1ebf-495f-969e-3f7db9408e46",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-09-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "c88497aa-a83e-4d54-9e01-ccf9f35d8c91",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-10-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "d36f601e-41ef-425b-a7a6-5abae0afe82c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-11-01",
+    "occupied_units": 81,
+    "vacant_units": 7,
+    "leased_units": 83
+  },
+  {
+    "occupancy_snapshot_id": "e5eefd17-3c7b-4930-a018-f2ae5bf21133",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2023-12-01",
+    "occupied_units": 80,
+    "vacant_units": 8,
+    "leased_units": 81
+  },
+  {
+    "occupancy_snapshot_id": "3dfe78c6-51c3-4b5c-a8db-11a5e4c9589a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-01-01",
+    "occupied_units": 80,
+    "vacant_units": 8,
+    "leased_units": 83
+  },
+  {
+    "occupancy_snapshot_id": "1a4a8083-be74-4730-8bfe-1d78fa238d64",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-02-01",
+    "occupied_units": 80,
+    "vacant_units": 8,
+    "leased_units": 83
+  },
+  {
+    "occupancy_snapshot_id": "95ad192d-47ab-4f7d-845b-66c1fec572b1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-03-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "1679238f-f91d-4e85-8db0-9a3543936d29",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-04-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "9eac8666-5107-42ec-b3ed-bb6141736f82",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-05-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "594608f6-1c87-4f75-abf4-16094ce150e8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-06-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "cfa94a7b-7bd0-4060-99eb-9958d03a3c5c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-07-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "c87eeedb-129e-48e9-82fa-65eacb5365ba",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-08-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "60c72444-f1a3-47a8-91e7-724239570e7c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-09-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "ecdce0ab-358d-43db-a04e-98bdc2a6219b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-10-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "eddc965c-5557-4c31-8839-002964572df4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-11-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "bc341e85-8ba3-4433-8e33-bcd47d7e5b91",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2024-12-01",
+    "occupied_units": 82,
+    "vacant_units": 6,
+    "leased_units": 84
+  },
+  {
+    "occupancy_snapshot_id": "92303470-6f85-4571-aee8-e04593293101",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-01-01",
+    "occupied_units": 81,
+    "vacant_units": 7,
+    "leased_units": 83
+  },
+  {
+    "occupancy_snapshot_id": "997fefa6-0046-4aa3-93e9-7c3a8d50c6da",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-02-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "bfe960d6-5fa7-4d68-8f26-81f2572600b6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-03-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "9b879a9c-239e-4a9c-a518-c0695787c3ef",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-04-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "a0d77ef6-dc62-4526-93fa-574122dbc7c0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-05-01",
+    "occupied_units": 85,
+    "vacant_units": 3,
+    "leased_units": 87
+  },
+  {
+    "occupancy_snapshot_id": "d4e2beeb-93b5-4d7b-a32e-3a9f94a4ba3a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-06-01",
+    "occupied_units": 86,
+    "vacant_units": 2,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "faaf06f9-6f0d-4a85-af08-cddc98ae3d36",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-07-01",
+    "occupied_units": 87,
+    "vacant_units": 1,
+    "leased_units": 88
+  },
+  {
+    "occupancy_snapshot_id": "d9bb22a6-4df5-4f10-aa7d-b598ffb1bc39",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-08-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "acb1a692-0e5d-4517-98a2-c9bd1f4abb35",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-09-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "43a05ac6-8e91-4a07-b00f-ff0d0f1112c0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-10-01",
+    "occupied_units": 84,
+    "vacant_units": 4,
+    "leased_units": 86
+  },
+  {
+    "occupancy_snapshot_id": "7a01aed1-0bb8-4216-9266-3d6fe06423c2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-11-01",
+    "occupied_units": 82,
+    "vacant_units": 6,
+    "leased_units": 85
+  },
+  {
+    "occupancy_snapshot_id": "18d7be0e-df99-4e7f-b4d1-3e40994a95be",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "snapshot_date": "2025-12-01",
+    "occupied_units": 83,
+    "vacant_units": 5,
+    "leased_units": 85
+  }
+]

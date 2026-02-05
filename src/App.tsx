@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { AppShell, NavLink, Stack, Group, Image, useComputedColorScheme } from '@mantine/core'
+import { useEffect, useRef } from 'react'
 import { FormShowcase } from './pages/FormShowcase'
 import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
@@ -102,6 +103,12 @@ function Navigation() {
 function AppLayout() {
   const location = useLocation()
   const isHappyProperty = location.pathname.startsWith('/happy-property')
+  const defaultTitleRef = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (defaultTitleRef.current == null) defaultTitleRef.current = document.title
+    document.title = isHappyProperty ? 'Property Graph Demo' : (defaultTitleRef.current ?? 'Mantine Theme Showcase')
+  }, [isHappyProperty])
 
   if (isHappyProperty) {
     return (
@@ -109,7 +116,8 @@ function AppLayout() {
         <Route path="/happy-property/onboarding" element={<HappyPropertyOnboarding />} />
         <Route path="/happy-property/portfolio" element={<Portfolio />} />
         <Route path="/happy-property/insights" element={<InsightsLayout />}>
-          <Route path="dashboard" element={<HpmInsightsPage title="Portfolio Dash" searchPlaceholder="Search dashboard" />} />
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<HpmInsightsPage title="Dashboard" searchPlaceholder="Search dashboard" />} />
           <Route path="analysis" element={<HpmDetectionsPage />} />
           <Route path="strategy" element={<HpmStrategyPage />} />
           <Route path="approvals" element={<HpmApprovalsPage />} />

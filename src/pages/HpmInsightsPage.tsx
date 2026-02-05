@@ -19,28 +19,30 @@ import {
   ThemeIcon,
   useMantineTheme,
 } from '@mantine/core'
-import { LineChart } from '@mantine/charts'
+import { LineChart, PieChart } from '@mantine/charts'
 import '@mantine/charts/styles.css'
 import { DateInput } from '@mantine/dates'
 import '@mantine/dates/styles.css'
 import { HugeiconsIcon } from '@hugeicons/react'
 import {
   ArrowDown01Icon,
+  ArrowRight01Icon,
   Calendar03Icon,
   ChartLineData02Icon,
   Home03Icon,
   StarIcon,
   TimeScheduleIcon,
 } from '@hugeicons/core-free-icons'
+import { useNavigate } from 'react-router-dom'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpyAppIcon } from '../theme/components/HpyAppIcon'
 import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
-import { JoyAiSummary } from '../theme/components/JoyAiSummary'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { PORTFOLIO_APP_NAV } from './portfolioInsightsNav'
+import { getDemoActiveWorkflowCards } from './workflowsDemoData'
 
 type HpmInsightsPageProps = {
   title: string
@@ -155,6 +157,7 @@ function formatDateValue(value: Date | null): string {
 }
 
 export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsightsPageProps) {
+  const navigate = useNavigate()
   const appNavOverride = useMemo(() => PORTFOLIO_APP_NAV, [])
   const { selectedPropertyIds, setSelectedPropertyIds, dateRange, setDateRange } = useInsightsPropertySelection()
   const { highlightUnavailable, setHighlightUnavailable } = useUnavailableHighlight()
@@ -162,7 +165,6 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [propertiesById, setPropertiesById] = useState<Map<string, { unit_count?: number | null; market?: string | null }>>(new Map())
   const [mixByPropertyId, setMixByPropertyId] = useState<Map<string, { property_type?: string | null; asset_class?: string | null }>>(new Map())
   const [loadingProperties, setLoadingProperties] = useState(true)
-  const [openAccordion, setOpenAccordion] = useState<string | null>('needs-attention')
   const [metrics, setMetrics] = useState<{
     occupancyPct: number | null
     satisfaction: number | null
@@ -283,6 +285,12 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     return propertyOptions
   }, [loadingProperties, selectedPropertyIds, propertyOptions])
 
+  const demoActiveWorkflows = useMemo(() => {
+    const featuredProperty = propertyOptions[0]?.label ?? 'Westwood Oaks'
+    const vendorProperty = propertyOptions[1]?.label ?? 'Ace Carpentry'
+    return getDemoActiveWorkflowCards({ featuredProperty, vendorProperty })
+  }, [propertyOptions])
+
   const badgeStats = useMemo(() => {
     const selected = selectedPropertyIds.length
     let units = 0
@@ -362,6 +370,19 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     hexToRgba(theme.colors.green[5], SEGMENT_OPACITIES[i % SEGMENT_OPACITIES.length])
   const getAssetClassColor = (i: number) =>
     hexToRgba(theme.colors.blue[5], SEGMENT_OPACITIES[i % SEGMENT_OPACITIES.length])
+
+  const regionPieData = useMemo(
+    () => regionDistribution.map(({ region, count }, i) => ({ name: region, value: count, color: getRegionColor(i) })),
+    [regionDistribution, theme]
+  )
+  const propertyTypePieData = useMemo(
+    () => propertyTypeDistribution.map(({ label, count }, i) => ({ name: label, value: count, color: getPropertyTypeColor(i) })),
+    [propertyTypeDistribution, theme]
+  )
+  const assetClassPieData = useMemo(
+    () => assetClassDistribution.map(({ label, count }, i) => ({ name: label, value: count, color: getAssetClassColor(i) })),
+    [assetClassDistribution, theme]
+  )
 
   useEffect(() => {
     if (selectedPropertyIds.length === 0) {
@@ -901,123 +922,6 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               }
             />
 
-            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg" mb="lg">
-              <Card withBorder radius="md" padding="md">
-                <Accordion
-                  value={openAccordion}
-                  onChange={(value) =>
-                    setOpenAccordion(value ?? (openAccordion === 'needs-attention' ? 'detected-patterns' : 'needs-attention'))
-                  }
-                  variant="separated"
-                  radius="sm"
-                >
-                  <Accordion.Item value="needs-attention">
-                    <Accordion.Control>
-                      <Group gap="xs">
-                        <Text size="md" fw={700}>
-                          Needs Attention
-                        </Text>
-                        <Badge size="sm" variant="light" color="purple">
-                          {needsAttentionItems.length}
-                        </Badge>
-                      </Group>
-                    </Accordion.Control>
-                    <Accordion.Panel>
-                      <Stack gap="md">
-                        {needsAttentionItems.map((item, i) => (
-                          <Card key={i} withBorder padding="sm" radius="md" shadow="xs">
-                            <Group justify="space-between" align="flex-start" wrap="wrap" gap="md">
-                              <Stack gap={2}>
-                                <Text size="sm" fw={700}>
-                                  {item.title}
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  {item.property}
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  {item.units} units
-                                </Text>
-                              </Stack>
-                              <Stack gap="xs" align="flex-end">
-                                <Text size="sm" fw={700} c="green">
-                                  {item.costSavings} cost savings
-                                </Text>
-                                <Button size="xs" variant="light" color="purple">
-                                  {item.action}
-                                </Button>
-                              </Stack>
-                            </Group>
-                          </Card>
-                        ))}
-                      </Stack>
-                    </Accordion.Panel>
-                  </Accordion.Item>
-                  <Accordion.Item value="detected-patterns">
-                    <Accordion.Control>
-                      <Group gap="xs">
-                        <Text size="md" fw={700}>
-                          Detected Patterns
-                        </Text>
-                        <Badge size="sm" variant="light" color="gray">
-                          {DETECTED_PATTERNS.length}
-                        </Badge>
-                      </Group>
-                    </Accordion.Control>
-                    <Accordion.Panel>
-                      <Stack gap="md">
-                        {DETECTED_PATTERNS.map((pattern, i) => (
-                          <Card key={i} withBorder padding="sm" radius="md" shadow="xs">
-                            <Group justify="space-between" align="flex-start" wrap="wrap" gap="sm">
-                              <Stack gap={2}>
-                                <Text size="sm" fw={700}>
-                                  {pattern.title}
-                                </Text>
-                                <Text size="xs" c="dimmed">
-                                  {pattern.unitsAffected} units affected
-                                </Text>
-                              </Stack>
-                              <Stack gap="xs" align="flex-end">
-                                <Text size="xs" fw={600} c="green" style={{ whiteSpace: 'nowrap' }}>
-                                  Potential impact ${pattern.potentialImpact.toLocaleString()}
-                                </Text>
-                                <Badge size="sm" variant="light" color={confidenceBadgeColor(pattern.confidence)}>
-                                  Confidence {pattern.confidence}%
-                                </Badge>
-                              </Stack>
-                            </Group>
-                          </Card>
-                        ))}
-                      </Stack>
-                    </Accordion.Panel>
-                  </Accordion.Item>
-                </Accordion>
-              </Card>
-              <Box
-                p={2}
-                style={{
-                  borderRadius: 10,
-                  background:
-                    'linear-gradient(90deg, var(--mantine-color-purple-6), var(--mantine-color-blue-5), var(--mantine-color-teal-4))',
-                  minHeight: 380,
-                }}
-              >
-                <Card
-                  withBorder={false}
-                  radius="md"
-                  padding={0}
-                  style={{
-                    minHeight: '100%',
-                    backgroundColor: 'var(--mantine-color-default)',
-                    borderRadius: 8,
-                  }}
-                >
-                  <Box p="md">
-                    <JoyAiSummary summary="Chat with JOYAI using the button in the bottom-right to generate insights, strategies, and action plans for your selected properties." />
-                  </Box>
-                </Card>
-              </Box>
-            </SimpleGrid>
-
             <SimpleGrid cols={{ base: 1, sm: 4 }} spacing="lg">
               <Paper withBorder p="md" radius="md">
                 <Group justify="space-between">
@@ -1183,108 +1087,249 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               </Paper>
             </SimpleGrid>
 
-            <Text component="h2" fw={700} size="lg" mb="sm">
-              Portfolio overview
-            </Text>
-            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg" mb="lg">
-              <Stack gap="md">
-                <Group gap="md" wrap="nowrap" style={{ width: '100%' }}>
-                  <Paper withBorder p="md" radius="md" style={{ flex: 1, minWidth: 0 }}>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs">
-                      Total properties
+            <Stack gap="lg" mb="lg">
+              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs">
+                    Total properties
+                  </Text>
+                  <Text fw={700} size="xl" mt={4}>
+                    {badgeStats.selected}
+                  </Text>
+                </Paper>
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs">
+                    Total units
+                  </Text>
+                  <Text fw={700} size="xl" mt={4}>
+                    {badgeStats.units.toLocaleString()}
+                  </Text>
+                </Paper>
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs">
+                    Avg units/property
+                  </Text>
+                  <Text fw={700} size="xl" mt={4}>
+                    {selectedPropertyIds.length === 0 ? '—' : avgUnitsPerProperty != null ? avgUnitsPerProperty.toLocaleString() : '—'}
+                  </Text>
+                </Paper>
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs">
+                    Avg occupancy
+                  </Text>
+                  <Text fw={700} size="xl" mt={4}>
+                    {loadingMetrics || selectedPropertyIds.length === 0
+                      ? '—'
+                      : metrics.occupancyPct != null
+                        ? `${metrics.occupancyPct.toFixed(1)}%`
+                        : '—'}
+                  </Text>
+                </Paper>
+              </SimpleGrid>
+
+              <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
+                    Properties by region
+                  </Text>
+                  {regionPieData.length === 0 ? (
+                    <Text size="sm" c="dimmed">
+                      Select properties to see region mix.
                     </Text>
-                    <Text fw={700} size="xl" mt={4}>
-                      {badgeStats.selected}
+                  ) : (
+                    <Stack gap="sm" align="center">
+                      <PieChart
+                        data={regionPieData}
+                        withTooltip
+                        tooltipDataSource="segment"
+                        valueFormatter={(value) => `${value} properties`}
+                        withLabelsLine
+                        withLabels
+                        labelsType="percent"
+                        size={200}
+                      />
+                      <Group gap="md" justify="center" wrap="wrap">
+                        {regionPieData.map((segment) => (
+                          <Group key={segment.name} gap="xs">
+                            <Box
+                              style={{
+                                width: 10,
+                                height: 10,
+                                borderRadius: 2,
+                                backgroundColor: segment.color,
+                              }}
+                            />
+                            <Text size="xs">
+                              {segment.name} ({segment.value})
+                            </Text>
+                          </Group>
+                        ))}
+                      </Group>
+                    </Stack>
+                  )}
+                </Paper>
+
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
+                    Property type mix
+                  </Text>
+                  {propertyTypePieData.length === 0 ? (
+                    <Text size="sm" c="dimmed">
+                      Select properties to see property type mix.
                     </Text>
-                  </Paper>
-                  <Paper withBorder p="md" radius="md" style={{ flex: 1, minWidth: 0 }}>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs">
-                      Total units
+                  ) : (
+                    <Stack gap="sm" align="center">
+                      <PieChart
+                        data={propertyTypePieData}
+                        withTooltip
+                        tooltipDataSource="segment"
+                        valueFormatter={(value) => `${value} properties`}
+                        withLabelsLine
+                        withLabels
+                        labelsType="percent"
+                        size={200}
+                      />
+                      <Group gap="md" justify="center" wrap="wrap">
+                        {propertyTypePieData.map((segment) => (
+                          <Group key={segment.name} gap="xs">
+                            <Box
+                              style={{
+                                width: 10,
+                                height: 10,
+                                borderRadius: 2,
+                                backgroundColor: segment.color,
+                              }}
+                            />
+                            <Text size="xs">
+                              {segment.name} ({segment.value})
+                            </Text>
+                          </Group>
+                        ))}
+                      </Group>
+                    </Stack>
+                  )}
+                </Paper>
+
+                <Paper withBorder p="md" radius="md">
+                  <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
+                    Asset class mix
+                  </Text>
+                  {assetClassPieData.length === 0 ? (
+                    <Text size="sm" c="dimmed">
+                      Select properties to see asset class mix.
                     </Text>
-                    <Text fw={700} size="xl" mt={4}>
-                      {badgeStats.units.toLocaleString()}
+                  ) : (
+                    <Stack gap="sm" align="center">
+                      <PieChart
+                        data={assetClassPieData}
+                        withTooltip
+                        tooltipDataSource="segment"
+                        valueFormatter={(value) => `${value} properties`}
+                        withLabelsLine
+                        withLabels
+                        labelsType="percent"
+                        size={200}
+                      />
+                      <Group gap="md" justify="center" wrap="wrap">
+                        {assetClassPieData.map((segment) => (
+                          <Group key={segment.name} gap="xs">
+                            <Box
+                              style={{
+                                width: 10,
+                                height: 10,
+                                borderRadius: 2,
+                                backgroundColor: segment.color,
+                              }}
+                            />
+                            <Text size="xs">
+                              {segment.name} ({segment.value})
+                            </Text>
+                          </Group>
+                        ))}
+                      </Group>
+                    </Stack>
+                  )}
+                </Paper>
+              </SimpleGrid>
+            </Stack>
+
+            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg" mb="lg">
+              <Card withBorder radius="md" padding="md">
+                <Group justify="space-between" align="center" mb="md">
+                  <Group gap="xs">
+                    <Text size="md" fw={700}>
+                      Needs Attention
                     </Text>
-                  </Paper>
+                    <Badge size="sm" variant="light" color="purple">
+                      {needsAttentionItems.length}
+                    </Badge>
+                  </Group>
                 </Group>
-                {regionDistribution.length > 0 && (
-                  <Box>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
-                      Properties by region
+                <Stack gap="md">
+                  {needsAttentionItems.map((item, i) => (
+                    <Card key={i} withBorder padding="sm" radius="md" shadow="xs">
+                      <Group justify="space-between" align="flex-start" wrap="wrap" gap="md">
+                        <Stack gap={2}>
+                          <Text size="sm" fw={700}>
+                            {item.title}
+                          </Text>
+                          <Text size="xs" c="dimmed">
+                            {item.property}
+                          </Text>
+                          <Text size="xs" c="dimmed">
+                            {item.units} units
+                          </Text>
+                        </Stack>
+                        <Stack gap="xs" align="flex-end">
+                          <Text size="sm" fw={700} c="green">
+                            {item.costSavings} cost savings
+                          </Text>
+                          <Button size="xs" variant="light" color="purple">
+                            {item.action}
+                          </Button>
+                        </Stack>
+                      </Group>
+                    </Card>
+                  ))}
+                </Stack>
+              </Card>
+
+              <Card withBorder radius="md" padding="md">
+                <Group justify="space-between" align="center" mb="md">
+                  <Group gap="xs">
+                    <Text size="md" fw={700}>
+                      Detected Patterns
                     </Text>
-                    <Progress.Root size="xl">
-                      {regionDistribution.map(({ region, count, percentage }, i) => (
-                        <Progress.Section
-                          key={region}
-                          value={percentage}
-                          color={getRegionColor(i)}
-                        >
-                          <Progress.Label>{`${region} (${count})`}</Progress.Label>
-                        </Progress.Section>
-                      ))}
-                    </Progress.Root>
-                  </Box>
-                )}
-              </Stack>
-              <Stack gap="md">
-                <Group gap="md" wrap="nowrap" style={{ width: '100%' }}>
-                  <Paper withBorder p="md" radius="md" style={{ flex: 1, minWidth: 0 }}>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs">
-                      Avg units/property
-                    </Text>
-                    <Text fw={700} size="xl" mt={4}>
-                      {selectedPropertyIds.length === 0 ? '—' : avgUnitsPerProperty != null ? avgUnitsPerProperty.toLocaleString() : '—'}
-                    </Text>
-                  </Paper>
-                  <Paper withBorder p="md" radius="md" style={{ flex: 1, minWidth: 0 }}>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs">
-                      Avg occupancy
-                    </Text>
-                    <Text fw={700} size="xl" mt={4}>
-                      {loadingMetrics || selectedPropertyIds.length === 0
-                        ? '—'
-                        : metrics.occupancyPct != null
-                          ? `${metrics.occupancyPct.toFixed(1)}%`
-                          : '—'}
-                    </Text>
-                  </Paper>
+                    <Badge size="sm" variant="light" color="gray">
+                      {DETECTED_PATTERNS.length}
+                    </Badge>
+                  </Group>
                 </Group>
-                {propertyTypeDistribution.length > 0 && (
-                  <Box>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
-                      Property type mix
-                    </Text>
-                    <Progress.Root size="xl">
-                      {propertyTypeDistribution.map(({ label, count, percentage }, i) => (
-                        <Progress.Section
-                          key={label}
-                          value={percentage}
-                          color={getPropertyTypeColor(i)}
-                        >
-                          <Progress.Label>{`${label} (${count})`}</Progress.Label>
-                        </Progress.Section>
-                      ))}
-                    </Progress.Root>
-                  </Box>
-                )}
-                {assetClassDistribution.length > 0 && (
-                  <Box>
-                    <Text c="dimmed" tt="uppercase" fw={700} size="xs" mb="xs">
-                      Asset class mix
-                    </Text>
-                    <Progress.Root size="xl">
-                      {assetClassDistribution.map(({ label, count, percentage }, i) => (
-                        <Progress.Section
-                          key={label}
-                          value={percentage}
-                          color={getAssetClassColor(i)}
-                        >
-                          <Progress.Label>{`${label} (${count})`}</Progress.Label>
-                        </Progress.Section>
-                      ))}
-                    </Progress.Root>
-                  </Box>
-                )}
-              </Stack>
+                <Stack gap="md">
+                  {DETECTED_PATTERNS.map((pattern, i) => (
+                    <Card key={i} withBorder padding="sm" radius="md" shadow="xs">
+                      <Group justify="space-between" align="flex-start" wrap="wrap" gap="sm">
+                        <Stack gap={2}>
+                          <Text size="sm" fw={700}>
+                            {pattern.title}
+                          </Text>
+                          <Text size="xs" c="dimmed">
+                            {pattern.unitsAffected} units affected
+                          </Text>
+                        </Stack>
+                        <Stack gap="xs" align="flex-end">
+                          <Text size="xs" fw={600} c="green" style={{ whiteSpace: 'nowrap' }}>
+                            Potential impact ${pattern.potentialImpact.toLocaleString()}
+                          </Text>
+                          <Badge size="sm" variant="light" color={confidenceBadgeColor(pattern.confidence)}>
+                            Confidence {pattern.confidence}%
+                          </Badge>
+                        </Stack>
+                      </Group>
+                    </Card>
+                  ))}
+                </Stack>
+              </Card>
             </SimpleGrid>
 
             <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg" mb="lg">
@@ -1500,14 +1545,73 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                 <Text fw={700} size="md" mb="xs">
                   Workflow Pipeline
                 </Text>
+                <Stack gap="sm" mt="sm">
+                  {demoActiveWorkflows.map((wf) => (
+                    <Paper
+                      key={wf.id}
+                      withBorder
+                      radius="md"
+                      p="sm"
+                      style={{ background: 'var(--mantine-color-default)' }}
+                    >
+                      <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
+                        <Stack gap={4} style={{ minWidth: 0, flex: '1 1 0' }}>
+                          <Group gap={6} wrap="wrap">
+                            <Badge
+                              size="xs"
+                              variant="light"
+                              color={wf.status === 'RUNNING' ? 'success' : 'gray'}
+                            >
+                              {wf.status === 'RUNNING' ? 'Running' : 'Waiting'}
+                            </Badge>
+                            <Badge size="xs" variant="light" color="gray">
+                              {wf.category}
+                            </Badge>
+                          </Group>
+                          <Text size="sm" fw={600} truncate>
+                            {wf.title}
+                          </Text>
+                          <Group gap={6} wrap="wrap">
+                            <Text size="xs" c="dimmed">
+                              {wf.nextActionLabel}
+                            </Text>
+                            <Text size="xs" c="dimmed">
+                              •
+                            </Text>
+                            <Text size="xs" fw={600} c={wf.dueLabel === 'Due today' ? 'danger' : 'dimmed'}>
+                              {wf.dueLabel}
+                            </Text>
+                          </Group>
+                        </Stack>
+                        <Stack gap={0} align="flex-end" style={{ flexShrink: 0 }}>
+                          <Text size="sm" fw={700}>
+                            {wf.impactValue}
+                          </Text>
+                          <Text size="xs" c="dimmed">
+                            impact
+                          </Text>
+                        </Stack>
+                      </Group>
+                      <Progress
+                        value={wf.progressPct}
+                        size="sm"
+                        mt="xs"
+                        color={wf.accent === 'teal' ? 'success' : 'blue'}
+                      />
+                    </Paper>
+                  ))}
+                  <Button
+                    mt="xs"
+                    variant="light"
+                    size="sm"
+                    rightSection={<HugeiconsIcon icon={ArrowRight01Icon} size={18} />}
+                    onClick={() => navigate('/happy-property/insights/workflows')}
+                  >
+                    View Workflows
+                  </Button>
+                </Stack>
               </Card>
             </SimpleGrid>
-
-            <Card withBorder radius="md" padding="md" mb="lg">
-              <Text fw={700} size="md" mb="xs">
-                Regional Hotspots
-              </Text>
-            </Card>
 
             <Divider my="lg" />
 

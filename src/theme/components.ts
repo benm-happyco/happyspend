@@ -2,6 +2,7 @@ import { buttonOverride } from './components/Button'
 import { inputOverride } from './components/Input'
 import { inputBaseOverride } from './components/InputBase'
 import { checkboxOverride } from './components/Checkbox'
+import { paperOverride } from './components/Paper'
 
 // Component overrides based on HappyCo design system
 export const componentOverrides = {
@@ -9,6 +10,7 @@ export const componentOverrides = {
   InputBase: inputBaseOverride,
   Input: inputOverride,
   Checkbox: checkboxOverride,
+  Paper: paperOverride,
 }
 
 

@@ -1,0 +1,3674 @@
+[
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000101",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-06-01",
+    "source": "Survey",
+    "rating_value": 3.75,
+    "response_count": 96,
+    "notes": "Generally positive maintenance feedback."
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000102",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-06-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 121,
+    "notes": "Higher satisfaction after management change."
+  },
+  {
+    "resident_rating_id": "af725a8e-0f26-4fc3-b16f-184021632645",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-12-01",
+    "source": "Survey",
+    "rating_value": 4.02,
+    "response_count": 97,
+    "notes": "Seeded survey rating for demo"
+  },
+  {
+    "resident_rating_id": "1e27a3e3-3cfa-4496-b81c-1b7e02fe4b2d",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-01-01",
+    "source": "Survey",
+    "rating_value": 3.3,
+    "response_count": 123,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cf0b4b05-bd33-4ee3-a48a-3b27a8b34ecd",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-02-01",
+    "source": "Survey",
+    "rating_value": 3.36,
+    "response_count": 101,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3732f6c3-25f8-4a5b-9d63-8b2071ae96dc",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-03-01",
+    "source": "Survey",
+    "rating_value": 3.38,
+    "response_count": 129,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "791d9e6b-7dfb-42ff-a831-ae34876445e7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-04-01",
+    "source": "Survey",
+    "rating_value": 3.41,
+    "response_count": 131,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "c530c6dc-f144-4fcb-805d-31b453a5f198",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-05-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 180,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "6bbec33e-f13b-4165-b2bf-1d9a60d8d9f9",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-07-01",
+    "source": "Survey",
+    "rating_value": 3.37,
+    "response_count": 142,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cc070151-7ed0-4925-a990-3c14d8af5a89",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-08-01",
+    "source": "Survey",
+    "rating_value": 3.41,
+    "response_count": 66,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3ff1cc5b-0106-4287-b2c7-0e434aa1766a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-09-01",
+    "source": "Survey",
+    "rating_value": 3.48,
+    "response_count": 65,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "223d09da-0c20-4dfd-a54d-2741a4e1e062",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-10-01",
+    "source": "Survey",
+    "rating_value": 3.45,
+    "response_count": 167,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "7558cc7f-4f4a-4399-8fb4-938443d8b136",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-11-01",
+    "source": "Survey",
+    "rating_value": 3.49,
+    "response_count": 185,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cda0baa2-3e06-4ff7-aefa-2ccf6260b3b8",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2021-12-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 117,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "6b0c3d80-cbdb-4ec7-a462-64d94886b4aa",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-01-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 86,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "deca1608-cae1-4719-a3c4-20e8ae43185b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-02-01",
+    "source": "Survey",
+    "rating_value": 3.44,
+    "response_count": 209,
+    "notes": "DD wave month: heightened scrutiny"
+  },
+  {
+    "resident_rating_id": "f30e34a9-2915-4ec1-b566-c29624f854ea",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-03-01",
+    "source": "Survey",
+    "rating_value": 3.52,
+    "response_count": 93,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "88bd4ad3-9252-4bec-8295-81b08fa6d440",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-04-01",
+    "source": "Survey",
+    "rating_value": 3.56,
+    "response_count": 180,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3dcd73a8-b94a-495a-9181-12450e34564f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-05-01",
+    "source": "Survey",
+    "rating_value": 3.5,
+    "response_count": 188,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "aa3e81af-77a5-4c08-b7f3-80f96374220b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-06-01",
+    "source": "Survey",
+    "rating_value": 3.53,
+    "response_count": 97,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "4d1e2583-a005-4cea-b2ed-2499c515f648",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-07-01",
+    "source": "Survey",
+    "rating_value": 3.56,
+    "response_count": 174,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "31f21b40-6dd2-4ef7-a172-e051b718af9a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-08-01",
+    "source": "Survey",
+    "rating_value": 3.6,
+    "response_count": 171,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "af58085c-4889-42e0-84e3-cc63ede20be7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-09-01",
+    "source": "Survey",
+    "rating_value": 3.61,
+    "response_count": 197,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "17842f2b-3a14-4d09-9695-6995443ddddd",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-10-01",
+    "source": "Survey",
+    "rating_value": 3.51,
+    "response_count": 112,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e65289b4-8438-496d-a531-9621aa50358c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-11-01",
+    "source": "Survey",
+    "rating_value": 3.52,
+    "response_count": 101,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "827de509-a337-4928-95b7-7f0f90920262",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2022-12-01",
+    "source": "Survey",
+    "rating_value": 3.59,
+    "response_count": 110,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "65019e12-6c56-4f7c-8f71-d34a88681df1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-01-01",
+    "source": "Survey",
+    "rating_value": 3.55,
+    "response_count": 168,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "0dc2fec2-e92a-4b8f-a499-ec6d7d777f1b",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-02-01",
+    "source": "Survey",
+    "rating_value": 3.58,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cb4a5d66-b3b5-485c-ac2a-4422555d5ec8",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-03-01",
+    "source": "Survey",
+    "rating_value": 3.63,
+    "response_count": 110,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "35f1af06-5a18-4647-b354-7ea80579c46a",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-04-01",
+    "source": "Survey",
+    "rating_value": 3.57,
+    "response_count": 109,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b0ddcb0a-3397-4133-8f10-ea988ec515f2",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-05-01",
+    "source": "Survey",
+    "rating_value": 3.63,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e23ca40f-fe77-476e-b099-e39d0a748eef",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-06-01",
+    "source": "Survey",
+    "rating_value": 3.63,
+    "response_count": 181,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ef581d4f-efa7-4d88-8604-721169024c5f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-07-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 102,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a6fde082-5d19-4d77-bdbd-996ddda176fa",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-08-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 90,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "218d6567-8a6e-462d-8475-11aa148fe341",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-09-01",
+    "source": "Survey",
+    "rating_value": 3.66,
+    "response_count": 166,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "26e13a08-ee8c-4420-a110-1161a0c91f4c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-10-01",
+    "source": "Survey",
+    "rating_value": 3.66,
+    "response_count": 90,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "9528c743-dae5-4653-b4a1-7269a154afa0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-11-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 173,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "4cb00ec2-980c-478e-a974-ce3dca2a7d9f",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2023-12-01",
+    "source": "Survey",
+    "rating_value": 3.82,
+    "response_count": 105,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "a3e05959-14be-4df4-a826-dd5d9e0edf66",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-01-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 199,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "b476ece9-5463-4d96-b376-6a5d95ad8e12",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-02-01",
+    "source": "Survey",
+    "rating_value": 3.82,
+    "response_count": 122,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "6017d254-7be0-4066-8f96-653b912a6e16",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-03-01",
+    "source": "Survey",
+    "rating_value": 3.85,
+    "response_count": 205,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "56163be1-dffb-4195-8fbb-5e2ce97ecfe1",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-04-01",
+    "source": "Survey",
+    "rating_value": 3.82,
+    "response_count": 149,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "ae64265f-cfd2-4c65-97b4-d2def8f9d052",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-05-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 179,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "6d1d2b0d-289e-4457-b49e-1466b1267469",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-06-01",
+    "source": "Survey",
+    "rating_value": 3.87,
+    "response_count": 72,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "3071803c-edae-4448-9d0e-9bb67eb70684",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-07-01",
+    "source": "Survey",
+    "rating_value": 3.92,
+    "response_count": 101,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "51d23f12-fb66-44b9-ab05-06e243a704eb",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-08-01",
+    "source": "Survey",
+    "rating_value": 3.87,
+    "response_count": 74,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "2e1afea9-3ac0-4fb4-91be-eef506739023",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-09-01",
+    "source": "Survey",
+    "rating_value": 3.96,
+    "response_count": 109,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "e702e053-5f04-4b84-baa2-3de632fb1f01",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-10-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 100,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "adef5557-2cb5-45ad-9c89-fc9590ca5de7",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-11-01",
+    "source": "Survey",
+    "rating_value": 3.99,
+    "response_count": 179,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "b5b538ca-bfd8-4ba2-bc77-8293fcfbac28",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2024-12-01",
+    "source": "Survey",
+    "rating_value": 3.94,
+    "response_count": 62,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "26389edd-d5f9-4b7a-b2ca-220e45b960b6",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-01-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 209,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "8e1d5952-fa75-47ab-a3b1-317725de9efd",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-02-01",
+    "source": "Survey",
+    "rating_value": 4.02,
+    "response_count": 136,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "fac17250-6ea7-48ed-b9bf-a03f78e6e23e",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-03-01",
+    "source": "Survey",
+    "rating_value": 3.95,
+    "response_count": 147,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "42190071-95ae-4c7f-9a0b-f180aa934870",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-04-01",
+    "source": "Survey",
+    "rating_value": 3.97,
+    "response_count": 167,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "b3b7ac9f-26b4-4545-99e5-b0fc3c568fae",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-05-01",
+    "source": "Survey",
+    "rating_value": 3.99,
+    "response_count": 130,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "66d0c351-9d73-4d2c-a0d5-353bf856d8ff",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-07-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 179,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "2bb441da-9222-4ec7-8351-eaa23a014483",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-08-01",
+    "source": "Survey",
+    "rating_value": 3.99,
+    "response_count": 162,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "9ab7416a-0f48-46d0-a503-10d86e4cd434",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-09-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 136,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "c4f28420-ba1b-4ea6-8d81-79f0474571f0",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-10-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 135,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "e1ea06df-51a7-4531-bfea-5e5fadf3b58c",
+    "property_id": "88888888-8888-8888-8888-888888888888",
+    "rating_month": "2025-11-01",
+    "source": "Survey",
+    "rating_value": 4.08,
+    "response_count": 189,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "4a4881c7-9669-4a24-a904-24e114bf760d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-01-01",
+    "source": "Survey",
+    "rating_value": 3.06,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "15cfcb8a-dbc5-47d9-ac11-9758d26d0eae",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-02-01",
+    "source": "Survey",
+    "rating_value": 3.09,
+    "response_count": 63,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "d583bff4-7fd2-4fcc-a98f-43e2c582c089",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-03-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 67,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b583603a-3551-4067-ac12-863b364bca22",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-04-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 62,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "1340475a-6bb3-4da1-a6a4-f0d410f1d423",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-05-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 49,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "0b43172a-44c9-4300-acdb-523c2d111a20",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-06-01",
+    "source": "Survey",
+    "rating_value": 3.07,
+    "response_count": 66,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "69179bc6-11ca-4cd3-a49c-4d9fce213ff0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-07-01",
+    "source": "Survey",
+    "rating_value": 2.97,
+    "response_count": 57,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "7591b8dd-31f0-4ef7-a0f7-5debc1fedfaf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-08-01",
+    "source": "Survey",
+    "rating_value": 2.99,
+    "response_count": 70,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "0c8f7e7c-6cad-4423-a8f0-dda6c3426bc2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-09-01",
+    "source": "Survey",
+    "rating_value": 3.01,
+    "response_count": 61,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cf189fc0-22e2-4832-a7a9-5245ae72700d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-10-01",
+    "source": "Survey",
+    "rating_value": 2.97,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3651807a-be34-4b82-acc2-a46ba7c80449",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-11-01",
+    "source": "Survey",
+    "rating_value": 3.03,
+    "response_count": 55,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "c886b972-232e-452f-aaef-d15c18b1dfbe",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2015-12-01",
+    "source": "Survey",
+    "rating_value": 3.15,
+    "response_count": 53,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8c961770-8406-4d26-a3de-ec24d6ca64df",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-01-01",
+    "source": "Survey",
+    "rating_value": 3.17,
+    "response_count": 77,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8533b1c2-fb6b-49fd-a995-23fd5591b319",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-02-01",
+    "source": "Survey",
+    "rating_value": 3.17,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8ed40809-91e4-479c-a7b4-122ef5316f3a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-03-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 75,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "425e949d-5510-4b7d-ad72-f757a503fccd",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-04-01",
+    "source": "Survey",
+    "rating_value": 3.16,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "166b9c24-87da-4f45-a88c-fae026d7250e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-05-01",
+    "source": "Survey",
+    "rating_value": 3.17,
+    "response_count": 56,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ff619b0a-5ca4-4ba3-a0e6-6a030df29c2b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-06-01",
+    "source": "Survey",
+    "rating_value": 3.16,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e9d49798-39ff-455b-ade0-a718035b6189",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-07-01",
+    "source": "Survey",
+    "rating_value": 3.03,
+    "response_count": 55,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "dba4ec6e-52b0-44c7-ab27-7b23c0f001cc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-08-01",
+    "source": "Survey",
+    "rating_value": 3.09,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "40e12d0a-a1de-450d-a995-0b2eaae7921f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-09-01",
+    "source": "Survey",
+    "rating_value": 3.06,
+    "response_count": 85,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "fa65b277-3c74-488f-a704-564b334c9a1b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-10-01",
+    "source": "Survey",
+    "rating_value": 3.06,
+    "response_count": 74,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "2faa9ad7-21d1-4d84-a4f0-1148e23caf7f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-11-01",
+    "source": "Survey",
+    "rating_value": 3.08,
+    "response_count": 62,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "08fd0706-81f8-43b3-aa05-5f5067d473e7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2016-12-01",
+    "source": "Survey",
+    "rating_value": 3.14,
+    "response_count": 78,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5fbb4bac-8b3c-4e18-ad93-dd721eb72f67",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-01-01",
+    "source": "Survey",
+    "rating_value": 3.23,
+    "response_count": 77,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "1455d533-6a0c-4752-a3e5-20ceccc29514",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-02-01",
+    "source": "Survey",
+    "rating_value": 3.07,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "11b48935-8ba3-4d33-ad38-0c4e74e22ff4",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-03-01",
+    "source": "Survey",
+    "rating_value": 3.36,
+    "response_count": 84,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "580d21a1-1710-49af-a314-706ffcc33840",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-04-01",
+    "source": "Survey",
+    "rating_value": 3.25,
+    "response_count": 70,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a4c1f1f6-d469-45ec-ab88-7639ce182d3d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-05-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 67,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "bd10d7c5-5dd3-419f-a61a-21b0a72aa900",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-06-01",
+    "source": "Survey",
+    "rating_value": 3.12,
+    "response_count": 74,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "12f7aabb-7bf8-48d2-a4a5-d921226219ea",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-07-01",
+    "source": "Survey",
+    "rating_value": 3.17,
+    "response_count": 81,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3a68be4a-50ab-45c3-af37-d2dff30993fe",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-08-01",
+    "source": "Survey",
+    "rating_value": 3.1,
+    "response_count": 64,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e6cc0c03-726f-45c5-a75b-0ddf4b5c2533",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-09-01",
+    "source": "Survey",
+    "rating_value": 3.02,
+    "response_count": 74,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "48552557-67ba-44c0-a927-96baa7aa7ceb",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-10-01",
+    "source": "Survey",
+    "rating_value": 3.1,
+    "response_count": 84,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "9d688191-a1d2-406b-a4d7-e8e65c92ea0c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-11-01",
+    "source": "Survey",
+    "rating_value": 3.22,
+    "response_count": 72,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "c7df8df1-dee8-4695-aa6e-605b6d7b76d7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2017-12-01",
+    "source": "Survey",
+    "rating_value": 3.23,
+    "response_count": 88,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "bf5db5a0-3bc5-4ddc-a226-78d3868c0f63",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-01-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 85,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "c801af70-6b62-41c8-a9d5-43d974ad1aa3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-02-01",
+    "source": "Survey",
+    "rating_value": 3.39,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "dc576563-99c4-44a4-af6e-6cc291ef0268",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-03-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cff2defa-521d-45a0-a6f7-3290686899dc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-04-01",
+    "source": "Survey",
+    "rating_value": 3.37,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "90fbf728-a963-4fc0-ab43-8b1d8484de7e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-05-01",
+    "source": "Survey",
+    "rating_value": 3.37,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ff90b005-84cd-4f76-ad1f-fe3f20750e88",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-06-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 90,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "905ec274-fc3a-4501-a200-db9c564b3ee9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-07-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 76,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a1f6312a-dd57-4bb2-af65-80f871b7100d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-08-01",
+    "source": "Survey",
+    "rating_value": 3.24,
+    "response_count": 92,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "1d131902-48e5-46a7-a2c1-9e2922701e23",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-09-01",
+    "source": "Survey",
+    "rating_value": 3.22,
+    "response_count": 91,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b28529e9-918f-4d3f-ac74-36abe417b67d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-10-01",
+    "source": "Survey",
+    "rating_value": 3.17,
+    "response_count": 75,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "7d2d0955-11c4-4114-a593-503ad0ad6e15",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-11-01",
+    "source": "Survey",
+    "rating_value": 3.27,
+    "response_count": 85,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a79df913-9d29-4945-a0f8-e3214cbcb6e3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2018-12-01",
+    "source": "Survey",
+    "rating_value": 3.34,
+    "response_count": 81,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "076f7be0-aad8-43a7-ac9a-2c5c8849c635",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-01-01",
+    "source": "Survey",
+    "rating_value": 3.35,
+    "response_count": 108,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "fa693d9b-8998-4264-a04c-77835bf65ec3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-02-01",
+    "source": "Survey",
+    "rating_value": 3.48,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "49f8b430-17ad-4bbc-a093-a767254c52bc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-03-01",
+    "source": "Survey",
+    "rating_value": 3.43,
+    "response_count": 81,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5da34a59-b75c-4077-a856-e5f8cfeec937",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-04-01",
+    "source": "Survey",
+    "rating_value": 3.49,
+    "response_count": 88,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "1465272c-a4f4-4006-a823-62f2e8e1baec",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-05-01",
+    "source": "Survey",
+    "rating_value": 3.32,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "22c9b6a9-66cd-4441-aedc-c390a68a011e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-06-01",
+    "source": "Survey",
+    "rating_value": 3.34,
+    "response_count": 107,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5076b31d-8db3-4642-abc8-01911bb5e3d2",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-07-01",
+    "source": "Survey",
+    "rating_value": 3.29,
+    "response_count": 97,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "c3e22bb9-03f1-4d94-a18c-8c228544d8cf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-08-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 83,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "fad7ea98-f54e-49d3-abf9-2a8334970fb9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-09-01",
+    "source": "Survey",
+    "rating_value": 3.38,
+    "response_count": 92,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ec212a91-0113-420e-a7c3-b8dd2b333312",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-10-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 91,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "dded736e-90af-4bc8-ac98-810427fb6c5b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-11-01",
+    "source": "Survey",
+    "rating_value": 3.31,
+    "response_count": 100,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a81300f8-7dbe-4a51-a219-6f02beb5fe26",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2019-12-01",
+    "source": "Survey",
+    "rating_value": 3.4,
+    "response_count": 83,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b791c60d-7ed5-4644-a50e-f2691c43bc68",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-01-01",
+    "source": "Survey",
+    "rating_value": 3.45,
+    "response_count": 113,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "f1dd4dba-4d02-4a59-a388-58672347544d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-02-01",
+    "source": "Survey",
+    "rating_value": 3.54,
+    "response_count": 99,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "30f9952c-3561-4fd8-a802-878ba284cab5",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-03-01",
+    "source": "Survey",
+    "rating_value": 3.54,
+    "response_count": 93,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8f6511af-5ec2-4e16-af96-f3997f73509b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-04-01",
+    "source": "Survey",
+    "rating_value": 3.31,
+    "response_count": 104,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ac2f5181-2f99-420b-acb1-082b40156ec6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-05-01",
+    "source": "Survey",
+    "rating_value": 3.41,
+    "response_count": 95,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "0d9b921b-d10e-48f1-ab4e-e852879ea86a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-06-01",
+    "source": "Survey",
+    "rating_value": 3.39,
+    "response_count": 108,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "1e1ed6b8-5913-47ab-a843-1486b0b3786f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-07-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 96,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "fd5288e1-f592-420d-a36f-4d8a019a704c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-08-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 87,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "2d397893-4904-490e-aa8d-a6b5aa93f8c9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-09-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 105,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e02e85af-3295-4aa4-a6ff-53ed22615da6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-10-01",
+    "source": "Survey",
+    "rating_value": 3.27,
+    "response_count": 97,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "f061252e-016b-48a3-a1b8-887c4d9de962",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-11-01",
+    "source": "Survey",
+    "rating_value": 3.36,
+    "response_count": 112,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "9261c548-755f-41f3-a264-ed9aba5d0645",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2020-12-01",
+    "source": "Survey",
+    "rating_value": 3.54,
+    "response_count": 106,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3bbee9ef-084f-4c91-85f1-c8a2dc6d223c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-01-01",
+    "source": "Survey",
+    "rating_value": 3.12,
+    "response_count": 95,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "f7d86350-d491-4c88-b79f-11829625f0d9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-02-01",
+    "source": "Survey",
+    "rating_value": 3.2,
+    "response_count": 193,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "351b5898-f1a2-44bf-a91a-2ab6d31765de",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-03-01",
+    "source": "Survey",
+    "rating_value": 3.19,
+    "response_count": 71,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "02834f3b-d129-4a98-82a8-2804a14237db",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-04-01",
+    "source": "Survey",
+    "rating_value": 3.23,
+    "response_count": 80,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "65630408-bda3-497a-be1d-5138dbee061b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-05-01",
+    "source": "Survey",
+    "rating_value": 3.15,
+    "response_count": 105,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000001",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-06-01",
+    "source": "Survey",
+    "rating_value": 3.2,
+    "response_count": 148,
+    "notes": "Maintenance response time cited as top issue."
+  },
+  {
+    "resident_rating_id": "f5635f31-2008-4be8-84ec-35518b86d1cc",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-07-01",
+    "source": "Survey",
+    "rating_value": 3.27,
+    "response_count": 146,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "261317af-5bfd-491d-899c-2699f9952fb1",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-08-01",
+    "source": "Survey",
+    "rating_value": 3.24,
+    "response_count": 134,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "d385ff35-1205-48ca-8c50-ec1d54e5db14",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-09-01",
+    "source": "Survey",
+    "rating_value": 3.27,
+    "response_count": 108,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "04955b95-e497-4307-9000-0b20c3b94c25",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-10-01",
+    "source": "Survey",
+    "rating_value": 3.23,
+    "response_count": 114,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b15388a1-424a-46a5-999c-9d3db3dd7982",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-11-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 92,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "02c5fad2-3b20-4c00-b48e-ee18ce4b22da",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2021-12-01",
+    "source": "Survey",
+    "rating_value": 3.34,
+    "response_count": 159,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e158a5c5-6a9b-4a08-89bb-ff8cbb61d49d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-01-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 63,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a36dd931-8de6-47da-aa84-5d31a0fd9cef",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-02-01",
+    "source": "Survey",
+    "rating_value": 3.29,
+    "response_count": 123,
+    "notes": "DD wave month: heightened scrutiny"
+  },
+  {
+    "resident_rating_id": "b344de14-69bb-4829-8367-c1261ad6bf77",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-03-01",
+    "source": "Survey",
+    "rating_value": 3.31,
+    "response_count": 72,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "248046d6-2cff-4117-a16b-c9210a423219",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-04-01",
+    "source": "Survey",
+    "rating_value": 3.32,
+    "response_count": 164,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8a974a20-1887-4428-8c70-6b388c0ae7c6",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-05-01",
+    "source": "Survey",
+    "rating_value": 3.35,
+    "response_count": 164,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000002",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-06-01",
+    "source": "Survey",
+    "rating_value": 3.55,
+    "response_count": 162,
+    "notes": "Early improvements after acquisition."
+  },
+  {
+    "resident_rating_id": "adb78ac9-caa0-4732-b5a8-d217afafdef8",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-07-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 175,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "0dd81b24-9ff5-4025-a44b-7a3a9d9b0787",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-08-01",
+    "source": "Survey",
+    "rating_value": 3.33,
+    "response_count": 207,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "9e9e5662-2e95-4724-be39-766b1740f56d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-09-01",
+    "source": "Survey",
+    "rating_value": 3.45,
+    "response_count": 138,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3b5cec3e-420e-42d2-8bbb-4bd30aebb56b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-10-01",
+    "source": "Survey",
+    "rating_value": 3.39,
+    "response_count": 196,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e83faba7-e82d-4407-986e-6384d980d99a",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-11-01",
+    "source": "Survey",
+    "rating_value": 3.47,
+    "response_count": 139,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3701296e-b2e1-4188-b284-a905f954c110",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2022-12-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 79,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "25cbc6bb-29df-4883-9dfa-277e38fbafb0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-01-01",
+    "source": "Survey",
+    "rating_value": 3.45,
+    "response_count": 157,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "189991f3-6bc0-4227-83f6-3d3184f63741",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-02-01",
+    "source": "Survey",
+    "rating_value": 3.46,
+    "response_count": 153,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "76961660-971b-46b6-8333-6c24b27dd91e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-03-01",
+    "source": "Survey",
+    "rating_value": 3.43,
+    "response_count": 66,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ce5ec030-0586-4367-8ee4-2c3367f65357",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-04-01",
+    "source": "Survey",
+    "rating_value": 3.51,
+    "response_count": 196,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "b98838cb-7d7e-412f-9bbb-386efdd10e9f",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-05-01",
+    "source": "Survey",
+    "rating_value": 3.46,
+    "response_count": 187,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000003",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-06-01",
+    "source": "Survey",
+    "rating_value": 3.85,
+    "response_count": 171,
+    "notes": "Reno + HVAC upgrades improving sentiment."
+  },
+  {
+    "resident_rating_id": "f330a697-80e3-45cd-9f22-1076efe30c43",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-07-01",
+    "source": "Survey",
+    "rating_value": 3.51,
+    "response_count": 99,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "d9d93df4-e238-47d0-906d-4c1635fb6f09",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-08-01",
+    "source": "Survey",
+    "rating_value": 3.58,
+    "response_count": 203,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8c60f80b-0c24-45a3-8f61-902ca7f2d91e",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-09-01",
+    "source": "Survey",
+    "rating_value": 3.59,
+    "response_count": 112,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "7b10a78b-a3ce-49e2-baed-853df0982b50",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-10-01",
+    "source": "Survey",
+    "rating_value": 3.59,
+    "response_count": 100,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8f149ce4-b427-41df-a48a-8a8339616ca4",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-11-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 76,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "74ebc050-378b-4609-9fa7-4c28be1b53ac",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2023-12-01",
+    "source": "Survey",
+    "rating_value": 3.7,
+    "response_count": 177,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "71365eef-e385-4af7-bd2d-18f13b7a663d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-01-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 149,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "161300fd-deb1-4bb5-83b7-402c42464e12",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-02-01",
+    "source": "Survey",
+    "rating_value": 3.77,
+    "response_count": 82,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "12c91585-1c3f-4002-b2e7-b18db429414d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-03-01",
+    "source": "Survey",
+    "rating_value": 3.69,
+    "response_count": 121,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "84ba43dd-906a-4216-a6b7-a368dc0c4eaf",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-04-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 122,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "617d04fa-40e2-4fcc-b8e4-c6aa0d2ed7f9",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-05-01",
+    "source": "Survey",
+    "rating_value": 3.79,
+    "response_count": 139,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000004",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-06-01",
+    "source": "Survey",
+    "rating_value": 4.05,
+    "response_count": 180,
+    "notes": "Higher satisfaction; fewer recurring issues."
+  },
+  {
+    "resident_rating_id": "b1b8bd5c-f5c8-46ab-8e43-794015abe1ef",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-07-01",
+    "source": "Survey",
+    "rating_value": 3.81,
+    "response_count": 157,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "8d51222d-9f6f-4ab0-babf-43211fc6b92b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-08-01",
+    "source": "Survey",
+    "rating_value": 3.85,
+    "response_count": 162,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "24b3a849-af95-41c7-903e-34137526d892",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-09-01",
+    "source": "Survey",
+    "rating_value": 3.81,
+    "response_count": 75,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "6582b768-c98e-40a8-8f1f-3399ea3fa906",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-10-01",
+    "source": "Survey",
+    "rating_value": 3.87,
+    "response_count": 91,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "5027e8eb-659b-4bf6-8ec4-f856c3e929c1",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-11-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 207,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "d8bfba6e-cda7-4062-a3a1-c5bd36c27457",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2024-12-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 147,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "986d29e7-a3b3-4859-9fcb-144b0ba2380b",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-01-01",
+    "source": "Survey",
+    "rating_value": 3.94,
+    "response_count": 206,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "bd54e40d-0b76-4a13-a263-9acc56580827",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-02-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 74,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "27055928-698a-4d37-a66f-1ba09e690881",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-03-01",
+    "source": "Survey",
+    "rating_value": 3.96,
+    "response_count": 76,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "1419bf08-321b-4e9a-8223-c42cd81c8f41",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-04-01",
+    "source": "Survey",
+    "rating_value": 3.95,
+    "response_count": 85,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "1abf2744-1a88-4ddd-a80f-ae731ac6a0f0",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-05-01",
+    "source": "Survey",
+    "rating_value": 3.95,
+    "response_count": 187,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "64000000-0000-0000-0000-000000000005",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-06-01",
+    "source": "Survey",
+    "rating_value": 4.22,
+    "response_count": 193,
+    "notes": "New management maintaining standards."
+  },
+  {
+    "resident_rating_id": "afe31b8c-112a-41c1-a7f1-ebb1aac3f71d",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-07-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 123,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "8e11cbd3-b548-4a7e-a4b6-0d0c6efdb0a7",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-08-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 140,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "9ac8b855-6c97-4188-83d1-a90aeca44f01",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-09-01",
+    "source": "Survey",
+    "rating_value": 4.04,
+    "response_count": 102,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "d3da4be6-9837-4b34-8ef3-1a612ab343c3",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-10-01",
+    "source": "Survey",
+    "rating_value": 4.04,
+    "response_count": 178,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "b1cb07f5-73ad-4f05-8ee1-ab53b85a7c7c",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-11-01",
+    "source": "Survey",
+    "rating_value": 4.04,
+    "response_count": 157,
+    "notes": "Post-capex sentiment improves"
+  },
+  {
+    "resident_rating_id": "042841a8-a528-4e76-a914-79b3a96ea3ae",
+    "property_id": "99999999-9999-9999-9999-999999999999",
+    "rating_month": "2025-12-01",
+    "source": "Survey",
+    "rating_value": 4.18,
+    "response_count": 132,
+    "notes": "Seeded survey rating for demo"
+  },
+  {
+    "resident_rating_id": "b5e56145-fc6c-4e9e-a158-53fc136b24cd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-01-01",
+    "source": "Survey",
+    "rating_value": 2.89,
+    "response_count": 48,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "5ebe0a60-2411-4570-8c82-ae9b19993035",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-02-01",
+    "source": "Survey",
+    "rating_value": 2.68,
+    "response_count": 56,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "8dbd76cc-6132-4854-a7be-7442b20ec54b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-03-01",
+    "source": "Survey",
+    "rating_value": 2.78,
+    "response_count": 68,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "fdfd1809-dccd-462d-a227-b102cca75826",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-04-01",
+    "source": "Survey",
+    "rating_value": 2.81,
+    "response_count": 63,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "951bf311-5a82-4082-9b97-da4bb9986002",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-05-01",
+    "source": "Survey",
+    "rating_value": 2.77,
+    "response_count": 46,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "3a88b183-8438-43e5-a7fc-c54530b71028",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-06-01",
+    "source": "Survey",
+    "rating_value": 3.1,
+    "response_count": 63,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "659d7920-8e00-47c0-9604-764b85a1b883",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-07-01",
+    "source": "Survey",
+    "rating_value": 2.9,
+    "response_count": 70,
+    "notes": "Residents frustrated with repair delays"
+  },
+  {
+    "resident_rating_id": "3c2a3679-77db-4b42-b11c-43fca2edc363",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-08-01",
+    "source": "Survey",
+    "rating_value": 2.73,
+    "response_count": 62,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "76337e07-4658-4368-ac97-4c5b3bea69b0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-09-01",
+    "source": "Survey",
+    "rating_value": 2.96,
+    "response_count": 55,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "4d283dfe-4e4c-4f22-bb94-4701a19f4331",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-10-01",
+    "source": "Survey",
+    "rating_value": 2.8,
+    "response_count": 69,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "a31b0a41-68d9-4272-add8-53467805be9a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-11-01",
+    "source": "Survey",
+    "rating_value": 2.91,
+    "response_count": 69,
+    "notes": "Residents frustrated with repair delays"
+  },
+  {
+    "resident_rating_id": "738418b8-2b5b-4386-91ed-544155e77e1b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2020-12-01",
+    "source": "Survey",
+    "rating_value": 2.7,
+    "response_count": 61,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "c3d3ed06-e1a4-4f88-b4b1-a77a7eafd595",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-01-01",
+    "source": "Survey",
+    "rating_value": 2.72,
+    "response_count": 74,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "70d91cbb-8788-4de9-bba4-02ccc13a5a5e",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-02-01",
+    "source": "Survey",
+    "rating_value": 2.99,
+    "response_count": 53,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "1fd690a8-07ec-46a5-8f03-f0b9ad7859fc",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-03-01",
+    "source": "Survey",
+    "rating_value": 2.8,
+    "response_count": 45,
+    "notes": "HVAC issues driving complaints"
+  },
+  {
+    "resident_rating_id": "785d9ff3-f223-4506-97ce-e35141867ca3",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-04-01",
+    "source": "Survey",
+    "rating_value": 3.03,
+    "response_count": 71,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "7394a299-bcb0-454e-90a0-a9a9fa2d5f34",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-05-01",
+    "source": "Survey",
+    "rating_value": 2.97,
+    "response_count": 62,
+    "notes": "Residents frustrated with repair delays"
+  },
+  {
+    "resident_rating_id": "93ad6a51-2e60-4e13-8b6a-c4e8e9ac90a4",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-06-01",
+    "source": "Survey",
+    "rating_value": 2.97,
+    "response_count": 61,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "48d56072-2701-49bb-8458-d8d74d29fbcd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-07-01",
+    "source": "Survey",
+    "rating_value": 2.63,
+    "response_count": 56,
+    "notes": "HVAC issues driving complaints"
+  },
+  {
+    "resident_rating_id": "b2b264d3-528e-4388-a621-2a81e455521a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-08-01",
+    "source": "Survey",
+    "rating_value": 2.75,
+    "response_count": 51,
+    "notes": "Residents frustrated with repair delays"
+  },
+  {
+    "resident_rating_id": "6e014013-c5d5-4699-b9ca-f0c13e4a18c7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-09-01",
+    "source": "Survey",
+    "rating_value": 2.88,
+    "response_count": 48,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "9b0788ec-33e8-4cde-a407-d5846877b863",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-10-01",
+    "source": "Survey",
+    "rating_value": 2.77,
+    "response_count": 70,
+    "notes": "HVAC issues driving complaints"
+  },
+  {
+    "resident_rating_id": "9eac3d1a-5121-4f87-b30b-7d6a388e4300",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-11-01",
+    "source": "Survey",
+    "rating_value": 2.87,
+    "response_count": 68,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "73d083c8-a09e-4625-b1ab-333eb8ba66e2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2021-12-01",
+    "source": "Survey",
+    "rating_value": 2.73,
+    "response_count": 49,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a2720e5a-3f99-430c-8dde-8363333e8812",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-01-01",
+    "source": "Survey",
+    "rating_value": 2.91,
+    "response_count": 69,
+    "notes": "HVAC issues driving complaints"
+  },
+  {
+    "resident_rating_id": "1825a5d8-2c33-4a64-9946-3bec5f1c91f1",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-02-01",
+    "source": "Survey",
+    "rating_value": 2.8,
+    "response_count": 51,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5808ae7f-2803-4ae7-976c-cec93461f109",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-03-01",
+    "source": "Survey",
+    "rating_value": 3.01,
+    "response_count": 51,
+    "notes": "Residents frustrated with repair delays"
+  },
+  {
+    "resident_rating_id": "82348e1b-c7c8-4eba-980f-513e3712f831",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-04-01",
+    "source": "Survey",
+    "rating_value": 2.76,
+    "response_count": 73,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e6469a82-d13c-4bd5-b607-a9c3394a29e6",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-05-01",
+    "source": "Survey",
+    "rating_value": 2.84,
+    "response_count": 72,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "e9100ac4-2c7c-4b79-a86c-cb55ee3da97d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-06-01",
+    "source": "Survey",
+    "rating_value": 2.77,
+    "response_count": 60,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "52c1f98a-9942-4e70-9e4a-cab360ee6e58",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-07-01",
+    "source": "Survey",
+    "rating_value": 2.65,
+    "response_count": 53,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "22df0e6e-399f-42b5-98ad-83dd434b83d7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-08-01",
+    "source": "Survey",
+    "rating_value": 2.6,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "60c3efe1-bece-4eb9-ba21-2143f1539234",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-09-01",
+    "source": "Survey",
+    "rating_value": 3.09,
+    "response_count": 62,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "ec7ebc5d-1127-4236-ad29-c0b9677409af",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-10-01",
+    "source": "Survey",
+    "rating_value": 3.1,
+    "response_count": 68,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "50619aaf-5374-4840-af24-f226bf39b530",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-11-01",
+    "source": "Survey",
+    "rating_value": 2.9,
+    "response_count": 59,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "4b1bcbd5-fce2-4d78-8c91-59a0068f548d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2022-12-01",
+    "source": "Survey",
+    "rating_value": 2.78,
+    "response_count": 46,
+    "notes": "Slow work order response times noted in comments"
+  },
+  {
+    "resident_rating_id": "7458e56d-9eb8-4277-a1d5-9a785d2a3039",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-01-01",
+    "source": "Survey",
+    "rating_value": 2.93,
+    "response_count": 50,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "1ee35f5f-79a0-4caa-a61f-fe4bea8283a0",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-02-01",
+    "source": "Survey",
+    "rating_value": 2.7,
+    "response_count": 49,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "eb085c81-df8d-4307-a036-117551f4d3ef",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-03-01",
+    "source": "Survey",
+    "rating_value": 2.78,
+    "response_count": 54,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "94b8da05-b5ce-4cb0-a82f-cbeb6d014086",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-04-01",
+    "source": "Survey",
+    "rating_value": 2.83,
+    "response_count": 70,
+    "notes": "Multiple complaints about response times"
+  },
+  {
+    "resident_rating_id": "09e1f457-4045-4195-a018-69e0ef8d59ac",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-05-01",
+    "source": "Survey",
+    "rating_value": 3.03,
+    "response_count": 54,
+    "notes": "Maintenance backlog affecting satisfaction"
+  },
+  {
+    "resident_rating_id": "aecb66d6-f6eb-478c-838b-22f6370b10e4",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-06-01",
+    "source": "Survey",
+    "rating_value": 3.35,
+    "response_count": 46,
+    "notes": "New property manager onboarding"
+  },
+  {
+    "resident_rating_id": "c4bfcc3a-3b57-4847-b78f-ee2e4f2c428d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-07-01",
+    "source": "Survey",
+    "rating_value": 3.22,
+    "response_count": 65,
+    "notes": "New property manager onboarding"
+  },
+  {
+    "resident_rating_id": "191e8741-e0ca-4b77-9459-8bce8b2057cf",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-08-01",
+    "source": "Survey",
+    "rating_value": 3.28,
+    "response_count": 59,
+    "notes": "Maintenance process review underway"
+  },
+  {
+    "resident_rating_id": "2e40d35d-06ec-4210-a2d7-0c9a40f029bd",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-09-01",
+    "source": "Survey",
+    "rating_value": 3.39,
+    "response_count": 60,
+    "notes": "New maintenance protocols showing results"
+  },
+  {
+    "resident_rating_id": "b89aa1f3-bdc0-4d06-a19e-936287df5323",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-10-01",
+    "source": "Survey",
+    "rating_value": 3.42,
+    "response_count": 68,
+    "notes": "Residents noticing faster repairs"
+  },
+  {
+    "resident_rating_id": "02b77add-9292-45fa-b3bf-2ffb8faf9d53",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-11-01",
+    "source": "Survey",
+    "rating_value": 3.57,
+    "response_count": 51,
+    "notes": "Improved response times noted"
+  },
+  {
+    "resident_rating_id": "67f9d224-41fc-4dba-af0f-ddea30f9f686",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2023-12-01",
+    "source": "Survey",
+    "rating_value": 3.47,
+    "response_count": 62,
+    "notes": "Improved response times noted"
+  },
+  {
+    "resident_rating_id": "d94f43f6-5841-4ac5-8c12-5deee15683d2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-01-01",
+    "source": "Survey",
+    "rating_value": 3.18,
+    "response_count": 66,
+    "notes": "Work order backlog clearing"
+  },
+  {
+    "resident_rating_id": "7a202212-475c-4ffa-9498-8002e06c572a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-02-01",
+    "source": "Survey",
+    "rating_value": 3.18,
+    "response_count": 68,
+    "notes": "New maintenance protocols showing results"
+  },
+  {
+    "resident_rating_id": "473dd829-b6d5-4486-9fe7-66e8c4dbe0f8",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-03-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 70,
+    "notes": "Strong satisfaction with maintenance team"
+  },
+  {
+    "resident_rating_id": "fb77e269-4afc-415f-8aca-5ad1cf0e9a95",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-04-01",
+    "source": "Survey",
+    "rating_value": 3.58,
+    "response_count": 48,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "e6d7b5f0-06bd-4837-8f63-7a7cba67b69b",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-05-01",
+    "source": "Survey",
+    "rating_value": 3.62,
+    "response_count": 73,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "7bc890c9-853c-418e-9893-056bb84880a5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-06-01",
+    "source": "Survey",
+    "rating_value": 3.64,
+    "response_count": 56,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "e7060aae-b0e3-45b3-9d83-6f79f8b1919a",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-07-01",
+    "source": "Survey",
+    "rating_value": 3.73,
+    "response_count": 71,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "9c561b4c-3e17-4b19-9098-409fb6a4c274",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-08-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 55,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "3b769f65-eb98-4300-bb0f-50668deebb6c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-09-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 64,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "f07e69c6-9f77-4ce4-ada7-56a47798a930",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-10-01",
+    "source": "Survey",
+    "rating_value": 3.75,
+    "response_count": 51,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "1da26ef4-a552-4f3d-961d-fba037fe97b5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-11-01",
+    "source": "Survey",
+    "rating_value": 3.73,
+    "response_count": 47,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "51b9bb33-903d-44e4-af6a-7eb0c820a2a2",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2024-12-01",
+    "source": "Survey",
+    "rating_value": 3.87,
+    "response_count": 45,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "e6f4a281-b9bf-41c7-8575-6cdc12ed7ef7",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-01-01",
+    "source": "Survey",
+    "rating_value": 3.78,
+    "response_count": 45,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "b30466fd-3770-41eb-883a-265430859d22",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-02-01",
+    "source": "Survey",
+    "rating_value": 3.77,
+    "response_count": 57,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "b558ae50-52cd-490c-a354-ca40aa22b1bf",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-03-01",
+    "source": "Survey",
+    "rating_value": 3.79,
+    "response_count": 51,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "80ad51d4-6f35-468f-803a-4cfbdacb80c5",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-04-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 62,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "a6967967-0ff0-47ed-8f92-3c93056d3749",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-05-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 64,
+    "notes": "High marks for maintenance communication"
+  },
+  {
+    "resident_rating_id": "83091431-1c95-435c-aa98-f7bd2ab37d9f",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-06-01",
+    "source": "Survey",
+    "rating_value": 3.92,
+    "response_count": 55,
+    "notes": "Positive feedback on unit repairs"
+  },
+  {
+    "resident_rating_id": "827a416e-7e34-472e-8678-06e1a3dd455c",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-07-01",
+    "source": "Survey",
+    "rating_value": 3.93,
+    "response_count": 49,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "9d9cd62d-112c-4ce9-9abf-f115cb0d4734",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-08-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 68,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "c8bdf0cc-00d0-4ea0-bb26-68981aeba7cb",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-09-01",
+    "source": "Survey",
+    "rating_value": 3.91,
+    "response_count": 50,
+    "notes": "Residents praise quick response times"
+  },
+  {
+    "resident_rating_id": "59ad41e7-c056-486c-9a55-48c5ed826a3d",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-10-01",
+    "source": "Survey",
+    "rating_value": 3.93,
+    "response_count": 45,
+    "notes": "High marks for maintenance communication"
+  },
+  {
+    "resident_rating_id": "2d946efb-28e1-4dd7-9bc0-6f17000b6494",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-11-01",
+    "source": "Survey",
+    "rating_value": 4.05,
+    "response_count": 66,
+    "notes": "High marks for maintenance communication"
+  },
+  {
+    "resident_rating_id": "76e63e31-8172-4d16-8a27-8272efdc0819",
+    "property_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+    "rating_month": "2025-12-01",
+    "source": "Survey",
+    "rating_value": 4.07,
+    "response_count": 49,
+    "notes": "Continued improvement in satisfaction"
+  },
+  {
+    "resident_rating_id": "0ccfa2cc-4ac1-4cb1-837c-bf6bbac1e2df",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-01-01",
+    "source": "Survey",
+    "rating_value": 3.7,
+    "response_count": 44,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "f5ab16de-b9c8-42ac-ac82-c8ec79b14035",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-02-01",
+    "source": "Survey",
+    "rating_value": 3.69,
+    "response_count": 57,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "360926fc-0cfd-465f-81ea-ac338af76240",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-03-01",
+    "source": "Survey",
+    "rating_value": 3.67,
+    "response_count": 56,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5a3db6b7-bd16-4546-be04-6a7829c6d292",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-04-01",
+    "source": "Survey",
+    "rating_value": 3.7,
+    "response_count": 50,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "cca1841b-56ad-4904-9260-2ab0d24bbc9e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-05-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 61,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "602d9c27-cb58-4ba0-806f-43f34d0c6333",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-06-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 64,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "13a0f8b2-655d-4fa7-a877-4d9b302129af",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-07-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 60,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "f5f39468-141a-4faa-8104-fda79357fcce",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-08-01",
+    "source": "Survey",
+    "rating_value": 3.62,
+    "response_count": 57,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "43d4ef07-0791-46ae-92ca-a3036621d864",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-09-01",
+    "source": "Survey",
+    "rating_value": 3.6,
+    "response_count": 58,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "0f17fc0c-8e13-441c-86e2-d4cf4ce45310",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-10-01",
+    "source": "Survey",
+    "rating_value": 3.76,
+    "response_count": 58,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "960cb09b-166e-4800-a3c6-27474c85a8db",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-11-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 60,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "5a13cf55-0f9f-43e5-9eb9-494d1b3de801",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2019-12-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 43,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "91e84b5e-35bd-47c0-b60b-0651bdae1eca",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-01-01",
+    "source": "Survey",
+    "rating_value": 3.74,
+    "response_count": 48,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "7d3d82f4-1d2c-445f-ba9c-54dae8ff4ad4",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-02-01",
+    "source": "Survey",
+    "rating_value": 3.81,
+    "response_count": 47,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "486c74ee-49b2-49c7-b853-fff6947b6c6d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-03-01",
+    "source": "Survey",
+    "rating_value": 3.75,
+    "response_count": 47,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "cf1a553d-9293-49da-bbd1-0ea8f540a701",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-04-01",
+    "source": "Survey",
+    "rating_value": 3.8,
+    "response_count": 49,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "6eb34b39-1a7d-4a43-b8e2-03a9968e5313",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-05-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 60,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "1221be65-e4b4-4ddd-8650-04d25f9c998c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-06-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 45,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "7c6f11e6-508a-49cd-8b46-e9fcdee2f575",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-07-01",
+    "source": "Survey",
+    "rating_value": 3.64,
+    "response_count": 61,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "9985a60b-d621-47b6-ae34-754b22cdac82",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-08-01",
+    "source": "Survey",
+    "rating_value": 3.7,
+    "response_count": 63,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "9f398a02-bccd-4ea1-8cbc-dd9b6f89aaab",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-09-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 51,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "fb6a3998-5417-48e4-ba38-f31ce3835faa",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-10-01",
+    "source": "Survey",
+    "rating_value": 3.69,
+    "response_count": 60,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "94363822-d4da-4f5b-bcbd-7a9907a6373e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-11-01",
+    "source": "Survey",
+    "rating_value": 3.76,
+    "response_count": 43,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "f1aac58c-86b9-4222-8100-824a55bf6139",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2020-12-01",
+    "source": "Survey",
+    "rating_value": 3.65,
+    "response_count": 43,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "db53257b-66bb-4801-8dc2-a9e8d4ae1c21",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-01-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 50,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "29730a26-ab29-4a2a-ae76-eef2e6513c50",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-02-01",
+    "source": "Survey",
+    "rating_value": 3.74,
+    "response_count": 45,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "869f1fe9-286a-4347-91cf-6a935c8ec6b5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-03-01",
+    "source": "Survey",
+    "rating_value": 3.77,
+    "response_count": 61,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "e225bbed-3c98-49da-8e33-f952bafd435d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-04-01",
+    "source": "Survey",
+    "rating_value": 3.76,
+    "response_count": 56,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "1ff70402-795e-4977-b6a5-ff2eddd9826f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-05-01",
+    "source": "Survey",
+    "rating_value": 3.67,
+    "response_count": 55,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "5ba28c46-9b40-4805-96aa-34eecdb1216b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-06-01",
+    "source": "Survey",
+    "rating_value": 3.68,
+    "response_count": 55,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "942c5522-15de-43fb-a622-017d5426be67",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-07-01",
+    "source": "Survey",
+    "rating_value": 3.64,
+    "response_count": 57,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "a3273b24-08d4-474d-a749-3344e79c7ef5",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-08-01",
+    "source": "Survey",
+    "rating_value": 3.76,
+    "response_count": 46,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "69d318a0-c8f8-412d-bd47-055a8b887ee8",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-09-01",
+    "source": "Survey",
+    "rating_value": 3.73,
+    "response_count": 43,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "ee880709-49b7-44ac-a53f-cf8e91d4a55b",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-10-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 46,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "776f11d8-d6cf-4a29-9546-84b580bff23e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-11-01",
+    "source": "Survey",
+    "rating_value": 3.86,
+    "response_count": 45,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "c7bce8b5-f4c3-405f-80ca-dac71f6e4d32",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2021-12-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 43,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "a5f87297-d9c3-454e-9bd9-e7f34d894c35",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-01-01",
+    "source": "Survey",
+    "rating_value": 3.73,
+    "response_count": 54,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "3b75abf7-cc22-46ee-a615-f7e66d859ded",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-02-01",
+    "source": "Survey",
+    "rating_value": 3.82,
+    "response_count": 48,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "c771fc56-3058-4e35-a4ad-3916406d4323",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-03-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 49,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "0664acb7-e296-4e49-8394-b44e78b35985",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-04-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 43,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "b6e8963d-658d-4cf6-8ecd-7fae400c6447",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-05-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 65,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "1574c4e4-e8f7-4de5-9ec5-a33c1ca317eb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-06-01",
+    "source": "Survey",
+    "rating_value": 3.75,
+    "response_count": 57,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "9549875e-30cf-47ec-bfe6-194d33129dbb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-07-01",
+    "source": "Survey",
+    "rating_value": 3.86,
+    "response_count": 47,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "6e9af84a-0f37-40ae-8082-843ca208c7fc",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-08-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 46,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "5373897c-eb07-4adb-863d-ddc9b156cc5e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-09-01",
+    "source": "Survey",
+    "rating_value": 3.81,
+    "response_count": 43,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "baeb2a94-fc08-4b50-bccc-a66d8614fade",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-10-01",
+    "source": "Survey",
+    "rating_value": 3.91,
+    "response_count": 43,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "8937b4da-31b6-463b-b290-e1ce86153208",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-11-01",
+    "source": "Survey",
+    "rating_value": 3.79,
+    "response_count": 64,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "8a11d621-fd88-4c19-9645-abed0d9c55cd",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2022-12-01",
+    "source": "Survey",
+    "rating_value": 3.74,
+    "response_count": 55,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "60ee58c8-8d3e-491a-b67b-936f5fc2a708",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-01-01",
+    "source": "Survey",
+    "rating_value": 3.79,
+    "response_count": 64,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "87a4c631-8ea4-4647-b744-ac718a4c2e09",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-02-01",
+    "source": "Survey",
+    "rating_value": 3.76,
+    "response_count": 63,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "16dd4c80-46be-49da-ac88-7974085bd9d9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-03-01",
+    "source": "Survey",
+    "rating_value": 3.74,
+    "response_count": 42,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e4c9c783-6d88-4b11-a4a4-7f456cae2742",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-04-01",
+    "source": "Survey",
+    "rating_value": 3.83,
+    "response_count": 63,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "7e4d6651-3683-4a8d-beba-0f826b2ab9c0",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-05-01",
+    "source": "Survey",
+    "rating_value": 3.94,
+    "response_count": 42,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "5cf196bf-ae64-458e-ab56-4a9f4c046813",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-06-01",
+    "source": "Survey",
+    "rating_value": 3.8,
+    "response_count": 52,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "b36b247d-4948-47d0-b452-700b18c1cb3a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-07-01",
+    "source": "Survey",
+    "rating_value": 3.78,
+    "response_count": 54,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "46ab6e1a-aad7-4509-81f4-72861f1f00fb",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-08-01",
+    "source": "Survey",
+    "rating_value": 3.86,
+    "response_count": 45,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "a95f5357-05f4-41aa-94ca-104166553a59",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-09-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 49,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "a936f272-32d4-4aeb-9e79-b8451e0272ea",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-10-01",
+    "source": "Survey",
+    "rating_value": 3.93,
+    "response_count": 53,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "103ac29b-4e97-4b0a-bf0e-272afea935ff",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-11-01",
+    "source": "Survey",
+    "rating_value": 3.81,
+    "response_count": 65,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "d0cf575f-5a38-47a5-b646-850625630ab9",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2023-12-01",
+    "source": "Survey",
+    "rating_value": 3.78,
+    "response_count": 43,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "e8a1968a-a228-4bc0-8b04-b49662b4ffee",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-01-01",
+    "source": "Survey",
+    "rating_value": 3.94,
+    "response_count": 58,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "4c2276b3-d049-4858-a356-7f6fb1e5547a",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-02-01",
+    "source": "Survey",
+    "rating_value": 3.92,
+    "response_count": 63,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "deebdff8-a770-4e84-bb9e-8f3547f506ce",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-03-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 44,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "2d9e1615-43d4-4b17-9ca7-f5b86f2b4093",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-04-01",
+    "source": "Survey",
+    "rating_value": 3.86,
+    "response_count": 60,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "bee7f9f1-ef60-46b4-af45-b16be2b4b526",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-05-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 64,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "ac0278f2-1c4c-4497-826b-f6b86c29141d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-06-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 63,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "ea026655-7da9-4549-a0b3-409fd170a073",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-07-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 48,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "dd08d726-39cd-48c1-a440-578ceac67512",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-08-01",
+    "source": "Survey",
+    "rating_value": 3.8,
+    "response_count": 54,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "c69648bb-e633-453d-8a32-7d64e6fd4589",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-09-01",
+    "source": "Survey",
+    "rating_value": 3.94,
+    "response_count": 58,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "fabad4b7-4f95-434f-8389-1af581b4fa9f",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-10-01",
+    "source": "Survey",
+    "rating_value": 3.82,
+    "response_count": 55,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "94c2b702-b3bc-449c-b17e-a326e96cf379",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-11-01",
+    "source": "Survey",
+    "rating_value": 3.93,
+    "response_count": 42,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "4bab445e-2fc5-4650-9089-7efb7f9e116d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2024-12-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 58,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "e3810273-a9bf-493e-bfc9-39bfa7d15ed2",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-01-01",
+    "source": "Survey",
+    "rating_value": 3.97,
+    "response_count": 44,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "08c3be5e-a7f0-48f5-bad7-9280e5da4629",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-02-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 54,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "dd9e8f9c-ae8d-492c-be08-49f67d48d2b3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-03-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 52,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "f4230207-db51-4e7e-a80b-80afc3d91b88",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-04-01",
+    "source": "Survey",
+    "rating_value": 3.85,
+    "response_count": 61,
+    "notes": "Steady satisfaction scores"
+  },
+  {
+    "resident_rating_id": "cbc24972-0313-4319-8c90-4cad7297e5be",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-05-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 65,
+    "notes": "Maintenance team praised in comments"
+  },
+  {
+    "resident_rating_id": "872649c7-6053-41a0-b21a-0975fe86b6a3",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-06-01",
+    "source": "Survey",
+    "rating_value": 3.97,
+    "response_count": 49,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "d2516713-706e-449a-bdbe-6247592a5c4d",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-07-01",
+    "source": "Survey",
+    "rating_value": 3.8,
+    "response_count": 51,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "61214bb2-0387-4caa-9b3f-dc98936e3809",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-08-01",
+    "source": "Survey",
+    "rating_value": 3.97,
+    "response_count": 44,
+    "notes": "Positive feedback on response times"
+  },
+  {
+    "resident_rating_id": "59ec60f5-f439-4a07-abed-1239f764bd2c",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-09-01",
+    "source": "Survey",
+    "rating_value": 3.98,
+    "response_count": 47,
+    "notes": "Residents appreciate reliable service"
+  },
+  {
+    "resident_rating_id": "1b1d3cf4-74ae-4d7f-9f53-fa51876f4279",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-10-01",
+    "source": "Survey",
+    "rating_value": 4.02,
+    "response_count": 60,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "8c596f5d-8539-4084-9031-dd72aba2ac34",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-11-01",
+    "source": "Survey",
+    "rating_value": 3.84,
+    "response_count": 58,
+    "notes": "Routine monthly survey"
+  },
+  {
+    "resident_rating_id": "3b0f4d48-92c9-4d39-b1b7-253e25040a4e",
+    "property_id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+    "rating_month": "2025-12-01",
+    "source": "Survey",
+    "rating_value": 3.93,
+    "response_count": 43,
+    "notes": "Consistent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "63ef44fb-d2c1-4027-b318-b1297f7fb68a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-01-01",
+    "source": "Survey",
+    "rating_value": 4.13,
+    "response_count": 51,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "4c4e832e-de18-48f1-9341-4dcb72351edc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-02-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 41,
+    "notes": "High-quality repairs noted"
+  },
+  {
+    "resident_rating_id": "68589eb7-a540-48f9-8b7b-03c07fbe09ee",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-03-01",
+    "source": "Survey",
+    "rating_value": 4.12,
+    "response_count": 46,
+    "notes": "High-quality repairs noted"
+  },
+  {
+    "resident_rating_id": "d78805be-1dc9-4333-a30d-18f95d06fe3f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-04-01",
+    "source": "Survey",
+    "rating_value": 4.06,
+    "response_count": 43,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "9b98cb13-f859-421e-993d-596f2138d7f1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-05-01",
+    "source": "Survey",
+    "rating_value": 4.17,
+    "response_count": 42,
+    "notes": "High-quality repairs noted"
+  },
+  {
+    "resident_rating_id": "7a1237d8-3e89-469a-a841-22cfc232bda2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-06-01",
+    "source": "Survey",
+    "rating_value": 4.07,
+    "response_count": 44,
+    "notes": "High-quality repairs noted"
+  },
+  {
+    "resident_rating_id": "08916a9f-0561-46af-ac0d-c7fef0bb8f7a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-07-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 52,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "c1446556-14c1-4557-a94f-eb5c1a4c45d5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-08-01",
+    "source": "Survey",
+    "rating_value": 4.03,
+    "response_count": 48,
+    "notes": "Excellent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "5de8ab21-6859-48d6-bb5e-d6e4090c5cf1",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-09-01",
+    "source": "Survey",
+    "rating_value": 4.12,
+    "response_count": 38,
+    "notes": "Excellent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "3c742ae6-b400-4624-a437-96a0ade4991b",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-10-01",
+    "source": "Survey",
+    "rating_value": 4.23,
+    "response_count": 35,
+    "notes": "Premium service expectations met"
+  },
+  {
+    "resident_rating_id": "cae4af0a-c39a-4094-b2aa-2d13f143a9b5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-11-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 39,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "a051cb97-2321-4949-8fa0-6ec816c69360",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2021-12-01",
+    "source": "Survey",
+    "rating_value": 4.15,
+    "response_count": 38,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "9e85b2bf-a857-416e-8243-ed1fe76d0c82",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-01-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 45,
+    "notes": "Excellent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "88db4d99-c024-4f6e-b011-e76e6f4d3e04",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-02-01",
+    "source": "Survey",
+    "rating_value": 4.05,
+    "response_count": 42,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "328b275a-4c10-4e03-9714-d01e738c172c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-03-01",
+    "source": "Survey",
+    "rating_value": 4.21,
+    "response_count": 46,
+    "notes": "Premium service expectations met"
+  },
+  {
+    "resident_rating_id": "9bb99d53-1571-494e-bae0-f403bbd84bf0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-04-01",
+    "source": "Survey",
+    "rating_value": 4.14,
+    "response_count": 49,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "d8b8373e-4c39-41e6-b5a0-5bf7804048a3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-05-01",
+    "source": "Survey",
+    "rating_value": 4.18,
+    "response_count": 41,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "c0106453-853a-48f6-abae-9b55505b7fa0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-06-01",
+    "source": "Survey",
+    "rating_value": 4.07,
+    "response_count": 40,
+    "notes": "Premium service expectations met"
+  },
+  {
+    "resident_rating_id": "6077c306-2111-4532-9baf-d96211d7d0d6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-07-01",
+    "source": "Survey",
+    "rating_value": 4.18,
+    "response_count": 52,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "7652c8e2-aa72-4aa2-b648-947b19f990b8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-08-01",
+    "source": "Survey",
+    "rating_value": 4.03,
+    "response_count": 47,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "091812a5-d4b8-4207-b9e2-6c75fab07cf5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-09-01",
+    "source": "Survey",
+    "rating_value": 4.19,
+    "response_count": 45,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "8ca5d441-1aef-47d5-b1d9-96b3d55ed96e",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-10-01",
+    "source": "Survey",
+    "rating_value": 4.16,
+    "response_count": 49,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "724a552d-d3b7-4bfa-9c22-4dae99a6d250",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-11-01",
+    "source": "Survey",
+    "rating_value": 4.02,
+    "response_count": 44,
+    "notes": "Quick turnaround on requests"
+  },
+  {
+    "resident_rating_id": "9353c495-81ea-4294-9130-e8f302c144fc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2022-12-01",
+    "source": "Survey",
+    "rating_value": 4.21,
+    "response_count": 37,
+    "notes": "Premium service expectations met"
+  },
+  {
+    "resident_rating_id": "f366f52a-e5e8-443a-a19c-a3cb5e9715e6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-01-01",
+    "source": "Survey",
+    "rating_value": 4.18,
+    "response_count": 41,
+    "notes": "Excellent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "a51582e5-096a-412d-a3d9-9a29eb18d6de",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-02-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 36,
+    "notes": "Excellent maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "69c49b26-734c-4ca3-a025-4ea7bf511801",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-03-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 49,
+    "notes": "Residents praise responsiveness"
+  },
+  {
+    "resident_rating_id": "491d9d9b-fa24-4ec9-b4fa-3bf67b9f7917",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-04-01",
+    "source": "Survey",
+    "rating_value": 4.19,
+    "response_count": 44,
+    "notes": "Premium service expectations met"
+  },
+  {
+    "resident_rating_id": "867badde-8e03-4907-a625-e02c00a00559",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-05-01",
+    "source": "Survey",
+    "rating_value": 3.9,
+    "response_count": 51,
+    "notes": "Quality concerns with new contractor"
+  },
+  {
+    "resident_rating_id": "0bf17445-f0c9-43d1-ac59-c75c5ece9a23",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-06-01",
+    "source": "Survey",
+    "rating_value": 3.87,
+    "response_count": 42,
+    "notes": "Quality concerns with new contractor"
+  },
+  {
+    "resident_rating_id": "2db431eb-c6a2-4694-afc0-93e963723cd6",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-07-01",
+    "source": "Survey",
+    "rating_value": 3.89,
+    "response_count": 38,
+    "notes": "Quality concerns with new contractor"
+  },
+  {
+    "resident_rating_id": "f17f5aa2-ac66-4be5-9b63-41ee8ff91018",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-08-01",
+    "source": "Survey",
+    "rating_value": 3.78,
+    "response_count": 37,
+    "notes": "Quality concerns with new contractor"
+  },
+  {
+    "resident_rating_id": "ff6eb072-7452-41dd-ad95-93848b4f1915",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-09-01",
+    "source": "Survey",
+    "rating_value": 3.69,
+    "response_count": 38,
+    "notes": "Response times increased - residents frustrated"
+  },
+  {
+    "resident_rating_id": "4cd67ea8-4228-422e-ab7d-79e14f552723",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-10-01",
+    "source": "Survey",
+    "rating_value": 3.5,
+    "response_count": 45,
+    "notes": "New maintenance vendor transition issues"
+  },
+  {
+    "resident_rating_id": "1b6a5204-a32c-4da9-b699-e053e8540d67",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-11-01",
+    "source": "Survey",
+    "rating_value": 3.46,
+    "response_count": 39,
+    "notes": "New maintenance vendor transition issues"
+  },
+  {
+    "resident_rating_id": "e965a10d-a3cf-4dd1-8e72-981c9afb916a",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2023-12-01",
+    "source": "Survey",
+    "rating_value": 3.29,
+    "response_count": 43,
+    "notes": "Response times improving"
+  },
+  {
+    "resident_rating_id": "9e321ebc-3151-4c44-87c3-95e861fa17db",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-01-01",
+    "source": "Survey",
+    "rating_value": 3.36,
+    "response_count": 41,
+    "notes": "Residents cautiously optimistic"
+  },
+  {
+    "resident_rating_id": "28e1411c-894b-46f9-97e8-15a6472b929c",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-02-01",
+    "source": "Survey",
+    "rating_value": 3.58,
+    "response_count": 41,
+    "notes": "Residents cautiously optimistic"
+  },
+  {
+    "resident_rating_id": "e7cbfaf0-c95d-4cf9-afde-1eb6f7a56dc9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-03-01",
+    "source": "Survey",
+    "rating_value": 3.72,
+    "response_count": 45,
+    "notes": "Recovery underway after vendor change"
+  },
+  {
+    "resident_rating_id": "1fec452b-7803-410b-8552-3c3c48d055b5",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-04-01",
+    "source": "Survey",
+    "rating_value": 4.05,
+    "response_count": 51,
+    "notes": "Strong recovery in maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "6e1082a0-df34-44fa-a5c9-ec745fab0bdc",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-05-01",
+    "source": "Survey",
+    "rating_value": 4.03,
+    "response_count": 45,
+    "notes": "Premium service levels restored"
+  },
+  {
+    "resident_rating_id": "4b3b4710-be26-4d5b-bb0c-c8364aa82efa",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-06-01",
+    "source": "Survey",
+    "rating_value": 3.88,
+    "response_count": 39,
+    "notes": "Quick response times again"
+  },
+  {
+    "resident_rating_id": "27222a48-20f7-4a59-90c4-719616f33a9d",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-07-01",
+    "source": "Survey",
+    "rating_value": 4.07,
+    "response_count": 51,
+    "notes": "Premium service levels restored"
+  },
+  {
+    "resident_rating_id": "9f37f424-0ab4-4520-9563-0bc63bf8daa4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-08-01",
+    "source": "Survey",
+    "rating_value": 4.07,
+    "response_count": 37,
+    "notes": "High satisfaction with repair quality"
+  },
+  {
+    "resident_rating_id": "3fd0d279-b678-4943-b0fd-271ec3cc6d1f",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-09-01",
+    "source": "Survey",
+    "rating_value": 3.95,
+    "response_count": 51,
+    "notes": "Strong recovery in maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "35438628-3561-407c-afac-263292c14086",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-10-01",
+    "source": "Survey",
+    "rating_value": 4.02,
+    "response_count": 51,
+    "notes": "Strong recovery in maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "522acc3d-66ea-4cc2-95b0-23c0c78b38e2",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-11-01",
+    "source": "Survey",
+    "rating_value": 4.1,
+    "response_count": 49,
+    "notes": "High satisfaction with repair quality"
+  },
+  {
+    "resident_rating_id": "03b79911-382e-47ec-9e34-5bf59b954909",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2024-12-01",
+    "source": "Survey",
+    "rating_value": 4.15,
+    "response_count": 37,
+    "notes": "Residents pleased with improvements"
+  },
+  {
+    "resident_rating_id": "b4029bc8-f9c1-4154-94da-59a8dc2534f3",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-01-01",
+    "source": "Survey",
+    "rating_value": 3.95,
+    "response_count": 41,
+    "notes": "Strong recovery in maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "781598dd-7540-4ba3-aa68-512e1fea3354",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-02-01",
+    "source": "Survey",
+    "rating_value": 4.08,
+    "response_count": 45,
+    "notes": "Strong recovery in maintenance satisfaction"
+  },
+  {
+    "resident_rating_id": "b373e68b-2a81-4e19-9523-8522b4cf2ca8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-03-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 44,
+    "notes": "New vendor exceeding expectations"
+  },
+  {
+    "resident_rating_id": "03fca104-ba7b-4cf6-8805-72849694c925",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-04-01",
+    "source": "Survey",
+    "rating_value": 3.96,
+    "response_count": 51,
+    "notes": "Residents pleased with improvements"
+  },
+  {
+    "resident_rating_id": "bae96d76-d110-460c-ba6f-71ddd8b27e38",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-05-01",
+    "source": "Survey",
+    "rating_value": 4.16,
+    "response_count": 47,
+    "notes": "Residents pleased with improvements"
+  },
+  {
+    "resident_rating_id": "a742bb90-2d88-4840-b433-15406d0d9fa9",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-06-01",
+    "source": "Survey",
+    "rating_value": 4,
+    "response_count": 44,
+    "notes": "Residents pleased with improvements"
+  },
+  {
+    "resident_rating_id": "f6251d89-03ab-4ae3-bfe5-efe9d320a7d0",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-07-01",
+    "source": "Survey",
+    "rating_value": 4.13,
+    "response_count": 41,
+    "notes": "Premium service levels restored"
+  },
+  {
+    "resident_rating_id": "87ebd097-0740-4fe8-8e0a-4852b2a064f7",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-08-01",
+    "source": "Survey",
+    "rating_value": 4.03,
+    "response_count": 51,
+    "notes": "New vendor exceeding expectations"
+  },
+  {
+    "resident_rating_id": "ec060931-481c-4a19-b388-c305288be999",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-09-01",
+    "source": "Survey",
+    "rating_value": 4.03,
+    "response_count": 36,
+    "notes": "High satisfaction with repair quality"
+  },
+  {
+    "resident_rating_id": "fa101422-0336-4468-90e5-c604aafd96d4",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-10-01",
+    "source": "Survey",
+    "rating_value": 3.99,
+    "response_count": 45,
+    "notes": "Premium service levels restored"
+  },
+  {
+    "resident_rating_id": "699cbdb7-cd97-4262-a0a9-408cd8d53b83",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-11-01",
+    "source": "Survey",
+    "rating_value": 3.99,
+    "response_count": 52,
+    "notes": "New vendor exceeding expectations"
+  },
+  {
+    "resident_rating_id": "612586d7-18d9-435e-83df-659bef5382a8",
+    "property_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+    "rating_month": "2025-12-01",
+    "source": "Survey",
+    "rating_value": 4.01,
+    "response_count": 44,
+    "notes": "High satisfaction with repair quality"
+  }
+]
