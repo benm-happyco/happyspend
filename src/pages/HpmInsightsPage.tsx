@@ -166,6 +166,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [propertiesById, setPropertiesById] = useState<Map<string, { unit_count?: number | null; market?: string | null }>>(new Map())
   const [mixByPropertyId, setMixByPropertyId] = useState<Map<string, { property_type?: string | null; asset_class?: string | null }>>(new Map())
   const [loadingProperties, setLoadingProperties] = useState(true)
+  const [propertiesError, setPropertiesError] = useState<string | null>(null)
   const [metrics, setMetrics] = useState<{
     occupancyPct: number | null
     satisfaction: number | null
@@ -323,50 +324,58 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           setPropertiesById(new Map())
           setMixByPropertyId(new Map())
           setLoadingProperties(false)
+          setPropertiesError('Metrics Supabase is not configured in this environment.')
         }
         return
       }
+      setPropertiesError(null)
+      // If Supabase/network hangs, don't leave the UI permanently stuck.
+      const timeoutId = window.setTimeout(() => {
+        if (!mounted) return
+        setLoadingProperties(false)
+        setPropertiesError('Timed out while loading properties. Try resetting saved filters.')
+      }, 12_000)
       try {
-        const { data, error } = await supabaseMetrics
-          .from('properties')
-          .select('property_id, name, unit_count, market')
-          .order('name')
+        // Single fetch (avoid duplicate calls). Use select('*') so we don't assume optional columns.
+        const { data, error } = await supabaseMetrics.from('properties').select('*').order('name')
         if (error) throw error
         if (!mounted) return
-        const list = data ?? []
+        const list = (data ?? []) as Record<string, unknown>[]
         setPropertyOptions(
           list.map((p) => ({
-            value: p.property_id,
-            label: p.name ?? 'Unknown property',
+            value: String((p.property_id as string | undefined) ?? ''),
+            label: (p.name as string | null) ?? 'Unknown property',
           }))
         )
         const byId = new Map<string, { unit_count?: number | null; market?: string | null }>()
-        list.forEach((p) => byId.set(p.property_id, { unit_count: p.unit_count ?? null, market: p.market ?? null }))
+        list.forEach((p) => {
+          const id = String((p.property_id as string | undefined) ?? '')
+          if (!id) return
+          byId.set(id, {
+            unit_count: (typeof p.unit_count === 'number' ? p.unit_count : null) ?? null,
+            market: (p.market as string | null) ?? null,
+          })
+        })
         setPropertiesById(byId)
-        try {
-          const mixRes = await supabaseMetrics.from('properties').select('*')
-          if (mounted && !mixRes.error && mixRes.data) {
-            const mixMap = new Map<string, { property_type?: string | null; asset_class?: string | null }>()
-            mixRes.data.forEach((row: Record<string, unknown>) => {
-              const id = row.property_id as string
-              const propertyType =
-                row.property_type ?? row.type ?? null
-              const assetClass =
-                row.asset_class ?? row.class ?? null
-              mixMap.set(id, {
-                property_type: propertyType != null ? String(propertyType) : null,
-                asset_class: assetClass != null ? String(assetClass) : null,
-              })
-            })
-            setMixByPropertyId(mixMap)
-          }
-        } catch {
-          if (mounted) setMixByPropertyId(new Map())
-        }
+        const mixMap = new Map<string, { property_type?: string | null; asset_class?: string | null }>()
+        list.forEach((row) => {
+          const id = row.property_id as string | undefined
+          if (!id) return
+          const propertyType = (row.property_type ?? row.type ?? null) as unknown
+          const assetClass = (row.asset_class ?? row.class ?? null) as unknown
+          mixMap.set(id, {
+            property_type: propertyType != null ? String(propertyType) : null,
+            asset_class: assetClass != null ? String(assetClass) : null,
+          })
+        })
+        setMixByPropertyId(mixMap)
       } catch {
         if (mounted) setPropertyOptions([])
         if (mounted) setPropertiesById(new Map())
+        if (mounted) setMixByPropertyId(new Map())
+        if (mounted) setPropertiesError('Unable to load properties.')
       } finally {
+        window.clearTimeout(timeoutId)
         if (mounted) setLoadingProperties(false)
       }
     }
@@ -1094,12 +1103,34 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                 This environment is missing the Metrics Supabase env vars. The dashboard will still load, but data queries will be disabled.
               </Alert>
             )}
+            {propertiesError && (
+              <Alert
+                color="yellow"
+                title="Dashboard data is still loading"
+              >
+                <Stack gap="sm">
+                  <Text size="sm">{propertiesError}</Text>
+                  <Group gap="sm">
+                    <Button size="xs" variant="light" onClick={() => navigate('/happy-property/insights/dashboard?reset=1', { replace: true })}>
+                      Reset saved filters
+                    </Button>
+                    <Button size="xs" variant="subtle" onClick={() => window.location.reload()}>
+                      Reload
+                    </Button>
+                  </Group>
+                </Stack>
+              </Alert>
+            )}
             {debugFlags.debug && (
               <Alert color="gray" title="Dashboard debug">
                 <Stack gap={6}>
                   <Text size="xs">
                     Selected properties: <b>{selectedPropertyIds.length}</b> (debounced: <b>{debouncedPropertyIds.length}</b>) · Date range:{' '}
                     <b>{safeDateRange.startDate}</b> → <b>{safeDateRange.endDate}</b>
+                  </Text>
+                  <Text size="xs">
+                    Properties: {loadingProperties ? <b>loading</b> : <b>idle</b>}
+                    {propertiesError ? ` · error: ${propertiesError}` : ''}
                   </Text>
                   <Text size="xs">
                     Query caps: workOrders <b>{queryCaps.workOrders}</b>, snapshots <b>{queryCaps.snapshots}</b>, ratings <b>{queryCaps.ratings}</b>
