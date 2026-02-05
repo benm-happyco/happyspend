@@ -341,16 +341,26 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         if (error) throw error
         if (!mounted) return
         const list = (data ?? []) as Record<string, unknown>[]
+
+        // Defensive: MultiSelect requires unique, non-empty option values.
+        const uniqueById = new Map<string, Record<string, unknown>>()
+        list.forEach((row) => {
+          const rawId = row.property_id as string | number | null | undefined
+          const id = rawId == null ? '' : String(rawId)
+          if (!id) return
+          if (!uniqueById.has(id)) uniqueById.set(id, row)
+        })
+        const uniqueRows = Array.from(uniqueById.values())
+
         setPropertyOptions(
-          list.map((p) => ({
-            value: String((p.property_id as string | undefined) ?? ''),
+          uniqueRows.map((p) => ({
+            value: String(p.property_id),
             label: (p.name as string | null) ?? 'Unknown property',
           }))
         )
         const byId = new Map<string, { unit_count?: number | null; market?: string | null }>()
-        list.forEach((p) => {
-          const id = String((p.property_id as string | undefined) ?? '')
-          if (!id) return
+        uniqueRows.forEach((p) => {
+          const id = String(p.property_id)
           byId.set(id, {
             unit_count: (typeof p.unit_count === 'number' ? p.unit_count : null) ?? null,
             market: (p.market as string | null) ?? null,
@@ -358,9 +368,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         })
         setPropertiesById(byId)
         const mixMap = new Map<string, { property_type?: string | null; asset_class?: string | null }>()
-        list.forEach((row) => {
-          const id = row.property_id as string | undefined
-          if (!id) return
+        uniqueRows.forEach((row) => {
+          const id = String(row.property_id)
           const propertyType = (row.property_type ?? row.type ?? null) as unknown
           const assetClass = (row.asset_class ?? row.class ?? null) as unknown
           mixMap.set(id, {
