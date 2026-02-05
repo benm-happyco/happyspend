@@ -199,13 +199,57 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [noiChartData, setNoiChartData] = useState<NoiChartPoint[]>([])
   const [varianceDrivers, setVarianceDrivers] = useState<VarianceDriver[]>([])
 
+  // Dashboard filter draft state: avoid expensive queries on every onChange.
+  const [draftPropertyIds, setDraftPropertyIds] = useState<string[]>(selectedPropertyIds)
+  const [draftDateRange, setDraftDateRange] = useState(dateRange)
+  const isDraftDirty = useMemo(() => {
+    return (
+      JSON.stringify(draftPropertyIds) !== JSON.stringify(selectedPropertyIds) ||
+      draftDateRange.startDate !== dateRange.startDate ||
+      draftDateRange.endDate !== dateRange.endDate
+    )
+  }, [draftPropertyIds, selectedPropertyIds, draftDateRange.startDate, draftDateRange.endDate, dateRange.startDate, dateRange.endDate])
+
+  useEffect(() => {
+    // Keep draft in sync unless user has pending edits.
+    if (isDraftDirty) return
+    setDraftPropertyIds(selectedPropertyIds)
+    setDraftDateRange(dateRange)
+  }, [isDraftDirty, selectedPropertyIds, dateRange])
+
+  const propertyIdSet = useMemo(() => new Set(propertyOptions.map((o) => o.value)), [propertyOptions])
+  const normalizedSelectedPropertyIds = useMemo(() => {
+    const seen = new Set<string>()
+    const out: string[] = []
+    for (const raw of selectedPropertyIds) {
+      if (typeof raw !== 'string') continue
+      const id = raw.trim()
+      if (!id) continue
+      if (seen.has(id)) continue
+      // Only enforce "must exist in options" after properties are loaded.
+      if (!loadingProperties && propertyIdSet.size > 0 && !propertyIdSet.has(id)) continue
+      seen.add(id)
+      out.push(id)
+    }
+    return out
+  }, [selectedPropertyIds, loadingProperties, propertyIdSet])
+
+  // If stored/controlled selection contains invalid/duplicate IDs, clean it up.
+  // This prevents MultiSelect from getting into a bad controlled state that can lock up the UI.
+  useEffect(() => {
+    const a = JSON.stringify(selectedPropertyIds)
+    const b = JSON.stringify(normalizedSelectedPropertyIds)
+    if (a !== b) setSelectedPropertyIds(normalizedSelectedPropertyIds)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [normalizedSelectedPropertyIds])
+
   // Debounce expensive recalcs/queries when users multi-select quickly (also helps first load
   // when a stored selection immediately triggers lots of work).
-  const [debouncedPropertyIds, setDebouncedPropertyIds] = useState<string[]>(selectedPropertyIds)
+  const [debouncedPropertyIds, setDebouncedPropertyIds] = useState<string[]>(normalizedSelectedPropertyIds)
   useEffect(() => {
-    const t = window.setTimeout(() => setDebouncedPropertyIds(selectedPropertyIds), 350)
+    const t = window.setTimeout(() => setDebouncedPropertyIds(normalizedSelectedPropertyIds), 600)
     return () => window.clearTimeout(t)
-  }, [selectedPropertyIds])
+  }, [normalizedSelectedPropertyIds])
 
   const debugFlags = useMemo(() => {
     const params = new URLSearchParams(location.search)
@@ -314,6 +358,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
   const metricsRunIdRef = useRef(0)
   const noiRunIdRef = useRef(0)
+  const propertiesAbortRef = useRef<AbortController | null>(null)
+  const metricsAbortRef = useRef<AbortController | null>(null)
+  const noiAbortRef = useRef<AbortController | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -329,15 +376,19 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         return
       }
       setPropertiesError(null)
+      propertiesAbortRef.current?.abort()
+      const abort = new AbortController()
+      propertiesAbortRef.current = abort
       // If Supabase/network hangs, don't leave the UI permanently stuck.
       const timeoutId = window.setTimeout(() => {
         if (!mounted) return
+        abort.abort()
         setLoadingProperties(false)
         setPropertiesError('Timed out while loading properties. Try resetting saved filters.')
       }, 12_000)
       try {
         // Single fetch (avoid duplicate calls). Use select('*') so we don't assume optional columns.
-        const { data, error } = await supabaseMetrics.from('properties').select('*').order('name')
+        const { data, error } = await supabaseMetrics.from('properties').select('*').order('name').abortSignal(abort.signal)
         if (error) throw error
         if (!mounted) return
         const list = (data ?? []) as Record<string, unknown>[]
@@ -390,6 +441,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     fetchProperties()
     return () => {
+      propertiesAbortRef.current?.abort()
       mounted = false
     }
   }, [])
@@ -515,11 +567,15 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     const runId = ++metricsRunIdRef.current
+    metricsAbortRef.current?.abort()
+    const abort = new AbortController()
+    metricsAbortRef.current = abort
     setLoadingMetrics(true)
     setDebugPerf((p) => ({ ...p, metricsTimeout: false }))
     const startedAt = performance.now()
     const timeoutId = window.setTimeout(() => {
       if (!mounted) return
+      abort.abort()
       setDebugPerf((p) => ({ ...p, metricsTimeout: true }))
       setLoadingMetrics(false)
     }, 12_000)
@@ -533,7 +589,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
@@ -541,7 +598,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('rating_month', startDate)
         .lte('rating_month', endDate)
         .order('rating_month', { ascending: false })
-        .limit(queryCaps.ratings),
+        .limit(queryCaps.ratings)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
@@ -550,7 +608,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .lte('created_on', endDate)
         .not('completed_on', 'is', null)
         .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders),
+        .limit(queryCaps.workOrders)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
@@ -558,7 +617,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
@@ -566,7 +626,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('rating_month', prev.startDate)
         .lte('rating_month', prev.endDate)
         .order('rating_month', { ascending: false })
-        .limit(queryCaps.ratings),
+        .limit(queryCaps.ratings)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
@@ -575,7 +636,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .lte('created_on', prev.endDate)
         .not('completed_on', 'is', null)
         .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders),
+        .limit(queryCaps.workOrders)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
@@ -583,7 +645,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
@@ -591,7 +654,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
     ]
     const idToName = new Map(propertyOptions.map((o) => [o.value, o.label]))
     Promise.allSettled(queries)
@@ -840,6 +904,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       })
     return () => {
       window.clearTimeout(timeoutId)
+      metricsAbortRef.current?.abort()
       mounted = false
     }
   }, [debouncedPropertyIds, loadingProperties, safeDateRange, queryCaps, propertyOptions])
@@ -852,11 +917,15 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
     let mounted = true
     const runId = ++noiRunIdRef.current
+    noiAbortRef.current?.abort()
+    const abort = new AbortController()
+    noiAbortRef.current = abort
     setLoadingNoi(true)
     setDebugPerf((p) => ({ ...p, noiTimeout: false }))
     const startedAt = performance.now()
     const timeoutId = window.setTimeout(() => {
       if (!mounted) return
+      abort.abort()
       setDebugPerf((p) => ({ ...p, noiTimeout: true }))
       setLoadingNoi(false)
     }, 12_000)
@@ -872,7 +941,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', chartStart)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('snapshot_date, occupied_units, vacant_units, leased_units')
@@ -880,7 +950,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('snapshot_date', chartStart)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots),
+        .limit(queryCaps.snapshots)
+        .abortSignal(abort.signal),
       supabaseMetrics
         .from('work_orders')
         .select('material_cost_usd')
@@ -888,7 +959,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .gte('created_on', chartStart)
         .lte('created_on', endDate)
         .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders),
+        .limit(queryCaps.workOrders)
+        .abortSignal(abort.signal),
     ])
       .then(([rentRes, occRes, woRes]) => {
         if (!mounted) return
@@ -1028,6 +1100,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       })
     return () => {
       window.clearTimeout(timeoutId)
+      noiAbortRef.current?.abort()
       mounted = false
     }
   }, [effectiveNoiPropertyIds, safeDateRange.endDate, queryCaps])
@@ -1066,8 +1139,14 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                     <MultiSelect
                       placeholder={loadingProperties ? 'Loading properties...' : 'Select properties'}
                       data={multiSelectData}
-                      value={selectedPropertyIds}
-                      onChange={setSelectedPropertyIds}
+                      value={draftPropertyIds}
+                      onChange={(ids) => {
+                        const seen = new Set<string>()
+                        const next = ids
+                          .map((x) => (typeof x === 'string' ? x.trim() : ''))
+                          .filter((x) => x && !seen.has(x) && (seen.add(x), true))
+                        setDraftPropertyIds(next)
+                      }}
                       searchable
                       clearable
                       hidePickedOptions
@@ -1075,9 +1154,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                   </Box>
                   <DateInput
                     label="From"
-                    value={parseDateValue(dateRange.startDate)}
-                    onChange={(value) => setDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
-                    maxDate={parseDateValue(dateRange.endDate) ?? undefined}
+                    value={parseDateValue(draftDateRange.startDate)}
+                    onChange={(value) => setDraftDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
+                    maxDate={parseDateValue(draftDateRange.endDate) ?? undefined}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
                     styles={{
@@ -1090,9 +1169,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                   />
                   <DateInput
                     label="To"
-                    value={parseDateValue(dateRange.endDate)}
-                    onChange={(value) => setDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
-                    minDate={parseDateValue(dateRange.startDate) ?? undefined}
+                    value={parseDateValue(draftDateRange.endDate)}
+                    onChange={(value) => setDraftDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
+                    minDate={parseDateValue(draftDateRange.startDate) ?? undefined}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
                     styles={{
@@ -1103,6 +1182,23 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                     }}
                     style={{ minWidth: 140 }}
                   />
+                  <Button
+                    size="sm"
+                    color="purple"
+                    disabled={!isDraftDirty}
+                    onClick={() => {
+                      // Normalize + validate against loaded options when available
+                      const seen = new Set<string>()
+                      const nextIds = draftPropertyIds
+                        .map((x) => x.trim())
+                        .filter((x) => x && !seen.has(x) && (seen.add(x), true))
+                        .filter((id) => (loadingProperties || propertyIdSet.size === 0 ? true : propertyIdSet.has(id)))
+                      setSelectedPropertyIds(nextIds)
+                      setDateRange(draftDateRange)
+                    }}
+                  >
+                    Apply
+                  </Button>
                 </Group>
               }
             />
