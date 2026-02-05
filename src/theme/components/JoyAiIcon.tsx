@@ -1,14 +1,19 @@
 import { Box } from '@mantine/core'
 import joyIcon from '../../assets/joyai/joy-icon.svg'
 
-export function JoyAiIcon() {
+type JoyAiIconProps = {
+  size?: number
+  alt?: string
+}
+
+export function JoyAiIcon({ size = 16, alt = '' }: JoyAiIconProps) {
   return (
     <Box
       component="img"
       src={joyIcon}
-      alt=""
-      w={16}
-      h={16}
+      alt={alt}
+      w={size}
+      h={size}
       style={{ display: 'block', flexShrink: 0 }}
     />
   )

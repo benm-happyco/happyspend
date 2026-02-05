@@ -1,6 +1,6 @@
 import { Switch, Group, useMantineColorScheme, useComputedColorScheme } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Sun02Icon, Moon02Icon } from '@hugeicons-pro/core-stroke-rounded'
+import { Sun02Icon, Moon02Icon } from '@hugeicons/core-free-icons'
 
 export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme()

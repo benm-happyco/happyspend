@@ -12,6 +12,16 @@ import { HpmLogbooks } from './pages/HpmLogbooks'
 import { HpmDashboard } from './pages/HpmDashboard'
 import { HpmVendors } from './pages/HpmVendors'
 import { HpmDemoDashboard } from './pages/HpmDemoDashboard'
+import { Portfolio } from './pages/Portfolio'
+import { HpmInsightsPage } from './pages/HpmInsightsPage'
+import { HpmDetectionsPage } from './pages/HpmDetectionsPage'
+import { HpmStrategyPage } from './pages/HpmStrategyPage'
+import { HpmApprovalsPage } from './pages/HpmApprovalsPage'
+import { HpmWorkflowsPage } from './pages/HpmWorkflowsPage'
+import { HpmSnapshotsPage } from './pages/HpmSnapshotsPage'
+import { HpmDocumentsPage } from './pages/HpmDocumentsPage'
+import { HpmRegionWatchPage } from './pages/HpmRegionWatchPage'
+import { InsightsLayout } from './pages/InsightsLayout'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -49,6 +59,11 @@ function Navigation() {
             label="Test"
             active={location.pathname === '/test'}
             onClick={() => navigate('/test')}
+          />
+          <NavLink
+            label="Portfolio"
+            active={location.pathname === '/happy-property/portfolio'}
+            onClick={() => navigate('/happy-property/portfolio')}
           />
           <NavLink
             label="Happy Property"
@@ -92,6 +107,17 @@ function AppLayout() {
     return (
       <Routes>
         <Route path="/happy-property/onboarding" element={<HappyPropertyOnboarding />} />
+        <Route path="/happy-property/portfolio" element={<Portfolio />} />
+        <Route path="/happy-property/insights" element={<InsightsLayout />}>
+          <Route path="dashboard" element={<HpmInsightsPage title="Portfolio Dash" searchPlaceholder="Search dashboard" />} />
+          <Route path="analysis" element={<HpmDetectionsPage />} />
+          <Route path="strategy" element={<HpmStrategyPage />} />
+          <Route path="approvals" element={<HpmApprovalsPage />} />
+          <Route path="workflows" element={<HpmWorkflowsPage />} />
+          <Route path="snapshots" element={<HpmSnapshotsPage />} />
+          <Route path="documents" element={<HpmDocumentsPage />} />
+          <Route path="region-watch" element={<HpmRegionWatchPage />} />
+        </Route>
         <Route path="/happy-property/dashboard" element={<HpmDashboard />} />
         <Route path="/happy-property/logbooks" element={<HpmLogbooks />} />
         <Route path="/happy-property/vendors" element={<HpmVendors />} />

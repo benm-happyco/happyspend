@@ -3,7 +3,7 @@ import { ActionIcon, Box, Divider, Drawer, Group, Menu, Stack, Text } from '@man
 import { useClickOutside } from '@mantine/hooks'
 import type { ActionIconProps, DrawerProps, GroupProps, MenuProps } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
-import { Cancel01Icon, MoreVerticalIcon } from '@hugeicons-pro/core-stroke-rounded'
+import { Cancel01Icon, MoreVerticalIcon } from '@hugeicons/core-free-icons'
 
 type IconSvgObject = typeof Cancel01Icon
 

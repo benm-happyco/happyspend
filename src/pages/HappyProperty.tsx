@@ -44,7 +44,7 @@ import {
   CircleIcon,
   LinkSquare01Icon,
   PlugSocketIcon,
-} from '@hugeicons-pro/core-stroke-rounded'
+} from '@hugeicons/core-free-icons'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { getCategoryIconSrc } from '../theme/components/categoryIcons'
 import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'

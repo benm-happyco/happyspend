@@ -1,0 +1,3 @@
+[submodule "vendor/ui.mantine.dev"]
+	path = vendor/ui.mantine.dev
+	url = https://github.com/mantinedev/ui.mantine.dev.git

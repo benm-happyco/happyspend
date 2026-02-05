@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -14,8 +15,8 @@
     "chromatic": "npx chromatic --project-token=chpt_323fa72e49d9599"
   },
   "dependencies": {
-    "@hugeicons-pro/core-stroke-rounded": "file:vendor/core-stroke-rounded",
-    "@hugeicons/react": "file:vendor/hugeicons-react",
+    "@hugeicons/core-free-icons": "^3.1.1",
+    "@hugeicons/react": "^1.1.4",
     "@mantine/charts": "^7.17.8",
     "@mantine/core": "^7.5.0",
     "@mantine/dates": "^7.17.8",

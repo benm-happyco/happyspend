@@ -19,7 +19,7 @@ import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGr
 import { CategoryIcon } from '../theme/components/CategoryIcon'
 import { getCategoryIconSrc } from '../theme/components/categoryIcons'
 import { StatusBadge, STATUS_BADGE_KEYS, type StatusBadgeStatus } from '../theme/components/StatusBadge'
-import { CircleIcon } from '@hugeicons-pro/core-stroke-rounded'
+import { CircleIcon } from '@hugeicons/core-free-icons'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 

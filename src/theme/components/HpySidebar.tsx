@@ -11,6 +11,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { HpyAppIcon } from './HpyAppIcon'
 import {
@@ -35,17 +36,17 @@ import {
   Folder02Icon,
   SaleTag02Icon,
   Alert02Icon,
-} from '@hugeicons-pro/core-stroke-rounded'
+} from '@hugeicons/core-free-icons'
 
 type IconSvgObject = typeof PieChartIcon
 
-type SidebarNavItem = {
+export type SidebarNavItem = {
   id: string
   label: string
   icon?: IconSvgObject
   iconNode?: React.ReactNode
   expandable?: boolean
-  subItems?: { id: string; label: string; icon?: IconSvgObject }[]
+  subItems?: { id: string; label: string; icon?: IconSvgObject; path?: string }[]
 }
 
 type HpySidebarNavItemProps = {
@@ -128,12 +129,22 @@ export function HpySidebarNavButton({
   )
 }
 
-function HpySidebarSubNavItem({ icon, label }: { icon?: IconSvgObject; label: string }) {
+function HpySidebarSubNavItem({
+  icon,
+  label,
+  path,
+}: {
+  icon?: IconSvgObject
+  label: string
+  path?: string
+}) {
   const theme = useMantineTheme()
   const colorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true })
   const iconColor = colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[7]
+  const location = useLocation()
+  const isActive = path ? location.pathname === path : false
 
-  return (
+  const content = (
     <Group gap="sm" align="center" style={{ padding: '4px 0 4px 12px' }}>
       <Box style={{ width: 24, height: 24, display: 'grid', placeItems: 'center', color: iconColor }}>
         {icon ? <HugeiconsIcon icon={icon} size={18} /> : null}
@@ -143,17 +154,39 @@ function HpySidebarSubNavItem({ icon, label }: { icon?: IconSvgObject; label: st
       </Text>
     </Group>
   )
+
+  if (path) {
+    return (
+      <Link
+        to={path}
+        style={{
+          textDecoration: 'none',
+          color: 'inherit',
+          display: 'block',
+          borderRadius: theme.radius.sm,
+          backgroundColor: isActive ? 'var(--mantine-color-default-hover)' : undefined,
+        }}
+      >
+        {content}
+      </Link>
+    )
+  }
+
+  return content
 }
 
 export type HpySidebarProps = {
   variant?: 'hpm'
   height?: string | number
+  /** When provided, used instead of the default Apps nav (e.g. to customize Insights submenu for a specific page). */
+  appNavOverride?: SidebarNavItem[]
 }
 
-export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
+export function HpySidebar({ variant = 'hpm', height, appNavOverride }: HpySidebarProps) {
   const theme = useMantineTheme()
   const colorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true })
   const isDark = colorScheme === 'dark'
+  const location = useLocation()
   const [collapsed, setCollapsed] = useState(false)
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({
     inspections: false,
@@ -161,6 +194,10 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
     callManagement: false,
     inventory: false,
   })
+
+  /** Keep a section expanded when the current path is one of its sub-item paths (e.g. Insights stays open when navigating between sub-pages). */
+  const isPathInSubItems = (item: SidebarNavItem) =>
+    !!item.subItems?.some((sub) => sub.path && location.pathname === sub.path)
 
   if (variant !== 'hpm') {
     return null
@@ -233,6 +270,8 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
     },
   ]
 
+  const appNavToUse = appNavOverride ?? appNav
+
   const toggleCollapse = () => setCollapsed((prev) => !prev)
   const toggleExpand = (id: string) =>
     setExpandedItems((prev) => ({
@@ -296,8 +335,8 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
               </Text>
             )}
             <Stack gap={0}>
-              {appNav.map((item) => {
-                const isExpanded = !collapsed && item.expandable && expandedItems[item.id]
+              {appNavToUse.map((item) => {
+                const isExpanded = !collapsed && item.expandable && (expandedItems[item.id] || isPathInSubItems(item))
                 const showCard = !collapsed && item.expandable
                 return (
                   <Box key={item.id}>
@@ -315,13 +354,13 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
                         label={item.label}
                         collapsed={collapsed}
                         expandable={item.expandable}
-                        expanded={expandedItems[item.id]}
+                        expanded={expandedItems[item.id] || isPathInSubItems(item)}
                         onToggleExpand={item.expandable ? () => toggleExpand(item.id) : undefined}
                         compact={showCard}
                       />
                       <Box
                         style={{
-                          maxHeight: isExpanded ? 200 : 0,
+                          maxHeight: isExpanded && item.subItems ? Math.min(item.subItems.length * 40 + 16, 480) : 0,
                           opacity: isExpanded ? 1 : 0,
                           overflow: 'hidden',
                           transition: 'max-height 200ms ease, opacity 150ms ease',
@@ -335,6 +374,7 @@ export function HpySidebar({ variant = 'hpm', height }: HpySidebarProps) {
                                 key={subItem.id}
                                 label={subItem.label}
                                 icon={subItem.icon}
+                                path={subItem.path}
                               />
                             ))}
                           </Stack>

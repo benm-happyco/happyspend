@@ -23,7 +23,7 @@ import {
   Moon02Icon,
   Settings01Icon,
   Sun02Icon,
-} from '@hugeicons-pro/core-stroke-rounded'
+} from '@hugeicons/core-free-icons'
 import logoWhite from '../../assets/logos/Mark=Face, Color=White.png'
 import techAvatar from '../../assets/figma/4f423e193b1940a23e8e55793ecfd0ab4dde1ba5.png'
 import experienceSwitcherOverride from '../../assets/icons/experience-switcher-override.svg'

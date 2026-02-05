@@ -13,7 +13,7 @@ import {
   useMantineTheme,
 } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
-import { ArrowDown01Icon, ArrowRight01Icon, Cancel01Icon } from '@hugeicons-pro/core-stroke-rounded'
+import { ArrowDown01Icon, ArrowRight01Icon, Cancel01Icon } from '@hugeicons/core-free-icons'
 
 export type CascadingSelectorItem = {
   value: string

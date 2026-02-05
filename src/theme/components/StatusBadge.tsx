@@ -22,7 +22,7 @@ import {
   TriangleIcon,
   ViewIcon,
   PauseIcon,
-} from '@hugeicons-pro/core-stroke-rounded'
+} from '@hugeicons/core-free-icons'
 
 type IconSvgObject = typeof RemoveCircleIcon
 

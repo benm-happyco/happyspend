@@ -30,7 +30,8 @@ This is a Mantine Theme Showcase application that visualizes and documents custo
 - All components should respect light/dark mode switching
 - Filter inputs and form fields should use Mantine theme background colors
 - **Drawers:** When asked to create a new drawer, always ask which type to use before implementation: Inline Editor, Workflow Editor, or Detail Drawer. Each type has unique preset UX and design behavior that must be followed.
-- **New pages must include `GlobalHeader` and `HpySidebar`**, with content to the right of the sidebar and `56px` padding on all sides.
+- **When creating a new page, ALWAYS ask which product the page is for** (e.g. HPM / Happy Property Manager, main app sidebar, another product). The product determines the layout: HPM pages use `GlobalHeader` + `HpySidebar` and live under `/happy-property/*`; main-app pages use the app navbar only and their own routes.
+- **HPM pages** (and any page that should have the HPM chrome): **must include `GlobalHeader` and `HpySidebar`**, with content to the right of the sidebar and `56px` padding on all sides.
 - **New pages must include the page content header (`HpyPageHeader`)** at the top of the content area, with an app icon, title, search field, and primary CTA by default.
 
 ### Code Style
