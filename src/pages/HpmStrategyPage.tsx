@@ -1463,123 +1463,168 @@ export function HpmStrategyPage() {
   }
 
   function ResidentVoiceShiftContent() {
-    const before = 3.2
-    const after = 4.1
-    const improvement = Number((after - before).toFixed(1))
+    const before = vitals.residentSentimentPrev
+    const after = vitals.residentSentimentNow
+    const hasData = before != null && after != null && Number.isFinite(before) && Number.isFinite(after)
+    const delta = hasData ? after - before : null
+    const deltaLabel = delta == null ? '—' : `${delta >= 0 ? '+' : ''}${delta.toFixed(1)} pts`
+    const deltaColor = delta == null ? 'var(--mantine-color-dimmed)' : delta >= 0 ? 'var(--mantine-color-success-7)' : 'var(--mantine-color-danger-7)'
 
-    const min = 1.0
-    const max = 5.0
-    const toPct = (v: number) => clamp(((v - min) / (max - min)) * 100, 0, 100)
+    const min = 0
+    const max = 5
+    const toPct = (v: number) => clamp((v / max) * 100, 0, 100)
+    const currentPct = hasData ? toPct(after) : 0
+    const prevPct = hasData ? toPct(before) : 0
 
-    const themes = [
-      { label: 'Maintenance response time', correlation: 'High NOI correlation', deltaPct: -18 },
-      { label: 'Noise / HVAC issues', correlation: 'Med NOI correlation', deltaPct: -12 },
-      { label: 'Common area cleanliness', correlation: 'Med NOI correlation', deltaPct: 8 },
-    ] as const
+    const zoneTone = hasData ? (after >= 4 ? 'good' : after >= 3 ? 'warn' : 'bad') : 'warn'
+    const fillColor =
+      zoneTone === 'good'
+        ? 'color-mix(in srgb, var(--mantine-color-success-6) 35%, transparent)'
+        : zoneTone === 'warn'
+          ? 'color-mix(in srgb, var(--mantine-color-yellow-6) 35%, transparent)'
+          : 'color-mix(in srgb, var(--mantine-color-danger-6) 35%, transparent)'
+    const markerColor = 'color-mix(in srgb, var(--mantine-color-text) 85%, transparent)'
 
     return (
-      <Stack gap="lg">
-        <Group justify="space-between">
-          <Text size="sm" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-            Before
-          </Text>
-          <Text size="sm" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-            After
-          </Text>
-        </Group>
-
-        <Box
-          style={{
-            position: 'relative',
-            height: 56,
-            borderRadius: 18,
-            overflow: 'hidden',
-            border: `1px solid ${sectionBorder}`,
-            background:
-              'linear-gradient(90deg, color-mix(in srgb, var(--mantine-color-yellow-3) 55%, transparent) 0%, color-mix(in srgb, var(--mantine-color-lime-3) 55%, transparent) 45%, color-mix(in srgb, var(--mantine-color-green-3) 60%, transparent) 100%)',
-          }}
-        >
-          {/* markers */}
-          <Box
-            style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              left: `${toPct(before)}%`,
-              width: 3,
-              background: 'var(--mantine-color-danger-7)',
-              transform: 'translateX(-1px)',
-            }}
-          />
-          <Box
-            style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              left: `${toPct(after)}%`,
-              width: 3,
-              background: 'var(--mantine-color-success-7)',
-              transform: 'translateX(-1px)',
-            }}
-          />
-        </Box>
-
-        <Group justify="space-between" align="center">
-          <Text size="sm" c="dimmed" fw={700}>
-            {min.toFixed(1)}
-          </Text>
-          <Text fw={900} size="sm" style={{ color: 'var(--mantine-color-success-7)' }}>
-            +{improvement} improvement
-          </Text>
-          <Text size="sm" c="dimmed" fw={700}>
-            {max.toFixed(1)}
-          </Text>
-        </Group>
-
-        <Stack gap="sm">
-          <Text size="sm" fw={900} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
-            Top theme changes
-          </Text>
-
-          <Stack gap="sm">
-            {themes.map((t) => {
-              const isGood = t.deltaPct < 0
-              const color = isGood ? 'var(--mantine-color-success-7)' : 'var(--mantine-color-danger-7)'
-              const barColor = isGood ? 'var(--mantine-color-success-6)' : 'var(--mantine-color-danger-6)'
-              return (
-                <Group key={t.label} justify="space-between" align="center" wrap="nowrap">
-                  <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
-                    <Box w={4} h={32} style={{ borderRadius: 999, background: barColor, flexShrink: 0 }} />
-                    <Text fw={900} size="sm" style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      {t.label}
-                    </Text>
-                  </Group>
-
-                  <Group gap="md" wrap="nowrap" style={{ flexShrink: 0 }}>
-                    <Badge color="gray" variant="light" radius="xl" styles={{ root: { textTransform: 'none', fontWeight: 800 } }}>
-                      {t.correlation}
-                    </Badge>
-                    <Text fw={900} size="sm" style={{ color, width: 56, textAlign: 'right' }}>
-                      {t.deltaPct >= 0 ? `+${t.deltaPct}%` : `${t.deltaPct}%`}
-                    </Text>
-                  </Group>
-                </Group>
-              )
-            })}
+      <Stack gap="md">
+        <Group justify="space-between" align="flex-start" wrap="nowrap">
+          <Stack gap={2} style={{ minWidth: 0 }}>
+            <Text size="sm" c="dimmed">
+              Avg resident satisfaction
+            </Text>
+            <Text fw={900} size="lg">
+              {hasData ? `${after.toFixed(1)}/5` : '—'}
+            </Text>
           </Stack>
-        </Stack>
+
+          <Stack gap={4} align="flex-end" style={{ flexShrink: 0 }}>
+            <Group gap={6} wrap="nowrap">
+              <HugeiconsIcon
+                icon={ArrowDown01Icon}
+                size={16}
+                style={{
+                  transform: delta != null && delta >= 0 ? 'rotate(180deg)' : undefined,
+                  color: deltaColor,
+                }}
+              />
+              <Text size="sm" fw={900} style={{ color: deltaColor }}>
+                {deltaLabel}
+              </Text>
+            </Group>
+            <Text size="xs" c="dimmed">
+              vs last period
+            </Text>
+          </Stack>
+        </Group>
+
+        {loading ? (
+          <Skeleton height={140} radius="md" />
+        ) : !hasData ? (
+          <Text size="sm" c="dimmed" style={{ lineHeight: 1.5 }}>
+            No resident ratings found for the selected properties in this period.
+          </Text>
+        ) : (
+          <Stack gap="sm">
+            <Group justify="space-between" align="center">
+              <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                0
+              </Text>
+              <Group gap="xs" wrap="nowrap">
+                <Text size="xs" c="dimmed">
+                  Previous period
+                </Text>
+                <Box w={8} h={8} style={{ borderRadius: 999, background: markerColor }} />
+                <Text size="xs" c="dimmed">
+                  Current
+                </Text>
+                <Box w={10} h={10} style={{ borderRadius: 3, background: fillColor, border: `1px solid ${sectionBorder}` }} />
+              </Group>
+              <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                5
+              </Text>
+            </Group>
+
+            <Box
+              style={{
+                position: 'relative',
+                height: 44,
+                borderRadius: 14,
+                overflow: 'hidden',
+                border: `1px solid ${sectionBorder}`,
+                background: 'var(--mantine-color-default-hover)',
+              }}
+            >
+              {/* Current filled bar */}
+              <Box
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  width: `${currentPct}%`,
+                  background: fillColor,
+                  borderRight: `1px solid ${sectionBorder}`,
+                }}
+              />
+
+              {/* Previous marker */}
+              <Box
+                style={{
+                  position: 'absolute',
+                  top: 6,
+                  bottom: 6,
+                  left: `${prevPct}%`,
+                  width: 2,
+                  borderRadius: 999,
+                  background: markerColor,
+                  transform: 'translateX(-1px)',
+                  boxShadow: `0 0 0 2px color-mix(in srgb, var(--mantine-color-body) 65%, transparent)`,
+                }}
+              />
+
+              {/* Current label */}
+              <Text
+                size="xs"
+                fw={900}
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: `min(calc(${currentPct}% + 10px), calc(100% - 48px))`,
+                  transform: 'translateY(-50%)',
+                  color: 'var(--mantine-color-text)',
+                  background: 'color-mix(in srgb, var(--mantine-color-body) 70%, transparent)',
+                  border: `1px solid ${sectionBorder}`,
+                  padding: '2px 6px',
+                  borderRadius: 999,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {after.toFixed(1)}
+              </Text>
+            </Box>
+          </Stack>
+        )}
       </Stack>
     )
   }
 
   function ResidentVoiceExperienceSignalsContent() {
-    const min = 1.0
-    const max = 5.0
+    const min = 0
+    const max = 5
 
-    const portfolioScore = 3.9
+    const portfolioScore = vitals.residentSentimentNow ?? 3.9
     const peerMedian = 3.4
+    const bestInClass = 4.8
 
-    const toPct = (v: number) => clamp(((v - min) / (max - min)) * 100, 0, 100)
+    const toPct = (v: number) => clamp((v / max) * 100, 0, 100)
+    const portfolioPct = toPct(portfolioScore)
+    const peerPct = toPct(peerMedian)
+    const bestPct = toPct(bestInClass)
+
+    const fillColor = 'color-mix(in srgb, var(--mantine-color-purple-6) 35%, transparent)'
+    const portfolioMarkerColor = 'var(--mantine-color-purple-7)'
+    const peerMarkerColor = 'color-mix(in srgb, var(--mantine-color-text) 82%, transparent)'
+    const bestMarkerColor = 'color-mix(in srgb, var(--mantine-color-text) 82%, transparent)'
 
     const drivers = [
       { rank: 1, label: 'Maintenance response time', trend: 'down' as const, evidence: true },
@@ -1609,90 +1654,132 @@ export function HpmStrategyPage() {
                 Portfolio Sentiment Distribution
               </Text>
 
-              <Box
-                style={{
-                  position: 'relative',
-                  height: 56,
-                  borderRadius: 14,
-                  overflow: 'hidden',
-                  border: `1px solid ${sectionBorder}`,
-                  background:
-                    'linear-gradient(90deg, color-mix(in srgb, var(--mantine-color-pink-2) 55%, transparent) 0%, color-mix(in srgb, var(--mantine-color-yellow-2) 55%, transparent) 35%, color-mix(in srgb, var(--mantine-color-lime-2) 55%, transparent) 65%, color-mix(in srgb, var(--mantine-color-green-2) 60%, transparent) 100%)',
-                }}
-              >
-                <Text
-                  size="xs"
-                  fw={700}
-                  style={{
-                    position: 'absolute',
-                    top: 8,
-                    left: 10,
-                    color: 'color-mix(in srgb, var(--mantine-color-text) 78%, transparent)',
-                  }}
-                >
-                  Portfolio
-                </Text>
+              <Stack gap="sm">
+                <Group justify="space-between" align="center">
+                  <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                    0
+                  </Text>
+                  <Group gap="md" wrap="wrap" justify="center">
+                    <Group gap={6} wrap="nowrap">
+                      <Box w={8} h={8} style={{ borderRadius: 999, background: portfolioMarkerColor }} />
+                      <Text size="xs" c="dimmed">
+                        Portfolio
+                      </Text>
+                    </Group>
+                    <Group gap={6} wrap="nowrap">
+                      <Box w={8} h={8} style={{ borderRadius: 999, background: peerMarkerColor }} />
+                      <Text size="xs" c="dimmed">
+                        Peer median (3.4)
+                      </Text>
+                    </Group>
+                    <Group gap={6} wrap="nowrap">
+                      <Box w={8} h={8} style={{ borderRadius: 999, background: bestMarkerColor }} />
+                      <Text size="xs" c="dimmed">
+                        Best in class (4.8)
+                      </Text>
+                    </Group>
+                  </Group>
+                  <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                    5
+                  </Text>
+                </Group>
 
-                {/* Portfolio marker */}
                 <Box
                   style={{
-                    position: 'absolute',
-                    top: 8,
-                    bottom: 8,
-                    left: `${toPct(portfolioScore)}%`,
-                    width: 2,
-                    borderRadius: 999,
-                    background: 'color-mix(in srgb, var(--mantine-color-dark-9) 75%, transparent)',
-                    transform: 'translateX(-1px)',
-                  }}
-                />
-
-                {/* Peer median label + marker */}
-                <Text
-                  size="xs"
-                  fw={800}
-                  style={{
-                    position: 'absolute',
-                    top: 8,
-                    left: `calc(${toPct(peerMedian)}% - 34px)`,
-                    color: 'var(--mantine-color-blue-7)',
+                    position: 'relative',
+                    height: 44,
+                    borderRadius: 14,
+                    overflow: 'hidden',
+                    border: `1px solid ${sectionBorder}`,
+                    background: 'var(--mantine-color-default-hover)',
                   }}
                 >
-                  Peer Median
-                </Text>
-                <Box
-                  style={{
-                    position: 'absolute',
-                    top: 8,
-                    bottom: 8,
-                    left: `${toPct(peerMedian)}%`,
-                    width: 2,
-                    borderRadius: 999,
-                    background: 'color-mix(in srgb, var(--mantine-color-dark-9) 55%, transparent)',
-                    transform: 'translateX(-1px)',
-                  }}
-                />
+                  {/* Portfolio filled bar */}
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      width: `${portfolioPct}%`,
+                      background: fillColor,
+                      borderRight: `1px solid ${sectionBorder}`,
+                    }}
+                  />
 
-                <Text
-                  size="xs"
-                  fw={800}
-                  style={{
-                    position: 'absolute',
-                    bottom: 8,
-                    right: 10,
-                    color: 'var(--mantine-color-violet-7)',
-                  }}
-                >
-                  Best-in-Class
-                </Text>
-              </Box>
+                  {/* Peer median marker */}
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      top: 6,
+                      bottom: 6,
+                      left: `${peerPct}%`,
+                      width: 2,
+                      borderRadius: 999,
+                      background: peerMarkerColor,
+                      transform: 'translateX(-1px)',
+                      boxShadow: `0 0 0 2px color-mix(in srgb, var(--mantine-color-body) 65%, transparent)`,
+                    }}
+                  />
+
+                  {/* Best-in-class marker */}
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      top: 6,
+                      bottom: 6,
+                      left: `${bestPct}%`,
+                      width: 2,
+                      borderRadius: 999,
+                      background: bestMarkerColor,
+                      transform: 'translateX(-1px)',
+                      boxShadow: `0 0 0 2px color-mix(in srgb, var(--mantine-color-body) 65%, transparent)`,
+                    }}
+                  />
+
+                  {/* Portfolio marker */}
+                  <Box
+                    style={{
+                      position: 'absolute',
+                      top: 4,
+                      bottom: 4,
+                      left: `${portfolioPct}%`,
+                      width: 3,
+                      borderRadius: 999,
+                      background: portfolioMarkerColor,
+                      transform: 'translateX(-1px)',
+                      boxShadow: `0 0 0 2px color-mix(in srgb, var(--mantine-color-body) 65%, transparent)`,
+                    }}
+                  />
+
+                  {/* Portfolio value label */}
+                  <Text
+                    size="xs"
+                    fw={900}
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: `min(calc(${portfolioPct}% + 10px), calc(100% - 56px))`,
+                      transform: 'translateY(-50%)',
+                      color: 'var(--mantine-color-text)',
+                      background: 'color-mix(in srgb, var(--mantine-color-body) 70%, transparent)',
+                      border: `1px solid ${sectionBorder}`,
+                      padding: '2px 6px',
+                      borderRadius: 999,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {portfolioScore.toFixed(1)}
+                  </Text>
+                </Box>
+              </Stack>
 
               <Group justify="space-between">
                 <Text size="xs" c="dimmed" fw={700}>
-                  {min.toFixed(1)} Poor
+                  {min.toFixed(0)} Poor
                 </Text>
                 <Text size="xs" c="dimmed" fw={700}>
-                  {max.toFixed(1)} Excellent
+                  {max.toFixed(0)} Excellent
                 </Text>
               </Group>
             </Stack>

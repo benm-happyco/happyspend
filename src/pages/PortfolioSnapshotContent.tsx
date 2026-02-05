@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { Badge, Box, Button, Card, Divider, Group, Paper, SegmentedControl, SimpleGrid, Stack, Text, TextInput } from '@mantine/core'
 import { AgGridReact } from 'ag-grid-react'
 import { AllCommunityModule, ColDef, ModuleRegistry } from 'ag-grid-community'
+import { HugeiconsIcon } from '@hugeicons/react'
+import { ArrowDown01Icon } from '@hugeicons/core-free-icons'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import { useInsightsPropertySelectionOptional } from '../contexts/InsightsPropertyContext'
@@ -505,6 +507,93 @@ export function PortfolioSnapshotContent() {
       openWorkOrdersRecent: openRecent,
     }
   }, [scoped, scopedProperties])
+
+  const marketSignals = useMemo(() => {
+    const primaryMarket = scopedProperties[0]?.market ?? 'Submarket'
+    const rentGrowthBase = kpis.rentGrowthYoyPct ?? seededRange(`${primaryMarket}:rentGrowthBase`, -0.2, 3.2)
+    const submarketRentGrowth = clamp(rentGrowthBase + seededRange(`${primaryMarket}:rentGrowthAdj`, -0.8, 1.1), -2.5, 6.5)
+
+    const supplyUnits = Math.round(seededRange(`${primaryMarket}:supplyUnits`, 500, 2800) / 100) * 100
+    const supplyLevel = supplyUnits >= 1600 ? 'High' : supplyUnits >= 900 ? 'Moderate' : 'Low'
+    const supplyTrendDir =
+      seededRange(`${primaryMarket}:supplyTrend`, -1, 1) >= 0.15
+        ? 'increasing'
+        : seededRange(`${primaryMarket}:supplyTrend`, -1, 1) <= -0.15
+          ? 'easing'
+          : 'flat'
+
+    const concessionWeeks = clamp(Math.round(seededRange(`${primaryMarket}:concessionWeeks`, 1, 4)), 1, 4)
+    const concessionTrendDir =
+      seededRange(`${primaryMarket}:concessionTrend`, -1, 1) >= 0.15
+        ? 'worsening'
+        : seededRange(`${primaryMarket}:concessionTrend`, -1, 1) <= -0.15
+          ? 'improving'
+          : 'flat'
+
+    const incomeGrowth = clamp(seededRange(`${primaryMarket}:incomeGrowth`, 1.4, 5.2), 0.8, 6.0)
+    const incomeTrendDir = seededRange(`${primaryMarket}:incomeTrend`, -1, 1) >= -0.1 ? 'improving' : 'flat'
+
+    const toneFor = (signal: 'rent' | 'supply' | 'concessions' | 'income'): 'good' | 'warn' | 'bad' => {
+      if (signal === 'rent') return submarketRentGrowth >= 1 ? 'good' : submarketRentGrowth >= 0.2 ? 'warn' : 'bad'
+      if (signal === 'supply') {
+        if (supplyLevel === 'High' && supplyTrendDir === 'increasing') return 'bad'
+        if (supplyLevel === 'Moderate' && supplyTrendDir === 'increasing') return 'warn'
+        if (supplyLevel === 'High' && supplyTrendDir !== 'easing') return 'warn'
+        return 'good'
+      }
+      if (signal === 'concessions') return concessionTrendDir === 'worsening' ? 'bad' : concessionTrendDir === 'flat' ? 'warn' : 'good'
+      return incomeGrowth >= 2.2 ? 'good' : incomeGrowth >= 1.4 ? 'warn' : 'bad'
+    }
+
+    const trendLabel = (dir: string) => {
+      if (dir === 'increasing') return 'Increasing'
+      if (dir === 'easing') return 'Easing'
+      if (dir === 'worsening') return 'Worsening'
+      if (dir === 'improving') return 'Improving'
+      return 'Stable'
+    }
+
+    const isUp = (dir: string) => dir === 'increasing' || dir === 'worsening' || dir === 'improving'
+
+    return [
+      {
+        key: 'rent',
+        label: 'Submarket rent growth',
+        subLabel: primaryMarket && primaryMarket !== 'Submarket' ? primaryMarket : null,
+        value: `${submarketRentGrowth >= 0 ? '+' : ''}${submarketRentGrowth.toFixed(1)}%`,
+        trend: trendLabel(submarketRentGrowth >= 0.6 ? 'improving' : submarketRentGrowth >= 0.2 ? 'flat' : 'worsening'),
+        trendUp: isUp(submarketRentGrowth >= 0.6 ? 'improving' : submarketRentGrowth >= 0.2 ? 'flat' : 'worsening'),
+        tone: toneFor('rent'),
+      },
+      {
+        key: 'supply',
+        label: 'New supply pipeline',
+        subLabel: `${supplyUnits.toLocaleString()} units`,
+        value: supplyLevel,
+        trend: trendLabel(supplyTrendDir),
+        trendUp: isUp(supplyTrendDir),
+        tone: toneFor('supply'),
+      },
+      {
+        key: 'concessions',
+        label: 'Concession trend',
+        subLabel: null,
+        value: `${concessionWeeks} ${concessionWeeks === 1 ? 'week' : 'weeks'}`,
+        trend: trendLabel(concessionTrendDir),
+        trendUp: isUp(concessionTrendDir),
+        tone: toneFor('concessions'),
+      },
+      {
+        key: 'income',
+        label: 'Median income',
+        subLabel: null,
+        value: `+${incomeGrowth.toFixed(1)}%`,
+        trend: trendLabel(incomeTrendDir),
+        trendUp: isUp(incomeTrendDir),
+        tone: toneFor('income'),
+      },
+    ] as const
+  }, [scopedProperties, kpis.rentGrowthYoyPct])
 
   const benchmarking = useMemo(() => {
     // Build per-property values so we can compute median + percentile helper text.
@@ -1315,70 +1404,53 @@ export function PortfolioSnapshotContent() {
             </Text>
           </Group>
 
-          <Stack gap="lg" mt="md">
-            {[
-              {
-                label: 'Submarket Rent Growth',
-                subLabel: null,
-                value: '+1.2%',
-                trendTone: 'good' as const,
-                dotTone: 'good' as const,
-              },
-              {
-                label: 'New Supply Pipeline',
-                subLabel: '1,200 units',
-                value: 'High',
-                trendTone: 'bad' as const,
-                dotTone: 'good' as const,
-              },
-              {
-                label: 'Concession Trend',
-                subLabel: null,
-                value: '2 Weeks',
-                trendTone: 'bad' as const,
-                dotTone: 'warn' as const,
-              },
-              {
-                label: 'Median Income',
-                subLabel: null,
-                value: '+3.5%',
-                trendTone: 'good' as const,
-                dotTone: 'warn' as const,
-              },
-            ].map((s) => {
-              const trendColor =
-                s.trendTone === 'good'
+          <Stack gap="md" mt="md">
+            {marketSignals.map((s) => {
+              const toneColor =
+                s.tone === 'good'
                   ? 'var(--mantine-color-success-7)'
-                  : s.trendTone === 'warn'
-                    ? 'var(--mantine-color-yellow-7)'
+                  : s.tone === 'warn'
+                    ? 'var(--mantine-color-orange-7)'
                     : 'var(--mantine-color-danger-7)'
               const dotColor =
-                s.dotTone === 'good' ? 'var(--mantine-color-success-6)' : s.dotTone === 'warn' ? 'var(--mantine-color-orange-6)' : 'var(--mantine-color-danger-6)'
+                s.tone === 'good'
+                  ? 'var(--mantine-color-success-6)'
+                  : s.tone === 'warn'
+                    ? 'var(--mantine-color-orange-6)'
+                    : 'var(--mantine-color-danger-6)'
 
               return (
-                <Group key={s.label} justify="space-between" align="center" wrap="nowrap">
-                  <Stack gap={2} style={{ minWidth: 0 }}>
+                <Group key={s.key} justify="space-between" align="center" wrap="nowrap" gap="sm">
+                  <Stack gap={1} style={{ minWidth: 0 }}>
                     <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
                       {s.label}
                     </Text>
                     {s.subLabel && (
-                      <Text size="sm" c="dimmed">
+                      <Text size="xs" c="dimmed">
                         {s.subLabel}
                       </Text>
                     )}
                   </Stack>
 
-                  <Stack gap={4} align="flex-end" style={{ flexShrink: 0 }}>
-                    <Text fw={900} size="lg">
+                  <Group gap="md" wrap="nowrap" style={{ flexShrink: 0 }}>
+                    <Text fw={900} size="md" style={{ minWidth: 72, textAlign: 'right' }}>
                       {s.value}
                     </Text>
-                    <Group gap={8} wrap="nowrap">
-                      <Text size="xs" fw={900} style={{ color: trendColor }}>
-                        Trend
+                    <Group gap={6} wrap="nowrap">
+                      <HugeiconsIcon
+                        icon={ArrowDown01Icon}
+                        size={14}
+                        style={{
+                          transform: s.trendUp ? 'rotate(180deg)' : undefined,
+                          color: toneColor,
+                        }}
+                      />
+                      <Text size="xs" fw={900} style={{ color: toneColor }}>
+                        {s.trend}
                       </Text>
-                      <Box w={10} h={10} style={{ borderRadius: 999, background: dotColor }} />
+                      <Box w={8} h={8} style={{ borderRadius: 999, background: dotColor, marginLeft: 2 }} />
                     </Group>
-                  </Stack>
+                  </Group>
                 </Group>
               )
             })}
