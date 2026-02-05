@@ -922,6 +922,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               }
             />
 
+            <Text component="h1" fw={800} size="xl" mb="sm">
+              {badgeStats.selected === 1 ? 'Property Summary' : 'Properties Summary'}
+            </Text>
             <SimpleGrid cols={{ base: 1, sm: 4 }} spacing="lg">
               <Paper withBorder p="md" radius="md">
                 <Group justify="space-between">
