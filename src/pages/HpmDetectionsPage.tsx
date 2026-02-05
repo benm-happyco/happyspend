@@ -364,6 +364,10 @@ const PLACEHOLDER_METRICS = {
 
 export function HpmDetectionsPage() {
   const { selectedPropertyIds, dateRange } = useInsightsPropertySelection()
+  // `selectedPropertyIds` may be a new array each render (even when unchanged).
+  // Depending on the raw array can cause effects to run in a tight loop (and freeze the UI),
+  // especially when it is an empty array.
+  const selectedPropertyIdsKey = selectedPropertyIds.join('|')
   const [reviewDrawerCard, setReviewDrawerCard] = useState<InsightCardData | null>(null)
   const [placeholderStats] = useState<Pick<Stats, 'vendorResponse' | 'utilityUsage' | 'delinquency' | 'renewalRisk'>>(
     () => ({
@@ -461,7 +465,7 @@ export function HpmDetectionsPage() {
         .lte('score_date', endDate),
       supabaseMetrics
         .from('rent_snapshots')
-        .select('*')
+        .select('avg_asking_rent, avg_effective_rent')
         .in('property_id', selectedPropertyIds)
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate),
@@ -563,7 +567,7 @@ export function HpmDetectionsPage() {
     return () => {
       mounted = false
     }
-  }, [selectedPropertyIds, dateRange.startDate, dateRange.endDate])
+  }, [selectedPropertyIdsKey, dateRange.startDate, dateRange.endDate])
 
   const displayStats = useMemo(() => {
     if (loadingStats) {

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Box, Group, MultiSelect, Stack, Switch, Text } from '@mantine/core'
+import { Box, Group, Stack, Switch, Text } from '@mantine/core'
 import { DateInput } from '@mantine/dates'
 import '@mantine/dates/styles.css'
 import { HugeiconsIcon } from '@hugeicons/react'
@@ -8,6 +8,7 @@ import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHe
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpyAppIcon } from '../theme/components/HpyAppIcon'
+import { PropertyPicker } from '../theme/components/PropertyPicker'
 import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
@@ -41,6 +42,7 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
   const { highlightUnavailable, setHighlightUnavailable } = useUnavailableHighlight()
   const [propertyOptions, setPropertyOptions] = useState<{ value: string; label: string }[]>([])
   const [loadingProperties, setLoadingProperties] = useState(true)
+  const MAX_SELECTED_PROPERTIES = 25
 
   useEffect(() => {
     let mounted = true
@@ -71,12 +73,14 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
     }
   }, [])
 
-  const multiSelectData = useMemo(() => {
-    if (loadingProperties && selectedPropertyIds.length > 0) {
-      return selectedPropertyIds.map((id) => ({ value: id, label: '…' }))
-    }
-    return propertyOptions
-  }, [loadingProperties, selectedPropertyIds, propertyOptions])
+  const safeDatePopoverProps = useMemo(
+    () => ({
+      withinPortal: false,
+      position: 'bottom-start' as const,
+      middlewares: { flip: false, shift: false },
+    }),
+    []
+  )
 
   return (
     <>
@@ -109,22 +113,20 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
               trailingContent={
                 hideHeaderFilters ? null : (
                 <Group align="flex-end" gap="md" wrap="wrap">
-                  <Box style={{ minWidth: 280, maxWidth: 480 }}>
-                    <MultiSelect
-                      placeholder={loadingProperties ? 'Loading properties...' : 'Select properties'}
-                      data={multiSelectData}
-                      value={selectedPropertyIds}
-                      onChange={setSelectedPropertyIds}
-                      searchable
-                      clearable
-                      hidePickedOptions
-                    />
-                  </Box>
+                  <PropertyPicker
+                    options={propertyOptions}
+                    value={selectedPropertyIds}
+                    onChange={(next) => setSelectedPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))}
+                    loading={loadingProperties}
+                    maxSelected={MAX_SELECTED_PROPERTIES}
+                    label="Properties"
+                  />
                   <DateInput
                     label="From"
                     value={parseDateValue(dateRange.startDate)}
                     onChange={(value) => setDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
                     maxDate={parseDateValue(dateRange.endDate) ?? undefined}
+                    popoverProps={safeDatePopoverProps}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
                     styles={{
@@ -140,6 +142,7 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
                     value={parseDateValue(dateRange.endDate)}
                     onChange={(value) => setDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
                     minDate={parseDateValue(dateRange.startDate) ?? undefined}
+                    popoverProps={safeDatePopoverProps}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
                     styles={{

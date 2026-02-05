@@ -1,20 +1,23 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Badge,
   Box,
   Button,
   Card,
+  Checkbox,
   Divider,
   Group,
-  MultiSelect,
   Paper,
+  Popover,
   Progress,
+  ScrollArea,
   SegmentedControl,
   Select,
   SimpleGrid,
   Stack,
   Switch,
   Text,
+  TextInput,
   ThemeIcon,
   Alert,
   useMantineTheme,
@@ -38,7 +41,7 @@ import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHe
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpyAppIcon } from '../theme/components/HpyAppIcon'
-import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
+import { type InsightsDateRange, useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
 import { metricsSupabaseConfigured, supabaseMetrics } from '../lib/supabaseMetrics'
 import { PORTFOLIO_APP_NAV } from './portfolioInsightsNav'
@@ -156,12 +159,229 @@ function formatDateValue(value: Date | null): string {
   return `${y}-${m}-${d}`
 }
 
+function yieldToBrowser(): Promise<void> {
+  // Give the main thread a chance to paint/respond to input during heavy aggregations.
+  return new Promise((resolve) => window.requestAnimationFrame(() => resolve()))
+}
+
+function DashboardFilters({
+  maxProperties,
+  propertyOptions,
+  loadingProperties,
+  selectedPropertyIds,
+  dateRange,
+  setSelectedPropertyIds,
+  setDateRange,
+}: {
+  maxProperties: number
+  propertyOptions: { value: string; label: string }[]
+  loadingProperties: boolean
+  selectedPropertyIds: string[]
+  dateRange: InsightsDateRange
+  setSelectedPropertyIds: (value: string[] | ((prev: string[]) => string[])) => void
+  setDateRange: (value: InsightsDateRange | ((prev: InsightsDateRange) => InsightsDateRange)) => void
+}) {
+  const propertyIdSet = useMemo(() => new Set(propertyOptions.map((o) => o.value)), [propertyOptions])
+
+  // Draft state lives here so toggling properties doesn't re-render the whole dashboard.
+  const [draftPropertyIds, setDraftPropertyIds] = useState<string[]>(selectedPropertyIds)
+  const [draftDateRange, setDraftDateRange] = useState<InsightsDateRange>(dateRange)
+  const [search, setSearch] = useState('')
+  const [capHit, setCapHit] = useState(false)
+
+  const normalizeIds = useCallback(
+    (ids: string[]) => {
+      const seen = new Set<string>()
+      const out: string[] = []
+      for (const raw of ids) {
+        if (typeof raw !== 'string') continue
+        const id = raw.trim()
+        if (!id) continue
+        if (seen.has(id)) continue
+        // Only enforce "must exist in options" after properties are loaded.
+        if (!loadingProperties && propertyIdSet.size > 0 && !propertyIdSet.has(id)) continue
+        seen.add(id)
+        out.push(id)
+      }
+      return out
+    },
+    [loadingProperties, propertyIdSet]
+  )
+
+  const normalizedSelectedIds = useMemo(() => normalizeIds(selectedPropertyIds), [normalizeIds, selectedPropertyIds])
+  const normalizedDraftIds = useMemo(() => normalizeIds(draftPropertyIds), [normalizeIds, draftPropertyIds])
+
+  const keyOf = useCallback((ids: string[]) => ids.join('\u0000'), [])
+  const selectedKey = useMemo(() => keyOf(normalizedSelectedIds), [normalizedSelectedIds, keyOf])
+  const draftKey = useMemo(() => keyOf(normalizedDraftIds), [normalizedDraftIds, keyOf])
+
+  const isDraftDirty =
+    draftKey !== selectedKey || draftDateRange.startDate !== dateRange.startDate || draftDateRange.endDate !== dateRange.endDate
+
+  // Sync draft with applied filters unless the user has pending edits.
+  useEffect(() => {
+    if (isDraftDirty) return
+    setDraftPropertyIds(normalizedSelectedIds)
+    setDraftDateRange(dateRange)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedKey, dateRange.startDate, dateRange.endDate])
+
+  const draftSet = useMemo(() => new Set(normalizedDraftIds), [normalizedDraftIds])
+  const capReached = normalizedDraftIds.length >= maxProperties
+
+  const filteredOptions = useMemo(() => {
+    const q = search.trim().toLowerCase()
+    if (!q) return propertyOptions.slice(0, 200)
+    const matches: { value: string; label: string }[] = []
+    for (const o of propertyOptions) {
+      if (o.label.toLowerCase().includes(q)) matches.push(o)
+      if (matches.length >= 200) break
+    }
+    return matches
+  }, [propertyOptions, search])
+
+  return (
+    <Group align="flex-end" gap="md" wrap="wrap">
+      <Popover
+        position="bottom-start"
+        withArrow
+        shadow="md"
+        // Portal + flip/shift can get into an expensive re-position loop in some layouts.
+        // Keep it local and disable auto-flip/shift to avoid browser "hangs".
+        withinPortal={false}
+        middlewares={{ flip: false, shift: false }}
+      >
+        <Popover.Target>
+          <Button variant="default" size="sm" loading={loadingProperties}>
+            Properties ({normalizedDraftIds.length})
+          </Button>
+        </Popover.Target>
+        <Popover.Dropdown style={{ width: 420 }}>
+          <Stack gap="sm">
+            <TextInput
+              placeholder="Search properties"
+              value={search}
+              onChange={(e) => setSearch(e.currentTarget.value)}
+              size="sm"
+            />
+            <ScrollArea h={280} type="auto">
+              <Stack gap="xs">
+                {filteredOptions.map((o) => {
+                  const checked = draftSet.has(o.value)
+                  const disabled = !checked && capReached
+                  return (
+                    <Checkbox
+                      key={o.value}
+                      label={o.label}
+                      checked={checked}
+                      disabled={disabled}
+                      onChange={(e) => {
+                        const nextChecked = e.currentTarget.checked
+                        setDraftPropertyIds((prev) => {
+                          const normalizedPrev = normalizeIds(prev)
+                          const prevSet = new Set(normalizedPrev)
+                          if (nextChecked) {
+                            if (prevSet.has(o.value)) return normalizedPrev
+                            if (normalizedPrev.length >= maxProperties) {
+                              setCapHit(true)
+                              window.setTimeout(() => setCapHit(false), 1500)
+                              return normalizedPrev
+                            }
+                            return [...normalizedPrev, o.value]
+                          }
+                          if (!prevSet.has(o.value)) return normalizedPrev
+                          return normalizedPrev.filter((id) => id !== o.value)
+                        })
+                      }}
+                    />
+                  )
+                })}
+                {filteredOptions.length === 0 && (
+                  <Text size="sm" c="dimmed">
+                    No matches
+                  </Text>
+                )}
+              </Stack>
+            </ScrollArea>
+            <Group justify="space-between" gap="sm">
+              <Button size="xs" variant="subtle" onClick={() => setDraftPropertyIds([])}>
+                Clear
+              </Button>
+              <Text size="xs" c={capHit ? 'red' : 'dimmed'}>
+                Max {maxProperties} properties {capHit ? '(limit reached)' : ''}
+              </Text>
+            </Group>
+          </Stack>
+        </Popover.Dropdown>
+      </Popover>
+
+      <DateInput
+        label="From"
+        value={parseDateValue(draftDateRange.startDate)}
+        onChange={(value) => setDraftDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
+        maxDate={parseDateValue(draftDateRange.endDate) ?? undefined}
+        popoverProps={{
+          withinPortal: false,
+          position: 'bottom-start',
+          middlewares: { flip: false, shift: false },
+        }}
+        rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
+        rightSectionPointerEvents="none"
+        styles={{
+          input: {
+            backgroundColor: 'var(--mantine-color-body)',
+            borderColor: 'var(--mantine-color-default-border)',
+          },
+        }}
+        style={{ minWidth: 140 }}
+      />
+      <DateInput
+        label="To"
+        value={parseDateValue(draftDateRange.endDate)}
+        onChange={(value) => setDraftDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
+        minDate={parseDateValue(draftDateRange.startDate) ?? undefined}
+        popoverProps={{
+          withinPortal: false,
+          position: 'bottom-start',
+          middlewares: { flip: false, shift: false },
+        }}
+        rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
+        rightSectionPointerEvents="none"
+        styles={{
+          input: {
+            backgroundColor: 'var(--mantine-color-body)',
+            borderColor: 'var(--mantine-color-default-border)',
+          },
+        }}
+        style={{ minWidth: 140 }}
+      />
+
+      <Button
+        size="sm"
+        color="purple"
+        disabled={!isDraftDirty}
+        onClick={() => {
+          setSelectedPropertyIds(normalizedDraftIds.slice(0, maxProperties))
+          setDateRange(draftDateRange)
+        }}
+      >
+        Apply
+      </Button>
+    </Group>
+  )
+}
+
 export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsightsPageProps) {
   const navigate = useNavigate()
   const location = useLocation()
   const appNavOverride = useMemo(() => PORTFOLIO_APP_NAV, [])
   const { selectedPropertyIds, setSelectedPropertyIds, dateRange, setDateRange } = useInsightsPropertySelection()
   const { highlightUnavailable, setHighlightUnavailable } = useUnavailableHighlight()
+
+  // Guardrail: this demo dashboard can freeze if we persist/query hundreds of property IDs
+  // (large `.in('property_id', [...])` filters + heavy client-side aggregation).
+  const MAX_DASHBOARD_PROPERTIES = 25
+
   const [propertyOptions, setPropertyOptions] = useState<{ value: string; label: string }[]>([])
   const [propertiesById, setPropertiesById] = useState<Map<string, { unit_count?: number | null; market?: string | null }>>(new Map())
   const [mixByPropertyId, setMixByPropertyId] = useState<Map<string, { property_type?: string | null; asset_class?: string | null }>>(new Map())
@@ -199,24 +419,6 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   const [noiChartData, setNoiChartData] = useState<NoiChartPoint[]>([])
   const [varianceDrivers, setVarianceDrivers] = useState<VarianceDriver[]>([])
 
-  // Dashboard filter draft state: avoid expensive queries on every onChange.
-  const [draftPropertyIds, setDraftPropertyIds] = useState<string[]>(selectedPropertyIds)
-  const [draftDateRange, setDraftDateRange] = useState(dateRange)
-  const isDraftDirty = useMemo(() => {
-    return (
-      JSON.stringify(draftPropertyIds) !== JSON.stringify(selectedPropertyIds) ||
-      draftDateRange.startDate !== dateRange.startDate ||
-      draftDateRange.endDate !== dateRange.endDate
-    )
-  }, [draftPropertyIds, selectedPropertyIds, draftDateRange.startDate, draftDateRange.endDate, dateRange.startDate, dateRange.endDate])
-
-  useEffect(() => {
-    // Keep draft in sync unless user has pending edits.
-    if (isDraftDirty) return
-    setDraftPropertyIds(selectedPropertyIds)
-    setDraftDateRange(dateRange)
-  }, [isDraftDirty, selectedPropertyIds, dateRange])
-
   const propertyIdSet = useMemo(() => new Set(propertyOptions.map((o) => o.value)), [propertyOptions])
   const normalizedSelectedPropertyIds = useMemo(() => {
     const seen = new Set<string>()
@@ -234,22 +436,43 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     return out
   }, [selectedPropertyIds, loadingProperties, propertyIdSet])
 
+  // Important: selection is persisted. If a huge list gets stored, we must cap in render-time
+  // computations too (effects run later). This prevents "hang survives refresh" scenarios.
+  const cappedSelectedPropertyIds = useMemo(
+    () => normalizedSelectedPropertyIds.slice(0, MAX_DASHBOARD_PROPERTIES),
+    [normalizedSelectedPropertyIds]
+  )
+
   // If stored/controlled selection contains invalid/duplicate IDs, clean it up.
   // This prevents MultiSelect from getting into a bad controlled state that can lock up the UI.
   useEffect(() => {
-    const a = JSON.stringify(selectedPropertyIds)
-    const b = JSON.stringify(normalizedSelectedPropertyIds)
-    if (a !== b) setSelectedPropertyIds(normalizedSelectedPropertyIds)
+    const next = cappedSelectedPropertyIds
+    // Cheap equality: same order, same values.
+    let same = selectedPropertyIds.length === next.length
+    if (same) {
+      for (let i = 0; i < next.length; i++) {
+        if (selectedPropertyIds[i] !== next[i]) {
+          same = false
+          break
+        }
+      }
+    }
+    if (!same) setSelectedPropertyIds(next)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [normalizedSelectedPropertyIds])
 
   // Debounce expensive recalcs/queries when users multi-select quickly (also helps first load
   // when a stored selection immediately triggers lots of work).
-  const [debouncedPropertyIds, setDebouncedPropertyIds] = useState<string[]>(normalizedSelectedPropertyIds)
+  const [debouncedPropertyIds, setDebouncedPropertyIds] = useState<string[]>(cappedSelectedPropertyIds)
   useEffect(() => {
-    const t = window.setTimeout(() => setDebouncedPropertyIds(normalizedSelectedPropertyIds), 600)
+    const t = window.setTimeout(() => setDebouncedPropertyIds(cappedSelectedPropertyIds), 600)
     return () => window.clearTimeout(t)
-  }, [normalizedSelectedPropertyIds])
+  }, [cappedSelectedPropertyIds])
+
+  const cappedDebouncedPropertyIds = useMemo(
+    () => debouncedPropertyIds.slice(0, MAX_DASHBOARD_PROPERTIES),
+    [debouncedPropertyIds]
+  )
 
   const debugFlags = useMemo(() => {
     const params = new URLSearchParams(location.search)
@@ -303,12 +526,12 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     const days = Math.max(1, Math.round((end.getTime() - start.getTime()) / (24 * 60 * 60 * 1000)) + 1)
     // When users select multiple properties, this dashboard can become very expensive.
     // Clamp the range to keep the UI responsive and avoid "hang on refresh" scenarios.
-    const maxDays = debouncedPropertyIds.length > 1 ? 120 : 180
+    const maxDays = cappedDebouncedPropertyIds.length > 1 ? 120 : 180
     if (days <= maxDays) return dateRange
     const nextStart = new Date(end)
     nextStart.setDate(nextStart.getDate() - (maxDays - 1))
     return { startDate: formatDateValue(nextStart), endDate: dateRange.endDate }
-  }, [dateRange, debouncedPropertyIds.length])
+  }, [dateRange, cappedDebouncedPropertyIds.length])
 
   useEffect(() => {
     if (safeDateRange.startDate !== dateRange.startDate || safeDateRange.endDate !== dateRange.endDate) {
@@ -319,42 +542,44 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
   const noiRegions = useMemo(() => {
     const markets = new Set<string>()
-    debouncedPropertyIds.forEach((id) => {
+    cappedDebouncedPropertyIds.forEach((id) => {
       const m = propertiesById.get(id)?.market
       if (m != null && String(m).trim() !== '') markets.add(String(m).trim())
     })
     return Array.from(markets).sort()
-  }, [debouncedPropertyIds, propertiesById])
+  }, [cappedDebouncedPropertyIds, propertiesById])
 
   const noiPropertyOptions = useMemo(
-    () => propertyOptions.filter((o) => debouncedPropertyIds.includes(o.value)),
-    [propertyOptions, debouncedPropertyIds]
+    () => propertyOptions.filter((o) => cappedDebouncedPropertyIds.includes(o.value)),
+    [propertyOptions, cappedDebouncedPropertyIds]
   )
 
   const effectiveNoiPropertyIds = useMemo(() => {
-    if (debouncedPropertyIds.length === 0) return []
-    if (noiView === 'portfolio') return debouncedPropertyIds
+    if (cappedDebouncedPropertyIds.length === 0) return []
+    if (noiView === 'portfolio') return cappedDebouncedPropertyIds
     if (noiView === 'region') {
       const region = noiRegions.includes(selectedNoiRegion ?? '') ? selectedNoiRegion : noiRegions[0]
-      if (!region) return debouncedPropertyIds
-      return debouncedPropertyIds.filter((id) => (propertiesById.get(id)?.market ?? '').trim() === region)
+      if (!region) return cappedDebouncedPropertyIds
+      return cappedDebouncedPropertyIds.filter((id) => (propertiesById.get(id)?.market ?? '').trim() === region)
     }
-    const id = selectedNoiPropertyId ?? debouncedPropertyIds[0]
-    return debouncedPropertyIds.includes(id ?? '') ? [id!] : [debouncedPropertyIds[0]]
-  }, [noiView, debouncedPropertyIds, selectedNoiRegion, selectedNoiPropertyId, noiRegions, propertiesById])
+    const id = selectedNoiPropertyId ?? cappedDebouncedPropertyIds[0]
+    return cappedDebouncedPropertyIds.includes(id ?? '') ? [id!] : [cappedDebouncedPropertyIds[0]]
+  }, [noiView, cappedDebouncedPropertyIds, selectedNoiRegion, selectedNoiPropertyId, noiRegions, propertiesById])
 
   const [loadingNoi, setLoadingNoi] = useState(false)
 
   // Guardrails: dashboard queries can return huge datasets in prod which can freeze the UI.
   // Since this is a demo dashboard, we cap to recent rows to keep it responsive.
   const queryCaps = useMemo(() => {
-    const factor = Math.max(1, debouncedPropertyIds.length)
+    const factor = Math.max(1, cappedDebouncedPropertyIds.length)
     return {
-      workOrders: Math.max(800, Math.floor(4000 / factor)),
-      snapshots: Math.max(1200, Math.floor(5000 / factor)),
-      ratings: Math.max(600, Math.floor(3000 / factor)),
+      // Keep caps conservative: client-side aggregation can still be costly and cause "hangs"
+      // on slower machines/dev builds.
+      workOrders: Math.max(300, Math.floor(1500 / factor)),
+      snapshots: Math.max(400, Math.floor(2000 / factor)),
+      ratings: Math.max(250, Math.floor(1000 / factor)),
     }
-  }, [debouncedPropertyIds.length])
+  }, [cappedDebouncedPropertyIds.length])
 
   const metricsRunIdRef = useRef(0)
   const noiRunIdRef = useRef(0)
@@ -446,13 +671,6 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }
   }, [])
 
-  const multiSelectData = useMemo(() => {
-    if (loadingProperties && selectedPropertyIds.length > 0) {
-      return selectedPropertyIds.map((id) => ({ value: id, label: '…' }))
-    }
-    return propertyOptions
-  }, [loadingProperties, selectedPropertyIds, propertyOptions])
-
   const demoActiveWorkflows = useMemo(() => {
     const featuredProperty = propertyOptions[0]?.label ?? 'Westwood Oaks'
     const vendorProperty = propertyOptions[1]?.label ?? 'Ace Carpentry'
@@ -460,16 +678,16 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   }, [propertyOptions])
 
   const badgeStats = useMemo(() => {
-    const selected = selectedPropertyIds.length
+    const selected = cappedSelectedPropertyIds.length
     let units = 0
     const markets = new Set<string>()
-    selectedPropertyIds.forEach((id) => {
+    cappedSelectedPropertyIds.forEach((id) => {
       const p = propertiesById.get(id)
       if (p?.unit_count != null && typeof p.unit_count === 'number') units += p.unit_count
       if (p?.market != null && String(p.market).trim() !== '') markets.add(String(p.market).trim())
     })
     return { selected, units, regions: markets.size }
-  }, [selectedPropertyIds, propertiesById])
+  }, [cappedSelectedPropertyIds, propertiesById])
 
   const needsAttentionItems = useMemo(() => {
     return NEEDS_ATTENTION_TEMPLATES.map((template, i) => {
@@ -484,46 +702,46 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   }, [propertyOptions, propertiesById])
 
   const regionDistribution = useMemo(() => {
-    if (selectedPropertyIds.length === 0) return []
+    if (cappedSelectedPropertyIds.length === 0) return []
     const byRegion = new Map<string, number>()
-    selectedPropertyIds.forEach((id) => {
+    cappedSelectedPropertyIds.forEach((id) => {
       const p = propertiesById.get(id)
       const region = p?.market != null && String(p.market).trim() !== '' ? String(p.market).trim() : 'Other'
       byRegion.set(region, (byRegion.get(region) ?? 0) + 1)
     })
-    const total = selectedPropertyIds.length
+    const total = cappedSelectedPropertyIds.length
     return Array.from(byRegion.entries())
       .map(([region, count]) => ({ region, count, percentage: total > 0 ? (count / total) * 100 : 0 }))
       .sort((a, b) => b.percentage - a.percentage)
-  }, [selectedPropertyIds, propertiesById])
+  }, [cappedSelectedPropertyIds, propertiesById])
 
   const propertyTypeDistribution = useMemo(() => {
-    if (selectedPropertyIds.length === 0 || mixByPropertyId.size === 0) return []
+    if (cappedSelectedPropertyIds.length === 0 || mixByPropertyId.size === 0) return []
     const byType = new Map<string, number>()
-    selectedPropertyIds.forEach((id) => {
+    cappedSelectedPropertyIds.forEach((id) => {
       const v = mixByPropertyId.get(id)?.property_type
       const label = v != null && String(v).trim() !== '' ? String(v).trim() : 'Unspecified'
       byType.set(label, (byType.get(label) ?? 0) + 1)
     })
-    const total = selectedPropertyIds.length
+    const total = cappedSelectedPropertyIds.length
     return Array.from(byType.entries())
       .map(([label, count]) => ({ label, count, percentage: total > 0 ? (count / total) * 100 : 0 }))
       .sort((a, b) => b.percentage - a.percentage)
-  }, [selectedPropertyIds, mixByPropertyId])
+  }, [cappedSelectedPropertyIds, mixByPropertyId])
 
   const assetClassDistribution = useMemo(() => {
-    if (selectedPropertyIds.length === 0 || mixByPropertyId.size === 0) return []
+    if (cappedSelectedPropertyIds.length === 0 || mixByPropertyId.size === 0) return []
     const byClass = new Map<string, number>()
-    selectedPropertyIds.forEach((id) => {
+    cappedSelectedPropertyIds.forEach((id) => {
       const v = mixByPropertyId.get(id)?.asset_class
       const label = v != null && String(v).trim() !== '' ? String(v).trim() : 'Unspecified'
       byClass.set(label, (byClass.get(label) ?? 0) + 1)
     })
-    const total = selectedPropertyIds.length
+    const total = cappedSelectedPropertyIds.length
     return Array.from(byClass.entries())
       .map(([label, count]) => ({ label, count, percentage: total > 0 ? (count / total) * 100 : 0 }))
       .sort((a, b) => b.percentage - a.percentage)
-  }, [selectedPropertyIds, mixByPropertyId])
+  }, [cappedSelectedPropertyIds, mixByPropertyId])
 
   const avgUnitsPerProperty = useMemo(() => {
     if (badgeStats.selected === 0) return null
@@ -553,7 +771,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   )
 
   useEffect(() => {
-    if (debouncedPropertyIds.length === 0 || loadingProperties) {
+    if (cappedDebouncedPropertyIds.length === 0 || loadingProperties) {
       setMetrics({
         occupancyPct: null,
         satisfaction: null,
@@ -585,7 +803,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
@@ -594,7 +812,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('rating_month', startDate)
         .lte('rating_month', endDate)
         .order('rating_month', { ascending: false })
@@ -603,7 +821,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('created_on', startDate)
         .lte('created_on', endDate)
         .not('completed_on', 'is', null)
@@ -613,7 +831,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('occupancy_snapshots')
         .select('property_id, occupied_units, vacant_units, leased_units')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
@@ -622,7 +840,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('resident_ratings')
         .select('property_id, rating_value')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('rating_month', prev.startDate)
         .lte('rating_month', prev.endDate)
         .order('rating_month', { ascending: false })
@@ -631,7 +849,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('work_orders')
         .select('property_id, created_on, completed_on')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('created_on', prev.startDate)
         .lte('created_on', prev.endDate)
         .not('completed_on', 'is', null)
@@ -641,7 +859,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('snapshot_date', startDate)
         .lte('snapshot_date', endDate)
         .order('snapshot_date', { ascending: false })
@@ -650,7 +868,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       supabaseMetrics
         .from('rent_snapshots')
         .select('property_id, snapshot_date, avg_effective_rent')
-        .in('property_id', debouncedPropertyIds)
+        .in('property_id', cappedDebouncedPropertyIds)
         .gte('snapshot_date', prev.startDate)
         .lte('snapshot_date', prev.endDate)
         .order('snapshot_date', { ascending: false })
@@ -659,7 +877,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     ]
     const idToName = new Map(propertyOptions.map((o) => [o.value, o.label]))
     Promise.allSettled(queries)
-      .then((results) => {
+      .then(async (results) => {
         if (!mounted) return
         if (runId !== metricsRunIdRef.current) return
         const ms = performance.now() - startedAt
@@ -718,69 +936,90 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           })
           return out
         }
-        const calcSatisfaction = (data: RowRating[]) =>
-          data.length > 0 ? data.reduce((a, r) => a + (r.rating_value ?? 0), 0) / data.length : null
+        const calcSatisfaction = (data: RowRating[]) => {
+          if (data.length === 0) return null
+          let sum = 0
+          let n = 0
+          data.forEach((r) => {
+            const v = r.rating_value
+            if (v == null || !Number.isFinite(v)) return
+            sum += v
+            n += 1
+          })
+          return n > 0 ? sum / n : null
+        }
         const calcSatisfactionByProperty = (data: RowRating[]) => {
-          const byId = new Map<string, number[]>()
+          const byId = new Map<string, { sum: number; n: number }>()
           data.forEach((r) => {
             const id = r.property_id ?? ''
-            const list = byId.get(id) ?? []
-            list.push(r.rating_value ?? 0)
-            byId.set(id, list)
+            const v = r.rating_value
+            if (v == null || !Number.isFinite(v)) return
+            const cur = byId.get(id) ?? { sum: 0, n: 0 }
+            cur.sum += v
+            cur.n += 1
+            byId.set(id, cur)
           })
           const out = new Map<string, number>()
-          byId.forEach((list, id) => {
-            out.set(id, list.length ? list.reduce((a, b) => a + b, 0) / list.length : 0)
+          byId.forEach((v, id) => {
+            out.set(id, v.n ? v.sum / v.n : 0)
           })
           return out
         }
         const calcAvgDays = (data: RowWo[]) => {
-          const days: number[] = []
+          let sum = 0
+          let n = 0
           data.forEach((r) => {
             if (!r.created_on || !r.completed_on) return
-            const created = new Date(r.created_on).getTime()
-            const completed = new Date(r.completed_on).getTime()
+            const created = Date.parse(r.created_on)
+            const completed = Date.parse(r.completed_on)
             if (Number.isFinite(created) && Number.isFinite(completed)) {
-              days.push((completed - created) / (1000 * 60 * 60 * 24))
+              sum += (completed - created) / (1000 * 60 * 60 * 24)
+              n += 1
             }
           })
-          return days.length > 0 ? days.reduce((a, b) => a + b, 0) / days.length : null
+          return n > 0 ? sum / n : null
         }
         const calcAvgDaysByProperty = (data: RowWo[]) => {
-          const byId = new Map<string, number[]>()
+          const byId = new Map<string, { sum: number; n: number }>()
           data.forEach((r) => {
             if (!r.created_on || !r.completed_on) return
-            const created = new Date(r.created_on).getTime()
-            const completed = new Date(r.completed_on).getTime()
+            const created = Date.parse(r.created_on)
+            const completed = Date.parse(r.completed_on)
             if (!Number.isFinite(created) || !Number.isFinite(completed)) return
             const id = r.property_id ?? ''
-            const list = byId.get(id) ?? []
-            list.push((completed - created) / (1000 * 60 * 60 * 24))
-            byId.set(id, list)
+            const cur = byId.get(id) ?? { sum: 0, n: 0 }
+            cur.sum += (completed - created) / (1000 * 60 * 60 * 24)
+            cur.n += 1
+            byId.set(id, cur)
           })
           const out = new Map<string, number>()
-          byId.forEach((list, id) => {
-            out.set(id, list.length ? list.reduce((a, b) => a + b, 0) / list.length : 0)
+          byId.forEach((v, id) => {
+            out.set(id, v.n ? v.sum / v.n : 0)
           })
           return out
         }
         const calcRentByProperty = (data: RowRent[]) => {
-          const byId = new Map<string, number[]>()
+          const byId = new Map<string, { sum: number; n: number }>()
           data.forEach((r) => {
             const id = r.property_id ?? ''
             const v = r.avg_effective_rent
             if (v != null && Number.isFinite(v)) {
-              const list = byId.get(id) ?? []
-              list.push(v)
-              byId.set(id, list)
+              const cur = byId.get(id) ?? { sum: 0, n: 0 }
+              cur.sum += v
+              cur.n += 1
+              byId.set(id, cur)
             }
           })
           const out = new Map<string, number>()
-          byId.forEach((list, id) => {
-            out.set(id, list.length ? list.reduce((a, b) => a + b, 0) / list.length : 0)
+          byId.forEach((v, id) => {
+            out.set(id, v.n ? v.sum / v.n : 0)
           })
           return out
         }
+
+        // Let the browser breathe before we do the per-property maps + deltas.
+        await yieldToBrowser()
+
         const occupancyPct = calcOcc((occ.data ?? []) as RowOcc[])
         const satisfaction = calcSatisfaction((ratings.data ?? []) as RowRating[])
         const avgCompletionDays = calcAvgDays((workOrders.data ?? []) as RowWo[])
@@ -795,6 +1034,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           satisfactionPrev,
           avgCompletionDaysPrev,
         })
+
+        await yieldToBrowser()
+
         const occByProp = calcOccByProperty((occ.data ?? []) as RowOcc[])
         const occByPropPrev = calcOccByProperty((occPrev.data ?? []) as RowOcc[])
         const satByProp = calcSatisfactionByProperty((ratings.data ?? []) as RowRating[])
@@ -803,7 +1045,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         const daysByPropPrev = calcAvgDaysByProperty((workOrdersPrev.data ?? []) as RowWo[])
         const rentByProp = calcRentByProperty((rent?.data ?? []) as RowRent[])
         const rentByPropPrev = calcRentByProperty((rentPrev?.data ?? []) as RowRent[])
-        const allIds = new Set(debouncedPropertyIds)
+        const allIds = new Set(cappedDebouncedPropertyIds)
         const pickLocation = (deltas: Map<string, number>) => {
           let bestId = ''
           let bestAbs = -1
@@ -907,7 +1149,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
       metricsAbortRef.current?.abort()
       mounted = false
     }
-  }, [debouncedPropertyIds, loadingProperties, safeDateRange, queryCaps, propertyOptions])
+  }, [cappedDebouncedPropertyIds, loadingProperties, safeDateRange, queryCaps, propertyOptions])
 
   useEffect(() => {
     if (effectiveNoiPropertyIds.length === 0) {
@@ -962,7 +1204,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         .limit(queryCaps.workOrders)
         .abortSignal(abort.signal),
     ])
-      .then(([rentRes, occRes, woRes]) => {
+      .then(async ([rentRes, occRes, woRes]) => {
         if (!mounted) return
         if (runId !== noiRunIdRef.current) return
         const ms = performance.now() - startedAt
@@ -984,18 +1226,21 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           return `${monthNames[(m ?? 1) - 1]} ${y ?? ''}`
         }
         const byMonth = new Map<string, { rentSum: number; rentCount: number; occSum: number; occTotal: number; concessionsSum: number }>()
-        rentRows.forEach((r) => {
+        for (let i = 0; i < rentRows.length; i++) {
+          const r = rentRows[i]
           const month = r.snapshot_date?.slice(0, 7) ?? ''
-          if (!month) return
+          if (!month) continue
           const cur = byMonth.get(month) ?? { rentSum: 0, rentCount: 0, occSum: 0, occTotal: 0, concessionsSum: 0 }
           cur.rentSum += r.avg_effective_rent ?? 0
           cur.rentCount += 1
           cur.concessionsSum += (r.concessions_per_unit ?? 0) * 10
           byMonth.set(month, cur)
-        })
-        occRows.forEach((r) => {
+          if (i > 0 && i % 800 === 0) await yieldToBrowser()
+        }
+        for (let i = 0; i < occRows.length; i++) {
+          const r = occRows[i]
           const month = r.snapshot_date?.slice(0, 7) ?? ''
-          if (!month) return
+          if (!month) continue
           const cur = byMonth.get(month) ?? { rentSum: 0, rentCount: 0, occSum: 0, occTotal: 0, concessionsSum: 0 }
           const occ = r.occupied_units ?? 0
           const vac = r.vacant_units ?? 0
@@ -1003,7 +1248,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           cur.occSum += occ
           cur.occTotal += occ + vac + leased
           byMonth.set(month, cur)
-        })
+          if (i > 0 && i % 800 === 0) await yieldToBrowser()
+        }
         const sortedMonths = Array.from(byMonth.keys()).sort().slice(-12)
         const actuals: { x: number; y: number }[] = []
         const historical: { month: string; actual: number }[] = []
@@ -1042,6 +1288,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
             forecastLow: Math.round(fitted - z95 * se),
           })
         })
+        await yieldToBrowser()
         const lastX = actuals.length - 1
         const lastYm = sortedMonths[sortedMonths.length - 1] ?? endDate.slice(0, 7) + '-01'
         const lastDate = new Date(lastYm + '-01')
@@ -1070,6 +1317,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           added += 1
         }
         setNoiChartData(chartData)
+        await yieldToBrowser()
         const turnCost = woRows.reduce((a, r) => a + (r.material_cost_usd ?? 0), 0)
         const concessionsTotal = Array.from(byMonth.values()).reduce((a, c) => a + c.concessionsSum, 0)
         const lossToLease = -18000
@@ -1134,72 +1382,15 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               appIconNode={<HpyAppIcon type="Insights" size={48} radius={8} />}
               hideCta
               trailingContent={
-                <Group align="flex-end" gap="md" wrap="wrap">
-                  <Box style={{ minWidth: 280, maxWidth: 480 }}>
-                    <MultiSelect
-                      placeholder={loadingProperties ? 'Loading properties...' : 'Select properties'}
-                      data={multiSelectData}
-                      value={draftPropertyIds}
-                      onChange={(ids) => {
-                        const seen = new Set<string>()
-                        const next = ids
-                          .map((x) => (typeof x === 'string' ? x.trim() : ''))
-                          .filter((x) => x && !seen.has(x) && (seen.add(x), true))
-                        setDraftPropertyIds(next)
-                      }}
-                      searchable
-                      clearable
-                      hidePickedOptions
-                    />
-                  </Box>
-                  <DateInput
-                    label="From"
-                    value={parseDateValue(draftDateRange.startDate)}
-                    onChange={(value) => setDraftDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
-                    maxDate={parseDateValue(draftDateRange.endDate) ?? undefined}
-                    rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
-                    rightSectionPointerEvents="none"
-                    styles={{
-                      input: {
-                        backgroundColor: 'var(--mantine-color-body)',
-                        borderColor: 'var(--mantine-color-default-border)',
-                      },
-                    }}
-                    style={{ minWidth: 140 }}
-                  />
-                  <DateInput
-                    label="To"
-                    value={parseDateValue(draftDateRange.endDate)}
-                    onChange={(value) => setDraftDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
-                    minDate={parseDateValue(draftDateRange.startDate) ?? undefined}
-                    rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
-                    rightSectionPointerEvents="none"
-                    styles={{
-                      input: {
-                        backgroundColor: 'var(--mantine-color-body)',
-                        borderColor: 'var(--mantine-color-default-border)',
-                      },
-                    }}
-                    style={{ minWidth: 140 }}
-                  />
-                  <Button
-                    size="sm"
-                    color="purple"
-                    disabled={!isDraftDirty}
-                    onClick={() => {
-                      // Normalize + validate against loaded options when available
-                      const seen = new Set<string>()
-                      const nextIds = draftPropertyIds
-                        .map((x) => x.trim())
-                        .filter((x) => x && !seen.has(x) && (seen.add(x), true))
-                        .filter((id) => (loadingProperties || propertyIdSet.size === 0 ? true : propertyIdSet.has(id)))
-                      setSelectedPropertyIds(nextIds)
-                      setDateRange(draftDateRange)
-                    }}
-                  >
-                    Apply
-                  </Button>
-                </Group>
+                <DashboardFilters
+                  maxProperties={MAX_DASHBOARD_PROPERTIES}
+                  propertyOptions={propertyOptions}
+                  loadingProperties={loadingProperties}
+                  selectedPropertyIds={selectedPropertyIds}
+                  dateRange={dateRange}
+                  setSelectedPropertyIds={setSelectedPropertyIds}
+                  setDateRange={setDateRange}
+                />
               }
             />
 

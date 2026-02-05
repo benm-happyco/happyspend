@@ -4,7 +4,6 @@ import {
   Box,
   Card,
   Group,
-  MultiSelect,
   SegmentedControl,
   Select,
   SimpleGrid,
@@ -33,6 +32,7 @@ import {
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHeader'
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
+import { PropertyPicker } from '../theme/components/PropertyPicker'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { AG_GRID_DEFAULT_COL_DEF, AG_GRID_DEFAULT_GRID_PROPS } from '../lib/agGridDefaults'
 import 'ag-grid-community/styles/ag-grid.css'
@@ -177,6 +177,7 @@ export function HpmDashboard() {
   const [loadingTimeline, setLoadingTimeline] = useState(false)
   const [loadingCharts, setLoadingCharts] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const MAX_SELECTED_PROPERTIES = 25
 
   useEffect(() => {
     let isMounted = true
@@ -1546,22 +1547,13 @@ export function HpmDashboard() {
                     </Badge>
                   </Group>
                   <Group align="flex-end" wrap="wrap" gap="md">
-                    <MultiSelect
-                      label="Properties"
-                      placeholder={loadingOptions ? 'Loading properties...' : 'Select properties'}
-                      data={propertyOptions}
+                    <PropertyPicker
+                      options={propertyOptions}
                       value={selectedPropertyIds}
-                      onChange={setSelectedPropertyIds}
-                      searchable
-                      clearable
-                      maxDropdownHeight={240}
-                      styles={{
-                        input: {
-                          backgroundColor: 'var(--mantine-color-body)',
-                          borderColor: 'var(--mantine-color-default-border)',
-                        },
-                      }}
-                      style={{ minWidth: 320, flex: 1 }}
+                      onChange={(next) => setSelectedPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))}
+                      loading={loadingOptions}
+                      maxSelected={MAX_SELECTED_PROPERTIES}
+                      label="Properties"
                     />
                     <TextInput
                       type="date"
