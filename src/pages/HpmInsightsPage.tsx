@@ -884,80 +884,75 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     }, 12_000)
     const { startDate, endDate } = safeDateRange
     const prev = getPreviousPeriod(startDate, endDate)
+    const toMonthStart = (d: string) => `${d.slice(0, 7)}-01`
+    const curStartMonth = toMonthStart(startDate)
+    const curEndMonth = toMonthStart(endDate)
+    const prevStartMonth = toMonthStart(prev.startDate)
+    const prevEndMonth = toMonthStart(prev.endDate)
     const queries = [
       supabaseMetrics
-        .from('occupancy_snapshots')
-        .select('property_id, occupied_units, vacant_units, leased_units')
+        .from('vw_occupancy_monthly')
+        .select('property_id, month_start, occupied_units_sum, total_units_sum')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('snapshot_date', startDate)
-        .lte('snapshot_date', endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', curStartMonth)
+        .lte('month_start', curEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('resident_ratings')
-        .select('property_id, rating_value')
+        .from('vw_ratings_monthly')
+        .select('property_id, month_start, avg_rating, ratings_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('rating_month', startDate)
-        .lte('rating_month', endDate)
-        .order('rating_month', { ascending: false })
-        .limit(queryCaps.ratings)
+        .gte('month_start', curStartMonth)
+        .lte('month_start', curEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('work_orders')
-        .select('property_id, created_on, completed_on')
+        .from('vw_work_orders_monthly')
+        .select('property_id, month_start, avg_completion_days, work_orders_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('created_on', startDate)
-        .lte('created_on', endDate)
-        .not('completed_on', 'is', null)
-        .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders)
+        .gte('month_start', curStartMonth)
+        .lte('month_start', curEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('occupancy_snapshots')
-        .select('property_id, occupied_units, vacant_units, leased_units')
+        .from('vw_occupancy_monthly')
+        .select('property_id, month_start, occupied_units_sum, total_units_sum')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('snapshot_date', prev.startDate)
-        .lte('snapshot_date', prev.endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', prevStartMonth)
+        .lte('month_start', prevEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('resident_ratings')
-        .select('property_id, rating_value')
+        .from('vw_ratings_monthly')
+        .select('property_id, month_start, avg_rating, ratings_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('rating_month', prev.startDate)
-        .lte('rating_month', prev.endDate)
-        .order('rating_month', { ascending: false })
-        .limit(queryCaps.ratings)
+        .gte('month_start', prevStartMonth)
+        .lte('month_start', prevEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('work_orders')
-        .select('property_id, created_on, completed_on')
+        .from('vw_work_orders_monthly')
+        .select('property_id, month_start, avg_completion_days, work_orders_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('created_on', prev.startDate)
-        .lte('created_on', prev.endDate)
-        .not('completed_on', 'is', null)
-        .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders)
+        .gte('month_start', prevStartMonth)
+        .lte('month_start', prevEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('rent_snapshots')
-        .select('property_id, snapshot_date, avg_effective_rent')
+        .from('vw_rent_monthly')
+        .select('property_id, month_start, avg_effective_rent, rows_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('snapshot_date', startDate)
-        .lte('snapshot_date', endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', curStartMonth)
+        .lte('month_start', curEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('rent_snapshots')
-        .select('property_id, snapshot_date, avg_effective_rent')
+        .from('vw_rent_monthly')
+        .select('property_id, month_start, avg_effective_rent, rows_count')
         .in('property_id', cappedDebouncedPropertyIds)
-        .gte('snapshot_date', prev.startDate)
-        .lte('snapshot_date', prev.endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', prevStartMonth)
+        .lte('month_start', prevEndMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
     ]
     const idToName = new Map(propertyOptions.map((o) => [o.value, o.label]))
@@ -989,154 +984,121 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
             rentPrev: (rentPrev.data as unknown[]).length,
           },
         }))
-        type RowOcc = { property_id?: string; occupied_units?: number; vacant_units?: number; leased_units?: number }
-        type RowRating = { property_id?: string; rating_value?: number }
-        type RowWo = { property_id?: string; created_on?: string; completed_on?: string }
-        type RowRent = { property_id?: string; avg_effective_rent?: number }
-        const yieldEvery = async (i: number, every = 700) => {
-          if (i > 0 && i % every === 0) await yieldToBrowser()
+        type OccMonthlyRow = { property_id?: string; occupied_units_sum?: number; total_units_sum?: number }
+        type RatingsMonthlyRow = { property_id?: string; avg_rating?: number; ratings_count?: number }
+        type WoMonthlyRow = { property_id?: string; avg_completion_days?: number; work_orders_count?: number }
+        type RentMonthlyRow = { property_id?: string; avg_effective_rent?: number; rows_count?: number }
+
+        const occRows = (occ.data ?? []) as OccMonthlyRow[]
+        const occPrevRows = (occPrev.data ?? []) as OccMonthlyRow[]
+        const ratingsRows = (ratings.data ?? []) as RatingsMonthlyRow[]
+        const ratingsPrevRows = (ratingsPrev.data ?? []) as RatingsMonthlyRow[]
+        const woRows = (workOrders.data ?? []) as WoMonthlyRow[]
+        const woPrevRows = (workOrdersPrev.data ?? []) as WoMonthlyRow[]
+        const rentRows = (rent?.data ?? []) as RentMonthlyRow[]
+        const rentPrevRows = (rentPrev?.data ?? []) as RentMonthlyRow[]
+
+        const sumFinite = (a: number, b: unknown) => {
+          const n = Number(b)
+          return Number.isFinite(n) ? a + n : a
         }
-        const calcOcc = (data: RowOcc[]) => {
-          if (data.length === 0) return null
-          let totalOcc = 0, totalVac = 0, totalLeased = 0
-          data.forEach((r) => {
-            const occ = Number(r.occupied_units ?? 0)
-            const vac = Number(r.vacant_units ?? 0)
-            const leased = Number(r.leased_units ?? 0)
-            if (Number.isFinite(occ)) totalOcc += occ
-            if (Number.isFinite(vac)) totalVac += vac
-            if (Number.isFinite(leased)) totalLeased += leased
-          })
-          const total = totalOcc + totalVac + totalLeased
-          return total > 0 ? (totalOcc / total) * 100 : null
+
+        const calcOccPct = (rows: OccMonthlyRow[]) => {
+          if (rows.length === 0) return null
+          const occSum = rows.reduce((a, r) => sumFinite(a, r.occupied_units_sum ?? 0), 0)
+          const totalSum = rows.reduce((a, r) => sumFinite(a, r.total_units_sum ?? 0), 0)
+          return totalSum > 0 ? (occSum / totalSum) * 100 : null
         }
-        const calcOccByProperty = async (data: RowOcc[]) => {
-          const byId = new Map<string, { occ: number; vac: number; leased: number }>()
-          for (let i = 0; i < data.length; i++) {
-            const r = data[i]
-            const id = r.property_id ?? ''
-            const cur = byId.get(id) ?? { occ: 0, vac: 0, leased: 0 }
-            const occ = Number(r.occupied_units ?? 0)
-            const vac = Number(r.vacant_units ?? 0)
-            const leased = Number(r.leased_units ?? 0)
-            if (Number.isFinite(occ)) cur.occ += occ
-            if (Number.isFinite(vac)) cur.vac += vac
-            if (Number.isFinite(leased)) cur.leased += leased
+
+        const calcOccByProp = (rows: OccMonthlyRow[]) => {
+          const byId = new Map<string, { occ: number; total: number }>()
+          rows.forEach((r) => {
+            const id = String(r.property_id ?? '')
+            if (!id) return
+            const cur = byId.get(id) ?? { occ: 0, total: 0 }
+            cur.occ = sumFinite(cur.occ, r.occupied_units_sum ?? 0)
+            cur.total = sumFinite(cur.total, r.total_units_sum ?? 0)
             byId.set(id, cur)
-            await yieldEvery(i)
-          }
+          })
           const out = new Map<string, number>()
-          byId.forEach((v, id) => {
-            const total = v.occ + v.vac + v.leased
-            out.set(id, total > 0 ? (v.occ / total) * 100 : 0)
-          })
-          return out
-        }
-        const calcSatisfaction = (data: RowRating[]) => {
-          if (data.length === 0) return null
-          let sum = 0
-          let n = 0
-          data.forEach((r) => {
-            const v = r.rating_value
-            if (v == null || !Number.isFinite(v)) return
-            sum += v
-            n += 1
-          })
-          return n > 0 ? sum / n : null
-        }
-        const calcSatisfactionByProperty = async (data: RowRating[]) => {
-          const byId = new Map<string, { sum: number; n: number }>()
-          for (let i = 0; i < data.length; i++) {
-            const r = data[i]
-            const id = r.property_id ?? ''
-            const v = r.rating_value
-            if (v == null || !Number.isFinite(v)) {
-              await yieldEvery(i)
-              continue
-            }
-            const cur = byId.get(id) ?? { sum: 0, n: 0 }
-            cur.sum += v
-            cur.n += 1
-            byId.set(id, cur)
-            await yieldEvery(i)
-          }
-          const out = new Map<string, number>()
-          byId.forEach((v, id) => {
-            out.set(id, v.n ? v.sum / v.n : 0)
-          })
-          return out
-        }
-        const calcAvgDays = (data: RowWo[]) => {
-          let sum = 0
-          let n = 0
-          data.forEach((r) => {
-            if (!r.created_on || !r.completed_on) return
-            const created = Date.parse(r.created_on)
-            const completed = Date.parse(r.completed_on)
-            if (Number.isFinite(created) && Number.isFinite(completed)) {
-              sum += (completed - created) / (1000 * 60 * 60 * 24)
-              n += 1
-            }
-          })
-          return n > 0 ? sum / n : null
-        }
-        const calcAvgDaysByProperty = async (data: RowWo[]) => {
-          const byId = new Map<string, { sum: number; n: number }>()
-          for (let i = 0; i < data.length; i++) {
-            const r = data[i]
-            if (!r.created_on || !r.completed_on) {
-              await yieldEvery(i)
-              continue
-            }
-            const created = Date.parse(r.created_on)
-            const completed = Date.parse(r.completed_on)
-            if (!Number.isFinite(created) || !Number.isFinite(completed)) {
-              await yieldEvery(i)
-              continue
-            }
-            const id = r.property_id ?? ''
-            const cur = byId.get(id) ?? { sum: 0, n: 0 }
-            cur.sum += (completed - created) / (1000 * 60 * 60 * 24)
-            cur.n += 1
-            byId.set(id, cur)
-            await yieldEvery(i)
-          }
-          const out = new Map<string, number>()
-          byId.forEach((v, id) => {
-            out.set(id, v.n ? v.sum / v.n : 0)
-          })
-          return out
-        }
-        const calcRentByProperty = async (data: RowRent[]) => {
-          const byId = new Map<string, { sum: number; n: number }>()
-          for (let i = 0; i < data.length; i++) {
-            const r = data[i]
-            const id = r.property_id ?? ''
-            const v = r.avg_effective_rent
-            if (v != null && Number.isFinite(v)) {
-              const cur = byId.get(id) ?? { sum: 0, n: 0 }
-              cur.sum += v
-              cur.n += 1
-              byId.set(id, cur)
-            }
-            await yieldEvery(i)
-          }
-          const out = new Map<string, number>()
-          byId.forEach((v, id) => {
-            out.set(id, v.n ? v.sum / v.n : 0)
-          })
+          byId.forEach((v, id) => out.set(id, v.total > 0 ? (v.occ / v.total) * 100 : 0))
           return out
         }
 
-        // Let the browser breathe before we do the per-property maps + deltas.
-        await yieldToBrowser()
+        const calcWeightedAvg = (rows: Array<{ value?: unknown; weight?: unknown }>) => {
+          let sum = 0
+          let w = 0
+          for (const r of rows) {
+            const v = Number(r.value)
+            const wt = Number(r.weight)
+            if (!Number.isFinite(v) || !Number.isFinite(wt) || wt <= 0) continue
+            sum += v * wt
+            w += wt
+          }
+          return w > 0 ? sum / w : null
+        }
 
-        const occupancyPct = calcOcc((occ.data ?? []) as RowOcc[])
-        const satisfaction = calcSatisfaction((ratings.data ?? []) as RowRating[])
-        const avgCompletionDays = calcAvgDays((workOrders.data ?? []) as RowWo[])
-        const occupancyPctPrev = calcOcc((occPrev.data ?? []) as RowOcc[])
-        const satisfactionPrev = calcSatisfaction((ratingsPrev.data ?? []) as RowRating[])
-        const avgCompletionDaysPrev = calcAvgDays((workOrdersPrev.data ?? []) as RowWo[])
+        const calcRatingsAvg = (rows: RatingsMonthlyRow[]) =>
+          calcWeightedAvg(rows.map((r) => ({ value: r.avg_rating, weight: r.ratings_count })))
+        const calcRatingsByProp = (rows: RatingsMonthlyRow[]) => {
+          const byId = new Map<string, { sum: number; w: number }>()
+          rows.forEach((r) => {
+            const id = String(r.property_id ?? '')
+            const v = Number(r.avg_rating)
+            const wt = Number(r.ratings_count)
+            if (!id || !Number.isFinite(v) || !Number.isFinite(wt) || wt <= 0) return
+            const cur = byId.get(id) ?? { sum: 0, w: 0 }
+            cur.sum += v * wt
+            cur.w += wt
+            byId.set(id, cur)
+          })
+          const out = new Map<string, number>()
+          byId.forEach((v, id) => out.set(id, v.w > 0 ? v.sum / v.w : 0))
+          return out
+        }
+
+        const calcWoAvgDays = (rows: WoMonthlyRow[]) =>
+          calcWeightedAvg(rows.map((r) => ({ value: r.avg_completion_days, weight: r.work_orders_count })))
+        const calcWoByProp = (rows: WoMonthlyRow[]) => {
+          const byId = new Map<string, { sum: number; w: number }>()
+          rows.forEach((r) => {
+            const id = String(r.property_id ?? '')
+            const v = Number(r.avg_completion_days)
+            const wt = Number(r.work_orders_count)
+            if (!id || !Number.isFinite(v) || !Number.isFinite(wt) || wt <= 0) return
+            const cur = byId.get(id) ?? { sum: 0, w: 0 }
+            cur.sum += v * wt
+            cur.w += wt
+            byId.set(id, cur)
+          })
+          const out = new Map<string, number>()
+          byId.forEach((v, id) => out.set(id, v.w > 0 ? v.sum / v.w : 0))
+          return out
+        }
+
+        const calcRentByProp = (rows: RentMonthlyRow[]) => {
+          const byId = new Map<string, { sum: number; w: number }>()
+          rows.forEach((r) => {
+            const id = String(r.property_id ?? '')
+            const v = Number(r.avg_effective_rent)
+            const wt = Number(r.rows_count)
+            if (!id || !Number.isFinite(v) || !Number.isFinite(wt) || wt <= 0) return
+            const cur = byId.get(id) ?? { sum: 0, w: 0 }
+            cur.sum += v * wt
+            cur.w += wt
+            byId.set(id, cur)
+          })
+          const out = new Map<string, number>()
+          byId.forEach((v, id) => out.set(id, v.w > 0 ? v.sum / v.w : 0))
+          return out
+        }
+
+        const occupancyPct = calcOccPct(occRows)
+        const satisfaction = calcRatingsAvg(ratingsRows)
+        const avgCompletionDays = calcWoAvgDays(woRows)
+        const occupancyPctPrev = calcOccPct(occPrevRows)
+        const satisfactionPrev = calcRatingsAvg(ratingsPrevRows)
+        const avgCompletionDaysPrev = calcWoAvgDays(woPrevRows)
         setMetrics({
           occupancyPct,
           satisfaction,
@@ -1146,16 +1108,14 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           avgCompletionDaysPrev,
         })
 
-        await yieldToBrowser()
-
-        const occByProp = await calcOccByProperty((occ.data ?? []) as RowOcc[])
-        const occByPropPrev = await calcOccByProperty((occPrev.data ?? []) as RowOcc[])
-        const satByProp = await calcSatisfactionByProperty((ratings.data ?? []) as RowRating[])
-        const satByPropPrev = await calcSatisfactionByProperty((ratingsPrev.data ?? []) as RowRating[])
-        const daysByProp = await calcAvgDaysByProperty((workOrders.data ?? []) as RowWo[])
-        const daysByPropPrev = await calcAvgDaysByProperty((workOrdersPrev.data ?? []) as RowWo[])
-        const rentByProp = await calcRentByProperty((rent?.data ?? []) as RowRent[])
-        const rentByPropPrev = await calcRentByProperty((rentPrev?.data ?? []) as RowRent[])
+        const occByProp = calcOccByProp(occRows)
+        const occByPropPrev = calcOccByProp(occPrevRows)
+        const satByProp = calcRatingsByProp(ratingsRows)
+        const satByPropPrev = calcRatingsByProp(ratingsPrevRows)
+        const daysByProp = calcWoByProp(woRows)
+        const daysByPropPrev = calcWoByProp(woPrevRows)
+        const rentByProp = calcRentByProp(rentRows)
+        const rentByPropPrev = calcRentByProp(rentPrevRows)
         const allIds = new Set(cappedDebouncedPropertyIds)
         const pickLocation = (deltas: Map<string, number>) => {
           let bestId = ''
@@ -1285,34 +1245,32 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     const endDate = safeDateRange.endDate
     const startChart = new Date(endDate)
     startChart.setMonth(startChart.getMonth() - 5)
-    const chartStart = startChart.toISOString().slice(0, 10)
+    const chartStartMonth = `${startChart.toISOString().slice(0, 7)}-01`
+    const endMonth = `${endDate.slice(0, 7)}-01`
     Promise.all([
       supabaseMetrics
-        .from('rent_snapshots')
-        .select('snapshot_date, avg_effective_rent, concessions_per_unit')
+        .from('vw_rent_monthly')
+        .select('property_id, month_start, avg_effective_rent, concessions_per_unit, rows_count')
         .in('property_id', effectiveNoiPropertyIds)
-        .gte('snapshot_date', chartStart)
-        .lte('snapshot_date', endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', chartStartMonth)
+        .lte('month_start', endMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('occupancy_snapshots')
-        .select('snapshot_date, occupied_units, vacant_units, leased_units')
+        .from('vw_occupancy_monthly')
+        .select('property_id, month_start, occupied_units_sum, total_units_sum')
         .in('property_id', effectiveNoiPropertyIds)
-        .gte('snapshot_date', chartStart)
-        .lte('snapshot_date', endDate)
-        .order('snapshot_date', { ascending: false })
-        .limit(queryCaps.snapshots)
+        .gte('month_start', chartStartMonth)
+        .lte('month_start', endMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
       supabaseMetrics
-        .from('work_orders')
-        .select('material_cost_usd')
+        .from('vw_work_orders_monthly')
+        .select('property_id, month_start, material_cost_usd_sum')
         .in('property_id', effectiveNoiPropertyIds)
-        .gte('created_on', chartStart)
-        .lte('created_on', endDate)
-        .order('created_on', { ascending: false })
-        .limit(queryCaps.workOrders)
+        .gte('month_start', chartStartMonth)
+        .lte('month_start', endMonth)
+        .order('month_start', { ascending: false })
         .abortSignal(abort.signal),
     ])
       .then(async ([rentRes, occRes, woRes]) => {
@@ -1328,46 +1286,70 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
             workOrders: ((woRes.data ?? []) as unknown[]).length,
           },
         }))
-        const rentRows = (rentRes.data ?? []) as { snapshot_date?: string; avg_effective_rent?: number; concessions_per_unit?: number }[]
-        const occRows = (occRes.data ?? []) as { snapshot_date?: string; occupied_units?: number; vacant_units?: number; leased_units?: number }[]
-        const woRows = (woRes.data ?? []) as { material_cost_usd?: number }[]
+        const rentRows = (rentRes.data ?? []) as Array<{
+          month_start?: string
+          avg_effective_rent?: number
+          concessions_per_unit?: number
+          rows_count?: number
+        }>
+        const occRows = (occRes.data ?? []) as Array<{ month_start?: string; occupied_units_sum?: number; total_units_sum?: number }>
+        const woRows = (woRes.data ?? []) as Array<{ month_start?: string; material_cost_usd_sum?: number }>
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         const formatMonthYear = (ym: string) => {
           const [y, m] = ym.split('-').map(Number)
           return `${monthNames[(m ?? 1) - 1]} ${y ?? ''}`
         }
-        const byMonth = new Map<string, { rentSum: number; rentCount: number; occSum: number; occTotal: number; concessionsSum: number }>()
+        const byMonth = new Map<
+          string,
+          { rentSum: number; rentW: number; occOcc: number; occTotal: number; concessionsSum: number; materialCostSum: number }
+        >()
         for (let i = 0; i < rentRows.length; i++) {
           const r = rentRows[i]
-          const month = r.snapshot_date?.slice(0, 7) ?? ''
+          const month = r.month_start?.slice(0, 7) ?? ''
           if (!month) continue
-          const cur = byMonth.get(month) ?? { rentSum: 0, rentCount: 0, occSum: 0, occTotal: 0, concessionsSum: 0 }
-          cur.rentSum += r.avg_effective_rent ?? 0
-          cur.rentCount += 1
-          cur.concessionsSum += (r.concessions_per_unit ?? 0) * 10
+          const cur = byMonth.get(month) ?? { rentSum: 0, rentW: 0, occOcc: 0, occTotal: 0, concessionsSum: 0, materialCostSum: 0 }
+          const w = Number(r.rows_count ?? 0)
+          const rentVal = Number(r.avg_effective_rent ?? 0)
+          if (Number.isFinite(w) && w > 0 && Number.isFinite(rentVal)) {
+            cur.rentSum += rentVal * w
+            cur.rentW += w
+          }
+          const conc = Number(r.concessions_per_unit ?? 0)
+          if (Number.isFinite(conc) && Number.isFinite(w) && w > 0) {
+            cur.concessionsSum += conc * 10 * w
+          }
           byMonth.set(month, cur)
           if (i > 0 && i % 800 === 0) await yieldToBrowser()
         }
         for (let i = 0; i < occRows.length; i++) {
           const r = occRows[i]
-          const month = r.snapshot_date?.slice(0, 7) ?? ''
+          const month = r.month_start?.slice(0, 7) ?? ''
           if (!month) continue
-          const cur = byMonth.get(month) ?? { rentSum: 0, rentCount: 0, occSum: 0, occTotal: 0, concessionsSum: 0 }
-          const occ = r.occupied_units ?? 0
-          const vac = r.vacant_units ?? 0
-          const leased = r.leased_units ?? 0
-          cur.occSum += occ
-          cur.occTotal += occ + vac + leased
+          const cur = byMonth.get(month) ?? { rentSum: 0, rentW: 0, occOcc: 0, occTotal: 0, concessionsSum: 0, materialCostSum: 0 }
+          const occ = Number(r.occupied_units_sum ?? 0)
+          const total = Number(r.total_units_sum ?? 0)
+          if (Number.isFinite(occ)) cur.occOcc += occ
+          if (Number.isFinite(total)) cur.occTotal += total
           byMonth.set(month, cur)
           if (i > 0 && i % 800 === 0) await yieldToBrowser()
+        }
+        for (let i = 0; i < woRows.length; i++) {
+          const r = woRows[i]
+          const month = r.month_start?.slice(0, 7) ?? ''
+          if (!month) continue
+          const cur = byMonth.get(month) ?? { rentSum: 0, rentW: 0, occOcc: 0, occTotal: 0, concessionsSum: 0, materialCostSum: 0 }
+          const v = Number(r.material_cost_usd_sum ?? 0)
+          if (Number.isFinite(v)) cur.materialCostSum += v
+          byMonth.set(month, cur)
+          if (i > 0 && i % 1200 === 0) await yieldToBrowser()
         }
         const sortedMonths = Array.from(byMonth.keys()).sort().slice(-12)
         const actuals: { x: number; y: number }[] = []
         const historical: { month: string; actual: number }[] = []
         sortedMonths.forEach((ym, i) => {
           const cur = byMonth.get(ym)
-          const avgRent = cur && cur.rentCount > 0 ? cur.rentSum / cur.rentCount : 800
-          const occPct = cur && cur.occTotal > 0 ? cur.occSum / cur.occTotal : 0.92
+          const avgRent = cur && cur.rentW > 0 ? cur.rentSum / cur.rentW : 800
+          const occPct = cur && cur.occTotal > 0 ? cur.occOcc / cur.occTotal : 0.92
           const noiProxy = Math.round(avgRent * occPct * 1.2)
           actuals.push({ x: i, y: noiProxy })
           historical.push({ month: formatMonthYear(ym), actual: noiProxy })
@@ -1438,7 +1420,7 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         }
         setNoiChartData(chartData)
         await yieldToBrowser()
-        const turnCost = woRows.reduce((a, r) => a + (r.material_cost_usd ?? 0), 0)
+        const turnCost = Array.from(byMonth.values()).reduce((a, c) => a + c.materialCostSum, 0)
         const concessionsTotal = Array.from(byMonth.values()).reduce((a, c) => a + c.concessionsSum, 0)
         const lossToLease = -18000
         const concessions = Math.round(concessionsTotal) !== 0 ? -Math.round(Math.abs(concessionsTotal) / 100) * 100 : -12000
