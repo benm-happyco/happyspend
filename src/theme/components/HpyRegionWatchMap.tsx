@@ -2,6 +2,7 @@ import { Box, Group, Paper, Stack, Text } from '@mantine/core'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Circle, CircleMarker, MapContainer, Marker, Rectangle, TileLayer, Tooltip, useMap } from 'react-leaflet'
 import { ensureLeafletDefaultMarkerIcons } from '../../lib/leafletMarkerFix'
+import { UiErrorBoundary } from './UiErrorBoundary'
 
 export type RegionWatchProperty = {
   property_id: string
@@ -28,8 +29,12 @@ function FitBounds({ points }: { points: LatLng[] }) {
   const map = useMap()
   useEffect(() => {
     if (points.length === 0) return
-    const bounds = points.map((p) => [p.lat, p.lng] as [number, number])
-    map.fitBounds(bounds, { padding: [32, 32], maxZoom: 11 })
+    try {
+      const bounds = points.map((p) => [p.lat, p.lng] as [number, number])
+      map.fitBounds(bounds, { padding: [32, 32], maxZoom: 11 })
+    } catch {
+      // Leaflet can occasionally throw during rapid UI updates; don't crash the page.
+    }
   }, [map, points])
   return null
 }
@@ -38,7 +43,11 @@ function FocusProperty({ point }: { point: LatLng | null }) {
   const map = useMap()
   useEffect(() => {
     if (!point) return
-    map.flyTo([point.lat, point.lng], Math.max(map.getZoom(), 10), { duration: 0.6 })
+    try {
+      map.flyTo([point.lat, point.lng], Math.max(map.getZoom(), 10), { duration: 0.6 })
+    } catch {
+      // ignore
+    }
   }, [map, point])
   return null
 }
@@ -206,6 +215,8 @@ export function HpyRegionWatchMap({
     } as const
   }, [points])
 
+  const fitBoundsPoints = useMemo(() => points.map((p) => ({ lat: p.lat, lng: p.lng })), [points])
+
   return (
     <Box
       style={{
@@ -217,101 +228,114 @@ export function HpyRegionWatchMap({
         background: 'var(--mantine-color-default-hover)',
       }}
     >
-      <MapContainer center={mapCenter} zoom={4} style={{ height: '100%', width: '100%' }} scrollWheelZoom>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+      <UiErrorBoundary
+        fallback={
+          <Box p="md">
+            <Paper withBorder radius="lg" p="md">
+              <Text fw={800}>Map hit an error</Text>
+              <Text size="sm" c="dimmed" mt={4}>
+                Try toggling layers again or reload the page.
+              </Text>
+            </Paper>
+          </Box>
+        }
+      >
+        <MapContainer center={mapCenter} zoom={4} style={{ height: '100%', width: '100%' }} scrollWheelZoom>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-        <FitBounds points={points.map((p) => ({ lat: p.lat, lng: p.lng }))} />
-        <FocusProperty point={focusedPoint} />
+          <FitBounds points={fitBoundsPoints} />
+          <FocusProperty point={focusedPoint} />
 
-        {layers.weather &&
-          overlays.weather.map((z, idx) => (
-            <Circle
-              key={`w-${idx}`}
-              center={[z.center.lat, z.center.lng]}
-              radius={z.radius}
-              pathOptions={{
-                color: z.color,
-                weight: 2,
-                fillColor: z.color,
-                fillOpacity: 0.12,
-              }}
-            />
-          ))}
+          {layers.weather &&
+            overlays.weather.map((z, idx) => (
+              <Circle
+                key={`w-${idx}`}
+                center={[z.center.lat, z.center.lng]}
+                radius={z.radius}
+                pathOptions={{
+                  color: z.color,
+                  weight: 2,
+                  fillColor: z.color,
+                  fillOpacity: 0.12,
+                }}
+              />
+            ))}
 
-        {layers.flood &&
-          overlays.flood.map((z, idx) => (
-            <Rectangle
-              key={`f-${idx}`}
-              bounds={z.bounds}
-              pathOptions={{
-                color: 'var(--mantine-color-cyan-6)',
-                weight: 2,
-                fillColor: 'var(--mantine-color-cyan-6)',
-                fillOpacity: 0.12,
-              }}
-            />
-          ))}
+          {layers.flood &&
+            overlays.flood.map((z, idx) => (
+              <Rectangle
+                key={`f-${idx}`}
+                bounds={z.bounds}
+                pathOptions={{
+                  color: 'var(--mantine-color-cyan-6)',
+                  weight: 2,
+                  fillColor: 'var(--mantine-color-cyan-6)',
+                  fillOpacity: 0.12,
+                }}
+              />
+            ))}
 
-        {layers.crime &&
-          overlays.crime.map((z, idx) => (
-            <CircleMarker
-              key={`c-${idx}`}
-              center={[z.center.lat, z.center.lng]}
-              radius={18}
-              pathOptions={{
-                color: z.color,
-                weight: 2,
-                fillColor: z.color,
-                fillOpacity: 0.22,
-              }}
-            />
-          ))}
+          {layers.crime &&
+            overlays.crime.map((z, idx) => (
+              <CircleMarker
+                key={`c-${idx}`}
+                center={[z.center.lat, z.center.lng]}
+                radius={18}
+                pathOptions={{
+                  color: z.color,
+                  weight: 2,
+                  fillColor: z.color,
+                  fillOpacity: 0.22,
+                }}
+              />
+            ))}
 
-        {points.map(({ lat, lng, p }) => {
-          const badge = propertyBadges?.[p.property_id]
-          return (
-            <Marker key={p.property_id} position={[lat, lng]}>
-              <Tooltip className="hpy-map-tooltip" direction="top" offset={[0, -8]} opacity={1} sticky>
-                <Paper
-                  withBorder
-                  radius="md"
-                  p="sm"
-                  style={{
-                    minWidth: 220,
-                    background: 'color-mix(in srgb, var(--mantine-color-body) 92%, var(--mantine-color-dark-9))',
-                  }}
-                >
-                  <Stack gap={6}>
-                    <Text fw={900} size="sm" c="var(--mantine-color-text)">
-                      {p.name ?? 'Unknown property'}
-                    </Text>
-                    <Text size="xs" c="dimmed">
-                      {[p.city, p.state].filter(Boolean).join(', ')} · {p.unit_count ?? '—'} units
-                    </Text>
-                    {badge ? (
-                      <Group gap={8}>
-                        <Text size="xs" fw={900} style={{ color: 'var(--mantine-color-red-7)' }}>
-                          {badge.critical} critical
-                        </Text>
-                        <Text size="xs" fw={900} style={{ color: 'var(--mantine-color-yellow-7)' }}>
-                          {badge.warnings} warnings
-                        </Text>
-                      </Group>
-                    ) : (
-                      <Text size="xs" c="dimmed">
-                        No active hazards
+          {points.map(({ lat, lng, p }) => {
+            const badge = propertyBadges?.[p.property_id]
+            return (
+              <Marker key={p.property_id} position={[lat, lng]}>
+                <Tooltip className="hpy-map-tooltip" direction="top" offset={[0, -8]} opacity={1} sticky>
+                  <Paper
+                    withBorder
+                    radius="md"
+                    p="sm"
+                    style={{
+                      minWidth: 220,
+                      background: 'color-mix(in srgb, var(--mantine-color-body) 92%, var(--mantine-color-dark-9))',
+                    }}
+                  >
+                    <Stack gap={6}>
+                      <Text fw={900} size="sm" c="var(--mantine-color-text)">
+                        {p.name ?? 'Unknown property'}
                       </Text>
-                    )}
-                  </Stack>
-                </Paper>
-              </Tooltip>
-            </Marker>
-          )
-        })}
-      </MapContainer>
+                      <Text size="xs" c="dimmed">
+                        {[p.city, p.state].filter(Boolean).join(', ')} · {p.unit_count ?? '—'} units
+                      </Text>
+                      {badge ? (
+                        <Group gap={8}>
+                          <Text size="xs" fw={900} style={{ color: 'var(--mantine-color-red-7)' }}>
+                            {badge.critical} critical
+                          </Text>
+                          <Text size="xs" fw={900} style={{ color: 'var(--mantine-color-yellow-7)' }}>
+                            {badge.warnings} warnings
+                          </Text>
+                        </Group>
+                      ) : (
+                        <Text size="xs" c="dimmed">
+                          No active hazards
+                        </Text>
+                      )}
+                    </Stack>
+                  </Paper>
+                </Tooltip>
+              </Marker>
+            )
+          })}
+        </MapContainer>
+      </UiErrorBoundary>
 
       <Box
         style={{

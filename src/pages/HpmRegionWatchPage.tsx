@@ -376,17 +376,26 @@ export function HpmRegionWatchPage() {
                 <Group gap="md">
                   <Switch
                     checked={layers.weather}
-                    onChange={(e) => setLayers((prev) => ({ ...prev, weather: e.currentTarget.checked }))}
+                    onChange={(e) => {
+                      const checked = e.currentTarget.checked
+                      setLayers((prev) => ({ ...prev, weather: checked }))
+                    }}
                     label="Weather"
                   />
                   <Switch
                     checked={layers.flood}
-                    onChange={(e) => setLayers((prev) => ({ ...prev, flood: e.currentTarget.checked }))}
+                    onChange={(e) => {
+                      const checked = e.currentTarget.checked
+                      setLayers((prev) => ({ ...prev, flood: checked }))
+                    }}
                     label="Flood Zones"
                   />
                   <Switch
                     checked={layers.crime}
-                    onChange={(e) => setLayers((prev) => ({ ...prev, crime: e.currentTarget.checked }))}
+                    onChange={(e) => {
+                      const checked = e.currentTarget.checked
+                      setLayers((prev) => ({ ...prev, crime: checked }))
+                    }}
                     label="Crime Index"
                   />
                 </Group>

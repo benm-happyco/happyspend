@@ -126,6 +126,9 @@ export function HpmDashboard() {
   const [selectedPropertyIds, setSelectedPropertyIds] = useState<string[]>([])
   const [startDate, setStartDate] = useState('2021-01-01')
   const [endDate, setEndDate] = useState('2026-01-31')
+  const [draftPropertyIds, setDraftPropertyIds] = useState<string[]>([])
+  const [draftStartDate, setDraftStartDate] = useState('2021-01-01')
+  const [draftEndDate, setDraftEndDate] = useState('2026-01-31')
   const [baseline, setBaseline] = useState<PropertyBaseline[]>([])
   const [continuity, setContinuity] = useState<PropertyContinuity[]>([])
   const [timelineSegments, setTimelineSegments] = useState<TimelineSegment[]>([])
@@ -178,6 +181,23 @@ export function HpmDashboard() {
   const [loadingCharts, setLoadingCharts] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const MAX_SELECTED_PROPERTIES = 25
+
+  const idsKey = useMemo(() => (ids: string[]) => ids.join('\u0000'), [])
+  const isDraftDirty = useMemo(() => {
+    return (
+      idsKey(draftPropertyIds) !== idsKey(selectedPropertyIds) ||
+      draftStartDate !== startDate ||
+      draftEndDate !== endDate
+    )
+  }, [draftPropertyIds, selectedPropertyIds, draftStartDate, draftEndDate, startDate, endDate, idsKey])
+
+  useEffect(() => {
+    // Keep draft controls in sync with applied values.
+    setDraftPropertyIds(selectedPropertyIds)
+    setDraftStartDate(startDate)
+    setDraftEndDate(endDate)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     let isMounted = true
@@ -1549,8 +1569,8 @@ export function HpmDashboard() {
                   <Group align="flex-end" wrap="wrap" gap="md">
                     <PropertyPicker
                       options={propertyOptions}
-                      value={selectedPropertyIds}
-                      onChange={(next) => setSelectedPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))}
+                      value={draftPropertyIds}
+                      onChange={(next) => setDraftPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))}
                       loading={loadingOptions}
                       maxSelected={MAX_SELECTED_PROPERTIES}
                       label="Properties"
@@ -1558,8 +1578,8 @@ export function HpmDashboard() {
                     <TextInput
                       type="date"
                       label="Start date"
-                      value={startDate}
-                      onChange={(event) => setStartDate(event.currentTarget.value)}
+                      value={draftStartDate}
+                      onChange={(event) => setDraftStartDate(event.currentTarget.value)}
                       styles={{
                         input: {
                           backgroundColor: 'var(--mantine-color-body)',
@@ -1570,8 +1590,8 @@ export function HpmDashboard() {
                     <TextInput
                       type="date"
                       label="End date"
-                      value={endDate}
-                      onChange={(event) => setEndDate(event.currentTarget.value)}
+                      value={draftEndDate}
+                      onChange={(event) => setDraftEndDate(event.currentTarget.value)}
                       styles={{
                         input: {
                           backgroundColor: 'var(--mantine-color-body)',
@@ -1579,6 +1599,18 @@ export function HpmDashboard() {
                         },
                       }}
                     />
+                    <Button
+                      size="sm"
+                      color="purple"
+                      disabled={!isDraftDirty}
+                      onClick={() => {
+                        setSelectedPropertyIds(draftPropertyIds.slice(0, MAX_SELECTED_PROPERTIES))
+                        setStartDate(draftStartDate)
+                        setEndDate(draftEndDate)
+                      }}
+                    >
+                      Apply
+                    </Button>
                   </Group>
                 </Stack>
               </Card>

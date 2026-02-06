@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Box, Group, Stack, Switch, Text } from '@mantine/core'
+import { Box, Button, Group, Stack, Switch, Text } from '@mantine/core'
 import { DateInput } from '@mantine/dates'
 import '@mantine/dates/styles.css'
 import { HugeiconsIcon } from '@hugeicons/react'
@@ -43,6 +43,9 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
   const [propertyOptions, setPropertyOptions] = useState<{ value: string; label: string }[]>([])
   const [loadingProperties, setLoadingProperties] = useState(true)
   const MAX_SELECTED_PROPERTIES = 25
+  const [draftPropertyIds, setDraftPropertyIds] = useState<string[]>(selectedPropertyIds)
+  const [draftDateRange, setDraftDateRange] = useState(dateRange)
+  const [draftTouched, setDraftTouched] = useState(false)
 
   useEffect(() => {
     let mounted = true
@@ -73,6 +76,26 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
     }
   }, [])
 
+  const pickerOptions = useMemo(() => {
+    if (!loadingProperties || draftPropertyIds.length === 0) return propertyOptions
+    // While options are loading, include placeholders for any preselected ids
+    // so users can still see/toggle them.
+    const seen = new Set<string>()
+    const merged: { value: string; label: string }[] = []
+    for (const id of draftPropertyIds) {
+      const v = String(id ?? '').trim()
+      if (!v || seen.has(v)) continue
+      seen.add(v)
+      merged.push({ value: v, label: '…' })
+    }
+    for (const o of propertyOptions) {
+      if (!o.value || seen.has(o.value)) continue
+      seen.add(o.value)
+      merged.push(o)
+    }
+    return merged
+  }, [loadingProperties, draftPropertyIds, propertyOptions])
+
   const safeDatePopoverProps = useMemo(
     () => ({
       withinPortal: false,
@@ -81,6 +104,24 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
     }),
     []
   )
+
+  const idsKey = useMemo(() => (ids: string[]) => ids.join('\u0000'), [])
+  const isDraftDirty = useMemo(() => {
+    return (
+      idsKey(draftPropertyIds) !== idsKey(selectedPropertyIds) ||
+      draftDateRange.startDate !== dateRange.startDate ||
+      draftDateRange.endDate !== dateRange.endDate
+    )
+  }, [draftPropertyIds, selectedPropertyIds, draftDateRange.startDate, draftDateRange.endDate, dateRange.startDate, dateRange.endDate, idsKey])
+
+  useEffect(() => {
+    // Keep draft in sync with applied filters unless the user has started editing.
+    if (draftTouched && isDraftDirty) return
+    setDraftPropertyIds(selectedPropertyIds)
+    setDraftDateRange(dateRange)
+    setDraftTouched(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedPropertyIds, dateRange.startDate, dateRange.endDate])
 
   return (
     <>
@@ -114,18 +155,24 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
                 hideHeaderFilters ? null : (
                 <Group align="flex-end" gap="md" wrap="wrap">
                   <PropertyPicker
-                    options={propertyOptions}
-                    value={selectedPropertyIds}
-                    onChange={(next) => setSelectedPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))}
+                    options={pickerOptions}
+                    value={draftPropertyIds}
+                    onChange={(next) => {
+                      setDraftTouched(true)
+                      setDraftPropertyIds(next.slice(0, MAX_SELECTED_PROPERTIES))
+                    }}
                     loading={loadingProperties}
                     maxSelected={MAX_SELECTED_PROPERTIES}
                     label="Properties"
                   />
                   <DateInput
                     label="From"
-                    value={parseDateValue(dateRange.startDate)}
-                    onChange={(value) => setDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))}
-                    maxDate={parseDateValue(dateRange.endDate) ?? undefined}
+                    value={parseDateValue(draftDateRange.startDate)}
+                    onChange={(value) => {
+                      setDraftTouched(true)
+                      setDraftDateRange((prev) => ({ ...prev, startDate: formatDateValue(value) }))
+                    }}
+                    maxDate={parseDateValue(draftDateRange.endDate) ?? undefined}
                     popoverProps={safeDatePopoverProps}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
@@ -139,9 +186,12 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
                   />
                   <DateInput
                     label="To"
-                    value={parseDateValue(dateRange.endDate)}
-                    onChange={(value) => setDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))}
-                    minDate={parseDateValue(dateRange.startDate) ?? undefined}
+                    value={parseDateValue(draftDateRange.endDate)}
+                    onChange={(value) => {
+                      setDraftTouched(true)
+                      setDraftDateRange((prev) => ({ ...prev, endDate: formatDateValue(value) }))
+                    }}
+                    minDate={parseDateValue(draftDateRange.startDate) ?? undefined}
                     popoverProps={safeDatePopoverProps}
                     rightSection={<HugeiconsIcon icon={Calendar03Icon} size={16} />}
                     rightSectionPointerEvents="none"
@@ -153,6 +203,18 @@ export function InsightsPageShell({ title, hideHeaderFilters, children }: Insigh
                     }}
                     style={{ minWidth: 140 }}
                   />
+                  <Button
+                    size="sm"
+                    color="purple"
+                    disabled={!isDraftDirty}
+                    onClick={() => {
+                      setSelectedPropertyIds(draftPropertyIds.slice(0, MAX_SELECTED_PROPERTIES))
+                      setDateRange(draftDateRange)
+                      setDraftTouched(false)
+                    }}
+                  >
+                    Apply
+                  </Button>
                 </Group>
                 )
               }
