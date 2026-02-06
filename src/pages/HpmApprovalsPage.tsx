@@ -24,6 +24,7 @@ import {
 } from '@hugeicons/core-free-icons'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { JoyAiIcon } from '../theme/components/JoyAiIcon'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
 import { InsightsPageShell } from './InsightsPageShell'
 
 type PropertyOption = { property_id: string; name: string | null }
@@ -80,6 +81,7 @@ function typePill(t: ApprovalType) {
 export function HpmApprovalsPage() {
   const [properties, setProperties] = useState<PropertyOption[]>([])
   const [loadingProps, setLoadingProps] = useState(true)
+  const unavailable = true // approvals + JoyAI recommendation metrics are demo placeholders for now
 
   const [tab, setTab] = useState<'Inbox' | 'Exceptions'>('Inbox')
   const [search, setSearch] = useState('')
@@ -335,23 +337,24 @@ export function HpmApprovalsPage() {
         ? 'color-mix(in oklab, var(--mantine-color-yellow-6) 45%, var(--mantine-color-default-border))'
         : 'var(--mantine-color-default-border)'
     return (
-      <Paper
-        withBorder
-        radius="lg"
-        p="md"
-        style={{
-          borderColor: riskBorder,
-          background:
-            i.risk === 'high'
-              ? 'color-mix(in oklab, var(--mantine-color-yellow-6) 6%, var(--mantine-color-body))'
-              : undefined,
-        }}
-      >
-        <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
-          <Group align="flex-start" wrap="nowrap" gap="md" style={{ minWidth: 0 }}>
-            <Checkbox checked={checked} onChange={(e) => toggleSelected(i.id, e.currentTarget.checked)} mt={4} />
-            {propertyPill(i.type)}
-            <Stack gap={6} style={{ minWidth: 0 }}>
+      <UnavailableOutline unavailable={unavailable} radius={16}>
+        <Paper
+          withBorder
+          radius="lg"
+          p="md"
+          style={{
+            borderColor: riskBorder,
+            background:
+              i.risk === 'high'
+                ? 'color-mix(in oklab, var(--mantine-color-yellow-6) 6%, var(--mantine-color-body))'
+                : undefined,
+          }}
+        >
+          <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
+            <Group align="flex-start" wrap="nowrap" gap="md" style={{ minWidth: 0 }}>
+              <Checkbox checked={checked} onChange={(e) => toggleSelected(i.id, e.currentTarget.checked)} mt={4} />
+              {propertyPill(i.type)}
+              <Stack gap={6} style={{ minWidth: 0 }}>
               <Group gap={8} wrap="wrap">
                 <Badge size="xs" variant="light" color={i.dueBucket === 'today' ? 'red' : 'gray'}>
                   {i.dueLabel}
@@ -429,22 +432,23 @@ export function HpmApprovalsPage() {
                   </Button>
                 </Group>
               </Paper>
-            </Stack>
-          </Group>
+              </Stack>
+            </Group>
 
-          <Group gap="xs" wrap="nowrap" align="center" justify="flex-end">
-            <Button size="sm" variant="filled" onClick={() => actOn([i.id], 'approve')} style={{ minWidth: 110 }}>
-              Approve
-            </Button>
-            <Button size="sm" variant="light" style={{ minWidth: 110 }}>
-              Review
-            </Button>
-            <Button size="sm" variant="subtle" onClick={() => actOn([i.id], 'reject')} style={{ minWidth: 44 }}>
-              ✕
-            </Button>
+            <Group gap="xs" wrap="nowrap" align="center" justify="flex-end">
+              <Button size="sm" variant="filled" onClick={() => actOn([i.id], 'approve')} style={{ minWidth: 110 }}>
+                Approve
+              </Button>
+              <Button size="sm" variant="light" style={{ minWidth: 110 }}>
+                Review
+              </Button>
+              <Button size="sm" variant="subtle" onClick={() => actOn([i.id], 'reject')} style={{ minWidth: 44 }}>
+                ✕
+              </Button>
+            </Group>
           </Group>
-        </Group>
-      </Paper>
+        </Paper>
+      </UnavailableOutline>
     )
   }
 
@@ -558,92 +562,98 @@ export function HpmApprovalsPage() {
       <Stack gap="lg">
         {/* Top metrics */}
         <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="lg">
-          <Paper withBorder radius="lg" p="lg">
-            <Group justify="space-between" align="flex-start">
-              <Stack gap={2}>
-                <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-                  Due today
-                </Text>
-                <Text fw={900} size="xl">
-                  {metrics.dueToday}
-                </Text>
-                <Text size="xs" c="dimmed">
-                  Requires review today
-                </Text>
-              </Stack>
-              <Box
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 12,
-                  background: 'color-mix(in oklab, var(--mantine-color-red-6) 14%, transparent)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <HugeiconsIcon icon={Calendar03Icon} size={18} />
-              </Box>
-            </Group>
-          </Paper>
+          <UnavailableOutline unavailable={unavailable} radius={16}>
+            <Paper withBorder radius="lg" p="lg">
+              <Group justify="space-between" align="flex-start">
+                <Stack gap={2}>
+                  <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                    Due today
+                  </Text>
+                  <Text fw={900} size="xl">
+                    {metrics.dueToday}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    Requires review today
+                  </Text>
+                </Stack>
+                <Box
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: 12,
+                    background: 'color-mix(in oklab, var(--mantine-color-red-6) 14%, transparent)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <HugeiconsIcon icon={Calendar03Icon} size={18} />
+                </Box>
+              </Group>
+            </Paper>
+          </UnavailableOutline>
 
-          <Paper withBorder radius="lg" p="lg">
-            <Group justify="space-between" align="flex-start">
-              <Stack gap={2}>
-                <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-                  High risk
-                </Text>
-                <Text fw={900} size="xl">
-                  {metrics.highRisk}
-                </Text>
-                <Text size="xs" c="dimmed">
-                  Flagged for escalation
-                </Text>
-              </Stack>
-              <Box
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 12,
-                  background: 'color-mix(in oklab, var(--mantine-color-yellow-6) 14%, transparent)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <HugeiconsIcon icon={Alert02Icon} size={18} />
-              </Box>
-            </Group>
-          </Paper>
+          <UnavailableOutline unavailable={unavailable} radius={16}>
+            <Paper withBorder radius="lg" p="lg">
+              <Group justify="space-between" align="flex-start">
+                <Stack gap={2}>
+                  <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                    High risk
+                  </Text>
+                  <Text fw={900} size="xl">
+                    {metrics.highRisk}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    Flagged for escalation
+                  </Text>
+                </Stack>
+                <Box
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: 12,
+                    background: 'color-mix(in oklab, var(--mantine-color-yellow-6) 14%, transparent)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <HugeiconsIcon icon={Alert02Icon} size={18} />
+                </Box>
+              </Group>
+            </Paper>
+          </UnavailableOutline>
 
-          <Paper withBorder radius="lg" p="lg">
-            <Group justify="space-between" align="flex-start">
-              <Stack gap={2}>
-                <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-                  Pending value
-                </Text>
-                <Text fw={900} size="xl" style={{ color: 'var(--mantine-color-success-7)' }}>
-                  {formatCurrency(metrics.pendingValue)}
-                </Text>
-                <Text size="xs" c="dimmed">
-                  Total value awaiting approval
-                </Text>
-              </Stack>
-              <Box
-                style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 12,
-                  background: 'color-mix(in oklab, var(--mantine-color-success-6) 14%, transparent)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <JoyAiIcon size={18} alt="JOYAI" />
-              </Box>
-            </Group>
-          </Paper>
+          <UnavailableOutline unavailable={unavailable} radius={16}>
+            <Paper withBorder radius="lg" p="lg">
+              <Group justify="space-between" align="flex-start">
+                <Stack gap={2}>
+                  <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                    Pending value
+                  </Text>
+                  <Text fw={900} size="xl" style={{ color: 'var(--mantine-color-success-7)' }}>
+                    {formatCurrency(metrics.pendingValue)}
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    Total value awaiting approval
+                  </Text>
+                </Stack>
+                <Box
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: 12,
+                    background: 'color-mix(in oklab, var(--mantine-color-success-6) 14%, transparent)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <JoyAiIcon size={18} alt="JOYAI" />
+                </Box>
+              </Group>
+            </Paper>
+          </UnavailableOutline>
         </SimpleGrid>
 
         {/* Tabs + tools */}

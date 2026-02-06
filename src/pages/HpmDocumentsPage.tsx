@@ -18,6 +18,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { Alert02Icon, ArrowRight01Icon, DocumentValidationIcon, File02Icon, Shield01Icon } from '@hugeicons/core-free-icons'
 import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
 import { InsightsPageShell } from './InsightsPageShell'
 
 type DocType = 'Policy' | 'Contract' | 'Template'
@@ -101,6 +102,7 @@ function InlineDiffToken({
 export function HpmDocumentsPage() {
   const { selectedPropertyIds } = useInsightsPropertySelection()
   const [propertyName, setPropertyName] = useState<string | null>(null)
+  const unavailable = true // document analysis is demo data for now
 
   useEffect(() => {
     let mounted = true
@@ -302,37 +304,39 @@ export function HpmDocumentsPage() {
                   const selected = d.id === selectedDocId
                   return (
                     <UnstyledButton key={d.id} onClick={() => setSelectedDocId(d.id)} style={{ textAlign: 'left' }}>
-                      <Paper
-                        withBorder
-                        radius="lg"
-                        p="sm"
-                        style={{
-                          borderColor: selected ? 'var(--mantine-color-purple-5)' : 'var(--mantine-color-default-border)',
-                          background: selected ? 'var(--mantine-color-purple-light)' : undefined,
-                        }}
-                      >
-                        <Group justify="space-between" align="flex-start" wrap="nowrap" gap="sm">
-                          <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
-                            <Group gap={8} wrap="nowrap">
-                              <Badge size="xs" variant="light" color="gray" radius="sm">
-                                {d.type.toUpperCase()}
-                              </Badge>
-                              {d.riskLabel ? (
-                                <Badge size="xs" variant="light" color="red" radius="sm">
-                                  {d.riskLabel}
+                      <UnavailableOutline unavailable={unavailable} radius={16}>
+                        <Paper
+                          withBorder
+                          radius="lg"
+                          p="sm"
+                          style={{
+                            borderColor: selected ? 'var(--mantine-color-purple-5)' : 'var(--mantine-color-default-border)',
+                            background: selected ? 'var(--mantine-color-purple-light)' : undefined,
+                          }}
+                        >
+                          <Group justify="space-between" align="flex-start" wrap="nowrap" gap="sm">
+                            <Stack gap={4} style={{ minWidth: 0, flex: 1 }}>
+                              <Group gap={8} wrap="nowrap">
+                                <Badge size="xs" variant="light" color="gray" radius="sm">
+                                  {d.type.toUpperCase()}
                                 </Badge>
-                              ) : null}
-                            </Group>
-                            <Text fw={900} size="sm" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                              {d.title}
-                            </Text>
-                            <Text size="xs" c="dimmed">
-                              {d.subtitle} · {d.changeCount} changes
-                            </Text>
-                          </Stack>
-                          <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
-                        </Group>
-                      </Paper>
+                                {d.riskLabel ? (
+                                  <Badge size="xs" variant="light" color="red" radius="sm">
+                                    {d.riskLabel}
+                                  </Badge>
+                                ) : null}
+                              </Group>
+                              <Text fw={900} size="sm" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                {d.title}
+                              </Text>
+                              <Text size="xs" c="dimmed">
+                                {d.subtitle} · {d.changeCount} changes
+                              </Text>
+                            </Stack>
+                            <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
+                          </Group>
+                        </Paper>
+                      </UnavailableOutline>
                     </UnstyledButton>
                   )
                 })}

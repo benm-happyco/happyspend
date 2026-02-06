@@ -5,6 +5,11 @@ const STORAGE_KEY_DATE_RANGE = 'insights-date-range'
 
 export type InsightsDateRange = { startDate: string; endDate: string }
 
+export const DEFAULT_INSIGHTS_DATE_RANGE: InsightsDateRange = {
+  startDate: '2022-01-01',
+  endDate: '2026-02-01',
+}
+
 function getCookie(name: string): string | null {
   try {
     const parts = document.cookie.split(';').map((p) => p.trim())
@@ -27,13 +32,7 @@ function setCookie(name: string, value: string, days = 365) {
 }
 
 function getDefaultDateRange(): InsightsDateRange {
-  const end = new Date()
-  const start = new Date(end)
-  start.setDate(start.getDate() - 90)
-  return {
-    startDate: start.toISOString().slice(0, 10),
-    endDate: end.toISOString().slice(0, 10),
-  }
+  return DEFAULT_INSIGHTS_DATE_RANGE
 }
 
 function loadStoredIds(): string[] {

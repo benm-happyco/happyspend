@@ -1,10 +1,20 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Badge, Box, Button, Divider, Group, Paper, SegmentedControl, SimpleGrid, Stack, Text } from '@mantine/core'
+import { Badge, Box, Button, Divider, Group, Paper, SegmentedControl, SimpleGrid, Slider, Stack, Switch, Tabs, Text } from '@mantine/core'
 import { HugeiconsIcon } from '@hugeicons/react'
-import { ArrowRight01Icon, ChartLineData02Icon, Rocket01Icon } from '@hugeicons/core-free-icons'
+import {
+  ArrowRight01Icon,
+  ChartLineData02Icon,
+  CheckmarkCircle02Icon,
+  CircleIcon,
+  Rocket01Icon,
+  Shield01Icon,
+  TimeScheduleIcon,
+} from '@hugeicons/core-free-icons'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { JoyAiChatWindow } from '../theme/components/JoyAiChatWindow'
 import { JoyAiIcon } from '../theme/components/JoyAiIcon'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
+import { InlineEditorDrawer } from '../theme/components/HpyDrawer'
 import { InsightsPageShell } from './InsightsPageShell'
 import { getDemoActiveWorkflowCards, type DemoActiveWorkflowCard } from './workflowsDemoData'
 
@@ -43,14 +53,255 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value))
 }
 
+type WorkflowDrawerStatus = 'Active' | 'Complete'
+type WorkflowDrawerData = {
+  id: string
+  title: string
+  confidencePct: number
+  sources: string[]
+  triggeredBy: string
+  status: WorkflowDrawerStatus
+  runningSinceLabel?: string
+  progressPct?: number
+  stepIndex?: number
+  stepsTotal?: number
+  currentPhaseTitle?: string
+}
+
+function inferSources(title: string): string[] {
+  const t = title.toLowerCase()
+  if (t.includes('vendor') || t.includes('sla')) return ['Work orders', 'Invoices']
+  if (t.includes('lease') || t.includes('rent')) return ['Leases', 'Rent roll']
+  if (t.includes('utility') || t.includes('thermostat')) return ['Utility bills', 'Work orders']
+  if (t.includes('water') || t.includes('envelope') || t.includes('intrusion')) return ['Work orders', 'Inspections']
+  if (t.includes('winter')) return ['Work orders', 'Weather feed']
+  return ['Work orders']
+}
+
+function inferTriggeredBy(title: string): string {
+  const t = title.toLowerCase()
+  if (t.includes('sla') || t.includes('vendor')) return 'Turn Time Bottleneck'
+  if (t.includes('envelope') || t.includes('water') || t.includes('intrusion')) return 'Water Intrusion Clustering'
+  if (t.includes('lease')) return 'Charge leakage detection'
+  if (t.includes('turn time')) return 'Ready-date drift flagged'
+  if (t.includes('utility') || t.includes('thermostat')) return 'Usage variance cluster'
+  if (t.includes('winter')) return 'Freeze risk threshold crossed'
+  return 'Benchmark drift detected'
+}
+
+function hashStringToUint32(input: string): number {
+  // FNV-1a 32-bit
+  let hash = 0x811c9dc5
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i)
+    hash = Math.imul(hash, 0x01000193)
+  }
+  return hash >>> 0
+}
+
+function formatMonthDayYear(date: Date): string {
+  return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric', year: 'numeric' }).format(date)
+}
+
+function formatUsd(value: number): string {
+  return `$${Math.round(value).toLocaleString()}`
+}
+
+function buildWorkflowOutcomes(seedKey: string, status: WorkflowDrawerStatus) {
+  const seed = hashStringToUint32(`outcomes:${seedKey}`)
+  const projectedUsd = 10_000
+  const realizedUsd = status === 'Complete' ? 11_500 + (seed % 11_500) : 5_500 + (seed % 8_500)
+  const evidenceScore = 86 + (seed % 14) // 86..99
+
+  const beforeCompliance = 78 + (seed % 13) // 78..90
+  const beforeVariance = 10 + (seed % 9) // 10..18
+
+  const currentComplianceRaw =
+    status === 'Complete' ? beforeCompliance + (7 + (seed % 9)) : beforeCompliance + (3 + (seed % 7))
+  const currentCompliance = clamp(currentComplianceRaw, 80, 99)
+
+  const currentVarianceRaw =
+    status === 'Complete' ? beforeVariance - (5 + (seed % 6)) : beforeVariance - (2 + (seed % 4))
+  const currentVariance = clamp(currentVarianceRaw, 1, 14)
+
+  return {
+    realizedUsd,
+    projectedUsd,
+    evidenceScore,
+    beforeCompliance,
+    beforeVariance,
+    currentCompliance,
+    currentVariance,
+  }
+}
+
+type WorkflowConfig = {
+  runMode: 'suggest' | 'auto'
+  confidenceThresholdPct: number
+  requireManagerApproval: boolean
+  notifyOnDue: boolean
+  cooldownDays: number
+}
+
+function buildWorkflowConfig(args: { seedKey: string; triggeredBy: string; status: WorkflowDrawerStatus }): WorkflowConfig {
+  const seed = hashStringToUint32(`cfg:${args.seedKey}`)
+  const trigger = args.triggeredBy.toLowerCase()
+
+  const autoPreferred =
+    trigger.includes('lease') || trigger.includes('utility') || trigger.includes('usage') || trigger.includes('vendor') || trigger.includes('sla')
+
+  const runMode: WorkflowConfig['runMode'] =
+    args.status === 'Complete'
+      ? autoPreferred
+        ? 'auto'
+        : 'suggest'
+      : autoPreferred && seed % 3 !== 0
+        ? 'auto'
+        : 'suggest'
+
+  const confidenceThresholdPct = clamp(78 + (seed % 14), 70, 92)
+  const requireManagerApproval = runMode === 'auto' ? seed % 4 !== 0 : seed % 2 === 0
+  const notifyOnDue = seed % 5 !== 0
+  const cooldownDays = [7, 14, 21][seed % 3] ?? 14
+
+  return { runMode, confidenceThresholdPct, requireManagerApproval, notifyOnDue, cooldownDays }
+}
+
+function inferRunningSinceLabel(seedKey: string): string {
+  // Deterministic-ish "started" date for demo cards.
+  const daysAgo = 7 + (hashStringToUint32(seedKey) % 75) // 7..81 days ago
+  const d = new Date()
+  d.setDate(d.getDate() - daysAgo)
+  return formatMonthDayYear(d)
+}
+
+type WorkflowTimelineStepTone = 'done' | 'active' | 'upcoming'
+type WorkflowTimelineStep = {
+  title: string
+  subtitle: string
+  tone: WorkflowTimelineStepTone
+  rightLabel: string
+  rightBadge?: { label: string; color: 'yellow' | 'gray' | 'blue' | 'green' }
+}
+
+function formatMonthDay(date: Date): string {
+  return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(date)
+}
+
+function buildWorkflowTimeline(args: {
+  seedKey: string
+  triggeredBy: string
+  stepIndex: number
+  stepsTotal: number
+}): { currentPhaseTitle: string; progressPct: number; steps: WorkflowTimelineStep[] } {
+  const seed = hashStringToUint32(args.seedKey)
+  const stepsTotal = Math.max(3, args.stepsTotal)
+  // Allow stepIndex === stepsTotal + 1 to represent "completed".
+  const stepIndex = clamp(args.stepIndex, 1, stepsTotal + 1)
+  const isComplete = stepIndex > stepsTotal
+
+  const templates =
+    args.triggeredBy.toLowerCase().includes('turn time') || args.triggeredBy.toLowerCase().includes('ready')
+      ? [
+          { title: 'Detect variance', who: 'Automated' },
+          { title: 'Manager approval', who: 'Sarah J.' },
+          { title: 'Generate notice', who: 'Automated' },
+          { title: 'Vendor acknowledgment', who: seed % 2 === 0 ? 'Ace Carpentry' : 'ServiceMaster' },
+          { title: 'Apply deduction', who: 'Finance' },
+        ]
+      : args.triggeredBy.toLowerCase().includes('water') || args.triggeredBy.toLowerCase().includes('intrusion')
+        ? [
+            { title: 'Detect clustering', who: 'Automated' },
+            { title: 'Create inspection scope', who: 'Automated' },
+            { title: 'Manager approval', who: 'Facilities' },
+            { title: 'Schedule vendor', who: seed % 2 === 0 ? 'RoofPro LLC' : 'AquaSeal' },
+            { title: 'Close out + document', who: 'Automated' },
+          ]
+        : args.triggeredBy.toLowerCase().includes('usage') || args.triggeredBy.toLowerCase().includes('utility')
+          ? [
+              { title: 'Detect usage drift', who: 'Automated' },
+              { title: 'Validate meter data', who: 'Automated' },
+              { title: 'Manager approval', who: 'Ops Lead' },
+              { title: 'Field verification', who: 'Onsite Team' },
+              { title: 'Issue credits', who: 'Billing' },
+            ]
+          : [
+              { title: 'Detect variance', who: 'Automated' },
+              { title: 'Review policy', who: 'Operations' },
+              { title: 'Manager approval', who: 'Regional' },
+              { title: 'Execute action', who: 'Automated' },
+              { title: 'Verify outcome', who: 'Automated' },
+            ]
+
+  const picked = templates.slice(0, stepsTotal)
+  const now = new Date()
+  const dayOffset = (n: number) => {
+    const d = new Date(now)
+    d.setDate(d.getDate() + n)
+    return d
+  }
+
+  const doneCount = isComplete ? stepsTotal : Math.max(0, stepIndex - 1)
+  const progressPct = Math.round((doneCount / stepsTotal) * 100)
+  const currentPhaseTitle = isComplete ? 'Workflow complete' : (picked[stepIndex - 1]?.title ?? 'Current phase')
+
+  const completedOn = isComplete ? dayOffset(-(2 + (seed % 28))) : null
+
+  const steps: WorkflowTimelineStep[] = picked.map((s, i) => {
+    const idx = i + 1
+    const tone: WorkflowTimelineStepTone = isComplete
+      ? 'done'
+      : idx < stepIndex
+        ? 'done'
+        : idx === stepIndex
+          ? 'active'
+          : 'upcoming'
+    const subtitle = `${idx}. ${s.who}`
+    if (tone === 'done') {
+      if (completedOn) {
+        const d = new Date(completedOn)
+        d.setDate(d.getDate() - (stepsTotal - idx) * 2)
+        const isFinal = idx === stepsTotal
+        return {
+          title: s.title,
+          subtitle,
+          tone,
+          rightLabel: formatMonthDay(d),
+          rightBadge: isFinal ? { label: 'Completed', color: 'green' } : undefined,
+        }
+      }
+      // A couple days back, compact month/day.
+      const daysBack = Math.min(9, doneCount - (idx - 1))
+      return { title: s.title, subtitle, tone, rightLabel: formatMonthDay(dayOffset(-daysBack)) }
+    }
+    if (tone === 'active') {
+      return { title: s.title, subtitle, tone, rightLabel: 'Due Today', rightBadge: { label: 'Due Today', color: 'yellow' } }
+    }
+    // Upcoming
+    const daysAhead = 3 + ((seed + idx) % 8)
+    return { title: s.title, subtitle, tone, rightLabel: formatMonthDay(dayOffset(daysAhead)) }
+  })
+
+  return { currentPhaseTitle, progressPct, steps }
+}
+
 export function HpmWorkflowsPage() {
   const [propertyNames, setPropertyNames] = useState<string[]>([])
   const [loadingProps, setLoadingProps] = useState(true)
+  const unavailable = true // workflow automation metrics are demo placeholders for now
 
   const [view, setView] = useState<WorkflowState>('active')
   const [quickFilter, setQuickFilter] = useState<'All' | 'Reduce Loss to Lease' | 'Turn Time Recovery' | 'Vendor SLA' | 'DD Risk'>('All')
   const [joyDraft, setJoyDraft] = useState('')
   const [joyFocusKey, setJoyFocusKey] = useState(0)
+
+  const [drawerWorkflow, setDrawerWorkflow] = useState<WorkflowDrawerData | null>(null)
+  const [drawerTab, setDrawerTab] = useState<'timeline' | 'outcomes' | 'configuration'>('timeline')
+
+  const openDrawer = (data: WorkflowDrawerData) => {
+    setDrawerTab('timeline')
+    setDrawerWorkflow(data)
+  }
 
   useEffect(() => {
     let mounted = true
@@ -304,19 +555,21 @@ export function HpmWorkflowsPage() {
     value: string
     helper: string
   }) => (
-    <Paper withBorder radius="lg" p="lg">
-      <Stack gap={4}>
-        <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
-          {label}
-        </Text>
-        <Text fw={900} size="xl">
-          {value}
-        </Text>
-        <Text size="xs" c="dimmed">
-          {helper}
-        </Text>
-      </Stack>
-    </Paper>
+    <UnavailableOutline unavailable={unavailable} radius={16}>
+      <Paper withBorder radius="lg" p="lg">
+        <Stack gap={4}>
+          <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+            {label}
+          </Text>
+          <Text fw={900} size="xl">
+            {value}
+          </Text>
+          <Text size="xs" c="dimmed">
+            {helper}
+          </Text>
+        </Stack>
+      </Paper>
+    </UnavailableOutline>
   )
 
   const ActiveCard = ({ c }: { c: WorkflowCard }) => {
@@ -339,26 +592,51 @@ export function HpmWorkflowsPage() {
       )
     })
 
+    const onOpen = () => {
+      const triggeredBy = c.triggerLabel.replace(/^Trigger:\s*/i, '').trim() || inferTriggeredBy(c.title)
+      const confidencePct = clamp(Math.round(72 + c.progressPct * 0.32), 60, 96)
+      openDrawer({
+        id: c.id,
+        title: c.title,
+        confidencePct,
+        sources: inferSources(c.title),
+        triggeredBy,
+        status: 'Active',
+        runningSinceLabel: inferRunningSinceLabel(c.id),
+        progressPct: c.progressPct,
+        stepIndex: c.stepsDone,
+        stepsTotal: c.stepsTotal,
+        currentPhaseTitle: c.nextActionLabel,
+      })
+    }
+
     return (
-      <Paper withBorder radius="lg" p="lg">
-        <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
-          <Stack gap="sm" style={{ minWidth: 0, flex: 1 }}>
-            <Group gap="sm" wrap="wrap">
-              <Badge
-                size="sm"
-                variant="light"
-                radius="xl"
-                style={{
-                  background: chipBg,
-                  border: `1px solid ${chipBorder}`,
-                }}
-              >
-                {c.status}
-              </Badge>
-              <Badge size="sm" variant="light" radius="xl">
-                {c.category}
-              </Badge>
-            </Group>
+      <UnavailableOutline unavailable={unavailable} radius={16}>
+        <Paper
+          withBorder
+          radius="lg"
+          p="lg"
+          onClick={onOpen}
+          style={{ cursor: 'pointer' }}
+        >
+          <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
+            <Stack gap="sm" style={{ minWidth: 0, flex: 1 }}>
+              <Group gap="sm" wrap="wrap">
+                <Badge
+                  size="sm"
+                  variant="light"
+                  radius="xl"
+                  style={{
+                    background: chipBg,
+                    border: `1px solid ${chipBorder}`,
+                  }}
+                >
+                  {c.status}
+                </Badge>
+                <Badge size="sm" variant="light" radius="xl">
+                  {c.category}
+                </Badge>
+              </Group>
 
             <Group justify="space-between" align="flex-start" wrap="nowrap">
               <Text fw={900} size="lg" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -411,43 +689,64 @@ export function HpmWorkflowsPage() {
                 </Text>
               </Stack>
             </Group>
-          </Stack>
-        </Group>
-      </Paper>
+            </Stack>
+          </Group>
+        </Paper>
+      </UnavailableOutline>
     )
   }
 
   const CompletedCard = ({ c }: { c: CompletedWorkflowCard }) => {
+    const onOpen = () => {
+      const ratio = c.runs > 0 ? c.successfulRuns / c.runs : 1
+      const confidencePct = clamp(Math.round(70 + ratio * 28), 60, 99)
+      openDrawer({
+        id: c.id,
+        title: c.title,
+        confidencePct,
+        sources: inferSources(c.title),
+        triggeredBy: inferTriggeredBy(c.title),
+        status: 'Complete',
+      })
+    }
+
     return (
-      <Paper withBorder radius="lg" p="lg">
-        <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
-          <Stack gap="xs" style={{ minWidth: 0, flex: 1 }}>
-            <Group justify="space-between" align="center">
-              <Badge size="sm" variant="light" radius="xl" color="gray">
-                COMPLETED
-              </Badge>
-              <Group gap={6} wrap="nowrap">
-                <Box
-                  style={{
-                    width: 22,
-                    height: 22,
-                    borderRadius: 999,
-                    border: '1px solid var(--mantine-color-default-border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--mantine-color-dimmed)',
-                    fontSize: 11,
-                    fontWeight: 900,
-                  }}
-                >
-                  {c.owner.slice(0, 1).toUpperCase()}
-                </Box>
-                <Text size="xs" c="dimmed" fw={700}>
-                  {c.owner}
-                </Text>
+      <UnavailableOutline unavailable={unavailable} radius={16}>
+        <Paper
+          withBorder
+          radius="lg"
+          p="lg"
+          onClick={onOpen}
+          style={{ cursor: 'pointer' }}
+        >
+          <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
+            <Stack gap="xs" style={{ minWidth: 0, flex: 1 }}>
+              <Group justify="space-between" align="center">
+                <Badge size="sm" variant="light" radius="xl" color="gray">
+                  COMPLETED
+                </Badge>
+                <Group gap={6} wrap="nowrap">
+                  <Box
+                    style={{
+                      width: 22,
+                      height: 22,
+                      borderRadius: 999,
+                      border: '1px solid var(--mantine-color-default-border)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--mantine-color-dimmed)',
+                      fontSize: 11,
+                      fontWeight: 900,
+                    }}
+                  >
+                    {c.owner.slice(0, 1).toUpperCase()}
+                  </Box>
+                  <Text size="xs" c="dimmed" fw={700}>
+                    {c.owner}
+                  </Text>
+                </Group>
               </Group>
-            </Group>
 
             <Text fw={900} size="lg">
               {c.title}
@@ -489,16 +788,18 @@ export function HpmWorkflowsPage() {
                 View report
               </Button>
             </Group>
-          </Stack>
-        </Group>
-      </Paper>
+            </Stack>
+          </Group>
+        </Paper>
+      </UnavailableOutline>
     )
   }
 
   const LibraryCard = ({ c }: { c: LibraryWorkflowCard }) => {
     return (
-      <Paper withBorder radius="lg" p="lg">
-        <Stack gap="sm">
+      <UnavailableOutline unavailable={unavailable} radius={16}>
+        <Paper withBorder radius="lg" p="lg">
+          <Stack gap="sm">
           <Group justify="space-between" align="flex-start" wrap="nowrap">
             <Stack gap={4} style={{ minWidth: 0 }}>
               <Text fw={900} size="md" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -556,14 +857,16 @@ export function HpmWorkflowsPage() {
               View details
             </Button>
           </Group>
-        </Stack>
-      </Paper>
+          </Stack>
+        </Paper>
+      </UnavailableOutline>
     )
   }
 
   return (
-    <InsightsPageShell title="Workflows" hideHeaderFilters>
-      <Stack gap="lg">
+    <>
+      <InsightsPageShell title="Workflows" hideHeaderFilters>
+        <Stack gap="lg">
         {/* Top metrics */}
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 5 }} spacing="lg">
           <TopMetric label="Active workflows" value={String(topMetrics.activeWorkflows)} helper="Currently running or waiting" />
@@ -801,7 +1104,484 @@ export function HpmWorkflowsPage() {
         <Text size="xs" c="dimmed">
           {loadingProps ? 'Loading property names…' : `Using sample context from ${propertyNames.length ? 'your property list' : 'demo properties'}.`}
         </Text>
-      </Stack>
-    </InsightsPageShell>
+        </Stack>
+      </InsightsPageShell>
+
+      <InlineEditorDrawer
+        opened={drawerWorkflow != null}
+        onClose={() => setDrawerWorkflow(null)}
+        withCloseButton
+        size={560}
+        title={
+          drawerWorkflow ? (
+            <Stack gap="xs">
+              <Text fw={700} size="xl">
+                {drawerWorkflow.title}
+              </Text>
+              <Group gap="sm" wrap="wrap">
+                <Badge size="sm" variant="light" color="green" radius="xl">
+                  {drawerWorkflow.confidencePct}% Confidence
+                </Badge>
+                <Badge size="sm" variant="light" color={drawerWorkflow.status === 'Active' ? 'blue' : 'gray'} radius="xl">
+                  Status • {drawerWorkflow.status.toUpperCase()}
+                </Badge>
+              </Group>
+            </Stack>
+          ) : undefined
+        }
+        tabs={
+          drawerWorkflow ? (
+            <Stack gap="md">
+              <Stack gap="xs">
+                <Group gap="xs" align="center" wrap="wrap">
+                  <Text size="xs" c="dimmed" tt="uppercase" fw={600}>
+                    SOURCES
+                  </Text>
+                  <Group gap="md" wrap="wrap">
+                    {drawerWorkflow.sources.map((label) => (
+                      <Group key={label} gap={6} wrap="nowrap">
+                        <Box
+                          w={8}
+                          h={8}
+                          style={{
+                            borderRadius: '50%',
+                            backgroundColor: 'var(--mantine-color-green-6)',
+                          }}
+                        />
+                        <Text size="sm" fw={500}>
+                          {label}
+                        </Text>
+                      </Group>
+                    ))}
+                  </Group>
+                </Group>
+
+                <Group gap="xs" align="center">
+                  <Text size="xs" c="dimmed" tt="uppercase" fw={600}>
+                    TRIGGERED BY
+                  </Text>
+                  <Text size="sm" fw={600}>
+                    {drawerWorkflow.triggeredBy}
+                  </Text>
+                </Group>
+
+                <Group gap="xs" align="center">
+                  <Text size="xs" c="dimmed" tt="uppercase" fw={600}>
+                    STATUS
+                  </Text>
+                  <Text size="sm" fw={600}>
+                    {drawerWorkflow.status}
+                  </Text>
+                </Group>
+              </Stack>
+
+              <Tabs value={drawerTab} onChange={(v) => setDrawerTab((v as typeof drawerTab) ?? 'timeline')}>
+                <Tabs.List
+                  style={{
+                    position: 'sticky',
+                    top: 0,
+                    zIndex: 1,
+                    backgroundColor: 'var(--mantine-color-body)',
+                    borderBottom: '1px solid var(--mantine-color-default-border)',
+                  }}
+                >
+                  <Tabs.Tab value="timeline">Timeline</Tabs.Tab>
+                  <Tabs.Tab value="outcomes">Outcomes</Tabs.Tab>
+                  <Tabs.Tab value="configuration">Configuration</Tabs.Tab>
+                </Tabs.List>
+
+                <Tabs.Panel value="timeline" pt="md">
+                  {(() => {
+                    const isActive = drawerWorkflow.status === 'Active'
+                    const isComplete = drawerWorkflow.status === 'Complete'
+                    if (!isActive && !isComplete) return <Box h={240} />
+
+                    const stepsTotal = drawerWorkflow.stepsTotal ?? 5
+                    const stepIndex = isComplete ? stepsTotal + 1 : (drawerWorkflow.stepIndex ?? 1)
+
+                    const timeline = buildWorkflowTimeline({
+                      seedKey: drawerWorkflow.id,
+                      triggeredBy: drawerWorkflow.triggeredBy,
+                      stepIndex,
+                      stepsTotal,
+                    })
+
+                    const pct = isComplete ? 100 : (drawerWorkflow.progressPct ?? timeline.progressPct)
+                    const currentPhaseTitle = isComplete ? 'Completed' : (drawerWorkflow.currentPhaseTitle ?? timeline.currentPhaseTitle)
+
+                    return (
+                      <Stack gap="lg">
+                        <Paper withBorder radius="lg" p="lg">
+                          <Group justify="space-between" align="flex-start" wrap="nowrap">
+                            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+                              <Box
+                                style={{
+                                  width: 44,
+                                  height: 44,
+                                  borderRadius: 14,
+                                  background: isComplete
+                                    ? 'color-mix(in oklab, var(--mantine-color-success-6) 10%, transparent)'
+                                    : 'color-mix(in oklab, var(--mantine-color-blue-6) 10%, transparent)',
+                                  border: isComplete
+                                    ? '1px solid color-mix(in oklab, var(--mantine-color-success-6) 18%, var(--mantine-color-default-border))'
+                                    : '1px solid color-mix(in oklab, var(--mantine-color-blue-6) 18%, var(--mantine-color-default-border))',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  flex: '0 0 auto',
+                                }}
+                              >
+                                <HugeiconsIcon icon={ChartLineData02Icon} size={20} />
+                              </Box>
+
+                              <Stack gap={2} style={{ minWidth: 0 }}>
+                                <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                                  Current phase
+                                </Text>
+                                <Text fw={900} size="lg" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                  Step {Math.min(stepIndex, stepsTotal)} of {stepsTotal}: {currentPhaseTitle}
+                                </Text>
+                              </Stack>
+                            </Group>
+
+                            <Stack gap={2} align="flex-end">
+                              <Text fw={900} style={{ fontSize: 44, lineHeight: 1 }}>
+                                {pct}%
+                              </Text>
+                              <Text size="xs" c="dimmed" fw={800} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                                Complete
+                              </Text>
+                            </Stack>
+                          </Group>
+                        </Paper>
+
+                        <Stack gap={18}>
+                          {timeline.steps.map((s, idx) => {
+                            const isDone = s.tone === 'done'
+                            const isNow = s.tone === 'active'
+                            const accent =
+                              isDone ? 'var(--mantine-color-success-6)' : isNow ? 'var(--mantine-color-blue-6)' : 'var(--mantine-color-default-border)'
+                            const labelColor =
+                              isDone ? 'var(--mantine-color-text)' : isNow ? 'var(--mantine-color-blue-7)' : 'var(--mantine-color-dimmed)'
+
+                            return (
+                              <Group key={`${s.title}-${idx}`} justify="space-between" align="flex-start" wrap="nowrap">
+                                <Group gap="md" wrap="nowrap" align="flex-start" style={{ minWidth: 0 }}>
+                                  <Box style={{ width: 44, display: 'flex', justifyContent: 'center' }}>
+                                    <Box style={{ position: 'relative', width: 32, display: 'flex', justifyContent: 'center' }}>
+                                      {idx !== timeline.steps.length - 1 && (
+                                        <Box
+                                          style={{
+                                            position: 'absolute',
+                                            top: 30,
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            width: 3,
+                                            height: 62,
+                                            background: isDone ? 'var(--mantine-color-success-6)' : 'var(--mantine-color-default-border)',
+                                            borderRadius: 999,
+                                          }}
+                                        />
+                                      )}
+                                      <Box
+                                        style={{
+                                          width: 32,
+                                          height: 32,
+                                          borderRadius: 999,
+                                          border: `3px solid ${accent}`,
+                                          background: isNow
+                                            ? 'color-mix(in oklab, var(--mantine-color-blue-6) 10%, transparent)'
+                                            : 'var(--mantine-color-body)',
+                                          display: 'flex',
+                                          alignItems: 'center',
+                                          justifyContent: 'center',
+                                        }}
+                                      >
+                                        {isDone ? (
+                                          <HugeiconsIcon icon={CheckmarkCircle02Icon} size={20} color="var(--mantine-color-success-6)" />
+                                        ) : isNow ? (
+                                          <HugeiconsIcon icon={CircleIcon} size={12} color="var(--mantine-color-blue-6)" />
+                                        ) : (
+                                          <HugeiconsIcon icon={CircleIcon} size={12} color="color-mix(in oklab, var(--mantine-color-text) 18%, transparent)" />
+                                        )}
+                                      </Box>
+                                    </Box>
+                                  </Box>
+
+                                  <Stack gap={2} style={{ minWidth: 0 }}>
+                                    <Text fw={900} size="lg" style={{ color: labelColor, lineHeight: 1.15 }}>
+                                      {s.title}
+                                    </Text>
+                                    <Text size="sm" c="dimmed">
+                                      {s.subtitle}
+                                    </Text>
+                                  </Stack>
+                                </Group>
+
+                                <Stack gap={6} align="flex-end" style={{ flex: '0 0 auto' }}>
+                                  <Text size="sm" fw={700} c="dimmed">
+                                    {s.rightLabel}
+                                  </Text>
+                                  {s.rightBadge ? (
+                                    <Badge size="sm" variant="light" color={s.rightBadge.color} radius="sm">
+                                      {s.rightBadge.label}
+                                    </Badge>
+                                  ) : null}
+                                </Stack>
+                              </Group>
+                            )
+                          })}
+                        </Stack>
+                      </Stack>
+                    )
+                  })()}
+                </Tabs.Panel>
+                <Tabs.Panel value="outcomes" pt="md">
+                  {(() => {
+                    if (!drawerWorkflow) return <Box h={240} />
+                    const o = buildWorkflowOutcomes(drawerWorkflow.id, drawerWorkflow.status)
+
+                    return (
+                      <Stack gap="lg">
+                        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                          <Paper
+                            withBorder
+                            radius="xl"
+                            p="xl"
+                            style={{
+                              background: 'color-mix(in oklab, var(--mantine-color-success-6) 8%, var(--mantine-color-body))',
+                              borderColor: 'color-mix(in oklab, var(--mantine-color-success-6) 20%, var(--mantine-color-default-border))',
+                            }}
+                          >
+                            <Group gap="sm" align="center" mb="sm">
+                              <HugeiconsIcon icon={CheckmarkCircle02Icon} size={18} color="var(--mantine-color-success-7)" />
+                              <Text size="sm" fw={900} tt="uppercase" style={{ letterSpacing: '0.08em' }}>
+                                REALIZED IMPACT
+                              </Text>
+                            </Group>
+                            <Text fw={900} style={{ fontSize: 40, lineHeight: 1.05 }}>
+                              {formatUsd(o.realizedUsd)}
+                            </Text>
+                            <Text size="sm" c="dimmed" fw={700} mt={6}>
+                              vs {formatUsd(o.projectedUsd)} Projected
+                            </Text>
+                          </Paper>
+
+                          <Paper withBorder radius="xl" p="xl">
+                            <Group gap="sm" align="center" mb="sm">
+                              <HugeiconsIcon icon={Shield01Icon} size={18} color="var(--mantine-color-blue-7)" />
+                              <Text
+                                size="sm"
+                                fw={900}
+                                tt="uppercase"
+                                style={{ letterSpacing: '0.08em', color: 'var(--mantine-color-blue-7)' }}
+                              >
+                                EVIDENCE SCORE
+                              </Text>
+                            </Group>
+                            <Text fw={900} style={{ fontSize: 40, lineHeight: 1.05 }}>
+                              {o.evidenceScore}/100
+                            </Text>
+                            <Text size="sm" c="dimmed" fw={600} mt={6}>
+                              High fidelity data
+                            </Text>
+                          </Paper>
+                        </SimpleGrid>
+
+                        <Group gap="sm" align="center" mt={4}>
+                          <HugeiconsIcon icon={TimeScheduleIcon} size={18} color="var(--mantine-color-dimmed)" />
+                          <Text size="sm" fw={900} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                            BEFORE VS AFTER SNAPSHOT
+                          </Text>
+                        </Group>
+
+                        <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+                          <Paper withBorder radius="xl" p="xl">
+                            <Text size="sm" fw={900} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+                              BEFORE WORKFLOW
+                            </Text>
+                            <Group justify="space-between" mt="md">
+                              <Text fw={600}>Compliance</Text>
+                              <Text fw={900}>{o.beforeCompliance}%</Text>
+                            </Group>
+                            <Group justify="space-between" mt="sm">
+                              <Text fw={600}>Variance</Text>
+                              <Text fw={900}>+{o.beforeVariance}%</Text>
+                            </Group>
+                          </Paper>
+
+                          <Paper
+                            withBorder
+                            radius="xl"
+                            p="xl"
+                            style={{
+                              background: 'color-mix(in oklab, var(--mantine-color-blue-6) 8%, var(--mantine-color-body))',
+                              borderColor: 'color-mix(in oklab, var(--mantine-color-blue-6) 18%, var(--mantine-color-default-border))',
+                            }}
+                          >
+                            <Text
+                              size="sm"
+                              fw={900}
+                              tt="uppercase"
+                              style={{ letterSpacing: '0.08em', color: 'var(--mantine-color-blue-7)' }}
+                            >
+                              CURRENT STATE
+                            </Text>
+                            <Group justify="space-between" mt="md">
+                              <Text fw={600} style={{ color: 'var(--mantine-color-blue-7)' }}>
+                                Compliance
+                              </Text>
+                              <Text fw={900} style={{ color: 'var(--mantine-color-success-7)' }}>
+                                {o.currentCompliance}%
+                              </Text>
+                            </Group>
+                            <Group justify="space-between" mt="sm">
+                              <Text fw={600} style={{ color: 'var(--mantine-color-blue-7)' }}>
+                                Variance
+                              </Text>
+                              <Text fw={900} style={{ color: 'var(--mantine-color-success-7)' }}>
+                                {o.currentVariance}%
+                              </Text>
+                            </Group>
+                          </Paper>
+                        </SimpleGrid>
+                      </Stack>
+                    )
+                  })()}
+                </Tabs.Panel>
+                <Tabs.Panel value="configuration" pt="md">
+                  {(() => {
+                    if (!drawerWorkflow) return <Box h={240} />
+                    const cfg = buildWorkflowConfig({
+                      seedKey: drawerWorkflow.id,
+                      triggeredBy: drawerWorkflow.triggeredBy,
+                      status: drawerWorkflow.status,
+                    })
+
+                    const disabled = true
+
+                    return (
+                      <Stack gap="lg">
+                        <Text size="sm" c="dimmed">
+                          Settings are read-only in this demo.
+                        </Text>
+
+                        <Paper withBorder radius="lg" p="lg">
+                          <Stack gap="sm">
+                            <Group justify="space-between" align="flex-start">
+                              <Stack gap={2}>
+                                <Text fw={900}>Run mode</Text>
+                                <Text size="sm" c="dimmed">
+                                  Choose whether this workflow suggests actions or runs automatically.
+                                </Text>
+                              </Stack>
+                            </Group>
+                            <SegmentedControl
+                              value={cfg.runMode}
+                              data={[
+                                { label: 'Suggest only', value: 'suggest' },
+                                { label: 'Auto-execute', value: 'auto' },
+                              ]}
+                              disabled={disabled}
+                              fullWidth
+                            />
+                          </Stack>
+                        </Paper>
+
+                        <Paper withBorder radius="lg" p="lg">
+                          <Stack gap="sm">
+                            <Group justify="space-between" align="flex-start">
+                              <Stack gap={2}>
+                                <Text fw={900}>Confidence threshold</Text>
+                                <Text size="sm" c="dimmed">
+                                  Minimum confidence required to trigger actions.
+                                </Text>
+                              </Stack>
+                              <Badge variant="light" radius="xl">
+                                {cfg.confidenceThresholdPct}%
+                              </Badge>
+                            </Group>
+                            <Slider
+                              value={cfg.confidenceThresholdPct}
+                              min={60}
+                              max={99}
+                              step={1}
+                              disabled={disabled}
+                              marks={[
+                                { value: 70, label: '70' },
+                                { value: 85, label: '85' },
+                                { value: 95, label: '95' },
+                              ]}
+                            />
+                          </Stack>
+                        </Paper>
+
+                        <Paper withBorder radius="lg" p="lg">
+                          <Stack gap="sm">
+                            <Text fw={900}>Approvals & notifications</Text>
+                            <Group justify="space-between" align="center" wrap="nowrap">
+                              <Stack gap={2} style={{ minWidth: 0 }}>
+                                <Text fw={700}>Require manager approval</Text>
+                                <Text size="sm" c="dimmed">
+                                  Adds an approval step before execution.
+                                </Text>
+                              </Stack>
+                              <Switch checked={cfg.requireManagerApproval} disabled={disabled} />
+                            </Group>
+                            <Divider />
+                            <Group justify="space-between" align="center" wrap="nowrap">
+                              <Stack gap={2} style={{ minWidth: 0 }}>
+                                <Text fw={700}>Notify on due dates</Text>
+                                <Text size="sm" c="dimmed">
+                                  Sends reminders when a step is due.
+                                </Text>
+                              </Stack>
+                              <Switch checked={cfg.notifyOnDue} disabled={disabled} />
+                            </Group>
+                          </Stack>
+                        </Paper>
+
+                        <Paper withBorder radius="lg" p="lg">
+                          <Stack gap="xs">
+                            <Text fw={900}>Cooldown</Text>
+                            <Text size="sm" c="dimmed">
+                              Prevents repeated triggers for the same pattern.
+                            </Text>
+                            <Group justify="space-between" align="center">
+                              <Text fw={700}>Re-run after</Text>
+                              <Badge variant="light" radius="xl">
+                                {cfg.cooldownDays} days
+                              </Badge>
+                            </Group>
+                          </Stack>
+                        </Paper>
+                      </Stack>
+                    )
+                  })()}
+                </Tabs.Panel>
+              </Tabs>
+            </Stack>
+          ) : undefined
+        }
+        footer={
+          drawerWorkflow?.status === 'Active' ? (
+            <Stack gap={6} style={{ width: '100%' }} align="flex-end">
+              <Text size="xs" c="dimmed" style={{ whiteSpace: 'nowrap', textAlign: 'right' }}>
+                Running since {drawerWorkflow.runningSinceLabel ?? '—'} · Actions are disabled in this demo
+              </Text>
+              <Group gap="sm" wrap="nowrap" justify="flex-end">
+                <Button size="sm" variant="default" onClick={() => {}}>
+                  Manage Access
+                </Button>
+                <Button size="sm" color="yellow" variant="filled" onClick={() => {}}>
+                  Pause Workflow
+                </Button>
+              </Group>
+            </Stack>
+          ) : undefined
+        }
+        footerFlexProps={{ justify: 'flex-end', align: 'center', wrap: 'nowrap' }}
+      />
+    </>
   )
 }

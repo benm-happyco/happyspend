@@ -16,6 +16,7 @@ import {
 import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { HpyPropertyMap } from '../theme/components/HpyPropertyMap'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
 import { InsightsPageShell } from './InsightsPageShell'
 
 type Vitals = {
@@ -219,6 +220,7 @@ function MetricCard({
   sparkData,
   sparkColor,
   loading,
+  unavailable,
 }: {
   icon: typeof ChartLineData02Icon
   label: string
@@ -228,29 +230,31 @@ function MetricCard({
   sparkData?: SparkPoint[]
   sparkColor: string
   loading: boolean
+  unavailable?: boolean
 }) {
   return (
-    <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
-      <Stack gap="md">
-        <Group gap="sm" wrap="nowrap">
-          <Box
-            w={28}
-            h={28}
-            style={{
-              borderRadius: 999,
-              backgroundColor: 'var(--mantine-color-default-hover)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0,
-            }}
-          >
-            <HugeiconsIcon icon={icon} size={16} color="var(--mantine-color-text)" />
-          </Box>
-          <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
-            {label}
-          </Text>
-        </Group>
+    <UnavailableOutline unavailable={unavailable} radius={16}>
+      <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
+        <Stack gap="md">
+          <Group gap="sm" wrap="nowrap">
+            <Box
+              w={28}
+              h={28}
+              style={{
+                borderRadius: 999,
+                backgroundColor: 'var(--mantine-color-default-hover)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <HugeiconsIcon icon={icon} size={16} color="var(--mantine-color-text)" />
+            </Box>
+            <Text size="xs" fw={800} tt="uppercase" c="dimmed" style={{ letterSpacing: '0.08em' }}>
+              {label}
+            </Text>
+          </Group>
 
         {loading ? (
           <Stack gap="sm">
@@ -316,13 +320,15 @@ function MetricCard({
             />
           </Box>
         )}
-      </Stack>
-    </Paper>
+        </Stack>
+      </Paper>
+    </UnavailableOutline>
   )
 }
 
 export function HpmStrategyPage() {
   const theme = useMantineTheme()
+  const unavailable = true // strategy metrics are currently seeded/demo (not fully backed by live data feeds yet)
   const colorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true })
   const { selectedPropertyIds, dateRange } = useInsightsPropertySelection()
   const [loading, setLoading] = useState(false)
@@ -2123,6 +2129,7 @@ export function HpmStrategyPage() {
                 sparkData={noiSpark}
                 sparkColor="var(--mantine-color-success-6)"
                 loading={loading}
+                unavailable={unavailable}
               />
               <MetricCard
                 icon={TimeScheduleIcon}
@@ -2133,6 +2140,7 @@ export function HpmStrategyPage() {
                 sparkData={turnSpark}
                 sparkColor="var(--mantine-color-success-6)"
                 loading={loading}
+                unavailable={unavailable}
               />
             </Stack>
 
@@ -2146,6 +2154,7 @@ export function HpmStrategyPage() {
                 sparkData={capexSpark}
                 sparkColor="var(--mantine-color-danger-6)"
                 loading={loading}
+                unavailable={unavailable}
               />
               <MetricCard
                 icon={Alert02Icon}
@@ -2156,12 +2165,14 @@ export function HpmStrategyPage() {
                 sparkData={riskSpark}
                 sparkColor="var(--mantine-color-success-6)"
                 loading={loading}
+                unavailable={unavailable}
               />
             </Stack>
 
             <Stack gap="lg">
-              <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
-                <Stack gap="md" style={{ height: '100%' }}>
+              <UnavailableOutline unavailable={unavailable} radius={16}>
+                <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
+                  <Stack gap="md" style={{ height: '100%' }}>
                   <Group gap="sm" wrap="nowrap">
                     <Box
                       w={28}
@@ -2202,10 +2213,11 @@ export function HpmStrategyPage() {
                     </Stack>
                   )}
 
-                  {/* Reserve the same chart space as other metric cards for consistent row height */}
-                  <Box h={58} style={{ marginTop: 'auto' }} />
-                </Stack>
-              </Paper>
+                    {/* Reserve the same chart space as other metric cards for consistent row height */}
+                    <Box h={58} style={{ marginTop: 'auto' }} />
+                  </Stack>
+                </Paper>
+              </UnavailableOutline>
 
               <MetricCard
                 icon={StarIcon}
@@ -2216,11 +2228,13 @@ export function HpmStrategyPage() {
                 sparkData={sentimentSpark}
                 sparkColor="var(--mantine-color-success-6)"
                 loading={loading}
+                unavailable={unavailable}
               />
             </Stack>
 
-            <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
-              <Stack gap="md">
+            <UnavailableOutline unavailable={unavailable} radius={16}>
+              <Paper withBorder shadow="sm" radius="lg" p="lg" style={{ backgroundColor: 'var(--mantine-color-body)' }}>
+                <Stack gap="md">
                 <Group gap="sm" wrap="nowrap">
                   <Box
                     w={28}
@@ -2274,8 +2288,9 @@ export function HpmStrategyPage() {
                     ))}
                   </Stack>
                 )}
-              </Stack>
-            </Paper>
+                </Stack>
+              </Paper>
+            </UnavailableOutline>
           </SimpleGrid>
         </Paper>
 

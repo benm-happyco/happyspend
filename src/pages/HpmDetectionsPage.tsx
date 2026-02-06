@@ -34,6 +34,7 @@ import { useInsightsPropertySelection } from '../contexts/InsightsPropertyContex
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { InsightsPageShell } from './InsightsPageShell'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
 
 const DOT_BADGES = [
   { label: 'PMS', color: 'green' as const },
@@ -582,7 +583,6 @@ export function HpmDetectionsPage() {
     }
     return {
       ...stats,
-      turnTime: '14.25 days',
       vendorResponse: stats.vendorResponse ?? placeholderStats.vendorResponse,
       utilityUsage: stats.utilityUsage ?? placeholderStats.utilityUsage,
       delinquency: stats.delinquency ?? placeholderStats.delinquency,
@@ -1131,25 +1131,21 @@ export function HpmDetectionsPage() {
                   ? 'yellow'
                   : 'gray'
             return (
-              <Card
-                key={cluster.property + cluster.title}
-                withBorder
-                radius="md"
-                padding="md"
-              >
-                <Group justify="space-between" align="flex-start" mb="xs">
-                  <Stack gap={2}>
-                    <Text size="xs" c="dimmed" tt="uppercase" fw={600}>
-                      {cluster.property}
-                    </Text>
-                    <Text fw={700} size="md">
-                      {cluster.title}
-                    </Text>
-                  </Stack>
-                  <Badge size="sm" variant="light" color={badgeColor} radius="xl">
-                    {cluster.status}
-                  </Badge>
-                </Group>
+              <UnavailableOutline unavailable radius={12} key={cluster.property + cluster.title}>
+                <Card withBorder radius="md" padding="md">
+                  <Group justify="space-between" align="flex-start" mb="xs">
+                    <Stack gap={2}>
+                      <Text size="xs" c="dimmed" tt="uppercase" fw={600}>
+                        {cluster.property}
+                      </Text>
+                      <Text fw={700} size="md">
+                        {cluster.title}
+                      </Text>
+                    </Stack>
+                    <Badge size="sm" variant="light" color={badgeColor} radius="xl">
+                      {cluster.status}
+                    </Badge>
+                  </Group>
                 <Group gap="sm" mb="md" wrap="nowrap">
                   <Group gap={6} wrap="nowrap">
                     <HugeiconsIcon icon={Home03Icon} size={16} />
@@ -1199,7 +1195,8 @@ export function HpmDetectionsPage() {
                 >
                   {cluster.actionLabel}
                 </Button>
-              </Card>
+                </Card>
+              </UnavailableOutline>
             )
           })}
         </SimpleGrid>

@@ -41,7 +41,7 @@ import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../theme/components/GlobalHe
 import { HpySidebar } from '../theme/components/HpySidebar'
 import { HpyPageHeader } from '../theme/components/HpyPageHeader'
 import { HpyAppIcon } from '../theme/components/HpyAppIcon'
-import { type InsightsDateRange, useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
+import { DEFAULT_INSIGHTS_DATE_RANGE, type InsightsDateRange, useInsightsPropertySelection } from '../contexts/InsightsPropertyContext'
 import { useUnavailableHighlight } from '../contexts/UnavailableHighlightContext'
 import { metricsSupabaseConfigured, supabaseMetrics } from '../lib/supabaseMetrics'
 import { PORTFOLIO_APP_NAV } from './portfolioInsightsNav'
@@ -521,11 +521,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   useEffect(() => {
     if (!debugFlags.reset) return
     // Escape hatch for "hang survives refresh" due to persisted selection/date range.
-    const end = new Date()
-    const start = new Date(end)
-    start.setDate(start.getDate() - 90)
     setSelectedPropertyIds([])
-    setDateRange({ startDate: start.toISOString().slice(0, 10), endDate: end.toISOString().slice(0, 10) })
+    setDateRange(DEFAULT_INSIGHTS_DATE_RANGE)
     navigate('/happy-property/insights/dashboard', { replace: true })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debugFlags.reset])
@@ -534,15 +531,17 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     const end = parseDateValue(dateRange.endDate)
     const start = parseDateValue(dateRange.startDate)
     if (!end || !start) return dateRange
-    const days = Math.max(1, Math.round((end.getTime() - start.getTime()) / (24 * 60 * 60 * 1000)) + 1)
-    // When users select multiple properties, this dashboard can become very expensive.
-    // Clamp the range to keep the UI responsive and avoid "hang on refresh" scenarios.
-    const maxDays = cappedDebouncedPropertyIds.length > 1 ? 120 : 180
-    if (days <= maxDays) return dateRange
-    const nextStart = new Date(end)
-    nextStart.setDate(nextStart.getDate() - (maxDays - 1))
-    return { startDate: formatDateValue(nextStart), endDate: dateRange.endDate }
-  }, [dateRange, cappedDebouncedPropertyIds.length])
+    if (start.getTime() > end.getTime()) {
+      // Swap invalid ranges (keeps the dashboard from appearing blank).
+      return { startDate: dateRange.endDate, endDate: dateRange.startDate }
+    }
+
+    // NOTE:
+    // We previously clamped wide ranges to avoid UI hangs when querying raw tables.
+    // This dashboard now uses monthly aggregated views for expensive metrics,
+    // so allow wide ranges (users expect older data to show up when they expand the window).
+    return dateRange
+  }, [dateRange])
 
   useEffect(() => {
     if (!debugFlags.debug) return
@@ -1590,6 +1589,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                             ? `${metrics.occupancyPct.toFixed(1)}%`
                             : '—'}
                     </Text>
+                    {selectedPropertyIds.length > 0 && !loadingMetrics && metrics.occupancyPct == null && (
+                      <Text size="xs" c="dimmed">
+                        No data in range
+                      </Text>
+                    )}
                     {selectedPropertyIds.length > 0 &&
                       !loadingMetrics &&
                       metrics.occupancyPct != null &&
@@ -1638,6 +1642,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                             ? `${metrics.satisfaction.toFixed(1)}/5`
                             : '—'}
                     </Text>
+                    {selectedPropertyIds.length > 0 && !loadingMetrics && metrics.satisfaction == null && (
+                      <Text size="xs" c="dimmed">
+                        No data in range
+                      </Text>
+                    )}
                     {selectedPropertyIds.length > 0 &&
                       !loadingMetrics &&
                       metrics.satisfaction != null &&
@@ -1686,6 +1695,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                             ? `${metrics.avgCompletionDays.toFixed(1)} days`
                             : '—'}
                     </Text>
+                    {selectedPropertyIds.length > 0 && !loadingMetrics && metrics.avgCompletionDays == null && (
+                      <Text size="xs" c="dimmed">
+                        No data in range
+                      </Text>
+                    )}
                     {selectedPropertyIds.length > 0 &&
                       !loadingMetrics &&
                       metrics.avgCompletionDays != null &&
@@ -1730,6 +1744,9 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                     </Text>
                     <Text fw={700} size="xl">
                       —
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                      Unavailable
                     </Text>
                   </div>
                   <ThemeIcon size={38} radius="md" variant="light" color="danger">
@@ -1776,6 +1793,11 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                         ? `${metrics.occupancyPct.toFixed(1)}%`
                         : '—'}
                   </Text>
+                  {selectedPropertyIds.length > 0 && !loadingMetrics && metrics.occupancyPct == null && (
+                    <Text size="xs" c="dimmed">
+                      No data in range
+                    </Text>
+                  )}
                 </Paper>
               </SimpleGrid>
 

@@ -4,6 +4,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowRight01Icon, Alert02Icon } from '@hugeicons/core-free-icons'
 import { supabaseMetrics } from '../lib/supabaseMetrics'
 import { HpyRegionWatchMap, type RegionWatchLayers, type RegionWatchProperty } from '../theme/components/HpyRegionWatchMap'
+import { UnavailableOutline } from '../theme/components/UnavailableOutline'
 import { InsightsPageShell } from './InsightsPageShell'
 
 type HazardType = 'Weather' | 'Regulation' | 'Flood' | 'Crime'
@@ -218,6 +219,7 @@ export function HpmRegionWatchPage() {
   }, [hazards])
 
   const mapHeight = 760
+  const unavailable = true // Region Watch is currently seeded/demo (not backed by risk feeds yet)
 
   return (
     <InsightsPageShell title="Region Watch" hideHeaderFilters>
@@ -232,17 +234,19 @@ export function HpmRegionWatchPage() {
                   Real-time risk monitoring (demo)
                 </Text>
               </Stack>
-              <Group gap={8}>
-                <Badge color="red" variant="light">
-                  {counts.critical} critical
-                </Badge>
-                <Badge color="yellow" variant="light">
-                  {counts.warnings} warnings
-                </Badge>
-                <Badge color="gray" variant="light">
-                  {counts.properties} properties
-                </Badge>
-              </Group>
+                <UnavailableOutline unavailable={unavailable} radius={12}>
+                  <Group gap={8}>
+                    <Badge color="red" variant="light">
+                      {counts.critical} critical
+                    </Badge>
+                    <Badge color="yellow" variant="light">
+                      {counts.warnings} warnings
+                    </Badge>
+                    <Badge color="gray" variant="light">
+                      {counts.properties} properties
+                    </Badge>
+                  </Group>
+                </UnavailableOutline>
             </Group>
 
             <TextInput
