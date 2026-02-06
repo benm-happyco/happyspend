@@ -507,6 +507,17 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     noiTimeout: false,
   })
 
+  const [debugCounts, setDebugCounts] = useState<{
+    propertyId: string
+    startDate: string
+    endDate: string
+    occupancy: number | null
+    rent: number | null
+    ratings: number | null
+    workOrders: number | null
+    error?: string
+  } | null>(null)
+
   useEffect(() => {
     if (!debugFlags.reset) return
     // Escape hatch for "hang survives refresh" due to persisted selection/date range.
@@ -532,6 +543,77 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
     nextStart.setDate(nextStart.getDate() - (maxDays - 1))
     return { startDate: formatDateValue(nextStart), endDate: dateRange.endDate }
   }, [dateRange, cappedDebouncedPropertyIds.length])
+
+  useEffect(() => {
+    if (!debugFlags.debug) return
+    if (cappedDebouncedPropertyIds.length !== 1) {
+      setDebugCounts(null)
+      return
+    }
+
+    const propertyId = cappedDebouncedPropertyIds[0]!
+    const { startDate, endDate } = safeDateRange
+    let cancelled = false
+
+    const run = async () => {
+      try {
+        const [occ, rent, ratings, workOrders] = await Promise.all([
+          supabaseMetrics
+            .from('occupancy_snapshots')
+            .select('property_id', { count: 'exact', head: true })
+            .eq('property_id', propertyId)
+            .gte('snapshot_date', startDate)
+            .lte('snapshot_date', endDate),
+          supabaseMetrics
+            .from('rent_snapshots')
+            .select('property_id', { count: 'exact', head: true })
+            .eq('property_id', propertyId)
+            .gte('snapshot_date', startDate)
+            .lte('snapshot_date', endDate),
+          supabaseMetrics
+            .from('resident_ratings')
+            .select('property_id', { count: 'exact', head: true })
+            .eq('property_id', propertyId)
+            .gte('rating_month', startDate)
+            .lte('rating_month', endDate),
+          supabaseMetrics
+            .from('work_orders')
+            .select('property_id', { count: 'exact', head: true })
+            .eq('property_id', propertyId)
+            .gte('created_on', startDate)
+            .lte('created_on', endDate),
+        ])
+
+        if (cancelled) return
+        setDebugCounts({
+          propertyId,
+          startDate,
+          endDate,
+          occupancy: occ.count ?? null,
+          rent: rent.count ?? null,
+          ratings: ratings.count ?? null,
+          workOrders: workOrders.count ?? null,
+        })
+      } catch (e) {
+        if (cancelled) return
+        setDebugCounts({
+          propertyId,
+          startDate,
+          endDate,
+          occupancy: null,
+          rent: null,
+          ratings: null,
+          workOrders: null,
+          error: (e as Error)?.message ?? 'Unknown error',
+        })
+      }
+    }
+
+    void run()
+    return () => {
+      cancelled = true
+    }
+  }, [debugFlags.debug, cappedDebouncedPropertyIds, safeDateRange.startDate, safeDateRange.endDate])
 
   useEffect(() => {
     if (safeDateRange.startDate !== dateRange.startDate || safeDateRange.endDate !== dateRange.endDate) {
@@ -572,12 +654,15 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
   // Since this is a demo dashboard, we cap to recent rows to keep it responsive.
   const queryCaps = useMemo(() => {
     const factor = Math.max(1, cappedDebouncedPropertyIds.length)
+    const isSingle = cappedDebouncedPropertyIds.length === 1
     return {
       // Keep caps conservative: client-side aggregation can still be costly and cause "hangs"
       // on slower machines/dev builds.
-      workOrders: Math.max(300, Math.floor(1500 / factor)),
-      snapshots: Math.max(400, Math.floor(2000 / factor)),
-      ratings: Math.max(250, Math.floor(1000 / factor)),
+      // Single-property mode is where we can most easily hit the caps and still overload
+      // the browser with JSON parsing/processing for one "heavy" property.
+      workOrders: isSingle ? 500 : Math.max(300, Math.floor(1500 / factor)),
+      snapshots: isSingle ? 800 : Math.max(400, Math.floor(2000 / factor)),
+      ratings: isSingle ? 350 : Math.max(250, Math.floor(1000 / factor)),
     }
   }, [cappedDebouncedPropertyIds.length])
 
@@ -908,27 +993,38 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         type RowRating = { property_id?: string; rating_value?: number }
         type RowWo = { property_id?: string; created_on?: string; completed_on?: string }
         type RowRent = { property_id?: string; avg_effective_rent?: number }
+        const yieldEvery = async (i: number, every = 700) => {
+          if (i > 0 && i % every === 0) await yieldToBrowser()
+        }
         const calcOcc = (data: RowOcc[]) => {
           if (data.length === 0) return null
           let totalOcc = 0, totalVac = 0, totalLeased = 0
           data.forEach((r) => {
-            totalOcc += r.occupied_units ?? 0
-            totalVac += r.vacant_units ?? 0
-            totalLeased += r.leased_units ?? 0
+            const occ = Number(r.occupied_units ?? 0)
+            const vac = Number(r.vacant_units ?? 0)
+            const leased = Number(r.leased_units ?? 0)
+            if (Number.isFinite(occ)) totalOcc += occ
+            if (Number.isFinite(vac)) totalVac += vac
+            if (Number.isFinite(leased)) totalLeased += leased
           })
           const total = totalOcc + totalVac + totalLeased
           return total > 0 ? (totalOcc / total) * 100 : null
         }
-        const calcOccByProperty = (data: RowOcc[]) => {
+        const calcOccByProperty = async (data: RowOcc[]) => {
           const byId = new Map<string, { occ: number; vac: number; leased: number }>()
-          data.forEach((r) => {
+          for (let i = 0; i < data.length; i++) {
+            const r = data[i]
             const id = r.property_id ?? ''
             const cur = byId.get(id) ?? { occ: 0, vac: 0, leased: 0 }
-            cur.occ += r.occupied_units ?? 0
-            cur.vac += r.vacant_units ?? 0
-            cur.leased += r.leased_units ?? 0
+            const occ = Number(r.occupied_units ?? 0)
+            const vac = Number(r.vacant_units ?? 0)
+            const leased = Number(r.leased_units ?? 0)
+            if (Number.isFinite(occ)) cur.occ += occ
+            if (Number.isFinite(vac)) cur.vac += vac
+            if (Number.isFinite(leased)) cur.leased += leased
             byId.set(id, cur)
-          })
+            await yieldEvery(i)
+          }
           const out = new Map<string, number>()
           byId.forEach((v, id) => {
             const total = v.occ + v.vac + v.leased
@@ -948,17 +1044,22 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           })
           return n > 0 ? sum / n : null
         }
-        const calcSatisfactionByProperty = (data: RowRating[]) => {
+        const calcSatisfactionByProperty = async (data: RowRating[]) => {
           const byId = new Map<string, { sum: number; n: number }>()
-          data.forEach((r) => {
+          for (let i = 0; i < data.length; i++) {
+            const r = data[i]
             const id = r.property_id ?? ''
             const v = r.rating_value
-            if (v == null || !Number.isFinite(v)) return
+            if (v == null || !Number.isFinite(v)) {
+              await yieldEvery(i)
+              continue
+            }
             const cur = byId.get(id) ?? { sum: 0, n: 0 }
             cur.sum += v
             cur.n += 1
             byId.set(id, cur)
-          })
+            await yieldEvery(i)
+          }
           const out = new Map<string, number>()
           byId.forEach((v, id) => {
             out.set(id, v.n ? v.sum / v.n : 0)
@@ -979,28 +1080,37 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
           })
           return n > 0 ? sum / n : null
         }
-        const calcAvgDaysByProperty = (data: RowWo[]) => {
+        const calcAvgDaysByProperty = async (data: RowWo[]) => {
           const byId = new Map<string, { sum: number; n: number }>()
-          data.forEach((r) => {
-            if (!r.created_on || !r.completed_on) return
+          for (let i = 0; i < data.length; i++) {
+            const r = data[i]
+            if (!r.created_on || !r.completed_on) {
+              await yieldEvery(i)
+              continue
+            }
             const created = Date.parse(r.created_on)
             const completed = Date.parse(r.completed_on)
-            if (!Number.isFinite(created) || !Number.isFinite(completed)) return
+            if (!Number.isFinite(created) || !Number.isFinite(completed)) {
+              await yieldEvery(i)
+              continue
+            }
             const id = r.property_id ?? ''
             const cur = byId.get(id) ?? { sum: 0, n: 0 }
             cur.sum += (completed - created) / (1000 * 60 * 60 * 24)
             cur.n += 1
             byId.set(id, cur)
-          })
+            await yieldEvery(i)
+          }
           const out = new Map<string, number>()
           byId.forEach((v, id) => {
             out.set(id, v.n ? v.sum / v.n : 0)
           })
           return out
         }
-        const calcRentByProperty = (data: RowRent[]) => {
+        const calcRentByProperty = async (data: RowRent[]) => {
           const byId = new Map<string, { sum: number; n: number }>()
-          data.forEach((r) => {
+          for (let i = 0; i < data.length; i++) {
+            const r = data[i]
             const id = r.property_id ?? ''
             const v = r.avg_effective_rent
             if (v != null && Number.isFinite(v)) {
@@ -1009,7 +1119,8 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
               cur.n += 1
               byId.set(id, cur)
             }
-          })
+            await yieldEvery(i)
+          }
           const out = new Map<string, number>()
           byId.forEach((v, id) => {
             out.set(id, v.n ? v.sum / v.n : 0)
@@ -1037,14 +1148,14 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
 
         await yieldToBrowser()
 
-        const occByProp = calcOccByProperty((occ.data ?? []) as RowOcc[])
-        const occByPropPrev = calcOccByProperty((occPrev.data ?? []) as RowOcc[])
-        const satByProp = calcSatisfactionByProperty((ratings.data ?? []) as RowRating[])
-        const satByPropPrev = calcSatisfactionByProperty((ratingsPrev.data ?? []) as RowRating[])
-        const daysByProp = calcAvgDaysByProperty((workOrders.data ?? []) as RowWo[])
-        const daysByPropPrev = calcAvgDaysByProperty((workOrdersPrev.data ?? []) as RowWo[])
-        const rentByProp = calcRentByProperty((rent?.data ?? []) as RowRent[])
-        const rentByPropPrev = calcRentByProperty((rentPrev?.data ?? []) as RowRent[])
+        const occByProp = await calcOccByProperty((occ.data ?? []) as RowOcc[])
+        const occByPropPrev = await calcOccByProperty((occPrev.data ?? []) as RowOcc[])
+        const satByProp = await calcSatisfactionByProperty((ratings.data ?? []) as RowRating[])
+        const satByPropPrev = await calcSatisfactionByProperty((ratingsPrev.data ?? []) as RowRating[])
+        const daysByProp = await calcAvgDaysByProperty((workOrders.data ?? []) as RowWo[])
+        const daysByPropPrev = await calcAvgDaysByProperty((workOrdersPrev.data ?? []) as RowWo[])
+        const rentByProp = await calcRentByProperty((rent?.data ?? []) as RowRent[])
+        const rentByPropPrev = await calcRentByProperty((rentPrev?.data ?? []) as RowRent[])
         const allIds = new Set(cappedDebouncedPropertyIds)
         const pickLocation = (deltas: Map<string, number>) => {
           let bestId = ''
@@ -1290,12 +1401,21 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
         })
         await yieldToBrowser()
         const lastX = actuals.length - 1
-        const lastYm = sortedMonths[sortedMonths.length - 1] ?? endDate.slice(0, 7) + '-01'
-        const lastDate = new Date(lastYm + '-01')
+        // `sortedMonths` entries are `YYYY-MM`. If we have no rows, fall back to endDate's `YYYY-MM`.
+        // (Avoid building an invalid string like `YYYY-MM-01-01` which can lead to an infinite loop.)
+        const lastYm = sortedMonths[sortedMonths.length - 1] ?? endDate.slice(0, 7)
+        let lastDate = new Date(`${lastYm}-01`)
+        if (!Number.isFinite(lastDate.getTime())) {
+          // Last resort: use the actual endDate and normalize to first day of month.
+          const parsed = new Date(`${endDate}T00:00:00Z`)
+          lastDate = new Date(parsed.getFullYear(), parsed.getMonth(), 1)
+        }
         const existingLabels = new Set(chartData.map((p) => p.month))
         let forecastMonthOffset = 1
         let added = 0
-        while (added < forecastHorizon) {
+        let guard = 0
+        while (added < forecastHorizon && guard < 36) {
+          guard += 1
           const futureDate = new Date(lastDate.getFullYear(), lastDate.getMonth() + forecastMonthOffset, 1)
           const monthLabel = `${monthNames[futureDate.getMonth()]} ${futureDate.getFullYear()}`
           if (existingLabels.has(monthLabel)) {
@@ -1448,6 +1568,13 @@ export function HpmInsightsPage({ title, searchPlaceholder = 'Search' }: HpmInsi
                   {debugPerf.lastNoiRows && (
                     <Text size="xs">
                       Rows (NOI): rent {debugPerf.lastNoiRows.rent}, occ {debugPerf.lastNoiRows.occ}, workOrders {debugPerf.lastNoiRows.workOrders}
+                    </Text>
+                  )}
+                  {debugCounts && (
+                    <Text size="xs">
+                      Count (selected property): occ <b>{debugCounts.occupancy ?? '—'}</b>, rent <b>{debugCounts.rent ?? '—'}</b>, ratings{' '}
+                      <b>{debugCounts.ratings ?? '—'}</b>, workOrders <b>{debugCounts.workOrders ?? '—'}</b>
+                      {debugCounts.error ? ` · error: ${debugCounts.error}` : ''}
                     </Text>
                   )}
                   <Group gap="sm">
