@@ -5,6 +5,9 @@ import { FormShowcase } from './pages/FormShowcase'
 import { ComponentShowcase } from './pages/ComponentShowcase'
 import { CustomizedComponents } from './pages/CustomizedComponents'
 import { Test } from './pages/Test'
+import { TestV1 } from './pages/TestV1'
+import { ClaudeTest } from './pages/ClaudeTest'
+import { RedRectTest } from './pages/RedRectTest'
 import { HappyProperty } from './pages/HappyProperty'
 import { HappyPropertyOnboarding } from './pages/HappyPropertyOnboarding'
 import { HappyPropertyTest3 } from './pages/HappyPropertyTest3'
@@ -23,6 +26,11 @@ import { HpmSnapshotsPage } from './pages/HpmSnapshotsPage'
 import { HpmDocumentsPage } from './pages/HpmDocumentsPage'
 import { HpmRegionWatchPage } from './pages/HpmRegionWatchPage'
 import { InsightsLayout } from './pages/InsightsLayout'
+import { SpendLayout } from './pages/spend/SpendLayout'
+import { SpendDashboard } from './pages/spend/SpendDashboard'
+import { SpendEventsList } from './pages/spend/SpendEventsList'
+import { SpendEventDetail } from './pages/spend/SpendEventDetail'
+import { SpendPlaceholderPage } from './pages/spend/SpendPlaceholderPage'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -62,6 +70,21 @@ function Navigation() {
             onClick={() => navigate('/test')}
           />
           <NavLink
+            label="Test V1"
+            active={location.pathname === '/test-v1'}
+            onClick={() => navigate('/test-v1')}
+          />
+          <NavLink
+            label="Claude Test"
+            active={location.pathname === '/claude-test'}
+            onClick={() => navigate('/claude-test')}
+          />
+          <NavLink
+            label="Red Rect Test"
+            active={location.pathname === '/red-rect-test'}
+            onClick={() => navigate('/red-rect-test')}
+          />
+          <NavLink
             label="Portfolio"
             active={location.pathname === '/happy-property/portfolio'}
             onClick={() => navigate('/happy-property/portfolio')}
@@ -91,6 +114,11 @@ function Navigation() {
             active={location.pathname === '/happy-property/residents'}
             onClick={() => navigate('/happy-property/residents')}
           />
+          <NavLink
+            label="Happy Spend"
+            active={location.pathname.startsWith('/happy-spend')}
+            onClick={() => navigate('/happy-spend')}
+          />
         </Stack>
       </Stack>
       <Group justify="space-between" align="center">
@@ -103,12 +131,35 @@ function Navigation() {
 function AppLayout() {
   const location = useLocation()
   const isHappyProperty = location.pathname.startsWith('/happy-property')
+  const isHappySpend = location.pathname.startsWith('/happy-spend')
   const defaultTitleRef = useRef<string | null>(null)
 
   useEffect(() => {
     if (defaultTitleRef.current == null) defaultTitleRef.current = document.title
-    document.title = isHappyProperty ? 'Property Graph Demo' : (defaultTitleRef.current ?? 'Mantine Theme Showcase')
-  }, [isHappyProperty])
+    document.title = isHappySpend
+      ? 'Happy Spend'
+      : isHappyProperty
+        ? 'Property Graph Demo'
+        : (defaultTitleRef.current ?? 'Mantine Theme Showcase')
+  }, [isHappyProperty, isHappySpend])
+
+  if (isHappySpend) {
+    return (
+      <Routes>
+        <Route path="/happy-spend" element={<SpendLayout />}>
+          <Route index element={<SpendDashboard />} />
+          <Route path="projects" element={<SpendPlaceholderPage title="Projects" />} />
+          <Route path="events" element={<SpendEventsList />} />
+          <Route path="events/:eventId" element={<SpendEventDetail />} />
+          <Route path="contracts" element={<SpendPlaceholderPage title="Contracts" />} />
+          <Route path="compliance" element={<SpendPlaceholderPage title="Compliance" />} />
+          <Route path="analytics" element={<SpendPlaceholderPage title="Analytics" />} />
+          <Route path="vendors" element={<SpendPlaceholderPage title="Vendors" />} />
+          <Route path="settings" element={<SpendPlaceholderPage title="Settings" />} />
+        </Route>
+      </Routes>
+    )
+  }
 
   if (isHappyProperty) {
     return (
@@ -155,6 +206,9 @@ function AppLayout() {
           <Route path="/components" element={<ComponentShowcase />} />
           <Route path="/customized-components" element={<CustomizedComponents />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/test-v1" element={<TestV1 />} />
+          <Route path="/claude-test" element={<ClaudeTest />} />
+          <Route path="/red-rect-test" element={<RedRectTest />} />
         </Routes>
       </AppShell.Main>
     </AppShell>
