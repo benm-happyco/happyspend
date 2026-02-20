@@ -31,6 +31,7 @@ import { SpendDashboard } from './pages/spend/SpendDashboard'
 import { SpendEventsList } from './pages/spend/SpendEventsList'
 import { SpendEventDetail } from './pages/spend/SpendEventDetail'
 import { SpendPlaceholderPage } from './pages/spend/SpendPlaceholderPage'
+import { SpendVendorsPage } from './pages/spend/SpendVendorsPage'
 import { ColorSchemeToggle } from './theme/components/ColorSchemeToggle'
 
 function Navigation() {
@@ -154,7 +155,7 @@ function AppLayout() {
           <Route path="contracts" element={<SpendPlaceholderPage title="Contracts" />} />
           <Route path="compliance" element={<SpendPlaceholderPage title="Compliance" />} />
           <Route path="analytics" element={<SpendPlaceholderPage title="Analytics" />} />
-          <Route path="vendors" element={<SpendPlaceholderPage title="Vendors" />} />
+          <Route path="vendors" element={<SpendVendorsPage />} />
           <Route path="settings" element={<SpendPlaceholderPage title="Settings" />} />
         </Route>
       </Routes>

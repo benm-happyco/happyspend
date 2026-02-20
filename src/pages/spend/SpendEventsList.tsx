@@ -1,4 +1,4 @@
-import { Box, Group, Select, Stack, TextInput } from '@mantine/core'
+import { Box, Code, Group, Select, Stack, Text, TextInput } from '@mantine/core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
@@ -65,6 +65,7 @@ export function SpendEventsList() {
     [search, phaseFilter, statusFilter]
   )
 
+  // Pull sourcing events from Supabase (sourcing_events table)
   useEffect(() => {
     setLoading(true)
     setError(null)
@@ -152,7 +153,7 @@ export function SpendEventsList() {
   )
 
   return (
-    <Stack gap="md" style={{ minHeight: 0, flex: 1 }}>
+    <Stack gap="md" style={{ minHeight: 0, flex: 1, overflow: 'hidden' }}>
       <HpyPageHeader
         title="Sourcing Events"
         appIconNode={<HpyAppIcon type="Projects" size={48} radius={8} />}
@@ -167,7 +168,7 @@ export function SpendEventsList() {
         <SpendSetupRequired error={error} />
       )}
 
-      <Group gap="md">
+      <Group gap="md" style={{ flexShrink: 0 }}>
         <Select
           placeholder="Phase"
           data={PHASES}
@@ -199,18 +200,37 @@ export function SpendEventsList() {
       </Group>
 
       {!error && (
-      <Box style={{ flex: 1, minHeight: 400 }} className="ag-theme-alpine">
-        <AgGridReact<SourcingEvent>
-          {...gridProps}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          rowData={rows}
-          loading={loading}
-          onRowClicked={onRowClicked}
-          getRowId={(p) => p.data.id}
-          suppressRowClickSelection
-        />
-      </Box>
+        <Box style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+          {!loading && rows.length === 0 && (
+            <Box
+              p="xl"
+              style={{
+                textAlign: 'center',
+                border: '1px dashed var(--mantine-color-default-border)',
+                borderRadius: 8,
+                backgroundColor: 'var(--mantine-color-default-hover)',
+                flexShrink: 0,
+              }}
+            >
+              <Text size="sm" c="dimmed">
+                No sourcing events yet. Run the seed in your Supabase SQL Editor to add sample events:{' '}
+                <Code>supabase/seed_sourcing_events.sql</Code>
+              </Text>
+            </Box>
+          )}
+          <Box style={{ flex: 1, minHeight: 0, width: '100%' }} className="ag-theme-alpine">
+            <AgGridReact<SourcingEvent>
+              {...gridProps}
+              columnDefs={columnDefs}
+              defaultColDef={defaultColDef}
+              rowData={rows}
+              loading={loading}
+              onRowClicked={onRowClicked}
+              getRowId={(p) => p.data.id}
+              suppressRowClickSelection
+            />
+          </Box>
+        </Box>
       )}
     </Stack>
   )

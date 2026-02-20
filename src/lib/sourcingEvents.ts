@@ -54,7 +54,25 @@ export async function fetchSourcingEventById(id: string): Promise<SourcingEvent 
     .or(`id.eq.${id},external_id.eq.${id}`)
     .maybeSingle()
   if (error) throw error
-  return data as SourcingEvent | null
+  if (!data || typeof data !== 'object') return null
+  const row = data as Record<string, unknown>
+  return {
+    id: String(row.id ?? ''),
+    external_id: row.external_id != null ? String(row.external_id) : null,
+    name: String(row.name ?? ''),
+    phase: String(row.phase ?? ''),
+    status: String(row.status ?? ''),
+    project: row.project != null ? String(row.project) : null,
+    property: row.property != null ? String(row.property) : null,
+    bids: Number(row.bids) || 0,
+    created_by: row.created_by != null ? String(row.created_by) : null,
+    created_date: row.created_date != null ? String(row.created_date) : null,
+    deadline: row.deadline != null ? String(row.deadline) : null,
+    type: String(row.type ?? ''),
+    budget: row.budget != null ? Number(row.budget) : null,
+    created_at: String(row.created_at ?? ''),
+    updated_at: String(row.updated_at ?? ''),
+  } as SourcingEvent
 }
 
 export type DashboardStats = {
@@ -97,4 +115,84 @@ export async function fetchDashboardStats(): Promise<DashboardStats> {
     byPhase,
     recentEvents: list.slice(0, 10),
   }
+}
+
+export type CreateSourcingEventInput = {
+  name: string
+  phase?: string
+  status?: string
+  project?: string | null
+  property?: string | null
+  type?: 'RFQ' | 'RFP' | 'RFI'
+  budget?: number | null
+  deadline?: string | null
+}
+
+export async function createSourcingEvent(input: CreateSourcingEventInput): Promise<SourcingEvent> {
+  const { data, error } = await db
+    .from('sourcing_events')
+    .insert({
+      name: input.name,
+      phase: input.phase ?? 'Planning & Creation',
+      status: input.status ?? 'Draft',
+      project: input.project ?? null,
+      property: input.property ?? null,
+      bids: 0,
+      type: input.type ?? 'RFQ',
+      budget: input.budget ?? null,
+      deadline: input.deadline ?? null,
+    })
+    .select()
+    .single()
+  if (error) throw error
+  const row = data as Record<string, unknown>
+  return {
+    id: String(row.id ?? ''),
+    external_id: row.external_id != null ? String(row.external_id) : null,
+    name: String(row.name ?? ''),
+    phase: String(row.phase ?? ''),
+    status: String(row.status ?? ''),
+    project: row.project != null ? String(row.project) : null,
+    property: row.property != null ? String(row.property) : null,
+    bids: Number(row.bids) || 0,
+    created_by: row.created_by != null ? String(row.created_by) : null,
+    created_date: row.created_date != null ? String(row.created_date) : null,
+    deadline: row.deadline != null ? String(row.deadline) : null,
+    type: String(row.type ?? ''),
+    budget: row.budget != null ? Number(row.budget) : null,
+    created_at: String(row.created_at ?? ''),
+    updated_at: String(row.updated_at ?? ''),
+  } as SourcingEvent
+}
+
+export async function updateSourcingEventStatus(
+  eventId: string,
+  newStatus: string
+): Promise<SourcingEvent | null> {
+  const { data, error } = await db
+    .from('sourcing_events')
+    .update({ status: newStatus, updated_at: new Date().toISOString() })
+    .or(`id.eq.${eventId},external_id.eq.${eventId}`)
+    .select()
+    .maybeSingle()
+  if (error) throw error
+  if (!data || typeof data !== 'object') return null
+  const row = data as Record<string, unknown>
+  return {
+    id: String(row.id ?? ''),
+    external_id: row.external_id != null ? String(row.external_id) : null,
+    name: String(row.name ?? ''),
+    phase: String(row.phase ?? ''),
+    status: String(row.status ?? ''),
+    project: row.project != null ? String(row.project) : null,
+    property: row.property != null ? String(row.property) : null,
+    bids: Number(row.bids) || 0,
+    created_by: row.created_by != null ? String(row.created_by) : null,
+    created_date: row.created_date != null ? String(row.created_date) : null,
+    deadline: row.deadline != null ? String(row.deadline) : null,
+    type: String(row.type ?? ''),
+    budget: row.budget != null ? Number(row.budget) : null,
+    created_at: String(row.created_at ?? ''),
+    updated_at: String(row.updated_at ?? ''),
+  } as SourcingEvent
 }

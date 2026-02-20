@@ -1,8 +1,9 @@
 import { Box, NavLink, Stack, Text } from '@mantine/core'
-import { useLocation, useNavigate, Outlet } from 'react-router-dom'
+import { useLocation, useNavigate, useParams, Outlet } from 'react-router-dom'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { GlobalHeader, GLOBAL_HEADER_HEIGHT } from '../../theme/components/GlobalHeader'
-import { JoyAiFloatingChat } from '../../theme/components/JoyAiFloatingChat'
+import { JoyAiFloatingChat, type SpendAction } from '../../theme/components/JoyAiFloatingChat'
+import { createSourcingEvent, fetchSourcingEvents, updateSourcingEventStatus } from '../../lib/sourcingEvents'
 import {
   DashboardSquare01Icon,
   Folder01Icon,
@@ -31,6 +32,35 @@ const NAV_ITEMS = [
 export function SpendLayout() {
   const location = useLocation()
   const navigate = useNavigate()
+  const params = useParams<{ eventId?: string }>()
+  const eventId = params.eventId
+
+  const handleSpendAction = async (action: SpendAction) => {
+    try {
+      if (action.type === 'create_event') {
+        const event = await createSourcingEvent({
+          name: action.name,
+          type: action.eventType ?? 'RFQ',
+          budget: action.budget ?? null,
+        })
+        navigate(`/happy-spend/events/${event.id}`)
+      } else if (action.type === 'update_status') {
+        const idOrName = action.eventIdOrName
+        const events = await fetchSourcingEvents()
+        const event = events.find(
+          (e) => e.id === idOrName || e.external_id === idOrName || e.name.toLowerCase().includes(idOrName.toLowerCase())
+        )
+        if (event) {
+          await updateSourcingEventStatus(event.id, action.newStatus)
+          if (location.pathname !== `/happy-spend/events/${event.id}`) {
+            navigate(`/happy-spend/events/${event.id}`)
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Spend action failed:', err)
+    }
+  }
 
   return (
     <>
@@ -77,14 +107,22 @@ export function SpendLayout() {
           style={{
             flex: 1,
             padding: CONTENT_PADDING,
-            overflow: 'auto',
             minWidth: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: 0,
           }}
         >
-          <Outlet />
+          <Box style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'auto' }}>
+            <Outlet />
+          </Box>
         </Box>
       </Box>
-      <JoyAiFloatingChat />
+      <JoyAiFloatingChat
+        mode="spend"
+        spendContext={eventId ? { eventId } : undefined}
+        onSpendAction={handleSpendAction}
+      />
     </>
   )
 }

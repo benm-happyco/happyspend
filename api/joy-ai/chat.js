@@ -184,37 +184,101 @@ export default async function handler(req, res) {
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
     const messages = Array.isArray(body?.messages) ? body.messages : []
-    const mode = body?.mode === 'workflows' ? 'workflows' : 'general'
+    const mode = body?.mode === 'spend' ? 'spend' : body?.mode === 'workflows' ? 'workflows' : 'general'
     const ctx = body?.context || {}
+    const spendContext = ctx?.spendContext || {}
 
-    const metricsCtx = await buildMetricsContext({
+    const metricsCtx = mode === 'spend' ? null : await buildMetricsContext({
       selectedPropertyIds: ctx?.selectedPropertyIds,
       dateRange: ctx?.dateRange,
     })
 
     const system =
-      mode === 'workflows'
-        ? 'You are JOYAI, an assistant that helps property teams design operational workflows. Be concise, practical, and structured.'
-        : 'You are JOYAI, an assistant for property and portfolio analysis. Use the provided context when available. If context is missing or insufficient, say so and answer best-effort with clear assumptions. Be concise and pragmatic.'
+      mode === 'spend'
+        ? `You are JOYAI, a sourcing assistant for property management. You help users create and manage sourcing events (RFx).
+
+Event types: RFQ = Request for Quote (price-focused), RFP = Request for Proposal (solution-focused, e.g. projects, design), RFI = Request for Information (discovery, no commitment).
+
+Current context: ${spendContext?.eventId ? `User is viewing event ${spendContext.eventId}` + (spendContext?.eventName ? ` (${spendContext.eventName})` : '') : 'User is on dashboard or events list'}.
+
+When the user wants to CREATE an event: use create_sourcing_event. The event name MUST be the project or scope they describe — the thing the RFx is for. Examples: "create an RFP for a new dog park" → name "New Dog Park"; "create an RFP for HVAC replacement" → name "HVAC Replacement"; "create RFQ for lobby renovation" → name "Lobby Renovation". NEVER use articles alone (e.g. "an", "a", "the") as the name. Always extract the full descriptive noun phrase. Infer RFQ/RFP/RFI from context: use RFP for design, renovation, or complex projects; RFQ for price quotes; RFI for discovery. Parse budget if mentioned (e.g. $50k, 100000, $2.5M).
+
+When the user wants to change status (open for bidding, submit for approval, start evaluation, recommend award, close/complete): use update_event_status. Use eventIdOrName from context if they say "this event" or "it", otherwise extract the event name from their message.
+
+Always respond with a brief, friendly confirmation and ask them to say "yes" to confirm before executing.`
+        : mode === 'workflows'
+          ? 'You are JOYAI, an assistant that helps property teams design operational workflows. Be concise, practical, and structured.'
+          : 'You are JOYAI, an assistant for property and portfolio analysis. Use the provided context when available. If context is missing or insufficient, say so and answer best-effort with clear assumptions. Be concise and pragmatic.'
 
     const model = process.env.OPENAI_MODEL || 'gpt-4o-mini'
+
+    const spendTools =
+      mode === 'spend'
+        ? [
+            {
+              type: 'function',
+              function: {
+                name: 'create_sourcing_event',
+                description: 'Create a new sourcing event (RFQ, RFP, or RFI). Use when the user wants to create, set up, or start a new sourcing/procurement event.',
+                parameters: {
+                  type: 'object',
+                  properties: {
+                    name: { type: 'string', description: 'The project or scope the event is for — the full noun phrase after "for" (e.g. "New Dog Park", "HVAC Replacement"). Never use articles alone like "an" or "a".' },
+                    eventType: { type: 'string', enum: ['RFQ', 'RFP', 'RFI'], description: 'RFQ for quotes, RFP for proposals/projects, RFI for information' },
+                    budget: { type: 'number', description: 'Budget in USD if mentioned, else omit' },
+                  },
+                  required: ['name', 'eventType'],
+                  additionalProperties: false,
+                },
+              },
+            },
+            {
+              type: 'function',
+              function: {
+                name: 'update_event_status',
+                description: 'Update an existing sourcing event status. Use when user wants to open for bidding, submit for approval, start evaluation, recommend award, or close/complete an event.',
+                parameters: {
+                  type: 'object',
+                  properties: {
+                    eventIdOrName: {
+                      type: 'string',
+                      description:
+                        'Event ID (if from context) or event name to match (e.g. "Parking Lot Resurfacing", "HVAC"). Use context eventId/eventName if user says "this event" or "it".',
+                    },
+                    newStatus: {
+                      type: 'string',
+                      enum: ['Open', 'Pending Approval', 'Under Review', 'Award Pending', 'Completed'],
+                      description:
+                        'Open=open for bidding, Pending Approval=submit for approval, Under Review=start evaluation, Award Pending=recommend award, Completed=close/complete',
+                    },
+                  },
+                  required: ['eventIdOrName', 'newStatus'],
+                  additionalProperties: false,
+                },
+              },
+            },
+          ]
+        : null
 
     const contextMessage =
       mode === 'workflows'
         ? null
-        : {
-            role: 'system',
-            content:
-              `Context (may be partial; do not invent extra data):\n` +
-              `- current_path: ${typeof ctx?.path === 'string' ? ctx.path : 'unknown'}\n` +
-              `- filters: properties=${Array.isArray(ctx?.selectedPropertyIds) ? ctx.selectedPropertyIds.length : 0}\n` +
-              `- metrics_summary: ${JSON.stringify(metricsCtx).slice(0, 8000)}`,
-          }
+        : mode === 'spend'
+          ? null
+          : {
+              role: 'system',
+              content:
+                `Context (may be partial; do not invent extra data):\n` +
+                `- current_path: ${typeof ctx?.path === 'string' ? ctx.path : 'unknown'}\n` +
+                `- filters: properties=${Array.isArray(ctx?.selectedPropertyIds) ? ctx.selectedPropertyIds.length : 0}\n` +
+                `- metrics_summary: ${JSON.stringify(metricsCtx || {}).slice(0, 8000)}`,
+            }
 
     const payload = {
       model,
       temperature: 0.4,
       messages: [{ role: 'system', content: system }, ...(contextMessage ? [contextMessage] : []), ...messages].slice(-30),
+      ...(spendTools ? { tools: spendTools, tool_choice: 'auto' } : {}),
     }
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -232,12 +296,63 @@ export default async function handler(req, res) {
     }
 
     const data = await response.json()
-    const content = data?.choices?.[0]?.message?.content
-    if (typeof content !== 'string' || !content.trim()) {
+    const msg = data?.choices?.[0]?.message
+    let content = typeof msg?.content === 'string' ? msg.content.trim() : ''
+    const toolCalls = Array.isArray(msg?.tool_calls) ? msg.tool_calls : []
+
+    let pendingAction = null
+    if (mode === 'spend' && toolCalls.length > 0) {
+      const tc = toolCalls[0]
+      const fn = tc?.function
+      const name = fn?.name
+      let args = {}
+      try {
+        args = typeof fn?.arguments === 'string' ? JSON.parse(fn.arguments) : {}
+      } catch (_) {}
+
+      if (name === 'create_sourcing_event' && args.name && args.eventType) {
+        let eventName = String(args.name).trim()
+        const badNames = ['an', 'a', 'the', 'it', 'this']
+        if (badNames.includes(eventName.toLowerCase()) || eventName.length < 3) {
+          const lastUser = [...messages].reverse().find((m) => m.role === 'user')
+          const text = lastUser?.content || ''
+          const forMatch = text.match(/(?:for|about)\s+["']?([^"']+?)(?:["']|\s*$)/i)
+          if (forMatch && forMatch[1]) {
+            let extracted = forMatch[1].trim().replace(/^(an?\s+)|^(the\s+)/i, '')
+            if (extracted.length > 2) eventName = extracted.replace(/\b\w/g, (c) => c.toUpperCase())
+          }
+        }
+        if (eventName.length < 2) eventName = 'New Sourcing Event'
+        pendingAction = {
+          type: 'create_event',
+          name: eventName,
+          eventType: ['RFQ', 'RFP', 'RFI'].includes(args.eventType) ? args.eventType : 'RFQ',
+          budget: typeof args.budget === 'number' && Number.isFinite(args.budget) ? args.budget : undefined,
+        }
+      } else if (name === 'update_event_status' && args.eventIdOrName && args.newStatus) {
+        const valid = ['Open', 'Pending Approval', 'Under Review', 'Award Pending', 'Completed']
+        pendingAction = {
+          type: 'update_status',
+          eventIdOrName: String(args.eventIdOrName).trim(),
+          newStatus: valid.includes(args.newStatus) ? args.newStatus : 'Open',
+        }
+      }
+
+      if (pendingAction && !content) {
+        if (pendingAction.type === 'create_event') {
+          content = `I'll create a **${pendingAction.eventType}** sourcing event: **${pendingAction.name}**${pendingAction.budget ? ` (budget: $${Number(pendingAction.budget).toLocaleString()})` : ''}.\n\nSay **yes** to create it.`
+        } else {
+          content = `I'll update **${pendingAction.eventIdOrName}** to ${pendingAction.newStatus}.\n\nSay **yes** to confirm.`
+        }
+      }
+    }
+
+    if (!content) {
       return res.status(502).json({ error: 'Empty response from OpenAI' })
     }
 
-    return res.status(200).json({ content })
+    const json = pendingAction ? { content, pendingAction } : { content }
+    return res.status(200).json(json)
   } catch (err) {
     return res.status(500).json({ error: 'Server error', details: String(err?.message || err) })
   }

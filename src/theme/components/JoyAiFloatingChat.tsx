@@ -2,10 +2,16 @@ import { ActionIcon, Box, Paper } from '@mantine/core'
 import { useState } from 'react'
 import { HugeiconsIcon } from '@hugeicons/react'
 import { Cancel01Icon } from '@hugeicons/core-free-icons'
-import { JoyAiChatWindow } from './JoyAiChatWindow'
+import { JoyAiChatWindow, type SpendAction } from './JoyAiChatWindow'
 import { JoyAiIcon } from './JoyAiIcon'
 
-export function JoyAiFloatingChat() {
+type JoyAiFloatingChatProps = {
+  mode?: 'general' | 'workflows' | 'spend'
+  spendContext?: { eventId?: string; eventName?: string }
+  onSpendAction?: (action: SpendAction) => void | Promise<void>
+}
+
+export function JoyAiFloatingChat({ mode = 'general', spendContext, onSpendAction }: JoyAiFloatingChatProps) {
   const [opened, setOpened] = useState(false)
 
   return (
@@ -56,7 +62,7 @@ export function JoyAiFloatingChat() {
             <HugeiconsIcon icon={Cancel01Icon} size={18} />
           </ActionIcon>
         </Box>
-        <JoyAiChatWindow />
+        <JoyAiChatWindow mode={mode} spendContext={spendContext} onSpendAction={onSpendAction} />
       </Paper>
 
       <ActionIcon
