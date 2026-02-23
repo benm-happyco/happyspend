@@ -29,3 +29,6 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# Staging API page (local only)
+src/pages/HappyPropertyTest3.tsx

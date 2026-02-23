@@ -220,10 +220,32 @@ export function HpmRegionWatchPage() {
 
   const mapHeight = 760
   const unavailable = true // Region Watch is currently seeded/demo (not backed by risk feeds yet)
+  const hasData = properties.length > 0
 
   return (
     <InsightsPageShell title="Region Watch" hideHeaderFilters>
-      <Box style={{ display: 'flex', gap: 16, alignItems: 'stretch' }}>
+      {loading && !hasData ? (
+        <Paper withBorder radius="lg" p="xl" style={{ minHeight: 400 }}>
+          <Text fw={700} c="dimmed">
+            Loading Region Watch…
+          </Text>
+          <Text size="sm" c="dimmed" mt="xs">
+            Fetching properties and risk data.
+          </Text>
+        </Paper>
+      ) : !hasData ? (
+        <Paper withBorder radius="lg" p="xl" style={{ minHeight: 400 }}>
+          <Text fw={700}>No property data</Text>
+          <Text size="sm" c="dimmed" mt="xs">
+            Region Watch needs properties from the metrics database. If you haven’t set up{' '}
+            <code>VITE_METRICS_URL</code> and <code>VITE_METRICS_ANON_KEY</code> in <code>.env.local</code>, add them
+            and ensure the <code>properties</code> table exists with columns like{' '}
+            <code>property_id, name, street, city, state, postal_code, unit_count, market, latitude, longitude</code>.
+          </Text>
+        </Paper>
+      ) : (
+      <Box style={{ display: 'flex', gap: 16, alignItems: 'stretch', minHeight: mapHeight + 120 }}>
+
         {/* Left hazard feed */}
         <Box style={{ width: 360, flex: '0 0 360px' }}>
           <Paper withBorder radius="lg" p="md">
@@ -418,6 +440,7 @@ export function HpmRegionWatchPage() {
           />
         </Box>
       </Box>
+      )}
     </InsightsPageShell>
   )
 }

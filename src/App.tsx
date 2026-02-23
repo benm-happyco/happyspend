@@ -119,6 +119,11 @@ function Navigation() {
             active={location.pathname.startsWith('/happy-spend')}
             onClick={() => navigate('/happy-spend')}
           />
+          <NavLink
+            label="Region Watch"
+            active={location.pathname === '/happy-property/insights/region-watch'}
+            onClick={() => navigate('/happy-property/insights/region-watch')}
+          />
         </Stack>
       </Stack>
       <Group justify="space-between" align="center">
@@ -209,6 +214,7 @@ function AppLayout() {
           <Route path="/test-v1" element={<TestV1 />} />
           <Route path="/claude-test" element={<ClaudeTest />} />
           <Route path="/red-rect-test" element={<RedRectTest />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell.Main>
     </AppShell>
